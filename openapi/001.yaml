@@ -1,0 +1,2629 @@
+openapi: 3.0.0
+info:
+  title: XFT API
+  version: 8.0.0
+  description: |
+    Comprehensive API for managing USDX, a yield-bearing stablecoin backed by US Treasury bills, with advanced cash management and fiat payment features.
+
+    ## Rate Limits
+    - 1000 requests per minute for authenticated endpoints
+    - 100 requests per minute for public endpoints
+
+    ## Versioning
+    API versions are specified in the URL path (e.g., /v8). Breaking changes increment the major version number.
+
+    ## Authentication
+    OAuth2 authentication required for all non-public endpoints. See /auth/token endpoint for details.
+
+servers:
+  - url: https://api.usdx.com/v7
+  - url: https://api.usdx.com/v8
+
+paths:
+  /auth/token:
+    post:
+      summary: Obtain an access token
+      description: Exchange client credentials for an OAuth2 access token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/TokenResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /public/nav:
+    get:
+      summary: Get real-time Net Asset Value
+      description: Retrieve the current NAV per USDX token
+      tags:
+        - Public
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NAV'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /public/yield:
+    get:
+      summary: Get current yield information
+      description: Retrieve current APY and 7-day yield for USDX
+      tags:
+        - Public
+        - Yield Management
+      responses:
+        '200':
+          $ref: '#/components/responses/YieldResponse'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /accounts:
+    post:
+      summary: Create a new account
+      description: Create a new user account for USDX operations
+      tags:
+        - Account Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/AccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List accounts
+      description: Retrieve a paginated list of user accounts
+      tags:
+        - Account Management
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/AccountListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /accounts/{accountId}:
+    get:
+      summary: Get account details
+      description: Retrieve details for a specific account
+      tags:
+        - Account Management
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+      responses:
+        '200':
+          $ref: '#/components/responses/AccountResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update account details
+      description: Update information for a specific account
+      tags:
+        - Account Management
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/AccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete an account
+      description: Permanently delete a user account
+      tags:
+        - Account Management
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+      responses:
+        '204':
+          description: Account deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /customers:
+    post:
+      summary: Create a new customer
+      description: Register a new customer in the system
+      tags:
+        - Customer Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/CustomerResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List customers
+      description: Retrieve a paginated list of customers
+      tags:
+        - Customer Management
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/CustomerListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /customers/{customerId}:
+    get:
+      summary: Get customer details
+      description: Retrieve details for a specific customer
+      tags:
+        - Customer Management
+      parameters:
+        - $ref: '#/components/parameters/CustomerId'
+      responses:
+        '200':
+          $ref: '#/components/responses/CustomerResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update customer details
+      description: Update information for a specific customer
+      tags:
+        - Customer Management
+      parameters:
+        - $ref: '#/components/parameters/CustomerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/CustomerResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete a customer
+      description: Permanently delete a customer record
+      tags:
+        - Customer Management
+      parameters:
+        - $ref: '#/components/parameters/CustomerId'
+      responses:
+        '204':
+          description: Customer deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /wallets:
+    post:
+      summary: Create a new wallet
+      description: Create a new USDX wallet for an account
+      tags:
+        - Wallet Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/WalletResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List wallets
+      description: Retrieve a paginated list of wallets
+      tags:
+        - Wallet Management
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/WalletListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /wallets/{walletId}:
+    get:
+      summary: Get wallet details
+      description: Retrieve details for a specific wallet
+      tags:
+        - Wallet Management
+      parameters:
+        - $ref: '#/components/parameters/WalletId'
+      responses:
+        '200':
+          $ref: '#/components/responses/WalletResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /external-accounts:
+    post:
+      summary: Link an external account
+      description: Connect an external bank account or card to a user account
+      tags:
+        - External Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalAccountCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/ExternalAccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List external accounts
+      description: Retrieve a paginated list of linked external accounts
+      tags:
+        - External Accounts
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExternalAccountListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /external-accounts/{externalAccountId}:
+    get:
+      summary: Get external account details
+      description: Retrieve details for a specific external account
+      tags:
+        - External Accounts
+      parameters:
+        - $ref: '#/components/parameters/ExternalAccountId'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExternalAccountResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update external account details
+      description: Update information for a linked external account
+      tags:
+        - External Accounts
+      parameters:
+        - $ref: '#/components/parameters/ExternalAccountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalAccountUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExternalAccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete an external account
+      description: Remove a linked external account
+      tags:
+        - External Accounts
+      parameters:
+        - $ref: '#/components/parameters/ExternalAccountId'
+      responses:
+        '204':
+          description: External account deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /transactions:
+    post:
+      summary: Create a new transaction
+      description: Initiate a new USDX transaction between wallets
+      tags:
+        - Transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/TransactionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List transactions
+      description: Retrieve a paginated list of transactions
+      tags:
+        - Transactions
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+        - $ref: '#/components/parameters/TransactionStatus'
+        - $ref: '#/components/parameters/DateFrom'
+        - $ref: '#/components/parameters/DateTo'
+      responses:
+        '200':
+          $ref: '#/components/responses/TransactionListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /transactions/{transactionId}:
+    get:
+      summary: Get transaction details
+      description: Retrieve details for a specific transaction
+      tags:
+        - Transactions
+      parameters:
+        - $ref: '#/components/parameters/TransactionId'
+      responses:
+        '200':
+          $ref: '#/components/responses/TransactionResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /payments:
+    post:
+      summary: Create a new payment
+      description: Initiate a new payment to an external account
+      tags:
+        - Payments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/PaymentResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List payments
+      description: Retrieve a paginated list of payments
+      tags:
+        - Payments
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+        - $ref: '#/components/parameters/PaymentStatus'
+        - $ref: '#/components/parameters/DateFrom'
+        - $ref: '#/components/parameters/DateTo'
+      responses:
+        '200':
+          $ref: '#/components/responses/PaymentListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /payments/{paymentId}:
+    get:
+      summary: Get payment details
+      description: Retrieve details for a specific payment
+      tags:
+        - Payments
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+      responses:
+        '200':
+          $ref: '#/components/responses/PaymentResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update payment details
+      description: Update information for a pending payment
+      tags:
+        - Payments
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PaymentResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Cancel a payment
+      description: Cancel a pending payment
+      tags:
+        - Payments
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+      responses:
+        '204':
+          description: Payment cancelled successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /transfers:
+    post:
+      summary: Create a new transfer
+      description: Initiate a new transfer between accounts
+      tags:
+        - Transfers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/TransferResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List transfers
+      description: Retrieve a paginated list of transfers
+      tags:
+        - Transfers
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+        - $ref: '#/components/parameters/TransferStatus'
+        - $ref: '#/components/parameters/DateFrom'
+        - $ref: '#/components/parameters/DateTo'
+      responses:
+        '200':
+          $ref: '#/components/responses/TransferListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /transfers/{transferId}:
+    get:
+      summary: Get transfer details
+      description: Retrieve details for a specific transfer
+      tags:
+        - Transfers
+      parameters:
+        - $ref: '#/components/parameters/TransferId'
+      responses:
+        '200':
+          $ref: '#/components/responses/TransferResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update transfer details
+      description: Update information for a pending transfer
+      tags:
+        - Transfers
+      parameters:
+        - $ref: '#/components/parameters/TransferId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/TransferResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Cancel a transfer
+      description: Cancel a pending transfer
+      tags:
+        - Transfers
+      parameters:
+        - $ref: '#/components/parameters/TransferId'
+      responses:
+        '204':
+          description: Transfer cancelled successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /virtual-accounts:
+    post:
+      summary: Create a new virtual account
+      description: Create a new virtual account for a customer
+      tags:
+        - Virtual Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualAccountCreationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/VirtualAccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List virtual accounts
+      description: Retrieve a paginated list of virtual accounts
+      tags:
+        - Virtual Accounts
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/VirtualAccountListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /virtual-accounts/{virtualAccountId}:
+    get:
+      summary: Get virtual account details
+      description: Retrieve details for a specific virtual account
+      tags:
+        - Virtual Accounts
+      parameters:
+        - $ref: '#/components/parameters/VirtualAccountId'
+      responses:
+        '200':
+          $ref: '#/components/responses/VirtualAccountResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update virtual account details
+      description: Update information for a virtual account
+      tags:
+        - Virtual Accounts
+      parameters:
+        - $ref: '#/components/parameters/VirtualAccountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualAccountUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/VirtualAccountResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete a virtual account
+      description: Permanently delete a virtual account
+      tags:
+        - Virtual Accounts
+      parameters:
+        - $ref: '#/components/parameters/VirtualAccountId'
+      responses:
+        '204':
+          description: Virtual account deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /treasury/assets:
+    get:
+      summary: Get treasury asset information
+      description: Retrieve current treasury asset allocation and values
+      tags:
+        - Treasury
+      security:
+        - OAuth2:
+            - admin
+      responses:
+        '200':
+          $ref: '#/components/responses/TreasuryResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /treasury/rebase:
+    post:
+      summary: Trigger rebase event
+      description: Initiate a rebase event to adjust USDX supply based on yield
+      tags:
+        - Treasury
+        - Yield Management
+      security:
+        - OAuth2:
+            - admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RebaseRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/RebaseResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /compliance/attestations:
+    get:
+      summary: Get latest attestation reports
+      description: Retrieve the most recent compliance attestation reports
+      tags:
+        - Compliance
+      security:
+        - OAuth2:
+            - admin
+      responses:
+        '200':
+          $ref: '#/components/responses/AttestationReports'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /kyc/generate-link:
+    post:
+      summary: Generate a KYC verification link
+      description: Create a unique link for a customer to complete KYC verification
+      tags:
+        - KYC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KYCLinkRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/KYCLinkResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /kyc/status/{kycId}:
+    get:
+      summary: Check KYC verification status
+      description: Retrieve the current status of a KYC verification process
+      tags:
+        - KYC
+      parameters:
+        - $ref: '#/components/parameters/KYCId'
+      responses:
+        '200':
+          $ref: '#/components/responses/KYCStatusResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /exchange-rates:
+    get:
+      summary: Get real-time exchange rates
+      description: Retrieve current exchange rates for specified currencies
+      tags:
+        - Exchange Rates
+      parameters:
+        - name: base
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: targets
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/MultiCurrencyExchangeRateResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /fees:
+    get:
+      summary: Get current fee configuration
+      description: Retrieve the current fee structure for various operations
+      tags:
+        - Fee Management
+      security:
+        - OAuth2:
+            - admin
+      responses:
+        '200':
+          $ref: '#/components/responses/FeeConfigurationResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update fee configuration
+      description: Modify the current fee structure for various operations
+      tags:
+        - Fee Management
+      security:
+        - OAuth2:
+            - admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeeConfigurationUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FeeConfigurationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /webhooks:
+    post:
+      summary: Register a new webhook
+      description: Create a new webhook endpoint for event notifications
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRegistrationRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/WebhookRegistrationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List registered webhooks
+      description: Retrieve a list of all registered webhook endpoints
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          $ref: '#/components/responses/WebhookListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /webhooks/{webhookId}:
+    get:
+      summary: Get webhook details
+      description: Retrieve details for a specific webhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          $ref: '#/components/responses/WebhookResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete a webhook
+      description: Remove a registered webhook endpoint
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '204':
+          description: Webhook deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /cash-management/cash-flow:
+    get:
+      summary: Get cash flow report
+      description: Retrieve a cash flow report for a specified time period
+      tags:
+        - Cash Management
+      parameters:
+        - name: startDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/CashFlowReportResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /cash-management/allocate-funds:
+    post:
+      summary: Allocate funds across accounts
+      description: Distribute funds across multiple accounts based on specified allocation rules
+      tags:
+        - Cash Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FundAllocationRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/FundAllocationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /cash-management/reconcile:
+    post:
+      summary: Reconcile accounts
+      description: Perform account reconciliation for a specified account and date
+      tags:
+        - Cash Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReconciliationRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ReconciliationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /auto-sweep/rules:
+    post:
+      summary: Create an auto-sweep rule
+      description: Set up a new automated fund transfer rule
+      tags:
+        - Auto-Sweep
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoSweepRuleRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/AutoSweepRuleResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    get:
+      summary: List auto-sweep rules
+      description: Retrieve a list of all configured auto-sweep rules
+      tags:
+        - Auto-Sweep
+      parameters:
+        - $ref: '#/components/parameters/PaginationPage'
+        - $ref: '#/components/parameters/PaginationLimit'
+      responses:
+        '200':
+          $ref: '#/components/responses/AutoSweepRuleListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /auto-sweep/rules/{ruleId}:
+    get:
+      summary: Get auto-sweep rule details
+      description: Retrieve details for a specific auto-sweep rule
+      tags:
+        - Auto-Sweep
+      parameters:
+        - $ref: '#/components/parameters/AutoSweepRuleId'
+      responses:
+        '200':
+          $ref: '#/components/responses/AutoSweepRuleResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    put:
+      summary: Update an auto-sweep rule
+      description: Modify an existing auto-sweep rule
+      tags:
+        - Auto-Sweep
+      parameters:
+        - $ref: '#/components/parameters/AutoSweepRuleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoSweepRuleUpdateRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/AutoSweepRuleResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    delete:
+      summary: Delete an auto-sweep rule
+      description: Remove an existing auto-sweep rule
+      tags:
+        - Auto-Sweep
+      parameters:
+        - $ref: '#/components/parameters/AutoSweepRuleId'
+      responses:
+        '204':
+          description: Auto-sweep rule deleted successfully
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /stablecoin/mint:
+    post:
+      summary: Mint new USDX tokens
+      description: Creates new USDX tokens backed by USD deposits or Treasury bills
+      tags:
+        - Stablecoin Operations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MintRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/MintResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /stablecoin/burn:
+    post:
+      summary: Burn USDX tokens
+      description: Burns USDX tokens and releases underlying collateral
+      tags:
+        - Stablecoin Operations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BurnRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/BurnResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/RateLimitError'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.usdx.com/v8/oauth/token
+          scopes:
+            read: Read access to the API
+            write: Write access to the API
+            admin: Administrative access to the API
+  parameters:
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      schema:
+        type: string
+    CustomerId:
+      name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    WalletId:
+      name: walletId
+      in: path
+      required: true
+      schema:
+        type: string
+    ExternalAccountId:
+      name: externalAccountId
+      in: path
+      required: true
+      schema:
+        type: string
+    TransactionId:
+      name: transactionId
+      in: path
+      required: true
+      schema:
+        type: string
+    PaymentId:
+      name: paymentId
+      in: path
+      required: true
+      schema:
+        type: string
+    TransferId:
+      name: transferId
+      in: path
+      required: true
+      schema:
+        type: string
+    VirtualAccountId:
+      name: virtualAccountId
+      in: path
+      required: true
+      schema:
+        type: string
+    KYCId:
+      name: kycId
+      in: path
+      required: true
+      schema:
+        type: string
+    WebhookId:
+      name: webhookId
+      in: path
+      required: true
+      schema:
+        type: string
+    PaginationPage:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+    PaginationLimit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+        maximum: 100
+    TransactionStatus:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum:
+          - pending
+          - completed
+          - failed
+    PaymentStatus:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum:
+          - pending
+          - completed
+          - failed
+    TransferStatus:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum:
+          - pending
+          - completed
+          - failed
+    DateFrom:
+      name: from
+      in: query
+      schema:
+        type: string
+        format: date-time
+    DateTo:
+      name: to
+      in: query
+      schema:
+        type: string
+        format: date-time
+    AutoSweepRuleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    TokenRequest:
+      type: object
+      required:
+        - clientId
+        - clientSecret
+      properties:
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+    NAV:
+      type: object
+      properties:
+        navPerToken:
+          type: number
+          description: Current Net Asset Value per USDX token
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the NAV calculation
+    AccountCreationRequest:
+      type: object
+      required:
+        - email
+        - name
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+    AccountUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    CustomerCreationRequest:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+    CustomerUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+    WalletCreationRequest:
+      type: object
+      required:
+        - accountId
+      properties:
+        accountId:
+          type: string
+    ExternalAccountCreationRequest:
+      type: object
+      required:
+        - accountId
+        - type
+        - accountNumber
+      properties:
+        accountId:
+          type: string
+        type:
+          type: string
+          enum:
+            - bank
+            - card
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+    ExternalAccountUpdateRequest:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+    TransactionCreationRequest:
+      type: object
+      required:
+        - sourceWalletId
+        - destinationWalletId
+        - amount
+      properties:
+        sourceWalletId:
+          type: string
+        destinationWalletId:
+          type: string
+        amount:
+          type: string
+        currency:
+          type: string
+          default: USDX
+    PaymentCreationRequest:
+      type: object
+      required:
+        - sourceAccountId
+        - destinationAccountId
+        - amount
+        - currency
+        - paymentMethod
+      properties:
+        sourceAccountId:
+          type: string
+        destinationAccountId:
+          type: string
+        amount:
+          type: string
+        currency:
+          type: string
+        paymentMethod:
+          type: string
+          enum:
+            - ACH
+            - wire
+            - SWIFT
+        paymentDetails:
+          $ref: '#/components/schemas/PaymentDetails'
+    PaymentUpdateRequest:
+      type: object
+      properties:
+        amount:
+          type: string
+    TransferCreationRequest:
+      type: object
+      required:
+        - sourceAccountId
+        - destinationAccountId
+        - amount
+        - currency
+        - transferMethod
+      properties:
+        sourceAccountId:
+          type: string
+        destinationAccountId:
+          type: string
+        amount:
+          type: string
+        currency:
+          type: string
+        transferMethod:
+          type: string
+          enum:
+            - internal
+            - ACH
+            - wire
+            - SWIFT
+        transferDetails:
+          $ref: '#/components/schemas/TransferDetails'
+    TransferUpdateRequest:
+      type: object
+      properties:
+        amount:
+          type: string
+    VirtualAccountCreationRequest:
+      type: object
+      required:
+        - accountId
+        - currency
+      properties:
+        accountId:
+          type: string
+        currency:
+          type: string
+    VirtualAccountUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+    RebaseRequest:
+      type: object
+      required:
+        - yieldAmount
+      properties:
+        yieldAmount:
+          type: number
+    KYCLinkRequest:
+      type: object
+      required:
+        - accountId
+      properties:
+        accountId:
+          type: string
+    FeeConfigurationUpdateRequest:
+      type: object
+      required:
+        - transactionFeePercentage
+        - minimumFee
+        - maximumFee
+      properties:
+        transactionFeePercentage:
+          type: number
+        minimumFee:
+          type: number
+        maximumFee:
+          type: number
+    WebhookRegistrationRequest:
+      type: object
+      required:
+        - url
+        - events
+      properties:
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+              - payment.created
+              - payment.updated
+              - transfer.created
+              - transfer.updated
+              - account.updated
+    CashFlowReport:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        inflows:
+          type: number
+        outflows:
+          type: number
+        netCashFlow:
+          type: number
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CashFlowTransaction'
+    CashFlowTransaction:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        type:
+          type: string
+          enum:
+            - inflow
+            - outflow
+        amount:
+          type: number
+        description:
+          type: string
+    FundAllocationRequest:
+      type: object
+      required:
+        - allocations
+      properties:
+        allocations:
+          type: array
+          items:
+            type: object
+            properties:
+              accountId:
+                type: string
+              amount:
+                type: number
+    ReconciliationRequest:
+      type: object
+      required:
+        - accountId
+        - date
+      properties:
+        accountId:
+          type: string
+        date:
+          type: string
+          format: date
+    AutoSweepRuleRequest:
+      type: object
+      required:
+        - sourceAccountId
+        - destinationAccountId
+        - thresholdAmount
+        - thresholdType
+      properties:
+        sourceAccountId:
+          type: string
+        destinationAccountId:
+          type: string
+        thresholdAmount:
+          type: number
+        thresholdType:
+          type: string
+          enum:
+            - minimum
+            - maximum
+        frequency:
+          type: string
+          enum:
+            - daily
+            - weekly
+            - monthly
+    AutoSweepRuleUpdateRequest:
+      type: object
+      properties:
+        thresholdAmount:
+          type: number
+        thresholdType:
+          type: string
+          enum:
+            - minimum
+            - maximum
+        frequency:
+          type: string
+          enum:
+            - daily
+            - weekly
+            - monthly
+    PaymentDetails:
+      type: object
+      properties:
+        achDetails:
+          $ref: '#/components/schemas/ACHDetails'
+        wireDetails:
+          $ref: '#/components/schemas/WireDetails'
+        swiftDetails:
+          $ref: '#/components/schemas/SWIFTDetails'
+    ACHDetails:
+      type: object
+      properties:
+        routingNumber:
+          type: string
+        accountNumber:
+          type: string
+    WireDetails:
+      type: object
+      properties:
+        bankName:
+          type: string
+        accountNumber:
+          type: string
+        swiftCode:
+          type: string
+    SWIFTDetails:
+      type: object
+      properties:
+        beneficiaryName:
+          type: string
+        beneficiaryAddress:
+          type: string
+        beneficiaryBankName:
+          type: string
+        beneficiaryBankAddress:
+          type: string
+        swiftCode:
+          type: string
+        iban:
+          type: string
+    TransferDetails:
+      type: object
+      properties:
+        achDetails:
+          $ref: '#/components/schemas/ACHDetails'
+        wireDetails:
+          $ref: '#/components/schemas/WireDetails'
+        swiftDetails:
+          $ref: '#/components/schemas/SWIFTDetails'
+    MintRequest:
+      type: object
+      required:
+        - amount
+        - sourceType
+      properties:
+        amount:
+          type: string
+          description: Amount of USDX to mint
+          pattern: '^[0-9]+\.?[0-9]*$'
+          example: "10000.00"
+        sourceType:
+          type: string
+          enum: [usd_deposit, treasury_bill]
+          description: Source of collateral for minting
+        depositId:
+          type: string
+          description: ID of the USD deposit (required for usd_deposit type)
+        billId:
+          type: string
+          description: ID of the Treasury bill (required for treasury_bill type)
+    BurnRequest:
+      type: object
+      required:
+        - amount
+        - destinationType
+      properties:
+        amount:
+          type: string
+          description: Amount of USDX to burn
+          pattern: '^[0-9]+\.?[0-9]*$'
+        destinationType:
+          type: string
+          enum: [usd_withdrawal, treasury_bill]
+        withdrawalAccount:
+          type: string
+          description: Account for USD withdrawal
+  responses:
+    TokenResponse:
+      description: Access token obtained successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accessToken:
+                type: string
+              expiresIn:
+                type: integer
+    AccountResponse:
+      description: Account details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: string
+              email:
+                type: string
+              name:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    AccountListResponse:
+      description: List of accounts retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accounts:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    CustomerResponse:
+      description: Customer details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              customerId:
+                type: string
+              name:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    CustomerListResponse:
+      description: List of customers retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              customers:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    WalletResponse:
+      description: Wallet details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              walletId:
+                type: string
+              accountId:
+                type: string
+              balance:
+                type: string
+              currency:
+                type: string
+    WalletListResponse:
+      description: List of wallets retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              wallets:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WalletResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    ExternalAccountResponse:
+      description: External account details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              externalAccountId:
+                type: string
+              accountId:
+                type: string
+              type:
+                type: string
+              accountNumber:
+                type: string
+              routingNumber:
+                type: string
+    ExternalAccountListResponse:
+      description: List of external accounts retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              externalAccounts:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalAccountResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    TransactionResponse:
+      description: Transaction details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              transactionId:
+                type: string
+              sourceWalletId:
+                type: string
+              destinationWalletId:
+                type: string
+              amount:
+                type: string
+              currency:
+                type: string
+              status:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    TransactionListResponse:
+      description: List of transactions retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              transactions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransactionResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    PaymentResponse:
+      description: Payment details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              paymentId:
+                type: string
+              sourceAccountId:
+                type: string
+              destinationAccountId:
+                type: string
+              amount:
+                type: string
+              currency:
+                type: string
+              status:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    PaymentListResponse:
+      description: List of payments retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              payments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PaymentResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    TransferResponse:
+      description: Transfer details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              transferId:
+                type: string
+              sourceAccountId:
+                type: string
+              destinationAccountId:
+                type: string
+              amount:
+                type: string
+              currency:
+                type: string
+              status:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    TransferListResponse:
+      description: List of transfers retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              transfers:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TransferResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    VirtualAccountResponse:
+      description: Virtual account details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              virtualAccountId:
+                type: string
+              accountId:
+                type: string
+              currency:
+                type: string
+              status:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+    VirtualAccountListResponse:
+      description: List of virtual accounts retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              virtualAccounts:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VirtualAccountResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    YieldResponse:
+      description: Current yield information retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              currentAPY:
+                type: number
+              sevenDayYield:
+                type: number
+              lastUpdated:
+                type: string
+                format: date-time
+    TreasuryResponse:
+      description: Treasury management information retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              totalAssets:
+                type: string
+              treasuryBillsValue:
+                type: string
+              circulatingUSDX:
+                type: string
+              reserveRatio:
+                type: number
+    RebaseResponse:
+      description: Rebase executed successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              rebaseId:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
+              yieldDistributed:
+                type: string
+              newTotalSupply:
+                type: string
+    AttestationReports:
+      description: Latest attestation reports retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              latestReport:
+                type: object
+                properties:
+                  reportId:
+                    type: string
+                  reportDate:
+                    type: string
+                    format: date
+                  auditor:
+                    type: string
+                  reportUrl:
+                    type: string
+                    format: uri
+              historicalReports:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    reportId:
+                      type: string
+                    reportDate:
+                      type: string
+                      format: date
+                    auditor:
+                      type: string
+                    reportUrl:
+                      type: string
+                      format: uri
+    KYCLinkResponse:
+      description: KYC verification link generated successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              kycId:
+                type: string
+              verificationLink:
+                type: string
+                format: uri
+              expiresAt:
+                type: string
+                format: date-time
+    KYCStatusResponse:
+      description: KYC verification status retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              kycId:
+                type: string
+              status:
+                type: string
+                enum:
+                  - pending
+                  - in_progress
+                  - completed
+                  - rejected
+              lastUpdated:
+                type: string
+                format: date-time
+    MultiCurrencyExchangeRateResponse:
+      description: Exchange rates retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              base:
+                type: string
+              rates:
+                type: object
+                additionalProperties:
+                  type: number
+              timestamp:
+                type: string
+                format: date-time
+    FeeConfigurationResponse:
+      description: Fee configuration retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              transactionFeePercentage:
+                type: number
+              minimumFee:
+                type: number
+              maximumFee:
+                type: number
+              lastUpdated:
+                type: string
+                format: date-time
+    WebhookRegistrationResponse:
+      description: Webhook registered successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              webhookId:
+                type: string
+              url:
+                type: string
+                format: uri
+              events:
+                type: array
+                items:
+                  type: string
+              createdAt:
+                type: string
+                format: date-time
+    WebhookListResponse:
+      description: List of registered webhooks retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              webhooks:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookRegistrationResponse'
+    WebhookResponse:
+      description: Webhook details retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WebhookRegistrationResponse'
+    CashFlowReportResponse:
+      description: Cash flow report retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CashFlowReport'
+    FundAllocationResponse:
+      description: Funds allocated successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              allocationId:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
+              allocations:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountId:
+                      type: string
+                    amount:
+                      type: number
+                    status:
+                      type: string
+                      enum:
+                        - success
+                        - failed
+    ReconciliationResponse:
+      description: Account reconciliation completed successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              reconciliationId:
+                type: string
+              accountId:
+                type: string
+              date:
+                type: string
+                format: date
+              balancePerBooks:
+                type: number
+              balancePerBank:
+                type: number
+              discrepancy:
+                type: number
+              status:
+                type: string
+                enum:
+                  - matched
+                  - discrepancy_found
+    AutoSweepRuleResponse:
+      description: Auto-sweep rule details retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ruleId:
+                type: string
+              sourceAccountId:
+                type: string
+              destinationAccountId:
+                type: string
+              thresholdAmount:
+                type: number
+              thresholdType:
+                type: string
+                enum:
+                  - minimum
+                  - maximum
+              frequency:
+                type: string
+                enum:
+                  - daily
+                  - weekly
+                  - monthly
+              createdAt:
+                type: string
+                format: date-time
+              lastExecuted:
+                type: string
+                format: date-time
+    AutoSweepRuleListResponse:
+      description: List of auto-sweep rules retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              rules:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AutoSweepRuleResponse'
+              pagination:
+                $ref: '#/components/schemas/PaginationInfo'
+    MintResponse:
+      description: Tokens minted successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              mintId:
+                type: string
+              amount:
+                type: string
+              status:
+                type: string
+                enum: [completed, pending, failed]
+              txHash:
+                type: string
+                description: Blockchain transaction hash
+              timestamp:
+                type: string
+                format: date-time
+    BurnResponse:
+      description: Tokens burned successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              burnId:
+                type: string
+              amount:
+                type: string
+              status:
+                type: string
+                enum: [completed, pending, failed]
+              txHash:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
+    BadRequestError:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [INVALID_AMOUNT, INSUFFICIENT_BALANCE, INVALID_PARAMETER]
+              message:
+                type: string
+              details:
+                type: object
+    UnauthorizedError:
+      description: Authentication required or failed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [INVALID_TOKEN, TOKEN_EXPIRED, INSUFFICIENT_PERMISSIONS]
+              message:
+                type: string
+    ForbiddenError:
+      description: Insufficient permissions for the requested operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [INSUFFICIENT_PERMISSIONS]
+              message:
+                type: string
+    NotFoundError:
+      description: Requested resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [RESOURCE_NOT_FOUND]
+              message:
+                type: string
+    RateLimitError:
+      description: Too many requests
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+            description: Unix timestamp
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [RATE_LIMIT_EXCEEDED]
+              message:
+                type: string
+              retryAfter:
+                type: integer
+                description: Seconds to wait before retrying
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                enum: [INTERNAL_ERROR, DATABASE_ERROR, BLOCKCHAIN_ERROR]
+              message:
+                type: string
+              requestId:
+                type: string
+                description: Request ID for tracking
+  schemas:
+    PaginationInfo:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
+        itemsPerPage:
+          type: integer
+
+tags:
+  - name: Authentication
+    description: API authentication endpoints
+  - name: Public
+    description: Publicly accessible endpoints
+  - name: Account Management
+    description: Endpoints for managing user accounts
+  - name: Customer Management
+    description: Endpoints for managing customers
+  - name: Wallet Management
+    description: Endpoints for managing USDX wallets
+  - name: External Accounts
+    description: Endpoints for managing linked external accounts
+  - name: Transactions
+    description: Endpoints for managing USDX transactions
+  - name: Payments
+    description: Endpoints for managing payments to external accounts
+  - name: Transfers
+    description: Endpoints for managing transfers between accounts
+  - name: Virtual Accounts
+    description: Endpoints for managing virtual accounts
+  - name: Treasury
+    description: Endpoints for treasury management and reporting
+  - name: Yield Management
+    description: Endpoints for managing and distributing yield
+  - name: Compliance
+    description: Endpoints for compliance and regulatory reporting
+  - name: KYC
+    description: Endpoints for Know Your Customer (KYC) processes
+  - name: Exchange Rates
+    description: Endpoints for retrieving exchange rate information
+  - name: Fee Management
+    description: Endpoints for managing fee structures
+  - name: Webhooks
+    description: Endpoints for managing webhook integrations
+  - name: Cash Management
+    description: Endpoints for cash flow management and reporting
+  - name: Auto-Sweep
+    description: Endpoints for managing automated fund transfers
+  - name: Stablecoin Operations
+    description: Endpoints for core USDX token operations
+
+security:
+  - OAuth2: []
