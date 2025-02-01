@@ -1,0 +1,128 @@
+classDiagram
+   class IERC20MetadataUpgradeable {
+       <<interface>>
+       +name()
+       +symbol()
+       +decimals()
+       +totalSupply()
+       +balanceOf()
+   }
+   
+   class IERC20PermitUpgradeable {
+       <<interface>>
+       +permit()
+       +nonces()
+       +DOMAIN_SEPARATOR()
+   }
+   
+   class AccessControlUpgradeable {
+       +DEFAULT_ADMIN_ROLE
+       +MINTER_ROLE
+       +BURNER_ROLE 
+       +BLOCKLIST_ROLE
+       +ORACLE_ROLE
+       +UPGRADE_ROLE
+       +PAUSE_ROLE
+   }
+   
+   class PausableUpgradeable {
+       +pause()
+       +unpause()
+       +paused()
+   }
+   
+   class UUPSUpgradeable {
+       +_authorizeUpgrade()
+   }
+   
+   class EIP712Upgradeable {
+       +DOMAIN_SEPARATOR()
+       +_hashTypedDataV4()
+   }
+   
+   class USDX {
+       +string _name
+       +string _symbol
+       +uint256 _totalShares
+       +uint256 rewardMultiplier
+       +mapping _shares
+       +mapping _blocklist
+       +mapping _allowances
+       +mapping _nonces
+       +initialize(name_, symbol_, owner)
+       +name()
+       +symbol()
+       +decimals()
+       +convertToShares(amount)
+       +convertToTokens(shares)
+       +totalShares()
+       +totalSupply()
+       +balanceOf(account)
+       +sharesOf(account)
+       +mint(to, amount)
+       +burn(from, amount)
+       +transfer(to, amount)
+       +transferFrom(from, to, amount)
+       +approve(spender, amount)
+       +allowance(owner, spender)
+       +increaseAllowance(spender, addedValue)
+       +decreaseAllowance(spender, subtractedValue)
+       +blockAccounts(addresses)
+       +unblockAccounts(addresses)
+       +isBlocked(account)
+       +pause()
+       +unpause()
+       +setRewardMultiplier(value)
+       +addRewardMultiplier(value)
+       +DOMAIN_SEPARATOR()
+       +nonces(owner)
+       +permit(owner, spender, value, deadline, v, r, s)
+       -_authorizeUpgrade(newImplementation)
+       -_mint(to, amount)
+       -_burn(account, amount)
+       -_beforeTokenTransfer(from, to, amount)
+       -_afterTokenTransfer(from, to, amount) 
+       -_transfer(from, to, amount)
+       -_blockAccount(account)
+       -_unblockAccount(account)
+       -_setRewardMultiplier(value)
+       -_spendAllowance(owner, spender, amount)
+       -_useNonce(owner)
+       -_approve(owner, spender, amount)
+   }
+   
+   class ERC4626Upgradeable {
+       +deposit()
+       +withdraw()
+       +redeem()
+       +mint()
+   }
+   
+   class wUSDX {
+       +IUSDX USDX
+       +mapping _nonces
+       +initialize(IUSDX, owner)
+       +paused()
+       +pause()
+       +unpause()
+       +DOMAIN_SEPARATOR()
+       +nonces(owner)
+       +permit(owner, spender, value, deadline, v, r, s)
+       -_beforeTokenTransfer(from, to, amount)
+       -_authorizeUpgrade(newImplementation)
+       -_useNonce(owner)
+   }
+   
+   USDX --|> IERC20MetadataUpgradeable
+   USDX --|> IERC20PermitUpgradeable 
+   USDX --|> AccessControlUpgradeable
+   USDX --|> PausableUpgradeable
+   USDX --|> UUPSUpgradeable
+   USDX --|> EIP712Upgradeable
+   
+   wUSDX --|> ERC4626Upgradeable
+   wUSDX --|> AccessControlUpgradeable
+   wUSDX --|> PausableUpgradeable 
+   wUSDX --|> UUPSUpgradeable
+   wUSDX --|> EIP712Upgradeable
+   wUSDX ..> USDX : wraps
