@@ -11,6 +11,276 @@
   <input type="text" id="searchInput" placeholder="Search patents...">
   <div id="loader" style="display:none;">Loading PDFs...</div>
   <div id="results"></div>
+<div class="directory-section">
+<style>
+.directory-tree {
+    font-family: Arial, sans-serif;
+    margin: 30px 0;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.directory-tree div {
+    padding: 4px 0;
+}
+
+.directory-tree .file {
+    margin-left: 24px;
+    color: #586069;
+}
+
+.directory-tree a {
+    color: #0366d6;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.directory-tree a:hover {
+    text-decoration: underline;
+}
+
+.folder {
+    cursor: pointer;
+    color: #24292e;
+    font-weight: 600;
+    user-select: none;
+}
+
+.folder:hover {
+    color: #0366d6;
+}
+
+.directory-tree .directory {
+    margin-left: 20px;
+}
+
+.directory-tree .directory:first-child {
+    margin-left: 0;
+}
+
+.file-type {
+    font-size: 12px;
+    color: #666;
+    background: #f1f8ff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.file-name {
+    color: #24292e;
+}
+
+.directory-tree h3 {
+    margin: 0 0 20px 0;
+    color: #24292e;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 10px;
+}
+</style><div id="directoryTree" class="directory-tree">
+<div class="directory"><span class="folder">[-] output_2025-02-02T07-47-11-808Z_0e2bbce2</span>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/qkd-research-prototype-project-5-1.html" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/qkd-research-prototype-project-5-1.txt" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US11410235.html" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US11410235.txt" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20150206106A1.html" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20150206106A1.txt" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20180374062A1.html" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20180374062A1.txt" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20190034926A1.html" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20190034926A1.txt" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20190172059A1.html" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20190172059A1.txt" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20200167773A1.html" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20200167773A1.txt" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20230351339A1.html" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20230351339A1.txt" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20240242185A1.html" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T07-47-11-808Z_0e2bbce2/US20240242185A1.txt" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">TXT</span></a></div>
+</div>
+<div class="directory"><span class="folder">[-] output_2025-02-02T08-01-38-306Z_ac067c90</span>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/qkd-research-prototype-project-5-1.html" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/qkd-research-prototype-project-5-1.txt" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US11410235.html" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US11410235.txt" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20150206106A1.html" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20150206106A1.txt" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20180374062A1.html" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20180374062A1.txt" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20190034926A1.html" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20190034926A1.txt" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20190172059A1.html" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20190172059A1.txt" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20200167773A1.html" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20200167773A1.txt" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20230351339A1.html" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20230351339A1.txt" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">TXT</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20240242185A1.html" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="output_2025-02-02T08-01-38-306Z_ac067c90/US20240242185A1.txt" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">TXT</span></a></div>
+</div>
+<div class="directory"><span class="folder">[-] x</span>
+  <div class="file">|-- <a href="x/qkd-research-prototype-project-5-1.html" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/qkd-research-prototype-project-5-1.pdf" class="file-link">
+                    <span class="file-name">qkd-research-prototype-project-5-1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US11410235.html" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US11410235.pdf" class="file-link">
+                    <span class="file-name">US11410235</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20150206106A1.html" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20150206106A1.pdf" class="file-link">
+                    <span class="file-name">US20150206106A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20180374062A1.html" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20180374062A1.pdf" class="file-link">
+                    <span class="file-name">US20180374062A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20190034926A1.html" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20190034926A1.pdf" class="file-link">
+                    <span class="file-name">US20190034926A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20190172059A1.html" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20190172059A1.pdf" class="file-link">
+                    <span class="file-name">US20190172059A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20200167773A1.html" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20200167773A1.pdf" class="file-link">
+                    <span class="file-name">US20200167773A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20230351339A1.html" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20230351339A1.pdf" class="file-link">
+                    <span class="file-name">US20230351339A1</span>
+                    <span class="file-type">PDF</span></a></div>
+  <div class="file">|-- <a href="x/US20240242185A1.html" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">HTML</span></a></div>
+  <div class="file">|-- <a href="x/US20240242185A1.pdf" class="file-link">
+                    <span class="file-name">US20240242185A1</span>
+                    <span class="file-type">PDF</span></a></div>
+</div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.folder').forEach(folder => {
+        folder.addEventListener('click', function() {
+            const parent = this.parentElement;
+            const children = Array.from(parent.children).slice(1);
+            const isExpanded = this.textContent.startsWith('[-]');
+            
+            this.textContent = this.textContent.replace(
+                isExpanded ? '[-]' : '[+]',
+                isExpanded ? '[+]' : '[-]'
+            );
+            
+            children.forEach(child => {
+                child.style.display = isExpanded ? 'none' : 'block';
+            });
+        });
+    });
+});
+</script></div>
+
+
+
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>

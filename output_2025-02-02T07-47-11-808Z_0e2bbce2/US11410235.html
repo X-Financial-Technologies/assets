@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US11410235</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .metadata {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        .page-break {
+            border-top: 2px dashed #ccc;
+            margin: 20px 0;
+            padding-top: 20px;
+        }
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="metadata">
+        <h1>US11410235</h1>
+        <p><strong>Pages:</strong> 20</p>
+        <p><strong>Creator:</strong> Unknown</p>
+        <p><strong>Producer:</strong> libtiff / tiff2pdf - 20100615</p>
+        <p><strong>Version:</strong> 1.1</p>
+        <p><strong>Created:</strong> 2/2/2025, 7:47:15 AM</p>
+    </div>
+    <div class="content">
+        <pre>
+
+US011410235B2
+
+( 12 ) United States Patent  ( 10 ) Patent No  .:   US 11,410,235 B2
+Doney et al  .  ( 45 ) Date of Patent  :  Aug. 9  , 2022
+
+( 54 )  METHOD , APPARATUS , AND  ( 56 )  References Cited COMPUTER - READABLE MEDIUM FOR COMPLIANCE AWARE TOKENIZATION  U.S. PATENT DOCUMENTS
+AND CONTROL OF ASSET VALUE  7,657,474 B1 *  2/2010  Dybala  G06Q 40/02
+705/37
+( 71 )  Applicant : Securrency , Inc.  , Arlington , VA ( US  )  8,112,340 B2  2/2012 Watson et al  .
+
+( Continued )
+( 72 )  Inventors  :  George Daniel Doney  , Riva  ,  MD ( US  ) ;
+Ihor Yermakov , ODESA ( UA )  FOREIGN PATENT DOCUMENTS
+
+( 73 )  Assignee  :  Securrency , Inc.  , Arlington , VA ( US  )  EP  3564884 A1 *  11/2019  H04L 9/0637 WO  2013067576 A2  5/2013
+
+( * )  Notice  :  Subject to any disclaimer , the term of this  ( Continued )
+patent is extended or adjusted under 35
+U.S.C. 154 ( b ) by 149 days  .  OTHER PUBLICATIONS
+
+( 21 )  Appl  . No  .: 16 / 143,058  Extended European Search Report for European Application No.
+17744939.4 dated Jun  . 4  ,  2019  .
+( 22 )  Filed  :  Sep. 26  , 2018
+( Continued )
+
+( 65 )  Prior Publication Data
+Primary Examiner — Jacob C. Coppola US 2019/0164151 A1  May 30  , 2019  ( 74 ) Attorney  , Agent  , or Firm  - Rimon PC  ;  Marc
+Related U.S. Application Data  Kaufman
+
+( 60 )  Provisional application No. 62 / 732,189  , filed on Sep.  ( 57 )  ABSTRACT
+17  ,  2018  ,  provisional application No. 62  / 563,684  ,  An apparatus  , computer - readable medium , and computer filed on Sep. 27  ,  2017  .  implemented method to facilitate scalable compliance and
+
+( 51 )  Int  . Ci  .  issuer governance of decentralized financial transactions
+G06Q 40/04  ( 2012.01 )  especially for the trade and transfer of tokenized securities  .
+GO6Q 20/36  ( 2012.01 )  The resulting Compliance Aware Tokens contain the rulesets
+
+to restrict transactions and facilitate regulatory reporting and
+( Continued )  oversight  . The embodied process  , includes of a novel com
+( 52 )  U.S. CI  .  bination of compliance workflows ,  attribute  verification CPC  G06Q 40/04 ( 2013.01 ) ;  GO6Q 20/3678  tools  ,  smart contracts and other ledger controls  , provides a
+( 2013.01 ) ;  G06Q 20/389 ( 2013.01 ) ; decentralized Attribute Based Access Control ( ABAC ) capa
+( Continued )  bility . ABAC patterns are extended to govern global finan
+
+( 58 )  Field of Classification Search  cial transactions without the need for an active intermediary .
+None
+See application file for complete search history .  33 Claims  , 8 Drawing Sheets
+
+10
+20
+
+POLICY
+ENFORCEMENT  TOKEN 8.0  POINT
+
+12  14
+
+RULES ENGINE  RECIPE
+ATTRIBUTE
+SOURCES Whe
+
+
+US 11,410,235 B2
+Page 2
+
+( 51 )  Int  . Ci  .  2012/0278200 A1  11/2012  van Coppenolle et al .
+G06Q 20/38  ( 2012.01 )  2013/0024396 A1   1/2013  Wilhelm et al  .
+2013/0204894 Al  8/2013 Faith et al  . G06Q 20/40  ( 2012.01 )  2013/0275338 A1  10/2013  Hosoda et al . G06Q 20/12  ( 2012.01 )  2014/0222594 Al  8/2014 Rose et al . G06Q 30/00  ( 2012.01 )  2015/0324787 A1 *  11/2015  Schaffner  G06Q 20/3825
+
+( 52 )  U.S. CI  .  705/67
+CPC  GO6Q 20/3821 ( 2013.01 ) ;  G06Q 30/018  2015/0356523 A1  12/2015  Madden
+2017/0011460 A1  1/2017 Molinari et al .
+( 2013.01 ) ;  G06Q 20/1235 ( 2013.01 ) ;  G06Q  2017/0221288 Al  8/2017 Johnson et al  .
+20/40 ( 2013.01 ) ;  G06Q 2220/00 ( 2013.01 )  2018/0253911 A1  9/2018 Cardonha et al  .
+2019/0066206 A1 *  2/2019  Marks  G06Q 40/06
+
+( 56 )  References Cited  2019/0114395 A1   4/2019  Lenchner et al  .
+2019/0205881 A1 *  7/2019  Borzilleri  G06Q 20/36
+U.S. PATENT DOCUMENTS  2019/0333051 A1 *  10/2019 Brogger  HO4L 9/3239
+2020/0007313 A1 *  1/2020  Vouk  HO4L 67/104
+
+9,824,031 B1  11/2017 Ganti et al  .  2020/0051067 A1 *  2/2020  Overholser  G06Q 20/3672
+9,836,790 B2  12/2017 Ronca et al  .
+9,997,028 B2  6/2018 Kim et al  .  FOREIGN PATENT DOCUMENTS
+10,013,573 B2  7/2018  Dillenberger
+10,127,552 B2  11/2018 Ronca et al  .  WO  2017091530 Al  6/2017
+10,140,470 B2  11/2018 Kurian et al  .  WO  WO  - 2019067603 A1 * 4/2019  G06Q 20/3678
+10,147,284 B2  12/2018 Lee et al  .
+10,158,527 B2  12/2018 Anderson et al  .
+10,163,084 B2  12/2018 Lee et al  .  OTHER PUBLICATIONS
+10,169,937 B1  1/2019 Zwink et al  .
+10,223,679 B2  3/2019 Lee et al  .  International Search Report and Written Opinion received for PCT
+10,255,600 B2  4/2019 Ronca et al  .  Application Serial No. PCT US18 /  / 52938 dated Feb. 22  ,  2019  ,  8 10,275,739 B2  4/2019 Hanis et al  .
+10,275,772 B2  4/2019 Ronca et al  .  pages  .
+
+2002/0169774 A1 * 11/2002 Greenbaum  G06Q 40/04  Intellectual Property Office of India , First Examination Report for
+707 / 999.009  Indian Application No. 202047016598 dated May 4  ,  2021  .
+2003/0097322 A1 *  5/2003 Kramer  G06Q 40/00  European Patent Office  , Supplementary European Search Report for
+705/35  EU App No. EP 18860292 dated May 27  ,  2021  .
+2010/0131426 Al  5/2010 Kroutik
+2011/0040666 Al  2/2011 Crabtree et al  .  * cited by examiner
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 1  of 8  US 11,410,235 B2
+
+100
+
+10
+20
+
+POLICY
+ENFORCEMENT  TOKEN 8-0  POINT andeja
+
+16  12  14
+
+RULES ENGINE  RECIPE
+ATTRIBUTE
+SOURCES
+FIG  .  1
+
+Em  VALUE WALLETA D TOKEN
+
+REG D  ) ( COUNTRY JURISDICTION = US  )
+
+JURISDICTION : US  AND ( ( US ACCREDITATION = TRUE ( < 100 )
+ACCREDITED INVESTOR : YES  OR  ( US INSTITUTIONAL = TRUE  ) )
+OR INSTITUTIONAL INVESTOR  : NO
+( REG S  ] ( COUNTRY JURISDICTION  = US )
+AND ( READING ROOM DOCUMENT LIST
+
+FIG  .  2
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 2 of 8  US 11,410,235 B2
+
+WALLET B gog
+
+1
+
+a
+VALUE TOKEN  3 FIG .
+1
+
+WALLETA
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 3 of 8  US 11,410,235 B2
+
+FIG . 4
+
+DELETE )  DELETE )
+
+DELETE
+
+RULEJ  BRULESETI  DELETE  DELETE  DELETE  DELETEI
+
+RULE RULESET DELETE  KRULE RULESETI ZDELETE
+
+KOOLDADO
+
+ko  W **
+
+KADULLER .
+
+wwwwwwwwwwww  2018 - Than 12 - Sep Greater  2000 US squa ! ] US equal
+
+equal  equal
+
+Than Less
+
+WWWWWWWW
+
+Offering Required Reading equal
+
+Accredited Private US US Institute Accredited  Date Enabled Trading  Available Investor Count
+
+ANDE ORA  Resident  Citizen  ANDE OR
+
+Rules Recipes Engine :  REG D
+BANDZ
+Recipe
+RECIPE NAME  OR
+
+ACTIVE SCOPE
+Securrency
+
+K NOZ
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 4 of 8  US 11,410,235 B2
+
+12
+
+RULES ENGINE SERVICE
+
+GoChain
+
+IDENTITYAPI
+
+000  000
+
+FIG . 5
+
+LOCAL DATABASE STORAGE
+
+STELLAR
+
+BITTREXAPI
+
+EXCHANGE API
+
+RIPPLE 16
+
+INTERNAL  REST
+FACTORY
+
+SOURCES
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 5 of 8  US 11,410,235 B2
+
+TO FIG . CONT 6
+
+STO - 1
+
+REFUNDABLE STO  :
+
+ISTODeployment
+STRATEGY INTERFACE  CAMPAIGNS STO
+
+LAUNCHING STO SYSTEM
+
+610
+ISTOF  actory  STO
+
+INTERFACE
+FACTORY
+
+?
+
+CRUCE FROM FIG . 6 CONT
+
+CAT - 721  ERC - 20
+CAT - N OR OTHER  FIG . 6
+
+ITokensDeployment STRATEGY INTERFACE
+
+TOKEN ISSUING SYSTEM  . 1
+
+CONT TO FIG . 6
+
+TokensFactory  TOKEN
+FACTORY
+
+INTERFACE
+
+630
+
+SYMBOLS  SYSTEM
+REGISTRY  SymboisRegistry ( INTERFACE  SYMBOL
+REGISTRY
+
+620
+
+LAYER
+
+REGISTRY
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 6 of 8  US 11,410,235 B2
+
+FROM FIG .  6
+
+656  :
+Rules Engine  Transfer State
+
+TRANSFER
+
+VERIFICATION SERVICE  WhiteList
+SERVICEN  STO CAMPAIGNS
+
+654
+
+650 7
+CAT 20 - CAT - 724  CAT - 1 OR OTHER
+
+VERIFICATION SYSTEM TRANSFER
+
+TransferVerification
+
+652
+
+WWWXXX ***** TO FIG 6 .
+
+INTERFACE  TRANSFER
+MODULE
+
+TransferModule
+
+Gux 642  FIG . 6 CONT
+
+TOKEN CAT - 721  TOKEN ERC 20 -
+
+FROM . 6 FIG
+
+Permission  Module
+
+INTERFACE
+MODULE
+
+PERMISSION
+
+646
+pen
+
+NETWORK ROLES  644
+ITokenroles  Manager
+INetwork  Roleshanager  TOKEN  ROLES
+MANAGER  MANAGER
+
+PERMISSIONS VERIFICATION SYSTEM
+
+Roles  ROLES
+MANAGER  MANAGER
+640
+
+LAYER  LAYER
+REQUEST  DEPLOYED
+
+VERIFICATION
+COMPONENTS
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 7 of 8  US 11,410,235 B2
+
+710
+
+709
+
+708
+
+CACHE STORE STORE  CACHE STORE STORE
+
+POLICY  ATTRIBUTE  ATTRIBUTE  POLICY ATTRIBUTE ATTRIBUTE
+
+706 -707  IF NO VALID DATA FOR ATTRIBUTES , REQUEST DATA
+-712
+
+REQUEST DATA FOR POLICY CONTEXT  RETURN DATA FOR POLICY EVALUATION  RETURN  ATTRIBUTE  DATA  +711
+
+REQUEST RECIPE RETURN RECIPE  CACHE DATA
+
+RULES ENGINE  RULES ENGINE
+
+-715
+
+FIG . 7
+RIGHTS CACHE  RIGHTS CACHE
+
+703
+
+EVALUATED RIGHT RETURN  REQUEST RIGHT IN CONTEXT  RESULT
+RULES ENGINE FROM
+DECISION
+DECISION CACHE RIGHTS
+
+TRANSACTION  RETURN RIGHTS EVALUATION
+
+WAAR
+
+POINT  POINT
+FOR RIGHT REQUEST REQUEST ACTION ON OBJECT
+POLICY ENFORCEMENT  704 705  713  POLICY ENFORCEMENT
+
+714
+
+TRANSACTION IF RIGHT IS PERMITTEDALLOW
+702 WALLET
+
+WALLET
+
+701
+
+VERIFIED
+
+ATTRIBUTES
+
+USER  USER
+
+
+U.S. Patent  Aug. 9  , 2022  Sheet 8 of 8  US 11,410,235 B2
+
+PAYMENTS  EXCHANGES TTT
+
+BUSINESS
+ISSUING
+&  000 LOGIC  CHAINING  LIQUIDITY
+
+820
+
+SECURITY ( ENCRYPTION / DECRYPTION
+
+DECORATORS  RULES ENGINE PERMISSIONS
+PIPELINE
+
+REPORTING
+
+LOGGING
+
+810  RIPPLE  BITCOIN
+
+STELLAR  GoChain
+
+LEDGER  ETHEREUM  BitGo 101 RIPPLE  CASCADE
+000  OOO
+
+HashGraph  EOS
+
+FIG  . 8
+
+
+US 11,410,235 B2
+1  2
+METHOD , APPARATUS , AND  ( SEC  ) promulgates and enforces regulatory restrictions on COMPUTER - READABLE MEDIUM FOR  how securities can be sold  , who they can be sold to  , records COMPLIANCE AWARE TOKENIZATION  that must be kept  ,  and disclosures that must be made  . AND CONTROL OF ASSET VALUE  Various other countries have their own laws and regulations
+
+5  governing the sale of securities creating a complex web of RELATED APPLICATION DATA  regulatory requirements for the sale of securities  . Recently  ,
+
+it has become very common to utilize Initial Coin Offerings
+This application claims priority to U.S. Provisional Appli-  ( ICO  ) as a mechanism for funding a business based on the
+cation No. 62 / 563,684 filed on Sep. 27  ,  2017 and U.S.  sale of cryptocurrency tokens  . Such tokens are often deemed
+Provisional Application No. 62 / 732,189 filed on Sep. 17  ,  10  to be “ securities ” under US law and the law of other
+2018  , the entire disclosures of which are incorporated herein  jurisdictions and thus are subject to the relevant securities
+by reference .  laws  .
+The broad acceptance of digital currency has been stunted BACKGROUND  by a lack of concern for  , or the inability to comply with  , the
+15  laws and regulations of various jurisdictions . For example  ,
+Digital  currency  ( sometimes referred to  as  “ digital  many ICOs were conducted without concern for regulatory
+money  ” ,  “ electronic money ” or “ electronic currency " ) is a   compliance  and are now being investigated by the SEC or
+type of currency available in digital form ( in contrast to   other agencies . Many parties are trying to restrict sales of
+physical , such as banknotes and coins ) . Digital currency can   tokenized  assets to jurisdictions that they believe have a
+either be centralized , where there is a a central point of control 20  regulatory framework that allows such sales  .  However  , the
+over the money supply , or decentralized , where the control  inherent distributed nature of DLT makes it virtually impos
+over the money supply can come from various sources  . For sible to restrict the jurisdiction of a token sale  .  Further  ,
+example  , cryptocurrency is a digital asset designed to work  governmental entities with potential jurisdiction of the token
+as a medium of exchange that uses cryptography to secure  include the applicable governmental entities having juris
+financial transactions ,  control the creation of additional  25  diction of the original token issuer  , the token seller , the token
+units  ,  and verify the transfer of assets  .  purchaser , the venue for token exchange  , and any locations
+Cryptocurrencies can use decentralized control without  in which the token passes or is stored  . The result is that many
+the need for central banking systems or other trusted cen-   parties have avoided the sale of tokenized  assets entirely to
+tralized parties  . The decentralized control can be accom-  avoid the expense and complexity of regulatory compliance .
+plished through distributed ledger technology ( DLT  ) , such 30  It  can be seen that securities  offerings  ,  from private
+as a blockchain , that serves as a shared financial transaction  placements to public offerings  , have a wide range of report
+database . In a blockchain ,  transactions can be recorded as   ing requirements  and distribution limitations . There are also
+
+“ blocks ” of data stored in a linear chain  .  Each block in the  a range of tax implications and transfer restrictions associ
+chain contains transaction data and is  cryptographically  ated with securities transactions . While blockchain solutions
+hashed  . The blocks can include a hash of the previous - block 35  provide the promise of liquidity by facilitating frequent
+
+in the chain . This makes it computationally difficult  ,  virtu-  transactions between investors  , this promise cannot be real
+ally impossible , to change data in one block because it   ized without real time enforcement  of regulatory compli
+would also require changing all subsequent blocks in the   ance  .  Fully realizing  liquidity in token - based securities
+chain . This ensures that all data in the overall blockchain has   transactions  will require an extensive , yet flexible  , compli
+not been tampered with and remains unchanged .  40  ance framework . A consensus mechanism is used to authenticate the trans
+actions and record the blocks  .  Parties conduct transactions  SUMMARY
+through “ wallets ” which have a unique address and store the
+public and private keys which can be used to receive or  Implementations of the  invention  include  a  method
+spend a cryptocurrency . The cryptocurrency itself is not in 45  executed by at least one computing device for governing
+the wallet  . Every piece of cryptocurrency has a private key  .   tokenized  financial transactions on a distributed ledger over
+Wallets hold the private key ( s ) . With the private key , it is   a computer network , the method comprising : obtaining data
+possible to digitally sign a transaction and write it in the   indicative  of a verified identity of at least one participant on
+public ledger  , effectively spending the associated cryptocur-  a transaction ; receiving participant attribute values for the at
+rency  . The chain is stored on multiple devices in a peer - to-  50  least one participant , the participant attributes being mapped
+peer network . The data stored in blocks can include auto-  to a wallet address indicating a category of investor asso
+matically executable code known as a “ smart contract . ”   ciated with at least one of the at least one participants and a
+Smart contracts are computer protocols that facilitate , verify  ,   jurisdiction applicable to the at least one participant as well
+or enforce the performance of an agreement .  as other participant  attributes relevant to  assessing the
+Cryptocurrencies can be thought of as tokens that have a 55  compliance of the transaction ; receiving a request to engage
+limited supply and in which ownership is recorded on the   in transaction  of a token from a requesting participant that is
+ledger  . Therefore  , Cryptocurrencies can be used to “ token-  one of the at least one participants , the token having token
+ize ” , i.e. represent  , an underlying security  , such as an equity  attribute values describing an underlying asset  , the request
+interest in an underlying asset  .  For example  , it is known to   including  an indication of the token  ,  and the participant
+tokenize various assets  ,  such as real estate and financial  60  attributes of the requesting  participant ; identifying a policy
+instruments ,  and trade the tokens  .  Since 2014  ,  efforts to   to be enforced  for the transaction and at least one rule
+tokenize asset value on distributed ledger technologies have   associated  with the policy , the at least one rule including a
+been gaining attention .  participant attribute  , a comparison operator  , and a desired
+However  , many tradeable financial assets  ,  and thus any   value of the participant  attribute and the at least one rule
+token representing the same  , are considered to be “ securi- 65  including a token attribute , a comparison operator  , and a
+ties ” under the regulatory framework of various countries  .   desired value of the token attribute ; retrieving  rights asso
+For example  , the US Securities and Exchange Commission  ciated with the requested transaction based on the rule , the
+
+
+US 11,410,235 B2
+3  4
+
+participant attribute value and the token attribute value  , the  BRIEF DESCRIPTION OF THE DRAWINGS
+rights specifying a verb / object pair  ; determining if the rights
+permit the requesting participant to engage in the transac-  FIG  .  1 is a schematic illustration of an architecture and
+tion  ;  allowing the transaction when the rights permit the   workflow  according to an implementation that extends Attri
+transaction ; and recording information indicating the trans-  5  bute Based Access Control ( ABAC ) processes  for object
+action on a distributed ledger  .  management ;
+Another implementation is a system for governing token  FIG  .  2 is a a schematic illustration of user / wallet attributes
+
+ized financial transactions on a distributed ledger over a  and token attributes for use in policy enforcement for token
+computer network -  , the system comprising at least one com  governance ;
+10 puter processor and at least one memory having instructions  FIG  .  3 is a a schematic illustration of a key / lock structure
+
+stored therein which  ,  when executed by the at least one  to govern transactions between wallets according to an
+implementation ; computer processor  ,  cause the at least one computer pro  a
+cessor to  :  obtain data indicative of a verified identity of at  FIG  . 4 is a screenshot of a regulatory recipe creation user
+interface according to an implementation ;
+least one participant on a transaction ; receive participant 15  FIG  . 5 is a diagram illustrating an implementation of the
+attribute values for the at least one participant , the partici  flow of data from attribute sources to the rules engine to pant attributes being mapped to a wallet address indicating ,  facilitate policy decisions  ; among other things  , a category of investor associated with at  FIG  .  6 is a block diagram of an architecture for token
+least one of the at least one participants and a jurisdiction  creation , distribution control  , policy enforcement , and rights
+applicable to the at least one participant ; receive a request to  20  enforcement in accordance with an implementation ;
+engage in transaction of a token from a requesting partici-  FIG  . 7 illustrates the data flow of an implementation of a
+pant that is one of the at least one participants , the token  process for governing transactions ; and
+having token attribute values describing an underlying asset  ,    FIG  . 8 illustrates  an implementation of an interoperability
+the request including an indication of the token , and the   layer and decorator  pattern that provides cross ledger policy
+participant attributes of the requesting participant ; identify a 25  enforcement .
+policy to be enforced for the transaction and at least one rule
+associated with the policy  , the at least one rule including a  DETAILED DESCRIPTION
+participant attribute , a comparison operator  , and a desired
+value of the participant attribute and the at least one rule  There is a need for global scale compliance via a self
+including a token attribute , a comparison operator  , and a 30  enforcing ,  self - reporting financial services infrastructure
+desired value of the token attribute ; retrieve rights associated that is compliant with the real - time distributed nature of
+with the requested transaction based on the rule  , the partici- cryptocurrencies . Applicant has discovered that the trans
+pant attribute value and the token attribute value  , the rights parency  ,  immutability ,  and decentralization of execution
+specifying a verb / object pair  ; determine if the rights permit  logic offered by distributed ledgers can be leveraged to
+the requesting participant to engage in the transaction ; allow 35  provide the basis for such an infrastructure . These advances
+the transaction when the rights permit the transaction ; and   provide the means to reduce the cost and latency of complex
+record information indicating the right to perform a trans-  securities transactions .  Through proper implementation of
+action on a distributed ledger  .  blockchain ledger - based policy enforcement , there exists an
+Another implementation is a non  - transient computer read-  opportunity to revolutionize banking and other financial
+able medium storing  instructions therein which ,  when 40  services for the first time since the Medici ledger innova
+executed by at least one computer processor  , cause the at   tions of the 15th century which provided the liquidity that
+least one computer processor to  :  obtain data indicative of a   fueled the Renaissance  .
+verified identity of at least one participant on a transaction ;    Applicant  has developed an architecture and protocol that
+receive participant attribute values for the at least one   allows known practices  in Digital  Rights  Management
+participant , the participant attributes being mapped to a 45  ( DRM  ) and Attribute Based Access Control ( ABAC  ) to be
+wallet address indicating , among other things  , a category of   leveraged and extended through blockchain smart contracts
+investor associated with at least one of the at least one   and compliance  workflows to create tokens that incorporate
+participants and a jurisdiction applicable to the at least one   regulatory  and other governance requirements implicitly  .
+participant ; receive a request to engage in transaction of a   Implementations  disclosed herein facilitate the efficient  ,
+token from a requesting participant that is one of the at least 50  compliant transfer of any form of value globally  .
+one participants , the token having token attribute values  As noted above  , laws governing the behavior of securities
+describing an underlying asset  ,  the request including an   vary from jurisdiction  to jurisdiction . A central benefit of
+indication of the token , and the participant attributes of the   distributed  ledger technologies is the efficient transfer of
+equesting participant ; identify a policy to be enforced for   value globally  . Maximizing  this benefit in a a securities con
+the transaction and at least one rule associated with the 55  text requires  a compliance framework to  control token
+policy  , the at least one rule including a participant attribute ,   distribution  by identifying and qualifying participants glob
+a comparison operator  , and a desired value of the participant ally  , codifying widely varying securities laws from global
+attribute and the at least one rule including a token attribute ,   jurisdictions  , and enforcing these rules in all contexts and for
+a comparison operator  , and a desired value of the token  any transaction .  Technical mechanisms to govern token
+attribute ; retrieve rights associated with the requested trans-  60  transactions are referred to herein as “ distribution controls . ”
+action based on the rule , the participant attribute value and   Throughout  a security's existence ,  its  transactions incur
+the token attribute value  , the rights specifying a verb / object  regulatory oversight  .  These transactions often have tax
+pair  ; determine if the rights permit the requesting participant  implications ,  require restrictions  to protect and qualify
+to engage in the transaction ; allow the transaction when the   investors  , demand analysis and reporting  to mitigate fraud  ,
+rights permit the transaction ; and record information indi-  65  and impose requirements designed to restrict money laun
+cating the right to perform a transaction on a distributed  dering  . Since tokenized value can be transferred or traded
+ledger  .  via  decentralized  wallets  ,  distribution  controls should
+
+
+US 11,410,235 B2
+5  6
+
+" travel with ”  the token and be built into DLTS via smart  pant role  within the  company  ,  proximity  to  corporate
+contracts or other ledger controls  .  In IT parlance  , the dis-   announcements  or actions  ,  etc. The complexity of these
+tribution controls should be “ persistent  . ”  rules requires a flexible yet extensive rights management
+When token ownership is  represented on the token's  model  .
+native ledger  , token ownership is said to be “ on ledger  ” . In  5   To protect investors  , limit fraud  , and enable proper gov
+many cases  ,  the ownership of token value may be derived  ernment oversight  , securities tokens must be handled in a
+from the native ledger value and represented in a a different  manner consistent with regulations , must be held only by
+ledger ( often an internal database ) for efficient handling and   authorized persons  , and must comply with proper reporting
+custody  . Many exchanges and custody solutions use this   requirements  . The distribution control of implementations
+technique for speed  , efficiency , and security  . In these cases  ,  10  herein can be applied to or tokenized securities as well as to
+the transfers of ownership of the token's value is said to be   the transfer of other tokenized assets  .  Many governmental
+
+" off ledger ” .  Since many or all of the same distribution  authorities require the reporting of large financial transac
+restrictions apply “ off ledger ” , distribution controls should  tions  . For example  , in the United States  , the Bank Secrecy
+also function in these scenarios and should not be limited  Act currently requires financial institutions to report cash
+exclusively to " on ledger ” uses  .  15  transactions exceeding a daily aggregate amount of $ 10,000
+To mitigate risk of any systemic weakness of a particular  ( US  ) in value or which are suspicious .  In order to comply
+DLT and to ensure securities tokens can leverage innovation with such regulations ,  service providers must ensure they
+in DLTs  , distribution controls should be independent of any   know the identity of both sender and receiver  of value  .
+specific distributed ledger and should be portable across  Implementations include a computer architecture , platform ,
+ledger implementations . For example  , the disposition of a 20  and process to govern the compliance  and suitability of
+U.S. real property interest by a foreign person ( the transf-  decentralized financial transactions especially for tokenized
+eror ) is subject to the Foreign Investment in Real Property  securities  . While securities transactions are among the most
+Tax Act of 1980 ( FIRPTA ) income tax withholding ; FIRPTA  complex financial transactions , the implementations may be
+authorized the United States to tax foreign persons on   applied to govern other transactions  such as utility token
+dispositions of U.S. real property interests . Additionally , in 25  transfers and fiat payments  .
+some jurisdictions , including the federal laws of the United  The implementations described herein include a rules
+States  ,  the number of holders of a class of securities  is   engine that maps complex  securities laws and transaction
+significant . For example  , under Section 12 ( g ) of the Secu- controls into verifiable rulesets that can be evaluated in a
+
+rities Act of 1934 ) ,  if a class of equity securities is held by   centralized  or decentralized fashion . These rulesets can be
+more than 2000 holders , the issuer of the security becomes 30  saved as “ recipes ” ? , reusable data structures of a compliance
+obligated to extensive reporting obligations ;  colloquially ,   or other governance  decision - making  , that can be easily
+
+this is known as being a “ public company ” . In the absence shared , edited graphically , and stored on non - transient media
+of adequate distribution  ols  ,  these situations could  in an open standard format such as eXtensible Access
+inadvertently arise resulting in undesirable consequences for   Control Markup Language  or other computer interpretable
+the issuer  .  35  code  .
+Many securities transactions are legally permissible under  The implementations transform illiquid financial instru
+federal  , state or non - U.S  .  laws or regulations only if the   ments  , for which transfer is impractical  due to the complex
+participants meet certain criteria  , such as being an “ accred-  ity and lack of repeatability in compliance decisions  ,  into
+ited investor ” ,  " qualified investor ” ,  or the like  ,  or meet  highly liquid instruments that can be used in everyday
+certain geographic or residency criteria  . In many cases  , such 40 transactions of any size  .  While the revolution in DLTs are
+as the accreditation status of an investor  , these qualities are   likely to transform  the nature of many transactions , many
+dynamic rather than static  . Since the validity of a transaction transactions will continue to occur “ off chain ” in systems
+depends on changing conditions ,  the rules enforcement  and venues that use other techniques such as conventional
+model must be both real time and scalable  .  databases  , spreadsheets , or other electronic means to main
+Blockchain networks can be global by design and facili-  45  tain a a record of transactions . To account for this  , the imple
+tate the rapid transfer of ownership anywhere in the world  .   mentations  employ techniques to govern transactions on
+But  ,  as noted above  , securities laws can vary dramatically  chain ( governing transactions within a DLT  ) , across chains
+from jurisdiction to jurisdiction .  For example  ,  investor  ( providing controls on different DLTs  ) , and off chain ( gov
+qualification , reporting requirements , > and even the legality  erning transactions that  occur in traditional  ledgers or
+of security token offerings as a capital formation method 50  between ledgers )  .
+vary across international jurisdictions . Therefore  , securities  Implementations include a novel combination of compli
+tokenization requires a compliance framework that can  :   ance workflows  , attribute verification tools  ,  a scalable key !
+recognize the jurisdiction of the offering and all participants  lock model for enforcement ,  smart contracts  and other
+involved in a transaction ; account for complex  , even con-   ledger controls to provide a decentralized  Attribute Based
+
+flicting regulatory requirements in both primary markets and 55  Access Control ( ABAC  ) framework to govern global finan
+subsequent trade and transfer  ; incorporate patchwork regu-  cial tokenized transactions without the need for an active
+lations into rulesets that can be enforced automatically and   intermediary  . Through ABAC  ,  abstractions of smart con
+at scale  ;  and adapt to changes in regulatory  restrictions  tracts  , and the sharing of recipes  , implementations provide
+throughout the token's lifecycle  .  methods to govern on chain and off chain transactions .
+For many securities ,  additional restrictions on transac- 60  In a traditional  ABAC model  ,  users '  access to objects ,
+tions ( beyond regulatory limits ) may be required . Restric-  such as documents and data , in an enterprise is governed by
+tions defined by the issuer are common in contracts and   a policy enforcement  point ( PEP  ) .  The user makes an
+practice  .  Examples include the ability to require explicit  electronic request for access to an object  . The PEP consults
+issuer permission for transfer  , controls on the minimum or   with a policy decision service ( PDS  ) which in turn gathers
+maximum size of holdings for participants ,  bounds on 65  the appropriate  policy and attribute data to provide a deci
+trading price  , and more  . Restrictions may depend on context  sion on access  . If granted , the user is provided access to the
+such as market conditions , number of participants , partici-  object  .
+
+
+US 11,410,235 B2
+7  8
+FIG  .  1 illustrates compliance enhanced architecture 100   separate from the address owner's personal  identifiable
+that leverages ABAC components and which includes :   information  ( PII ) ,  the privacy of transaction participants
+policy enforcement point ( PEP  ) 10  , used to govern transac- may be protected while ensuring that the transaction is
+tions of value assets between users  , sometimes referred to as   attributable  and compliant .
+
+“ participants ” , in an enterprise or other domain ; rules engine  5   In step 2  ,  when a wallet 20 associated  with an address
+12 ( which includes a policy decision service ( PDS  ) ) used to   makes a request to engage in a transaction ( payment  , trans
+gather the applicable policy and data required to make a   fer  ,  purchase  ,  trade ,  etc )  involving  one or more tokens
+decision on access rights  ; recipe storage 14 ( including a   ( which can represent  other tokenized assets of value ) , PEP
+policy  store )  that  define the rules required  to perform  10 is consulted .  The PEP may exist on ledger via smart
+enterprise actions  ;  and attribute sources 16 that provide 10  contracts  or ledger controls providing decentralized policy
+contextual data related to the users ( i.e.  the transaction  enforcement , or off ledger providing federated rights assess
+participants )  , affected tokens ( as digital objects ) , and envi- ments through SAML ( Security Assessment Markup Lan
+ronment to support a policy decision  .  guage ) assertions or other syntax .
+In the implementation of FIG  .  1  , the ABAC architecture  To enforce a policy  , in step 3  , PEP 10 queries rules engine
+has been enhanced by  :  1 ) establishing a linkage between a 15  12 which , as described below  ,  is designed to provide a
+user's identity and a unique address ( represented by wallet  scalable and deterministic way to interpret policy and gather
+20 ) on the network ( s ) ( e.g. , a distributed ledger ) to provide  data from a wide range of services to provide timely
+scalable and deterministic decision - making while protecting decision - making for a given transaction context ( including
+the user's privacy  ; 2 ) extending the concept of governance  user identities , locations  ,  token attributes and other vari
+of access ( a single verb ) to “ token rights  ” which include 20  ables ) . For example  , a token may represent share ownership
+verb / object pairs  ;  3 ) sharable recipes of rules and context  of a US Regulation D security  . As a result  , it's distribution
+attributes  ; 4 ) implementing policy enforcement via ledger  is limited to individuals who have established that they are
+controls and smart contracts ;  and 6 ) mapping policies to   accredited  investors  . A Recipe limiting distribution to wal
+value tokens  .  lets whose owner has been assessed to be an accredited
+The implementation includes a novel process of govern- 25  investor may be attached to the token  . In this case the PEP
+ing decentralized financial transactions including several  must obtain the attribute ( whether or not the participant is
+steps ( identified by the bold arrows in FIG  . 1 ) . At step 1 ) the   accredited ) for all participants in the transaction , and evalu
+digital identity of all participants in a a financial transaction is   ate it against the policy for token transfers  . In step 4  , rules
+positively identified . The implementation utilizes a scalable  engine 12 gathers the appropriate policy associated with the
+Identity Proofing ( IDP ) model that operates at global scale  .  30  desired right specified in the transaction request  . Policies are
+Access  this identity ( and its  affiliated  rights )  can be   stored as “ recipes ” , i.e. rulesets that represent  compliance
+controlled by distributed identity services that provides  requirements and other desired governance . Recipes may be
+secure  risk - based authentication using  multiple factors  combined , reused or extended  leverage precedent , map
+including biometrics .  This service provides  flexible , high   complex and varied global regulations  , and simplify regu
+assurance access to a user's rights on financial networks  .  35  latory oversight  .  Rules engine 12 may cache recipes to
+Participants are associated with wallet addresses . Reverifi-  facilitate rapid decisions for frequently used objects  . The
+cation of the identity and relevant attributes of the owner of   logic and function of rules engine may be implemented on
+a cryptographic wallet can be performed frequently and at   ledger  ,  off ledger  , or as a hybrid solution for maximum
+any time to prevent identity theft and  / or fraudulent sharing  flexibility , decentralization , and scale  .
+of rights to subvert securities laws  . Relevant attributes about 40  In step 5  ,  attribute  sources 16 are consulted to gather
+the participating identities are verified for all participants in   relevant data on transaction  participants , objects  , and envi
+governed transactions . This verification involves risk deci-   ronment  . Rules engine 12 provides attributes  which contain
+sions governed by compliance policies of the party respon-  descriptions where and how to obtain data needed for policy
+sible governing token transactions ( usually the issuer and  / or   decisions in accordance with relevant recipe . For example ,
+broker - dealer ) . While some aspects of verification steps may 45  if a rule limits the number of token holders , the attribute in
+be automated using techniques the applicant has  imple-  the rule contains a map with instructions on how to obtain
+mented  ,  some decisions are judgement calls that require  the current number of token holders so that the rule can be
+longer running workflows or processes .  evaluated .  The instructions can include a network address
+Once participant ID has been verified , participant attri-  where the data is stored ,  an API to access the data , and
+butes may be determined in a known manner  ,  such as  50  authorization  information to  access the data .  To ensure
+through known “ know your customer  ”  ( KYC  ) processes  ,   flexibility ,  rules  engine 12 provides  an interoperability
+and used in decentralized policy enforcement . By separating  framework and interfaces to enable consultation with exter
+attribute verification processes ( often slow and subjective )   nal  ,  independent  data sources sometimes referred to as
+from policy enforcement ( nearly instant and objective ) ,   " oracles ” . Through this framework  , data sources for rules
+compliance enforcement can be performed in real time 55  assessment  can be mapped to the policy . In step 6 , policy
+globally on decentralized networks  .  In implementations ,   decisions  are returned from rules engine 12 to the PEP for
+verified attributes are linked to unique addresses  , e.g. cryp-   enforcement  .  Rights to perform certain transactions  are
+tographic wallets  , on the network  . On distributed ledgers  ,   often cached at PEP 10 to facilitate  efficient enforcement of
+each wallet corresponds to an address  . Authority to operate  recurring transactions . At step 7  , the right  , which can include
+the wallet can be assessed using rights derived from the 60  a verb / object pair , to perform the desired action on the object
+wallet owner's attributes ( via the PEP as described below ) .   is granted  , based on the appropriate recipe ( s ) and identities  ,
+In implementations , user attribute sets can be directly linked  and attributes  , and the requested transaction is executed .
+on an one  - to - one basis to the entity owning and responsible As shown in FIG  .  2  ,  the token is signed by the user's
+for actions of the address  . All transactions performed via an   wallet  , using the address as a cryptographic  key to derive a
+address ( wallet ) are attributable to its owner and are asso-  65  signature  in a known manner  ,  and the signature includes
+ciated with its owner's rights . Since the address owner's  wallet attributes that indicate the relevant jurisdiction for the
+attributes ( and derived rights ) may be stored and assessed  user and investor status of the user ( e.g. accredited investor ,
+
+
+US 11,410,235 B2
+9  10
+
+institutional investor  , etc. )  . Additionally , the token includes  in the context of the requested transaction and recovers it for
+token attributes , i.e.  associated metadata indicating other  rule evaluation . A rule contains an attribute , a comparison
+contextual attributes of the transaction . Governance of the  operator  ,  and a desired value  .  For example  ,  a rule could
+transaction based on the token attributes and participant  assess a user's country of residence . The following rule
+attributed is described in greater detail below  .  5 requires that the participant in the transaction cannot be a
+As illustrated in FIG  .  3  ,  implementations use a key / lock   resident of the US  : Jurisdiction_Country ( Attribute ) IS NOT
+structure that isolates issuer judgment via the mapping of  ( Comparison Operator  ) United States ( Desired Value )  .
+wallet attributes to repeatable and verifiable rule sets asso  Rules may be composed and connected by rule operators
+ciated with the underlying value in a transaction ( Lock  ) .  ( AND  , OR  , and fuzzy logic operators ) using the GUI of FIG  .
+Verified attributes of the owner of wallet A , or wallet B  , and 10 4 for example , into rulesets which can be stored as Recipes . environment variables such as the size of a transaction or the
+number of current participants are composed into a Key  Recipes are attached to object / verb combinations to define
+
+which are evaluated against the rulesets defined for the token the attributes required to obtain rights to conduct a transac
+
+or other object ( Lock )  to determine if participants in a  tion on the network .
+
+transaction have the right to conduct the transaction . These 15  Rules engine 12 may be located on chain or off chain to
+
+rights are evaluated in real time in a decentralized fashion  support scalable and  / or decentralized rule evaluation . The
+using a smart contract or other ledger controls to permit or  implementations include several models for implementation
+block the transaction .  of rules engine 12  ,  including rules evaluation off chain to
+The implementations provide a flexible , repeatable , and   facilitate scale and flexibility  , on chain for maximum decen
+scalable process to codify compliance rules associated with 20  tralization ,  or a hybrid model for maximum  flexibility  ,
+any financial transaction through a Subject Verb Object  decentralization , and compatibility with DLTs and legacy
+
+( SVO  )  structure where the actor or actors attempting an   financial networks  . One example of a hybrid model hosts the
+action are the subject  , the action being attempted is the verb ,   rules engine located off chain but evaluates rights stored on
+and the item on which the action is to be performed is the   chain for rapid execution  .
+object  . For example  , a user ( subject  ) is attempting to transfer 25  As shown in more detail in FIG  . 5  , rules engine 12 gathers
+
+( verb )  a  specific  token  ( object ) .  Extending ABAC  the required data , as defined by the appropriate attributes
+approaches in this way  , i.e. , by converting access decisions  contained the recipe associated with the action context and
+to rights decisions permits a more flexible framework for   participants  , from sources 16. Gathered data can include
+governing complex transactions on financial networks  . FIG  .   strings , numerical data , dates  , lists , and other formatted data
+4 shows user interface 400 for creating and editing recipes .  30  to be used for evaluation . Sources 16 can be cache memory
+User selection controls are provided for selecting attributes ,   and / or internal / external sources  .
+values and logic for rules in a recipe  .  Rules can be composed from attributes which contain
+The right to perform an action on an object  , such as the   self - describing models for data collection and caching in
+transfer of a a token , is evaluated by taking attributes associ-  support of rule evaluation . An attribute can describe its data
+ated with the subject ( e.g. one or more transaction partici-  35  type and format  , source  ,  the means to access the source  ,
+pants )  and its  context against a ruleset ( recipe )  that is   additional  filtering and context data  ,  and caching rules to
+assigned to the specific verb and object combination . In this   manage the balance between performance  and latency for
+way  , the issuer can govern , for example  , whether or not a   specific attributes . Attribute  sources 16 can communicate
+user who does not have an attribute indicating accredited  with rules engine 12 through an appropriate . For example  , if
+investor status can participate in a transaction involving a 40  a recipe contains a rule that limits the number of token
+restricted access security token . The transaction participants  holders  , the Rules Engine must obtain the current number of
+and environmental context ( subject  ) provide the " key ” while token holders in order to evaluate the legitimacy  of the
+the desired action and token ( verb / object  ) combination are   requested  transaction . The current number of token holders
+associated with the “ lock ” to govern transactions .  is obtained by querying the distributed ledger on which the
+Codifying complex decision logic associated with finan- 45  token resides . The attribute contains instructions used by the
+cial services rights evaluation requires that rules engine 12   Rules Engine to point to the code used to query the ledger  .
+be configured to implement a number of objects and con-   Recipes may consist of many rules containing  attributes
+cepts : scopes  ,  items  , actions  ,  attributes  , rules  , recipes  ,  and   requiring data from many different sources  .  New recipes
+rights .  “ Scopes ”  are shared context  ,  in which multiple  may be developed requiring additional data not previously
+parties can define items  , actions  , and rights . Access to read 50  mapped  . Therefore , attribute mapping is performed through
+and modify these definitions requires credentials assigned to   a flexible architecture  that allows new sources to be injected
+the scope providing the means to share while protecting the   into the engine efficiently  and without affecting any other
+responsibility and accountability of rights management .   system operation .
+Tokens are the objects against which rights are assessed  .    Rules engine 12 evaluates  the recipe associated with the
+Within a scope  ,  systems are free to create and maintain as 55  desired object / verb combination to determine if the right to
+many items ( in the case of securities tokens these are the   perform  the action can be granted . A user's rights in a
+usually unique token symbols ) as desired . “ Actions ” are the   particular context can be  :  utilized inline to govern a trans
+verbs that can be performed on the items in the system ( e.g.   action in real time  ; may be stored on or off chain  ; or shared
+trade  ,  transfer  ,  etc ) .  " Attributes "  are characteristic of the   via RESTful  API calls  ,  SAML assertions , or OpenID Con
+actors and their environment used in the evaluation of a  60  nect data format  .
+ruleset  .  If Rights are stored or cached at PEP  ( s ) 10  , they can have
+Within a scope  ,  attributes contain the name and mecha-  an expiration to accommodate for dynamics such as regu
+nism to obtain data associated with the actor  ,  item  ,  and   latory changes  .  Stored rights may be invalidated  due to
+environment for real time evaluation of the rule set  .  For   changes in recipe rules or context  . The system may force a
+example  , a ruleset may include the requirement for partici-  65  revalidation of rights in the event of a change . Rights may
+pants in a transaction to be an accredited investor  .  The   be cached on chain via smart contracts ( Ethereum , EOS  , etc )
+attribute contains the description of where to obtain this data  or ledger controls ( Ripple  ,  Stellar ) .
+
+
+US 11,410,235 B2
+11  12
+Non - limiting examples of policy enforcement processes  Each standard can implement specific transfer verification
+are described below for the governance of financial trans-  logic and can contain one or more enforcement services  ,
+actions  :  1 ) distribution control through the use of ledger  such as whitelist  ,  rules engine ,  and the like ) .  TVS 650
+controls ( for example implemented on Ripple  , Stellar  , etc. ) ;   includes transfer module 652 which accepts requests on the
+2 ) distribution control through the use of smart contracts ( for  5  tokens transfer verification . Transfer module 652 requests a
+example  , implemented on Ethereum , EOS  , and derivatives ) ;   token standard from token factory 630. Based on the appli
+3 ) distribution control through the use of an interoperability  cable token standard  , transfer module 652 can select transfer
+and a decorator pattern ( cross ledger enforcement ) ; and 4 )   verification  logic  .
+distribution control through the use of shared rights and  Transfer verification system 650 also includes transfer
+permissions ( for  example ,  implemented on centralized 10  verification policy enforcement ) through transfer verifica
+exchanges and 3rd party systems  )  .  tion logic 654 specified for each token standard ,  such as
+Policy enforcement through ledger controls utilizes trans-  CAT  - 20 ,  CAT  - 721  ,  etc.  CAT  - 20  stands  for Compliance
+action callback methods and “ trustlines . ”  Trustlines are   Aware Token , and extends the ERC  - 20 standard implemen
+two - way agreements between the wallet owner and token  tation to include distribution controls . Transfer verification
+issuer ( or other designated party ) stored on ledger to govern 15  logic 654 can be implemented by means of different transfer
+the right of a wallet to participate in transactions with a   verification  services 656  ,  such as a whitelist  ,  rules engine
+token  . Through callbacks  , or web hooks  , the ledger platform ( such as rules engine 12 in FIG  .  1 ) ,  state logic  ,  or other
+may consult with external services  , such as rules engine 12  ,   services  . There could be different transfer verification ser
+to provide more fine - grained control over specific transac-  vices 656 for each token standard .  Transfer  verification
+tions on the network .  20  service 656 stores verified rights and attributes associated
+FIG  .  6 illustrates an architecture of PEP 610 for DLTS  with tokens  , wallets  , and gathers data from on chain and off
+implementing smart contracts , that is ,  decentralized appli-  chain transactions .  One example of a rights store is  a
+cations ( dApps  ) that run via distributed nodes  . Blockchain  whitelist which stores a list of wallets that have been verified
+enhanced PEP 610 supports the most popular Ethereum  for specific transactions involving tokens  . The whitelist can
+token standards ( ERC20  ,  ERC621  ,  ERC721  ,  etc. ) and can 25  be used to verify the eligibility of all wallets involved in a
+be extended to support any token protocol on any block-  transaction prior to sending or receiving requests  . In such an
+chain . Through a smart contract executed by PEP 610  , token  implementation , if a a wallet is not found in the whitelist the
+issuers may instantly issue tokens with compliance controls  transaction is rejected . Transaction policies for a token may
+built in as well as tokens that do not contain distribution  be stored as recipes on chain  . Similarly  , attributes associated
+controls .  The smart contract can provide enhancements  30  with a wallet's owner may be stored on chain as well  . This
+enabling issuers to register symbol uniqueness on the net-   permits decentralized  rules evaluation .
+work by means of symbol registry and to govern distribution FIG  . 7 illustrates an implementation of a process for rights
+of the tokens through additional security and rules enforce-  determination and governance of a transaction . At 701  ,  a
+ment including compliance rollback transactions ,  value  user device confers verified  attributes on a wallet  ,  for
+escrow , and freezing of wallets  .  35  example  , the attribute verification processes described above
+The architecture of PEP 610 includes the following com-  can be used to determine user attributes  , such as the resi
+ponents to facilitate distribution control  .  Symbol registry  dence country of the user and whether  the user is  an
+620 is a repository for token symbols  . Issuers may register  accredited and / or institutional investor  . For this example  , the
+token symbols prior to token creation to protect trademark  user country of jurisdiction is US and the user is an accred
+and brand rights prior to token deployment . Token factory 40  ited investor  .  See FIG  .  2. At 702  ,  the user wallet makes a
+630 is a component which accepts requests to create new   request to a PEP  , on behalf of the user  , for an action on an
+tokens  , checks the relevant parameters and deploys a token  object  . For example  , the wallet may make request to transfer
+through a token strategy , e.g. ,  the supported behavior of   a token from the wallet owner to another party .  In this
+tokens governed by a standard  . Token factory 630 performs example the token is the token of FIG  . 2 which represents a
+the functions of creating tokens as well as deleting  or 45  security being offered under Regulation  D of Title  17  :
+updating deployment strategies . A strategy is the smart  Commodity and Securities Exchanges PART 230_GEN
+contract  , that is  , computer code  , that implements a token and   ERAL RULES AND REGULATIONS , SECURITIES ACT
+that defines its behavior and interfaces  . Typically  , a strategy OF 1933. Therefore  , the token has a recipe that requires the
+
+is linked to a token standard  . When executed  , it results in the   following  attributes  Jurisdiction : US  ,  AND
+delivery of a  token that  provides  common interfaces 50  Accreditation = True  .  Of course  ,  the " wallet ” making the
+required by the standard  .  For example  , the Token factory  request can be any user device , such as a personal computer
+supports issuance of ERC  - 20  ,  ERC  - 721  ,  and many other or a mobile phone  , having access to the wallet address and
+standards  . While changes to strategies are infrequent , these  the user instructions can be received through a user interface
+smart contracts may be updated or removed over time  .  It is   of the user device .  The all participants  in the transaction
+anticipated that many new strategies will emerge and will be 55  have the required attributes noted above ( Jurisdiction : US  ,
+added providing issuers a greater range of options in the   Accreditation  : True )  . At 703  , the PEP requests rights for the
+behavior of their tokens  .  token and participants involved in the transaction from a
+Permission verification system ( PVS  ) 640 serves as a core rights cache  .  For example , the rights cache can include
+for verification of the requests which are processed  in   previously  evaluated rights for desired token and the par
+deployed smart contracts  . It embodies capabilities to evalu- 60  ticipants involved in the transaction . At 704  , if the evaluated
+ate recipes , cache rights , store wallet attributes  , and reach  rights for requested transaction are available in the cache ,
+external data sources to retrieve other attributes by following  the evaluated rights for the request can be returned to the
+pointers to data sources storing the attributes .  PEP directly from the cache  . and the process can proceed to
+Transfer verification system ( TVS  ) 650 assigns policy and   step 713 below .
+enforcement logic based on the token's assigned strategy  ,  65  If the rights had not been previously  evaluated for the
+that is the behaviors defined for the token based on the   specific attributes  , i.e. the context  , and thus not returned to
+selection of smart contract assigned by the Token Factory  .   PEP at 704  , new rights must be evaluated for the context  . To
+
+
+US 11,410,235 B2
+13  14
+
+create new rights , at 705 PEP makes a request for rights in   The users right to perform an action on a token is determined
+the transaction context from the rules engine  . At 706  ,  the   through a  request to the appropriate  policy enforcement
+rules engine makes a request for a recipe corresponding to   point  . If granted , the user's right may be stored on or off
+the requested rights for the context and the recipe is returned ledger in a cache with an expiration as appropriate .
+at 707. At 708  , rules engine requests additional data for the  5   The various functions  disclosed herein can be accom
+relevant context from an attribute cache  . If the relevant data plished by one or more computing devices having proces
+
+is  in the attribute cache  ,  the data is returned for policy  sors which execute instructions stored in one or more
+evaluation at 709. The relevant data could include credit  tangible computer readable memories . The various devices
+ratings  , jurisdictional data  ,  investors qualifications ,  collat-  can be communicatively coupled to one another in known
+eral information , trade match information , account balances ,  10  manners using known protocols  . For example  , the devices
+reporting documents filed , and the like that are required for   can be coupled over a Local Area Network or the Internet
+the transaction suitability evaluation . If the relevant data as   and affect ledgers that may reside on centralized  , private
+not been cached  , rules engine requests the data from another decentralized , or public decentralized networks  .
+source  , such as an attribute store at 710 and the attributes are  Additional alternative structural and functional designs
+returned at 711. The data can then be stored in attribute 15  may be implemented  for enforcing compliance policies on
+cache for later use at 712. At 713  , rights are returned to PEP   decentralized financial transactions . Thus  , while implemen
+for an evaluation decision based on the recipe , user attri-   tations and examples  have been illustrated and described , it
+butes  ,  token attributes  and relevant external data .  For  is to be understood that the invention is not limited to the
+example , since the token represents a security to be sold   precise construction  and components disclosed herein . Vari
+under Reg D  , the recipe , in simplified example  , could be as 20  ous modifications , changes and variations may be made in
+expressed below :  the arrangement , operation and details of the method and
+
+( 1 ) participants must be US persons  ,  apparatus disclosed herein without departing from the spirit
+
+( 2 ) participants must be accredited individual or institu-  and scope of the invention defined in the appended claims  .
+tional investors  ,  What is claimed is  :
+
+( 3 ) participants must have read risk disclosures associated 25  1. A method executed by at least one computing device for
+with the offering  .  governing object transactions on a distributed ledger over a
+Of course  , the actual requirements of Reg D and any other computer network whereby reusable policy can be enforced
+requirements are much more complicated than the example  on a per transaction basis in substantially real time without
+above  .  If the returned rights are determined by PEP to be   consulting  a centralized approval authority , the distributed
+permitted , the wallet is permitted to conduct the requested 30  ledger being a cryptographically secured ledger that includes
+transaction at 714. The evaluated rights can be cached in   shared nodes respectively  executed by multiple parties and
+rights cache for later use at 715  uses a consensus mechanism between the parties to autho
+FIG  .  8 is diagram of the interoperability layer and deco-  rize transactions to be entered on the ledger  , the method
+rator pattern in one example  . Implementations can use a   comprising  :
+policy enforcement mechanism that supports transaction 35  storing plural transaction  policies independently from
+governance on chain and off chain . This permits consistent  policy  evaluation  algorithm code  and transaction
+rules enforcement across dissimilar ledgers 810 including  execution logic to thereby enable reuse of the transac
+traditional financial service infrastructures by using an  tion policies and simplify third party validation of the
+interoperability layer and a decorator pattern . A decorator  transaction policies  ,  wherein each transaction policy
+pattern is one in which similar actions across dissimilar  40    includes  configurable machine readable code specify
+networks can be intercepted to execute common security and  ing at least one rule to be enforced , wherein the at least
+compliance functions .  In  certain  implementations ,  this  one rule specifies a verb / object pair  , the storing includ
+abstraction layer can be extended or overridden governance  ing storing the transaction execution logic on a cen
+of specific transactions that may also have intrinsic controls  .  tralized system and storing the at least one rule on the
+In the decorator pattern , transactions are routed through 45    distributed  ledger  ,  the at least one rule including  a
+pipeline 820  ,  a federated service bus that provides policy  comparison operator  , an attribute and a desired value
+enforcement ,  security functions ,  and automated logging  ,  for comparison to a transaction , wherein the attribute
+reporting and oversight  . The decorator pattern is part of an  includes a pointer to attribute data stored in at least one
+abstraction layer that routes transactions  to  appropriate  data source , wherein the pointer is stored in the data
+financial systems  ,  exchanges , and ledger technologies to  50   structure of at least one of the transaction  policies and
+execute the transaction . This implementation provides com  the pointer includes data caching instructions thereby
+mon policy enforcement across dissimilar financial systems  .  enabling the  inclusion of data  from configurable
+In another implementation , rights are obtained by 3rd  dynamic data sources wherein the attribute data can be
+party systems  ,  such as an exchange platform , for internal  applied at the time of policy evaluation and wherein the
+policy enforcement . Rights may be obtained at the time of 55   transaction  policies are stored on non  - transient media
+a user's login via a direct request to the rules engine 12 ( FIG  .  as computer interpretable code specifying a specific
+1 ) or indirectly through SAML assertions provided by an  compliance requirement for a a transaction ;
+identity and attributes service . The 3rd party system may  receiving a request message  , to engage in an action with
+obtain a comprehensive set of rights ( verb / object combina-  respect to at least one object that is specified by the
+tions ) associated with the user in the given context and 60   request message  ,  the request message being received
+scope  . These rights can be used to govern transactions on the  from a decentralized node corresponding to a request
+exchange using the native permission framework used by  ing participant on the distributed ledger  , wherein the at
+the 3rd party system .  least one object is configured as a Subject Verb Object
+In all implementations , the user's right to engage in a  ( SVO  ) data structure specifying an actor that requests
+transaction ( such as the trade or transfer of a token ) can be 65    participation  in a subject field , a requested action in a
+assessed in advance of the transaction and stored in a cache  verb field , and an item on which the requested action is
+or at the time of the transaction for real time governance .  to be performed in an object field , the at least one object
+
+
+US 11,410,235 B2
+15  16
+
+having object attribute values associated therewith , the  7. The method of claim 1  , wherein a a verified identity of
+request message including a requested action  , an object  each participant is  mapped to  a wallet address to and
+affected by the action  , and other parameters associated  wherein the request message includes the wallet address
+with the transaction ;  mapped to the requesting participant .
+engaging  , by a policy enforcement point  , in a transaction 5   8. The method of claim 1  , further comprising  communi
+authorization process that is distinct from the transac-  cating through an interoperability layer and decorator pat
+tion execution logic interpreting at least one applicable  tern to govern financial transactions across multiple dissimi
+transaction policy of the plural transaction policies for   lar traditional  or distributed ledgers .
+the requested action including evaluation of rules and  9. The method of claim 1  ,  wherein the rules engine is
+data in substantially real - time by applying the policy 10  executed on the distributed ledger  .
+evaluation algorithm code  ,  the transaction authoriza-  10. The method of claim 1  ,  wherein the rules engine is
+tion process including  :  executed both on the distributed ledger and off - chain .
+identifying a relevant transaction policy  , from amongst  11. The method of claim 1  ,  wherein the rules engine is
+the  plural  transaction  policies  ,  based  on the   executed  off - chain .
+requested action and the object specified by the  15  12. A system for governing  object transactions on a
+request message  ,  including parsing the object and   distributed  ledger over a computer network whereby reus
+reading the verb field ,  able policy can be enforced on a per transaction basis in
+collecting relevant attribute data from the at least one   substantially  real time without consulting  a centralized
+data source in substantially real - time including pars-  approval authority , the distributed ledger being a crypto
+ing the attribute of the relevant transaction policy 20  graphically  secured ledger that includes  shared nodes
+and following the pointer specified by the attribute to   respectively executed by multiple parties and uses a con
+the data source  , wherein the attribute data is relevant  sensus mechanism between the parties to authorize transac
+to at least one of the action  ,  the object  ,  and  / or   tions to be entered on the ledger  , the system comprising  :
+participants and wherein the at least one data source  at least one computer processor , and
+shares the attribute data in accordance with a pre- 25  at least one memory having instructions  stored therein
+defined scope that defines  sharing rights  of the  which  ,  when executed by the at least one computer
+attribute data ;  processor , cause the at least one computer processor to  :
+executing ,  by a decentralized rules engine  , the action  store  plural  transaction  policies  independently from
+evaluation algorithm including executing machine-  policy  evaluation  algorithm code  and transaction
+readable action evaluation code the action evaluation 30    execution  logic to thereby enable reuse of the transac
+algorithm being configured to interpret and evaluate  tion policies and simplify third party validation of the
+the relevant transaction policy and the requested  transaction policies  ,  wherein each transaction policy
+action to thereby determine  if the action can be  includes configurable machine readable code specify
+authorized in response to the request message by  ing at least one rule to be enforced , wherein the at least
+applying the at least one rule in the identified policy 35   one rule specifies a verb / object pair  , the storing includ
+and the attribute data in substantially real time with  ing storing the transaction execution logic on a cen
+respect to the request  ; and  tralized system and storing the at least one rule on the
+receiving  , by the policy enforcement point  , an autho-  distributed ledger  ,  the at least one rule including a
+rization determination indicating whether the action  comparison operator  , an attribute and a a desired value
+can be authorized in accordance with the request 40    for comparison  to a transaction , wherein the attribute
+message  ; and  includes a a pointer to attribute data stored in at least one
+granting a right to perform the requested action and  data source , wherein the pointer is stored in the data
+returning transaction process control to the transaction  structure of at least one of the transaction policies and
+execution logic when the authorization determination is  the pointer includes data caching instructions thereby
+positive to thereby facilitate completion of the action 45   enabling  the  inclusion of data  from configurable
+and cancelling the transaction processing when the  dynamic data sources wherein the attribute data can be
+authorization determination is negative  .  applied at the time of policy evaluation and wherein the
+
+2. The method of claim 1  , wherein the other parameters  policies are stored on non - transient media as computer
+associated with the transaction include at least one of a  interpretable code specifying a specific compliance
+transaction amount  ,  price  ,  transaction destination ,  other 50   requirement  for a transaction ;
+assets and / or participants .  receive a request message  ,  to engage in an action with
+
+3. The method of claim 1  , wherein the rules are configured  respect to at least one object that is specified by the
+to be can be combined using at least one of Boolean logic  ,  request message  ,  the request message being received
+fuzzy logic , and  / or parameter weighting .  from a a decentralized node corresponding to a request
+
+4. The method of claim 1  ,  wherein the attribute data 55    ing participant  on the distributed ledger  , wherein the at
+includes data indicating at least one of participant regulatory  least one object is configured as a Subject Verb Object
+qualifications , participant residence , participant citizenship ,  ( SVO  ) data structure specifying an actor that requests
+asset regulatory framework , allowed transaction character-  participation in a subject field , a requested action in a
+istics  ,  and / or jurisdiction .  verb field , and an item on which the requested action is
+
+5. The method of claim 1  ,  wherein the granting rights  60   to be performed  in an object field , the at least one object
+includes retrieving , from a cache  , rights which have been  having object attribute values associated therewith , the
+evaluated based on the policy  , the attribute data , and the  request message including a requested action  , an object
+object  .  affected by the action  , and other parameters associated
+
+6.  The method of claim 1  ,  wherein  the policy is  a  with the transaction ;
+codification of at least one of issuer policies  ,  international 65  engage  ,  by a policy enforcement  point  , in a transaction
+securities laws and regulations ,  and / or other transaction  authorization process that is distinct from the transac
+controls into pseudo code  .  tion execution logic by identifying and interpreting at
+
+
+US 11,410,235 B2
+17  18
+
+least one applicable transaction policy of the plural  17. The system of claim 12  ,  wherein the policy is a
+transaction policies for the requested action including  codification of at least one of issuer policies  ,  international
+evaluation of rules and data in substantially real - time  securities laws and regulations ,  and  / or other transaction
+by applying policy evaluation algorithm code  ,  the   controls into pseudo code  .
+transaction authorization process including  :  5  18. The system of claim 12  , wherein a verified identity of
+identifying a relevant transaction policy  , from amongst  each participant is  mapped to  a wallet address to and
+the  plural  transaction  policies  ,  based  on  the  wherein the request message includes the wallet address
+requested action and the object specified by the   mapped to the requesting  participant .
+request message  ,  including parsing the object and  19. The system of claim 12  ,  wherein communications
+reading the verb field ;  10  occur through an interoperability layer and decorator pattern
+collecting the relevant attribute data from the at least   to govern financial transactions  across multiple dissimilar
+one data source in substantially real  - time including  traditional or distributed ledgers .
+parsing the attribute  of the relevant transaction  20. The system of claim 12  , wherein the rules engine is
+policy and following the pointer specified by the   executed  on the distributed ledger .
+attribute to the data source  ,  wherein the pointer is  15  21. The system of claim 12  , wherein the rules engine is
+stored in the data structure of at least one of the   executed  both on the distributed ledger and off - chain .
+policies and the  pointer  includes  data  caching  22. The system of claim 12  , wherein the rules engine is
+instructions thereby enabling the inclusion of data  executed off - chain .
+from configurable dynamic internal  or  external  23.  Non - transient computer readable media  storing
+sources  , wherein the attribute data is relevant to at 20  instructions  therein which  ,  when executed by at least one
+least one of the action  , the object  , and / or participants computer processor  , cause the at least one computer pro
+and wherein the at least one data source shares the   cessor to accomplish  steps of governing tokenized transac
+attribute data in accordance with a predefined scope  tions on a distributed  ledger over a computer network ,
+that defines sharing rights of the attribute data ;  whereby reusable policy can be enforced on a per transac
+wherein the transaction policies are stored as reusable 25  tion basis in substantially  real time without consulting a
+data structures on non  - transient media as computer  centralized approval authority  , the distributed ledger being a
+interpretable code specifying a specific compliance  cryptographically secured ledger that includes shared nodes
+requirement for a a transaction and wherein the at least   respectively  executed by multiple parties and uses a con
+one data source shares the attribute data in accor-  sensus mechanism between the parties to authorize transac
+dance with a predefined scope that defines sharing 30  tions to be entered on the ledger  , the steps comprising :
+rights of the attribute data ;  storing plural transaction policies independently from
+executing ,  by a decentralized rules engine , an action  policy  evaluation  algorithm code  and transaction
+evaluation algorithm including executing machine-  execution logic to thereby enable reuse of the transac
+readable action evaluation code  ,  the action evalua  tion policies and simplify third party validation of the
+tion algorithm being configured to interpret and 35    transaction  policies  ,  wherein each transaction policy
+evaluate the relevant transaction policy and the  includes configurable machine readable code specify
+requested action to thereby determine if the action  ing at least one rule to be enforced , wherein the at least
+can be authorized in response to the request message  one rule specifies a verb / object pair , the storing includ
+by applying the at least one rule in the identified  ing storing the transaction execution logic on a cen
+policy and the attribute data in substantially real time 40   tralized system and storing the at least one rule on the
+with respect to the request  ; and  distributed ledger  , the at least one rule including a
+receiving , by the policy enforcement point  , an autho-  comparison operator  , an attribute and a desired value
+rization determination indicating whether the action  for comparison to a transaction , wherein the attribute
+can be authorized in accordance with the request  includes a pointer to attribute data stored in at least one
+message  ; and  45  data source , wherein the pointer is stored in the data
+grant a right to perform the requested action and returning  structure of at least one of the policies and the pointer
+transaction process control  to  distinct  transaction  includes data caching instructions thereby enabling the
+execution logic when the authorization determination is  inclusion of data from configurable  dynamic data
+positive to thereby facilitate completion of the action  sources wherein the attribute data can be applied at the
+and cancelling the transaction processing when the 50   time of policy evaluation  and wherein the policies are
+authorization determination is negative .  stored on non  - transient media as computer interpre
+13. The system of claim 12  , wherein the other parameters  table code specifying a specific compliance require
+associated with the transaction include at least one of a  ment for a transaction ;
+transaction amount  ,  price  ,  transaction destination ,  other  receiving a request message  , to engage in an action with
+assets and / or participants .  55  respect to at least one object that is specified by the
+14. The system of claim 12  ,  wherein the rules are con  request message  ,  the request message being received
+figured to be can be combined using at least one of Boolean  from a decentralized node corresponding to a request
+logic  , fuzzy logic  , and / or parameter weighting .  ing participant on the distributed ledger  , wherein the at
+15. The system of claim 12  ,  wherein the attribute data  least one object is configured as a Subject Verb Object
+includes data indicating at least one of participant regulatory 60   ( SVO  ) data structure specifying  an actor that requests
+qualifications , participant residence  , participant citizenship ,  participation in a subject field , a requested action in a
+
+asset regulatory framework , allowed transaction character-  verb field , and an item on which the requested action is
+istics  ,  and / or jurisdiction .  to be performed in an object field , the at least one object
+16. The system of claim 12  , wherein the granting rights  having object attribute values associated therewith , the
+includes retrieving , from a cache  ,  rights which have been 65   request message including  a requested action  , an object
+evaluated based on the policy , the attribute data  ,  and the  affected by the action  , and other parameters associated
+object  .  with the transaction ;
+
+
+US 11,410,235 B2
+19  20
+
+engaging  , by a policy enforcement point  , in a a transaction  receiving  , by the policy enforcement point  , an autho
+authorization process that is distinct from the transac  rization determination indicating whether the action
+tion execution logic by identifying and interpreting at  can be authorized in accordance with the request
+
+least one applicable transaction policy of the plural  message  ; and
+
+transaction policies for the requested action including 5  granting a right to perform  the requested action and
+returning transaction process control to distinct trans evaluation of rules and data in substantially real - time  action execution logic when the authorization determi by applying policy evaluation algorithm code  ,  the  nation is positive to thereby facilitate completion of the
+transaction authorization process including  :  action and cancelling the transaction processing when
+identifying the at  least  one applicable  transaction 10  the authorization determination is negative .
+policy  ,  from amongst plural transaction policies  ,    24. The media of claim 23  , wherein the other parameters
+based on the requested action and the object speci-  associated with the transaction include at least one of a
+fied by the request message  , including parsing the   transaction  amount  ,  price ,  transaction destination ,  other
+object and reading the verb field ;  assets and / or participants .
+
+wherein the transaction policies are stored as reusable  25. The media of claim 23  , wherein the rules are config
+
+data structures on non - transient media as computer 15  ured to be can be combined using at least one of Boolean
+
+interpretable code specifying a specific compliance  logic  , fuzzy logic  , and / or parameter weighting .
+26. The media of claim 25  ,  wherein communications
+requirement for a transaction ;  occur through an interoperability layer and decorator pattern
+collecting relevant attribute data from the at least one   to govern financial  transactions across multiple dissimilar
+data source in substantially real - time including pars- 20 traditional or distributed ledgers  .
+ing the attribute of the at least one applicable trans-  27. The media of claim 23  ,  wherein the attribute data
+action policy and following the pointer specified by   includes data indicating  at least one of participant regulatory
+the attribute to the data source  , wherein the pointer  qualifications , participant residence  , participant citizenship ,
+
+is stored in the data structure of at least one of the  asset regulatory framework , allowed transaction character
+
+policies  and the  pointer  includes  data  caching 25 istics ,  and / or jurisdiction .
+
+instructions thereby enabling the inclusion of data  28. The media of claim 23  ,  wherein the granting rights
+includes retrieving , from a cache  ,  rights which have been from configurable dynamic internal  or  external  evaluated based on the policy  , the attribute data , and the
+sources  , wherein the attribute data is relevant to at  object  .
+least one of the action  , the object  , and  / or participants 30  29. The media of claim 23  ,  wherein the policy is a
+and wherein the at least one data source shares the   codification  of at least one of issuer policies  ,  international
+attribute data in accordance with a predefined scope  securities laws and regulations ,  and  / or other transaction
+that defines sharing rights of the attribute data ;  controls into pseudo code  .
+executing ,  by a decentralized rules engine an action  30. The media of claim 23  , wherein a a verified identity of
+evaluation  algorithm  including executing the 35 each participant is  mapped to  a wallet address to and
+machine  - readable action evaluation code  , the action  wherein the request message includes the wallet address
+
+evaluation algorithm being configured to interpret  mapped to the requesting participant .
+
+and evaluate the at least one applicable transaction  31. The media of claim 23  ,  wherein the rules engine is
+
+policy and the object and the requested action to  executed on the distributed ledger  .
+
+thereby determine if the action can be authorized in 40  32. The media of claim 23  , wherein the rules engine is
+response to the request message by applying the at  executed both on the distributed ledger and off - chain .
+
+least one rule in the identified policy and the attribute  33. The media of claim 23  ,  wherein the rules engine is
+executed off - chain . data in substantially real time with respect to the
+request  ; and  *   *
+</pre>
+    </div>
+    <footer>
+        <p>Generated on: 2/2/2025, 7:47:15 AM</p>
+        
+    </footer>
+</body>
+</html>

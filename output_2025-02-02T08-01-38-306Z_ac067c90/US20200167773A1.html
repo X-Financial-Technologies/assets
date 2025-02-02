@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US20200167773A1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #000000;
+            background: #ffffff;
+        }
+        .metadata {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #000000;
+        }
+        .content {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #000000;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #ffffff;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            border: 1px solid #000000;
+        }
+        .page-break {
+            border-top: 1px solid #000000;
+            margin: 20px 0;
+            padding-top: 20px;
+        }
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #000000;
+            color: #000000;
+            font-size: 0.9em;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000000;
+        }
+        strong {
+            font-weight: bold;
+        }
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="metadata">
+        <h1>US20200167773A1</h1>
+        <p><strong>Pages:</strong> 29</p>
+        <p><strong>Creator:</strong> Unknown</p>
+        <p><strong>Producer:</strong> libtiff / tiff2pdf - 20100615</p>
+        <p><strong>Version:</strong> 1.1</p>
+        <p><strong>Created:</strong> 2/2/2025, 8:01:42 AM</p>
+    </div>
+    <div class="content">
+        <pre>
+
+IN US 20200167773A1
+
+( 19 ) United States
+
+( 12 ) Patent Application Publication ( 10 ) Pub . No  .: US 2020/0167773 A1
+Cervenka et al  .  ( 43 ) Pub . Date :    May 28 , 2020
+
+( 54 )  LINKED MULTIPLE BLOCKCHAIN SYSTEM  ( 52  )  U.S. CI  .
+CPC  GO6Q 20/3827 ( 2013.01 ) ; H04L 9/3247
+( 71  )  Applicant : Visa International Service  ( 2013.01 ) ; H04L 9/0643 ( 2013.01  ) ; G06Q
+Association , San Francisco , CA ( US )  20/10 ( 2013.01 )
+
+( 72 )  Inventors : Karen Cervenka , Belmont , CA ( US  ) ;
+Kim  Wagner  , Sunnyvale , CA ( US  )
+( 57 )  ABSTRACT
+
+( 21  )  Appl . No  .:  16 / 611,316
+
+( 22 )  PCT Filed :  Jun . 6 , 2018  Embodiments of the disclosure are directed to  a real  - time
+payments settlement system  based on distributed  ledgers ,
+( 86 )  PCT No  .:  PCT  / US2018 / 036318  which may be implemented with blockchain technology .
+
+$ 371 ( c ) ( 1 ) ,  The distributed ledgers may be separate and  distinct and
+
+( 2 ) Date :  Nov. 6 , 2019  each ledger can be used to track , record , and settle transac
+tions between users of a pool account  . The ledgers may also
+Related U.S. Application Data  be interconnected with one another by being connected to a
+
+( 60 )  Provisional application No. 62 / 515,991  , filed on Jun . main ledger , and this network of ledgers can be used to track ,
+
+6 , 2017  record ,  and  facilitate settlement of transactions between
+users of different pool accounts that are associated with
+Publication Classification  different ledgers . This provides redundancy , transparency ,
+
+( 51  )  Int . Ci  .  and data  access controls , while enabling  multicurrency ,
+G06Q 20/38  ( 2006.01  )  cross - border transactions to be quickly verified , performed ,
+G06Q 20/10  ( 2006.01 )  and settled on a per - transaction basis while reducing the
+H04L 9/06  ( 2006.01 )  capital requirements of its users .
+
+300
+
+Global RTP
+Ledger
+USD $ 10.2 M
+CAD $ 7.0 M
+AUD $ 3.9 M  330 310
+
+USD RTP Settlement Act  AUD RTP Settlement Act
+Backed 1 - for - 1 in  USD  Backed 1 - for - 1 in AUD
+
+320 Bank A  Bank C  Bank A  Bank G
+
+$ 3 M  $ 1 M  $ 0.8 M  $ 1.2 M CAD RTP Settlement Act
+312  Backed 1 - for - 1 in  CAD  332
+USD RTP  AUD RTP
+Ledger  Bank A  Bank E  Ledger
+USD $ 10.2M  $ 1 M  $ 1M  AUD $ 3.9 M
+
+322
+Bank B  Bank D  CAD RTP  Bank E  Bank H
+
+$ 4 M  $ 2.2 M  Ledger  $ 0.5 M  $ 1,4 M
+CAD $ 7 M
+
+Bank A  Total  Bank C  Total  Bank C  Bank F
+USD $ 3,0 M  USD $ 1.0 M  $ 2 M  $ 3M  Bank E  Total  Bank G  Total
+
+CAD $ 1.0M  CAD $ 2.0 M  CAD $ 1.0 M  AUD $ 1.2 M
+
+AUD $ 0.8 M  AUD $ 0.5 M Bank D  Total  Bank H  Total
+USD $ 2.2 M Bank B  Total  AUD $ 1.4 M Bank F  Total
+USD $ 4.4 M  CAD $ 3.0 M
+
+
+Patent Application Publication May 28 , 2020  Sheet 1 of 8  US 2020/0167773 A1
+
+N User
+
+126  Pool  Entity  124  Users  122
+
+Ledger  Manager
+
+User 1
+
+User N  1 FIG .
+
+Manager 130  116  Pool  Entity  114
+Main  Ledger  Ledger Manager
+Users  112
+
+User 1
+
+N User
+
+106  Pool  Entity  104
+
+Ledger  Manager
+Users  102
+
+User 1
+
+
+Patent Application Publication May 28 , 2020  Sheet 2 of 8  US 2020/0167773 A1
+
+Nodes 234
+
+Node 1  Node N
+
+Block N
+
+2
+
+Block N
+
+??
+
+Block N
+
+Main Ledger
+232
+
+Block N  Block N  Block N
+
+2  2  2
+
+Block N  Block N  Block N
+
+1  ??  1
+
+Block N  Block N  Block N
+
+Ledger 202  Ledger 212  Ledger 222
+
+Node 1  Node N  Node 1  Node N  Node 1  Node N
+...
+Nodes 204  Nodes 214  Nodes 224
+
+FIG . 2
+
+
+Patent Application Publication May 28  , 2020  Sheet 3 of 8  US 2020/0167773 A1
+
+Bank G 1.2 M $  Bank H 1.4 M $  AUD $ 1.2 M  M. AUD $ 1.4
+Bank G Total  Bank H Total
+
+Backed 1 - for 1 in AUD -  AUD $ 3.9 M
+RTP AUD Ledger
+AUD RTP Settlement Act
+
+Bank A 0.8 M $  Bank E $ 0.5 M  CAD $ 1.0 M AUD 0.5 M $
+Bank E Total  Total Bank F M CAD $ 3.0
+
+332
+
+330
+
+Bank E 1 M $  F Bank $ 3 M
+
+Backed - for - 1 in CAD 1  CAD 7 M $
+
+Global  RTP Ledger USD $ 10.2 M CAD 7.0 $ M AUD $ 3.9 M
+CAD RTP Ledger  FIG 3 .
+
+CAD RTP Settlement  Act
+
+Bank A $ 1 ? M  Bank C $ 2 M
+
+300  322
+
+320
+
+M USD $ 1.0
+
+Bank C 1 M $  Bank D
+Total Bank C  CAD 2.0 M $ USD $ 2.2 M
+Bank D Total 2.2 M $
+
+Backed 1 - for - 1 in  USD  USD $ 10.2 M
+USD  RTP Ledger
+USD RTP Settlement Act  M USD $ 3.0 CAD $ 1.0 M AUD 0.8 M $
+Bank A Total  Bank Total B M USD $ 4.4
+
+Bank A M $ 3  Bank B M $ 4
+
+312
+
+310
+
+
+Patent Application Publication May 28  , 2020  Sheet 4 of 8  US 2020/0167773 A1
+
+Currency Act $ 2.2M
+
+Bank G $ 1.2 M  Bank H $ 1.2 M  AUD $ 1.2 M  AUD 1.2 M $ G Total Bank  Total Bank H
+
+Backed - for - 1 in AUD 1  AUD $ 5.9 M
+AUD RTP
+AUD RTP Settlement  Act
+Ledger
+
+Bank A M $ 0.8
+Bank E $ 0.5 M  CAD $ 0.5 M AUD 0.5 M $
+Bank E Total  Total Bank F CAD 3.0 $ M
+
+432
+
+430
+
+Act $ 2.5 M
+
+Currency
+
+Bank E 0.5 M $
+Bank F $ M 3
+
+12.2 M USD $ CAD $ 9.0  AUD $ 5.9 M M  Backed - for - 1 in 1 CAD  CAD 9 $ M
+
+Global  RTP Ledger  CAD  RTP Ledger  FIG . 4
+CAD RTP Settlement  Act
+
+Bank A $  1  M  Bank C $ 2  M
+
+400  422
+
+420
+
+2.6 M $
+
+Currency
+Act
+
+USD $ 1.0 M CAD $ 2.0 M  USD 2.2 M $
+Bank C  Bank D  Bank C Total  Bank D Total $ 1M  $ 2.2 M
+
+Backed - for - 1 in 1 USD
+USD RTP  USD $ 12.2 M
+Ledger
+USD RTP Settlement Act
+
+USD 3.0 M $ CAD $ 1.0 M AUD 0.8 M $  USD $ 3.4 M
+
+Bank A $ 3  M  Bank B
+Total Bank A  Bank B Total $ 3.4 M
+
+412
+
+410
+
+
+Patent Application Publication May 28  , 2020  Sheet 5 of 8  US 2020/0167773 A1
+
+Previous Block Header Hash :  Pool Value - $ 1 M Change :
+
+07:12:25 2018-04-02 Timestamp :  Txn 1 Destination : Bank B Txn 1 Type : Deposit / Withdraw Amount : $ 1 M Txn 1
+
+Merkle wui347548sj Root :  Origin : Bank B Txn 1  Txn 1 Time : 2018-04-02 05:09:35  Txn Data : Txn_ID_3 , 1
+
+Block  73
+
+000000fjg8fx  Digital_Sig_3
+
+Header
+Transactions
+
+514
+
+516  518
+
+Previous Block Header Hash :
+
+Blockchain Pool Account for  Pool $ 1  Value M Change :
+
+17:43:36 2018-04-01 Timestamp :  FIG 5 .
+Txn 1 Destination : Bank A
+Withdraw Type : Deposit / Txn 1 $ 1 M Txn 1 Amount :
+
+Merkle fjfgjgh584jhf Root :  Origin : Bank A Txn 1  Txn 1 Time : 2018-04-01 15:13:09  Txn 1 : Txn_ID_2 , Data
+
+Block  72
+
+Digital_Sig_2
+
+Header  00000fh5689  Transactions
+
+508
+510  512
+
+500
+
+Block Header Hash : Previous
+
+11:21:02 2018-04-01 Timestamp :  Txn 1 Destination : Bank B  Pool 0 Value  Change :  $
+Txn 1 Amount : $ 1 M
+
+Merkle cvjt8348dfjseu39 Root :  Origin : Bank A Txn 1  Txn 1 Time : 2018-04-01 10:19:02  Txn Data : Txn_ID_1 , 1
+
+Transfer Txn Type : 1
+
+Digital  Sig_1
+Block  71
+
+0000548jchd7
+
+Header
+Transactions
+
+502
+
+504  506
+
+
+Patent Application Publication May 28 , 2020  Sheet 6 of 8  US 2020/0167773 A1
+
+Txn 1 Destination : Bank F , B Pool  Pool A : - $ 1 M USD Pool B : .78 M CAD $
+
+Previous Block Header Hash :
+
+07:12:25 2018-04-02 Timestamp :
+Origin Bank A , Pool A Txn 1 :  0.78 Currency / CAD , USD :
+Txn 1 Amount : $ 1 M
+
+Merkle : wui347548sj Root  Pool  Value  Change  Txn : Data Txn_ID_3 , : 1
+
+Transfer Type Txn 1 :
+
+Block  73
+
+Digital_Sig_3
+
+Header  000000mnt87s  Transactions
+
+614
+
+616  618
+
+Txn 1 Destination : Bank A , Pool A
+
+Previous Block Header Hash :  Pool A : $ 1 M
+
+17:43:36 2018-04-01 Timestamp :
+Origin Bank A , Pool A Txn 1 :  FIG .  6
+
+Blockchain Main  Withdraw Deposit Type 1 Txn Txn 1 Amount : $ 1 M / : USD USD Currency
+Pool : /
+
+Merkle Root : msdft19584kvs  Value  Txn Data Change Txn_ID_2 , : : 1
+
+Block  72
+
+Digital_Sig_2
+
+Header
+00000rwr2342  Transactions
+
+608
+
+610  612
+
+600
+
+Txn 1 Destination : Bank B , Pool A
+
+Previous Block Header Hash :
+
+11:21:02 2018-04-01 Timestamp :  , Pool A Origin : Bank A Txn 1  Pool : $ A 0
+
+Txn 1 Amount : $ 1 M
+Currency : USD / USD
+
+Merkle Root : rdwt3456askret39  Pool  Value  Txn Data Change Txn_ID_1 , : : 1
+
+Transfer Type : Txn 1
+
+Block  71
+
+Digital_Sig_1
+
+Header  0000123mnst4
+Transactions
+
+602
+
+604  606
+
+
+Patent Application Publication May 28 , 2020  Sheet 7 of 8  US 2020/0167773 A1
+
+Bank B
+
+Bank + $ 2 MM B
+
+txn # 445 txn # aa8
+
+b21 # Txn  Bank A
+
+inputs  outputs
+
+702
+
+FIG .  7
+
+Bank A
+
+Bank +1 A MM  Bank + 1M A
+
+Bank A - Bank A  343 txn # 05a txn #
+
+Txn # 445  Txn # aa8  Bank C
+
+inputs  outputs  inputs  outputs
+
+704  706
+
+
+Patent Application Publication May 28 , 2020  Sheet 8 of 8  US 2020/0167773 A1
+
+User B
+
+Pool B
+
+818
+
+Blockchain B
+
+810  FIG 8 .
+
+908  816
+
+Main
+
+Blockchain
+
+804  808  812  820
+
+Blockchain A
+
+814
+
+Pool A
+
+802
+User A
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+1
+
+LINKED MULTIPLE BLOCKCHAIN SYSTEM  of nodes hosting a second blockchain ledger . This second
+blockchain ledger records transactions , deposits , and with CROSS - REFERENCES TO RELATED  drawals of funds associated with each user in a second set of APPLICATIONS  users that have all deposited ( e.g. , funds ) into a second pool
+
+[ 0001 ]  The present application is a non - provisional of and  account  . Like the first blockchain ledger , the second block
+
+claims the benefit and priority under 35 U.S.C. 119 ( e ) of  chain ledger also records and tracks the current total value
+U.S. Provisional Application No. 62  / 515,991 filed Jun . 6 ,  of the second pool account , which will initially  be the
+
+2017 , the entire contents of which are incorporated herein by  aggregate value of all the deposits from  the second set of
+users . reference for all purposes .
+
+[ 0007 ]  In some embodiments , there may be a main block BACKGROUND  chain ledger . For instance , there may be a third plurality of
+nodes hosting a main blockchain ledger . In  some embodi
+[ 0002 ]  In today's technological environment , a user may  ments , the main blockchain ledger may record changes in
+interact with  a variety of computer systems to  initiate a
+transaction , which may include any exchange or interaction  the current total value of the various pool accounts , such as
+the current total value of the first pool account and the between two or more entities ( e.g. , between the user and a  current total value of the second pool account  . This can be resource provider ) .  The  transaction  can  include  the  implemented in various ways . The third plurality of nodes exchange of specific resources , goods , services , financial may be configured to  periodically obtain  the current total instruments , access ( e.g. , to a secure resource or area ) , and
+so forth .  value of the  first pool account from  the first blockchain
+ledger and the current total value of the second pool account
+[ 0003 ]  However  , the contractual obligations in the trans  from  the second blockchain  ledger  , and then  the third action may not all occur simultaneously . For example , a user  plurality of nodes may update the main blockchain ledger interacting with a computer system  to purchase coffee may  with those retrieved values . In other cases , the first plurality actually be exchanging a promise to pay for the coffee , since of nodes and the second plurality of nodes may provide the user may receive the coffee before the transaction clears  updates to the third plurality of nodes for any changes to the
+and the coffee vendor receives payment for the coffee . The current total value of the first pool account and the current coffee vendor does not receive payment until the transaction total value of the second pool account ( e.g. , resulting from
+is  settled  and  the  funds have been  transferred  into  the  transactions associated with users in the first set of users or
+vendor's account . In a conventional system , the payment can  the second set of users ) . take anywhere from  24 hours up to three days to process a
+payment  . These delays in transaction settlement are unde  [ 0008 ]  In some embodiments , a node of the first plurality
+
+sirable when considering the  risks faced by transaction  of nodes hosting the first blockchain ledger may receive a
+parties .  transaction . As previously mentioned , the first blockchain
+ledger may record transactions between the first set of users
+BRIEF SUMMARY  associated with the first pool account , for which each user of
+the first set of users deposited funds for settlement into the
+[ 0004 ]  The present disclosure contemplates embodiments  first pool account . In  some embodiments , the first block of methods and computing systems associated with real - time chain ledger may record , for  each transaction between the
+settlement using a distributed ledger , such as a blockchain  first set of users , a payer , a payee , and a transaction amount  .
+ledger . These embodiments may be further directed to  a
+server computer comprising a  processor and a memory  [ 0009 ]  The received transaction may be from  a first user of
+
+coupled to the processor . The memory can store instructions ,  the first set of users to  a  second user of the first set of users
+
+executable by the processor  , for implementing the methods  for a first amount  . The node of the first plurality of nodes
+
+described herein .  These  and  other embodiments  of the  may verify that the received transaction is capable of taking
+
+invention are described in  further detail below .  place by checking the first blockchain ledger ( e.g. , to deter
+
+[ 0005 ]  In  order to  facilitate  real - time settlement , a com  mine the account value associated with the first user ) . In
+puting system may include a first plurality of nodes hosting  some embodiments , verifying that the transaction is capable
+
+a first blockchain ledger . This first blockchain ledger records  of taking place includes checking the first blockchain ledger
+
+transactions between a first set of users that have all depos  for a history of transactions associated with the first user  . In
+
+ited ( e.g. , funds ) into a first pool account  . In some cases , the some embodiments , verifying that the transaction is capable
+
+users may be banks or financial entities , and each user may of taking place includes checking an account value associ
+have their own individual set of customers . The first block  ated with the  first user .  This account  value may be an
+
+chain ledger may also record deposits and withdrawals of  ongoing count that is updated in real  - time as the first user
+
+funds associated with each user in the first set of users . By  carries out transactions , deposits , and withdrawals of funds .
+
+recording transactions , deposits , and withdrawals associated  The node of the first plurality of nodes may then update the
+
+with each user in  the first set of users , the first blockchain  first blockchain ledger with  the transaction  to  include a
+
+ledger can also  be used to  record and track  the account  block with data relating to the first transaction .
+
+values associated with  each  user . Furthermore ,  the  first  [ 0010 ]  In  some embodiments , the node of the first plural
+blockchain ledger can also be used to record and track the  ity of nodes may determine that the transaction reduces an
+current total value of the first pool account , which will  account value associated with the first user below  first
+initially be the aggregate value of all the deposits from  the  threshold and then send a communication to the first user to
+
+first set of users .  deposit additional funds into  the first pool account  . Simi
+
+[ 0006 ]  In  some embodiments , there may be additional  larly , in  some embodiments , the node of the first plurality of
+blockchain ledgers that are each associated with additional  nodes may determine that the transaction increases an
+pool accounts . For instance , there may be a second plurality account value associated with  the second user  above a
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+2
+
+second threshold and then  send a  communication  to  the  communication can  also be sent to a second plurality of
+second user to withdraw funds from  the first pool account .  nodes hosting  a  second blockchain  ledger  .  This  second
+
+[ 0011 ]  In some embodiments , the node of the first plurality blockchain ledger will record transactions between users
+of nodes hosting the first blockchain ledger may receive a  that deposited funds for settlement into  the second  pool
+second transaction from  the first user of the first set of users  account and can be used to  track  changes in account value
+
+to a third user that did not deposit funds for settlement into  for those users ,  including the second user  .  The second
+
+the first pool account . The node of the first plurality of nodes communication will instruct the second plurality of nodes to
+may verify that the second transaction is capable of taking  update the second blockchain ledger to include an increase
+place by checking the first blockchain ledger ( e.g. , to deter  in an  account value associated with the second user at the
+mine the account value associated with the first user ) . In  second pool account , which may also  increase the current
+some embodiments , verifying that the transaction is capable  total value of the second pool .
+of taking place includes checking the first blockchain ledger  [ 0015 ]  In some embodiments , the first pool account and
+for a history of transactions associated with the first user . In  the second pool account may be associated with  different
+some embodiments , verifying that the transaction is capable  currencies . For instance , the first user may have deposited a
+of taking place includes checking an account value associ  first type of currency ( e.g. , USD ) into the first pool account ,
+ated with  the  first user .  This account  value may be an  which is associated with users from  the United States  .  The
+ongoing count that is updated in real  - time as the first user second user may have deposited a second type of currency
+carries out transactions , deposits , and withdrawals of funds .  ( e.g. , CAD ) into the second pool account , which is  associ Upon verification , the node of the first plurality of nodes  ated with  users  from  Canada .  The account  value  for the
+may then communicate the second transaction to  another  second user that is recorded by the second blockchain ledger
+plurality of nodes associated with another blockchain ledger , may be tracked in CAD , and thus , to receive the first amount
+such  as communicating  to  a  second plurality of nodes  being sent in the transaction , the second user may actually
+hosting a second blockchain ledger .  have to  receive the CAD equivalent  to the  first amount .
+[ 0012 ]  In some embodiments , the main blockchain ledger  Accordingly , in  some embodiments , any entity managing or
+may obtain information from  the other blockchain ledgers  hosting the main blockchain  ledger ( e.g. , a  node of a
+and be used to  facilitate real - time settlement between users  plurality nodes ) may determine a currency associated with
+of different pools . For instance , any entity managing or  the second pool account and convert the first amount into a
+hosting the main  blockchain  ledger  ( e.g. , a  node of a  second amount based on the determined currency . In this
+plurality nodes ) may receive a transaction between a first  situation , the second communication will further instruct the
+user to a second user for a first amount . However , rather than  second plurality of nodes to update the second blockchain
+both the first user and the second user having deposited into  ledger to include the increase in the account value associated
+the same pool account , the first user deposited funds for  with  the  second user at the second pool account by the
+settlement into  a first pool account and the second user  second  amount ( e.g. , the  CAD  equivalent  to  the  first
+deposited funds for settlement into a second pool account .  amount  ) .
+
+[ 0013 ]  The transaction can be verified to determine that it  [ 0016 ]  In some embodiments , there may be a currency
+
+is  capable  of taking place by checking an account value  account at each of the pools involved in  the transaction . The
+associated with the  first user at the first pool account . In  transactions , deposits , and withdrawals of funds for each
+some embodiments , the main blockchain ledger may keep  currency account may also be tracked in the corresponding
+track of the account value associated with the first user and  blockchain ledger . For example , the first pool may have a
+receive periodic updates from  a  first blockchain  ledger  first  currency account and the second pool may have a
+associated with the first pool account about any changes to  second currency account . In  such cases , when a first user of
+the account value associated with the first user .  This first  the first pool transacts with a second user of the second pool
+blockchain ledger will record  transactions between users  to  send a  first amount  , funds from  the account  of the first
+that deposited funds for settlement into the first pool account  user need not be directly transferred to  the account of the
+and can be used to track changes in account value for those  second user . Instead , a transaction can be recorded in  the first
+users , including the first user . In  other embodiments , the  blockchain ledger associated with the first pool indicating
+main blockchain  ledger may request the account value  the first amount is to be transferred from the first user to  the
+associated with the first user from one of the nodes of a  first  first currency account of the first pool  . At the same time  , the
+plurality of nodes hosting the first blockchain ledger that is  second blockchain ledger associated with the second pool
+associated with the first pool account  .  can record a corresponding transaction in which the first
+
+[ 0014 ]  In  some embodiments , transactions between users  amount is sent from  the second currency  account of the
+of different pools will affect the account values associated  second pool to  the account of the second user . In  order to
+with those users , as well as the current total value of those implement the recording of these transactions , in  some
+pools . For instance , the current total value of the first pool embodiments , the first communication sent to the first plu
+and the current total value of the second pool will both  rality of nodes hosting the first blockchain ledger will further
+change as funds are transferred from  the first user at the first  instruct the first plurality of nodes to update the first block
+pool to  the second user at the second pool  . Once it is  chain ledger to include a corresponding increase in  a cur
+determined the transaction can take place , a first communi  rency account value at the first pool account by the first
+cation can then be sent to the first plurality of nodes hosting  amount . In such embodiments , the second communication
+the first blockchain ledger to  instruct the first plurality of  sent to  the second plurality  of nodes hosting the second
+nodes to  update the first blockchain  ledger to  include a  blockchain ledger will further instruct the second plurality of
+decrease in the account value associated with the first user  nodes to update the second blockchain ledger to  include a
+at the first pool account by the first amount  , which may also corresponding decrease in  a currency account value at the
+decrease the current total value of the first pool  . A second second pool account by the second amount .
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+3
+
+[ 0017 ]  In the previous example , the current total values of later . For example , the customers of two different financial
+the first pool account and the second pool account would not institutions ( e.g. , banks ) may transact with  each  other
+change . However , if the account value of a particular cur  throughout the day . As the transactions clear , the customer
+rency account drops too low , additional funds may need to  account balances within those financial institutions may be
+be deposited into  that currency  account which  would  updated . However  , there has not actually been a transfer of
+increase the current total value of the corresponding pool  payment between the financial institutions until settlement
+account  . Similarly , the current total value of the pool account occurs . For example , at the end of the day  , the net flow of
+would decrease if funds are withdrawn from  the correspond  funds between various financial institutions may be deter
+ing currency account at the pool . In  some embodiments ,  mined by aggregating the many transactions between their
+when a currency account at a pool account has too low or too customers that occurred during the day . Those differences
+high of an account value , the nodes hosting the correspond are then  settled , often by electronic  funds transfer ( in  the
+ing blockchain ledger may provide a communication to  a  U.S. ,  a  bank wire  transfer made through  the Federal
+custodian of the pool account to  fix that issue .  Reserve's Fedwire system ) . Thus , settlement does not occur
+[ 0018 ]  Thus  , in the previous example , the custodian of the  on a per - transaction basis , but rather on an aggregate of
+
+first currency account may receive a communication that the  transactions .
+currency account value at the first pool account is above a  [ 0029 ]  The interbank settlement of  funds between  the
+first threshold and withdraw funds from  the first currency  various financial institutions  is commonly based  on  an
+account at  the first  pool account  to  bring the currency  centralized ledger for recording those transactions , and the
+account value below  the first threshold . Similarly , the cus  ledger provides subtotals for thousands of financial institu
+todian of the second pool account may receive a communi tions around the world . Funds are then commonly moved
+cation that the currency account value at the second pool  between the various financial institutions in the form  of a fiat
+account is below  a second threshold and deposit funds into  currency or another expungable type of currency . However  ,
+the second currency account at the second pool account to  this process is slow and is only performed  at the end of the
+bring the currency account value above the second thresh  day once all the transactions have been made  .
+old .  [ 0030 ]  New real - time payment ( RTP ) schemes have been
+introduced to  speed up this process . These new  real - time BRIEF DESCRIPTION OF THE DRAWINGS  payment schemes post / net transactions against funds that
+
+[ 0019 ]  FIG . 1 illustrates a system  diagram  for a distributed  have been pre - funded by the various financial institutions .
+
+ledger settlement system , in accordance with embodiments  As long as a  financial  institution has a positive balance
+of the present disclosure .  available , transactions are debited  or credited  from  that
+
+[ 0020 ]  FIG . 2 illustrates a blockchain implementation for  balance  . If the balance is  insufficient , then  the financial
+
+distributed ledgers used in  the distributed ledger settlement  institution deposits additional funds ( e.g. , with the central
+
+system ,  in  accordance  with  embodiments of the present  bank ) to increase the balance . The primary benefit of a RTP
+
+disclosure .  system  is that payees in a transaction can receive immediate
+
+[ 0021 ]  FIG . 3 illustrates an example implementation for  access to funds sent by payors , as the financial institution
+implementing the RTP system  can provide the payee with
+the distributed ledger settlement system , in accordance with
+embodiments of the present disclosure .  funds from  the pre - funded settlement account . However ,
+
+[ 0022 ]  FIG . 4 illustrates an  example implementation for  such pre - funded RTP approaches also involve the  actual
+
+the distributed ledger settlement system , in accordance with  movement of funds ( e.g. , in  the form  of a  fiat currency ) ,
+which further ties up the working capital of those financial embodiments of the present disclosure .  institutions .
+[ 0023 ]  FIG . 5 illustrates an example diagram of blocks in
+
+a blockchain ledger for the distributed ledger settlement  [ 0031 ]  In the present disclosure , methods and systems are
+proposed for an approach involving a real - time payments system , in  accordance  with  embodiments of the present
+disclosure .  distributed ledger settlement system that allows transactions
+
+to be quickly settled ( e.g. , on a per - transaction basis ) without
+[ 0024 ]  FIG . 6 illustrates an example diagram  of blocks in  needlessly tying up the working capital of the financial
+a  blockchain ledger for the distributed ledger settlement
+system , in  accordance  with  embodiments of the present  institutions ( e.g. , users ) that are participants of the system .
+
+disclosure .  [ 0032 ]  In the proposed RTP distributed ledger settlement
+
+[ 0025 ]  FIG . 7  illustrates  an  example diagram of how  system , the centralized ledger is replaced with one or more
+
+transactions may be verified in a  distributed ledger settle  distributed ledgers , which can also be implemented using a
+ment system , in  accordance with embodiments of the pres  conventional ledger or with  blockchain  technology . The
+ent disclosure .  distributed ledgers may be separate and distinct based on
+
+[ 0026 ]  FIG . 8 illustrates  a step diagram  for an example  business needs , but at the same time the distributed ledgers
+
+cross - pool transaction using the distributed ledger settle  may also interconnected with  one another by being con
+ment system , in  accordance with embodiments of the pres  nected to  a main ledger  . Thus , the various ledgers may be
+
+ent disclosure .  arranged in a " chain of chains ” that is usable for tracking and
+recording various transactions between different financial
+DETAILED DESCRIPTION  institutions . This “ chain of chains ” may be used to facilitate
+settlement between financial institutions associated with
+
+[ 0027 ]  Introduction  different ledgers ( e.g. , interbank settlement ) and the physical
+
+[ 0028 ]  As previously discussed , transactions are often  movement of funds from  a ledger to a fiat currency or other
+
+settled after a transaction takes place . Settlement involves  expungable type of currency ( e.g. , outside the blockchain ) .
+the actual , physical delivery of funds and occurs after a  [ 0033  ]  This arrangement and implementation of ledgers
+transaction has cleared , and it may sometimes occur much  allows funds to be converted quickly and easily between
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+4
+
+ledger balances and fiat currency , not just domestically but  peer - to - peer network collectively adhering to  a protocol for
+also internationally — allowing multicurrency , cross - border  validating new blocks . Once recorded , the data in any given
+transactions to be quickly performed and settled without  block  cannot be altered retroactively without the alteration
+needlessly tying up the working  capital of the financial  of all subsequent blocks and the collusion of the network .
+institutions making those transactions . Instead of relying on  This allows the blockchain to  serve as a distributed ledger
+pre - funding or collateral for settlement , the financial insti  for recording transactions between parties in a verifiable and
+tutions can simply manage their own ledger balance . Fur  permanent way  .
+thermore , the ledgers can be implemented using blockchain  [ 0039 ]  A “ node  ” may refer to any suitable data computa
+technology which has built - in mechanisms to ensure that the  tion  device or devices , which may commonly include a
+data between the ledgers may automatically be synchro  processor and memory for running applications , such  as a
+nized , and the resulting framework may be able to address  blockchain client . In  some embodiments , a node may be
+issues typically associated with the distributed ledgers , such  tasked with updating and maintaining a blockchain .
+as data privacy , connectivity , and the ability and willingness  [ 0040 ]  A “ processor ” may refer to any suitable data com
+of financial institutions to manage a distributed ledger .  putation device or devices . A processor may comprise one or
+[ 0034 ]  In particular , each ledger may be associated with a  more microprocessors working together to  accomplish  a
+different pool account , which are provided by pool entities .  desired function . The processor may include CPU comprises
+Each pool account may be used to aggregate the deposits of  at least one high - speed data processor adequate to execute
+one or more users . Each ledger is  used to  track and record  program components for executing user and / or system
+in real - time the total aggregate value of the associated pool  generated requests . The CPU may be a microprocessor such
+account , the transactions between users with deposits in that  as AMD's Athlon , Duron  and / or Opteron ;  IBM  and / or
+pool account  , the balance for each user in that pool account Motorola's ,  PowerPC ; IBM's and Sony's Cell processor ;
+and any deposits or withdrawals by the users of that pool  Intel's Celeron , Itanium , Pentium , Xeon , and / or XScale ;
+account .  Transactions between users of the same pool  and / or the like processor ( s ) .
+account can be performed with the pool entity acting as a  [ 0041 ]  A “ memory ” may be any suitable device or devices
+clearinghouse and without requiring traditional settlement  that can  store  electronic  data .  A  suitable memory may
+( e.g. , the physical movement of funds from  one of the  comprise a non - transitory computer readable medium that
+ledgers to  a  fiat currency  or other expungable type of  stores instructions that can  be executed by a  processor to
+currency ) . Furthermore , each ledger may also be intercon  implement a desired method . Examples of memories may
+nected through a main ledger , which records the global fund comprise one or more memory chips , disk drives , etc. Such
+flows among the various pool accounts and can be used to memories may operate using any suitable electrical , optical ,
+facilitate transactions between users  of  different  pool  and / or magnetic mode of operation .
+accounts ( or multicurrency , cross - border transactions ,  in
+practice ) .  [ 0042 ]  An " application ” may be computer code or other
+data stored on a computer readable medium ( e.g. memory
+Terms and Definitions  element or secure element ) that may be executable by a
+processor to complete a task .
+
+[ 0035 ]  Prior to  discussing  the details of some embodi  [ 0043  ]  A  " ledger manager  ”  may include any  suitable
+ments of the present invention , description of some terms  entity  that operates a ledger for recording  transactions
+may be helpful in understanding the various embodiments .  between users associated with  a  pool account . In  some
+[ 0036 ]  A  “ transaction ” may comprise any exchange or  embodiments , a ledger manager may also be a pool entity
+interaction between tw  or more entities .  The transaction  ( e.g. , such  as a  bank responsible  for providing a  pool
+can  include the exchange  of resources , goods , services ,  account ) or a business entity ( e.g. , a financial institution such
+financial instruments , access ( e.g.  , to  a secure resource or  as a transaction processor ) . In some embodiments , the ledger
+area ) , and so  forth . In some embodiments , the transaction  may be a distributed ledger ( e.g. , a blockchain ledger ) and
+may include the exchange of an asset or service in return for  the term  ledger manager may refer to any entity that operates
+payment between a buyer or seller . “ Settlement of a trans  one or more full nodes for managing the ledger and record
+action may refer to the delivery and fulfillment of contrac  ing  transactions between users  associated with  a  pool
+tual obligations associated with  that transaction .  account  . In such embodiments , there may not be a single
+[ 0037 ]  A “ ledger ” may be a tangible object ( e.g. , a prin  ledger manager and the ledger manager may actually consist
+cipal book ) or a  digital object ( e.g. , a computer file , a  of multiple entities . For example , there may be one or more
+database , a blockchain , and so forth ) for recording transac  entities ( including users associated with the pool account )
+tions . As previously mentioned ,  such  transactions  can  that operate one or more nodes that collectively manage and
+include the exchange of specific resources , goods , services , host the ledger based on an established framework . In some
+financial instruments , access ( e.g.  , to  a secure resource or  embodiments , pool accounts may be country - specific , and in
+area ) , and so  forth .  Some ledgers may record and total  such  embodiments , the  ledger manager  for  each  pool
+economic transactions , measured in  terms of a monetary  account may be referred to as a “ country ledger manager ” .
+unit , between various accounts . The ledger may be a per  [ 0044 ]  A “ main ledger manager ” may include any suitable
+manent summary of all  transactions and their  amounts ,  entity that operates a main ledger for recording transactions
+along with the beginning and / or ending monetary balance  between users associated with  different pool accounts . In
+for each account involved in  the transaction .  some embodiments , the main  ledger manager may be a
+
+[ 0038 ]  A “ blockchain ” may be a distributed database that  business entity ( e.g. , a financial institution such as a trans
+
+is  used to maintain  a continuously growing list of records ,  action processor ) . In  some embodiments , the main ledger
+which can be in  the form  of blocks . In some implementa  may be a distributed ledger ( e.g. , a blockchain ledger ) and
+tions , each  block  contains  a timestamp and  a link  to  a  the term main ledger manager may refer to  any entity that
+previous block . A  blockchain  is  typically managed by a  operates one or more full nodes for managing the main
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+5
+
+blockchain ledger , which interacts with the pool  - specific ment services ) , a ledger manager ( e.g. , a country ledger
+blockchain ledgers in order to facilitate cross - pool transac manager ) , a main ledger manager ( e.g. , a  global ledger
+
+tions . In such embodiments , there may not be a single main manager ) , and currency account custodian , unless stated
+ledger manager and the main ledger manager may actually otherwise .
+consist of multiple entities . For example , there may be one [ 0051  ]  Figures
+or more entities that operate one or more nodes that collec  [ 0052 ]  FIG . 1 illustrates a system  diagram  for a distributed
+tively manage and host the main ledger based on an estab ledger settlement system , in accordance with embodiments
+lished framework . In  some embodiments , pool accounts may  of the present disclosure . be country - specific , and in  such  embodiments , the main
+ledger manager may be referred to  as a “ global ledger  [ 0053 ]  In various embodiments , there may be any number
+manager " as it manages a global blockchain ledger . In some  of ledger managers and / or pool entities . For the sake of
+embodiments , the main ledger manager may also be the  simplicity , three ledger managers  are shown with  each
+
+ledger manager for one or more of the ledgers associated  manager in  electronic  communication with a single pool
+
+with the pool accounts .  entity . In practice , a ledger manager may communicate with
+multiple pool entities , or they could be multiple ledger
+[ 0045 ]  A “ user ” may refer to any entity that may partici  managers for each pool entity . pate as a party to a transaction and deposits funds with a pool
+entity ( e.g. , into a pool account ) . Although the term  user may [ 0054 ]  In  some embodiments , one or more users 102 ,
+include any individual that has deposited funds into a pool  including user 1 through user N , may deposit funds with a
+account , for the purposes of clarity and consistency , the  pool entity  104. Similarly , one or more users 112 may
+
+users described in the examples herein primarily refer to a  deposit funds with a pool entity 114 , and one or more users
+business entity , such as a bank , that has deposited funds with  122 may deposit funds with a pool entity  124. Each pool
+
+the pool entity . In some embodiments , these users may even  entity may provide a pool account that aggregates the funds
+
+operate one or more nodes hosting the blockchain ledger  deposited by its users . For example , all of the users 102 may
+
+associated with the corresponding pool account  . These users deposit funds into  one pool account of the pool entity 104 .
+may have customers ( e.g. , an  individual that does banking  In some embodiments , a pool entity may be a central bank
+
+with the user ) . In  some embodiments , the real - time pay  ( e.g. , the Federal Reserve ) and the users may be financial
+ments distributed ledger settlement system can also facilitate  institutions ( e.g. , commercial banks ) that deposit funds with
+
+transactions between the customers of two different users by the pool entity . In some embodiments , those funds may be
+recording the transfer of funds between those two users .  stored by the pool entity ( e.g. , the central bank may physi
+
+[ 0046 ]  A “ pool entity ” may be any business entity ( e.g. , a cally store those funds ) .
+bank ) that issues and maintains a pool account for its users  [ 0055 ]  In some embodiments , transactions between users
+
+( e.g. , one or more entities ) . In  some embodiments , a pool  with deposits in the same pool account may be managed and
+account may be associated with a particular country , and the  facilitated by a ledger manager . For example , transactions
+users associated with the pool account may have funds in the between users 102 with deposits in the pool account pro
+pool account in  the currency  of that country .  In  some  vided by the pool entity  104 may be managed and facilitated
+embodiments , the pool entity may be also be a " settlement  by the ledger manager 106. The ledger manager 106 may
+
+entity ” that is responsible for handling settlement with the  maintain a ledger for recording the transactions between the
+individual users in that pool account  .  users 102 and the amount of funds available to  each of the
+
+[ 0047 ]   " central bank ” may refer to a country's central  users 102. The ledger manager 116 may do the same for
+
+ized bank or any other entity responsible for the settlement  users 112 , while the ledger manager 126 may do the same for
+funding mechanism in  a country . For example , the Fed is  users 122. In some embodiments , a ledger manager may be
+
+responsible for settlement funding in the United States .  one or more financial institutions tasked with maintaining
+
+[ 0048 ]  A  “ currency account ” is an account in  a pooled  the ledger ( e.g. , distributed database ) .
+account specifically used to facilitate cross - pool transactions [ 0056 ]  In some embodiments , each ledger manager may
+
+( e.g. , transactions between users with accounts at different  be any entity or set of entities suitable for maintaining a
+pools )  ledger . In some embodiments , the ledger may be a digital
+
+[ 0049 ]  A  " custodian of a currency account ” may be any  object ( e.g. , a computer file , distributed database , block
+business entity ( e.g. , a bank or transaction processor ) that  chain , and so  forth ) . In  such  instances , a ledger manager
+deposits and maintains funds into a currency account in a  could be an  entity or set of entities that includes one or more
+pool account  . In some embodiments , the same custodian can  computer systems ( nodes ) to manage  , handle , and update the
+maintain currency accounts at many  , or even all , of the pool ledger and record transactions between users of that ledger .
+accounts in order to  facilitate ease of settlement . In some of  For example , the ledger manager 106 may include a set of
+embodiments , the custodian may also be the main ledger  nodes that records transactions between the users  102 as
+manager and / or the ledger manager of one or more pool  blocks in  a blockchain .
+accounts .  [ 0057 ]  In some embodiments , each ledger manager may
+
+[ 0050 ]  It should be noted that many of the roles performed be in  communication with a main ledger manager 130 that
+by the different entities described above are not mutually  is tasked with managing  main ledger  . In  some embodi
+exclusive , and thus , can be performed by a single entity . For ments , the main ledger manager 130 may be any entity or set
+instance , one entity may be the custodian of the currency  of entities suitable for maintaining the main ledger . In such
+accounts at all the pool accounts while also managing the  instances , the main ledger manager could be an entity or set
+main blockchain ledger and the blockchain ledgers associ  of entities that maintain one or more computer systems to
+ated with  all pool accounts . Thus , any and all of the roles store , handle , and update the main ledger . In some embodi
+could be established at a pool entity ( e.g. bank ) , a central  ments , the main ledger manager 130 may be distinct from
+bank , a transaction processor ( a third party providing settle  the other ledger managers , while in  some embodiments , the
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+6
+
+roles of the main ledger manager 130 and each of the other  balances of that entity , but not transactions or balances from
+ledger managers may be performed by a singular entity .  other entities . To establish these roles , issued participants
+
+[ 0058 ]  In  some embodiments , the main ledger may also be may be provided with public key certificates with which
+
+in blockchain format ( e.g. , a distributed database ) , and the  they could access permitted data from  the ledger .
+main ledger manager 130 may be one or more entities that [ 0063 ]  There may be a certificate authority ( CA  ) to man
+provide a set of computer systems ( e.g. , nodes ) for managing age  the  digital  certificates  electronically .  Furthermore ,
+the main ledger . The main ledger may be associated with  access to data contained in the ledgers and the main ledger
+each of the ledgers managed by the ledger managers . For  may be defined by the various entities associated with the
+example , the main ledger may include transaction informa  data or by the data owner through a framework dashboard .
+tion from  the ledgers maintained by the ledger manager 106 ,  In some embodiments , the framework ( e.g. , " chaincode ” ) or
+the  ledger manager  116 , and the ledger manager  126 .  software associated with the ledger may also  be set or
+Discussion of the role of each ledger and the main ledger is configured with various business or transaction rules that
+provided in  regards to  FIG . 3 .  would be enforced and govern the transactions on the ledger .
+
+[ 0059 ]  In some embodiments , each ledger and the entities  Some examples of business rules would include the auto
+involved with the associated pool account may belong to a  matic execution of commands such as top - ups ( as well as
+certain jurisdiction ( e.g. , a country or region ) , resulting in  setting the threshold for top - ups  ) or validity checks , as well
+separate ledgers for each jurisdiction . For example , there  as the encryption taken place for confidentiality . Examples
+may be a ledger specifically associated with the U.S. that  of how data access and business or transaction rules may be
+records transactions in  U.S. dollars between  users that  configured are provided in regards to FIG . 3 .
+deposited into a U.S. based pool account . In this scenario ,  [ 0064 ]  FIG . 2 illustrates a blockchain implementation for
+the main ledger can be used to  facilitate cross - border and  distributed ledgers used in  the distributed ledger settlement
+multi - currency transactions between users associated with  system , in  accordance with  embodiments of the present
+different pool accounts and ledgers  ( e.g. , a  transaction  disclosure .
+between a user of the U.S. pool account and a user of a  [ 0065 ]  In some embodiments , there may be one or more
+Canada pool account ) . An example of such an embodiment ledgers , such as a ledger 202 , a ledger 212 , and a ledger 222 .
+
+is provided in FIG . 3 .  Three ledgers are shown in  the figure for simplicity , but
+
+[ 0060 ]  Data access and security across the ledgers may be  there may be any number of ledgers . Each of these ledgers
+of concern , such that various entities are only permitted  may be stored in blockchain format , which is a distributed
+visibility to data in  the ledgers that they are allowed access  database that is used to maintain a continuously growing list
+
+to . For instance , a user in a pool account may be permitted of records called blocks . For example , the ledger 202 may
+
+to use the framework of a ledger corresponding to that pool  have any number of blocks in  the blockchain with  Block N
+account in  order check their own account balance within the  being the current block , Block N - 1 being the block preced
+pool account  , but that same user may not have access to ing the Block N , Block N - 2 being the block preceding Block
+account balances of other users in that pool account or the N  - 1 , and so  forth .
+account balances of users in other pool accounts ( e.g. , other [ 0066 ]  Since blockchain is a distributed database that is
+ledgers ) .  typically managed by a peer - to - peer network , each  ledger
+
+[ 0061 ]  Data access and security across the ledgers may be may be managed by a set of nodes . For instance , the ledger
+of concern , such that various entities are only permitted  202 may be managed by any number of nodes in nodes 204 ,
+
+visibility to data in  the ledgers that they are allowed access  including Node 1 through Node N ( collectively , nodes 204 ) .
+
+to . For instance , a user in a pool account may be permitted The nodes 204 may be configured to maintain and update the
+
+to use the framework of a ledger corresponding to that pool  blockchain of ledger  202 , such as by adding additional
+account in  order check their own account balance within the  blocks to the chain . Similarly , ledger 202 may be managed
+pool account , but that same user should not be granted  by any number of nodes in nodes 214 , while ledger 222 may
+access to the account balances of other users in that pool  be managed by any number of nodes in nodes 224. In some
+account or the account balances of users in  other pool  embodiments , the blockchains may be public and informa
+accounts ( e.g. , other ledgers ) . Furthermore , the level of data  tion  contained  in  the blocks may be easily  viewed . For
+visibility for different individuals associated with an entity  example , a user who deposits funds into a pool account may
+can be different ( e.g.  , higher ranking employees should have  be able to access the ledger for the pool account and view the
+more visibility ) .  account values or net positions for other users that have
+
+[ 0062 ]  In some embodiments , each ledger may be a pri  funds in  the pool account . In  some embodiments , the block
+vate permission based blockchain ledger that utilizes public  chains may be private and blocks may be updated or viewed
+key infrastructure ( PKI  )  for  encryption and  role - based  only by trusted nodes .
+access control . Role - based access allows for different indi  [ 0067 ]  Each block of a ledger may contain information
+viduals associated with an  entity that perform  different roles  recorded for one or more transactions . For example , ledger
+
+to have different data visibility based on their role , such that  202 could be associated with a pool account ( described
+they can perform  their assigned  role and actions and only  further in  regards to  FIG . 3 ) that holds the deposits of
+those actions . These roles and levels of data access should be multiple users . The blockchain of the ledger 202 could be
+assignable through the framework of the ledger ( e.g. , profile updated with blocks containing transaction information for
+management ) . An individual who has a participant profile  transactions between those  users ,  such  as transaction
+management role within an entity  should be able to  add ,  amounts , transaction parties / accounts , the values available
+change and delete individuals within their own organization  to various accounts , and the total aggregate value of all the
+and configure their data access . Similarly , an individual in  accounts ( e.g. , the pool value ) .
+the finance department of an entity ( e.g. , a user deposited in  [ 0068 ]  In  some embodiments , the one or more ledgers
+the pool account ) should be able to see the transactions and  ( including ledger 202 , ledger 212 , and ledger 222 ) may be
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+7
+
+associated with a main ledger 232. The main ledger 232 may  [ 0073 ]  As shown in the figure , various users ( e.g. , Bank A ,
+also be stored in blockchain format and have any number of Bank B , Bank C , and Bank D , and so  forth ) may deposit
+blocks in the blockchain , with Block N  being the current  funds with the pool entity that maintains the pool account
+block , Block N - 1 being the block preceding Block N , Block  310. Each of those users may deposit an amount of US
+
+N - 2 being the block preceding Block N - 1 , and so forth . The  dollars with the pool entity ( e.g. , into the pool account 310 ) .
+main ledger 232 may be managed by any number of nodes  For example , Bank A may deposit $ 3 M  USD into the pool
+
+in  nodes 234 , including Node 1 through Node N  ( collec  account 310 , Bank B may deposit $ 4 M  USD into the pool
+tively , nodes 234 ) .  account 310 , Bank C may deposit $ 1 M  USD into the pool
+
+[ 0069 ]  In  some embodiments , the main ledger 232 may  account 310 , and Bank D may deposit $ 2.2 M  USD into the
+
+contain some  ,  or all ,  of the  information recorded in  the  pool account 310. Thus  , the pool account 310 will contain all
+
+blockchains of the ledgers associated with it ( e.g. , ledger  of the deposits from the users and the total account value of
+202 , 212 , and 222 ) . The main ledger 232 may serve multiple the pool account 310 ( e.g.  , the pool value ) will be equivalent
+
+purposes , such as to facilitate transactions between users of  to the sum of all those deposits . In this case , the pool account
+
+different ledgers  ( e.g. ,  coordinating a  transaction  that  310 will have a total account value of $ 10.2 M  USD .
+
+impacts both ledger 202 and ledger 212 ) . The main ledger  [ 0074 ]  As a more specific use example , the pool account
+232 may be synched to  the various ledgers associated with  310  could be provided by the Federal Reserve ( the pool
+
+it , such that information in  the most recent block of each  entity ) , with  various financial institutions ( e.g. , banks  ) that
+
+ledger is reflected  in  the main  ledger 232. This  can  be  deposit funds with  the Federal Reserve .  The ledger 312
+implemented in numerous ways . For example , nodes 204 , could be used  to  track  transactions  between all of these
+
+214 , and 224 may update the main ledger 300 at the same  financial institutions that have deposited funds with  the
+time they respectively update the ledgers 212 , 222 , and 232 . Federal Reserve .
+
+Alternatively , the nodes 204 , 214 , and 224 may coordinate  [ 0075 ]  However , the ledger 312 may continually record
+
+with and provide the nodes 234 any transaction information  individual account values associated with each user based on
+recorded in the blockchains of the ledgers 212 , 222 , and 232 their deposits , any previous deposits , as well as any trans
+
+so that the nodes 234 can update the blockchain of the main  actions that user may have made  . Thus , any deposits made
+ledger 232. Alternatively , the nodes 234 may periodically  by the users may be added to that user's previous individual
+
+retrieve or analyze the most current blocks in  the block  account value that was recorded in  the ledger 312. If the
+chains of the ledgers 212 , 222 , and 232 in order to obtain the users are depositing for the first time , such as in this case ,
+
+transaction information needed to  update the main ledger  then the ledger 312 would record $ 3 MUSD under Bank A's
+232. The role of the main ledger 232 is described further in  account value , $ 4 MUSD under Bank B's account value , $ 1
+regards to FIG . 3 .  M  USD under Bank C's account value , and $ 2.2 M  USD
+under Bank D's account value . Thus , although the funds
+[ 0070 ]  FIG . 3 illustrates an example implementation for  deposited by the users may be aggregated  in  the pool
+the distributed ledger settlement system , in accordance with  account 310 , the ledger 312 would still track each user's embodiments of the present disclosure .  deposit individually as if those users had deposited funds
+[ 0071 ]  The figure depicts  an example  embodiment in  into  their own respective accounts provided by the pool
+which the division of the ledgers is based  on  various  entity .
+countries and currencies . In other words  , with the exception  [ 0076 ]  In  some embodiments , there may be other pool
+of the main  ledger , each of the ledgers is  used to track  accounts ( besides the pool account 310 ) that are maintained
+transactions associated with one type of currency and the  by other pool entities . For instance , in  some embodiments ,
+users in the country associated with that currency . Thus , for  there may be a pool account 320 that is maintained by a
+example , there may be a U.S. pool entity responsible for  second pool entity . The pool account 320 may be associated
+providing a U.S. pool account to  U.S. users that settles with  with a different type of currency , such as the Canadian dollar
+U.S. dollars . There may be also be a U.S. ledger manager for  ( CAD ) . The pool account 320 may be associated with a
+maintaining a U.S. ledger for recording the transactions  ledger 322 for recording transactions , account values , and
+associated with  the users of this U.S. account  , although the  the pool value ( e.g. , the total aggregate value of the pool
+U.S. ledger manager and U.S. pool entity could be the same account 320 ) .
+entity . It should be noted that the delineation of the ledgers  [ 0077 ]  As shown in  the figure , various users ( e.g. , Bank A , does not necessarily have to be by currency and could  be  Bank C , Bank E , and Bank F , and so  forth ) may deposit
+done in  various ways based on business needs . For instance funds ,  with the pool entity that maintains the pool account
+each ledger could be associated with  a different financial  320. Each of those users may deposit an amount of Canadian
+institution , such as one ledger for customers  of Bank of  dollars with the pool entity ( e.g. , into the pool account 320 ) .
+America , another ledger for customers of Wells Fargo , and  For example , Bank A may deposit $ 1 M  CAD into the pool
+so forth . As another example , each ledger could be associ  account 320 , Bank C may deposit $ 2 M  CAD into the pool
+ated with a particular transaction scheme  , such as one ledger  account 320 , Bank E may deposit $ 1 M  CAD into the pool
+used for SEPA transactions , and so forth .  account 320 , and Bank F may deposit $ 3 M  into the pool
+
+[ 0072 ]  In some embodiments , there may be a pool account account 320. Thus , the pool account 320 will contain all of
+310 that is maintained by a pool entity . The pool account 310 the deposits from the users and the total account value of the
+may be associated with a particular type of currency , such as pool account 320 ( e.g. , the pool value ) will be equivalent to
+
+the U.S. dollar ( USD ) .  In  some embodiments , the pool  the sum  of all those deposits . In this case , the pool account
+account 310 may be associated with  a  ledger  312  for  320 will have a total account value of $ 7  M  USD .
+recording transactions , account values , and the pool value  [ 0078 ]  The ledger 322 would similarly maintain a record
+
+( e.g. , the total value of the pool account 310 ) . This ledger of individual account values associated with each user based
+312 may be maintained and updated by a ledger manager .  on their deposits , any previous deposits , as well as any
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+8
+
+transactions that user may have made . Thus , any deposits account 310 , and the individual account values are actually
+made by the users may be added to that user's previous  representations of what funds would be available to  either
+individual account value that was recorded in the ledger 322 .  Bank A or Bank C  if they had individual  accounts ( e.g. , as
+If the users are depositing for the first time , such as in  this  in a traditional setup ) . In this example , if Bank A and Bank
+case , then the ledger 322 would record $ 1 M  CAD under  Center into  a transaction that results in a net transfer of $ 1
+Bank A's account value , $ 2 MCAD under Bank C's account MUSD from  Bank A to Bank C , then ledger 312 would be
+value , $ 1 M  CAD under Bank E's account value , and $ 3 M  updated to record that transaction and the new  individual
+CAD under Bank F's account value . Thus  , although the  account values for Bank A  and Bank C. Bank A's account
+funds deposited by the users may be aggregated in the pool  value maintained by the ledger 312 would reduce by $ 1 M
+account 320 , the ledger 322 would still track each user's  USD to become $ 2 M  USD , while Bank C's account value
+deposit individually as if those users had deposited funds  maintained by the ledger 312 would increase by $ 1 M  USD
+into  their own respective accounts provided by the pool  to become $ 2 M  USD . The pool value of the pool account
+entity .  310 maintained by the ledger 312 would remain at $ 10.2 M
+
+[ 0079 )  Similarly , there could be another pool account 330 since the transaction involved a movement of funds that
+
+( and so  forth ) that is maintained by a third pool entity . The  could be settled without additional deposits needing to be
+pool account 330 may be associated with a different type of  made  . Thus  , funds would be moved between users as if the
+
+currency , such as the Australian dollar ( AUD ) . The pool pool entity was a clearinghouse .
+account 330 may be associated with  a  ledger  332 for  [ 0083 ]  However , if Bank A  and Bank C  had entered into
+recording transactions , account values , and the pool value  a  transaction that resulted in  a  net transfer  of $ 4  M  USD
+
+( e.g. , the total aggregate value of the pool account 330 ) .  from Bank A  to Bank C , that would be a scenario in which
+
+[ 0080 ]  As shown in the figure , various users ( e.g. , Bank A the , movement of funds could not be settled without addi
+Bank E , Bank G , and Bank H , and so  forth ) may deposit  tional deposits needing to be made  . Since Bank A's indi
+funds with the pool entity that maintains the pool account  vidual account value is  $ 3  M  USD , there would not be
+330. Each of those users may deposit an amount of Austra enough funds to support a transfer of $ 4 M  USD from Bank
+
+lian dollars with the pool entity ( e.g. , into the pool account A's account . In  some embodiments , Bank  A  would be
+320 ) . For example , Bank A may deposit $ 0.8 M  AUD into  notified that an additional $ 1 M  USD needs to be deposited
+the pool account 330 , Bank E may deposit $ 0.5 AUD into  in  order to settle the transaction . Bank A could then deposit
+the pool account 330 , Bank G may deposit $ 1.2 MAUD into at least an additional $ 1 M  USD into the pool account 310 ,
+the pool account 330 , and Bank H may deposit $ 1.4 MAUD and Bank A's account value would be increased by  that
+
+into the pool account 330. Thus  , the pool account 330 will amount and recorded in  the ledger 312 to  allow  for  the
+contain  all  of the deposits  from  the users and the  total  transaction to  be conducted . The pool value of the pool
+account value of the pool account 330 ( e.g. , the pool value account )  310 recorded in  the ledger 312 would  also  be
+will be equivalent to the sum of all those deposits . In  this  increased by that amount ( e.g. , a $ 1 M  USD deposit would
+case , the pool account 330 will have a total account value of result in the pool value increasing to $ 11.2 M ) . Thus , for the
+
+$ 3.9 M  AUD .  purposes of stemming systemic risk , each user may be
+
+[ 0081  ]  The ledger 332 would similarly maintain a record  required to prefund and deposit with the pool account to
+of individual account values associated with each user based  place each user in a net positive position . The amount that
+on their deposits , any previous deposits , as well as any  each user may need to prefund may vary based on imple
+
+transactions that user may have made . Thus  , any deposits mentation . In  some embodiments , some users ( e.g. , smaller
+made by the users may be added to  that user's previous  financial institutions ) may be instructed of a specific amount
+
+individual account value that was recorded in the ledger 322 .  of balance that must be maintained . In some embodiments ,
+If the users are depositing for the first time , such as in  this  some users ( e.g. , larger financial institutions ) may not have
+case , then the ledger 332 would record $ 0.8 M  AUD under  explicit minimums on the balance that must be maintained
+Bank  A's account value , $ 0.5  M  AUD under Bank E's  as long as their account has enough funds to  cover any
+account value , $ 1.2 M  AUD under Bank G's account value , transactions the users conduct .
+
+and $ 1.4  M  CAD under Bank H's account value .  Thus  ,  [ 0084 ]  However , in some other embodiments , the users or
+although the funds deposited by the users may be aggregated participants of the ledger 312 may be trusted and credit can
+
+in the pool account 330 , the ledger 332 would still track each be extended to them  on faith . In  such  embodiments  , the
+user's deposit individually as if those users had deposited  transaction may be conducted and ledger 312 would simply
+funds into their own respective accounts provided by the  reduce Bank A's account value by $ 4 MUSD to become - $ 1
+pool entity .  MUSD . Bank A would then be informed and would have to
+
+[ 0082 ]  In some embodiments , the pool value for each pool  deposit sufficient funds at a later time to cover the balance .
+account will typically not change as transactions are con  [ 0085 ]  At any time , any user could also withdraw funds
+ducted between users associated with that pool account and  from  the pool account that they deposited into if they have
+will only change when those users deposit or withdraw  a positive individual account balance as recorded by the
+funds from  that pool account . For example , Bank A  and  ledger associated with that pool account  . For example , if
+Bank C  are both users that have deposited with  the pool  Bank A deposited $ 3 MUSD into the pool account 310 and
+entity that maintains the pool account 310 for transactions in  conducted transactions with other users that resulted in Bank
+US dollars . The ledger 312 records the deposits of both Bank A's individual account value of $ 2  M  USD , then Bank A
+A and Bank C and also provides updated individual account  could withdraw up to $ 2 M  USD from  the pool account 310 .
+values for both  Bank A and Bank C  ( e.g. , $ 3 M  USD for  If , for instance , Bank A withdrew $ 1 M  USD from the pool
+Bank A and $ 1 M  USD for Bank C ) . However , it should be account 310 , then  the pool entity that provides the pool
+noted that Bank A  and Bank C  would not actually have  account 310 would transfer $ 1 M  USD to Bank A  from  the
+individual accounts since their funds are pooled into the pool  pool account 310. The ledger 312 would be updated to
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+9
+
+reduce Bank A's individual account value by $ 1 MUSD and manager is facilitating the transfer of funds without actually
+reduce the pool value of the pool account 310 by the same taking physical possession of funds .
+amount to $ 9.2 M.  In some embodiments , at a later time  , the  [ 0089 ]  In some embodiments , the main ledger 300 may be
+pool entity  ( e.g. , providing the pool account 310 ) would  used  to  allow  users  to  utilize  funds across  individual
+provide settlement or the delivery of the fiat / digital currency accounts they may have with various pool entities , such as
+
+to Bank A. This process allows the blockchain of the ledger  to enable multicurrency transactions . For example , in the
+312 to be used to manage and record the flow  of funds  figure shown  , Bank A may wish to  transact with Bank E
+between users for the later settlement or conversion of funds  using Canadian dollars . This transaction may involve a
+into fiat / digital currency outside of the blockchain .  transfer of $ 2  M  CAD from  Bank A  to Bank E  and would
+
+[ 0086 ]  Thus , a user would be able deposit funds into the  normally be handled by the ledger 322. However , it can be
+pool account as often as they would like by implementing  seen that Bank A only has $ 1 M  CAD deposited  with the
+
+the blockchain of the ledger into  their own infrastructure .  pool account 320 , which is insufficient for enabling the
+
+The user would also be able to withdraw funds from the pool  transaction . In  this instance , funds could be retrieved from
+
+account that they deposited into as often as they want  , based Bank A's US dollar account ( containing $ 3 M USD ) main
+
+on their own rules or procedures , so long as there is sufficient  tained by ledger 312. To  enable  this , the main  ledger
+
+balance associated with that user to cover those withdrawals .  manager ( e.g. , the nodes of the main ledger 300 ) may
+For example , a user may dictate they only want $ 1 M  USD  determine the current exchange rate  from  US dollars to
+Canadian dollars that will enable the transaction . For the
+in  balance at all times within the pool account 310 and may
+structure withdrawals so that funds above that amount are  sake of simplicity , assume that the exchange rate is  1 : 1 .
+
+periodically withdrawn . Or the user may dictate that addi  Thus  , $ 1 MUSD from Bank A’s funds with the pool account
+310 would be converted into $ 1 MCAD and added to Bank tional funds are to be deposited into the pool account if the
+account balance falls below X , or withdrawn from  the pool  A’s funds with the pool account 320. More specifically , the
+account when the account balance becomes greater than Y.  ledger 312 would be updated with Bank A's account value
+
+In other words , each user may be able to connect the ledger decreasing by $ 1 M  USD and the pool value of the pool
+
+to their funding mechanisms in order to establish their own  account 310 would also decrease by $ 1 M  USD . The ledger
+
+rules and procedures , which may define when and how funds 322 would be updated with Bank A's account value increas
+
+are converted out of the ledger and into fiat / digital currency ing by $ 1 MCAD and the pool value of the pool account 320
+
+outside of the blockchain . This also makes it easier for the  would also increase by $ 1 M  CAD . The main ledger 300
+would also be updated with these changes . The settlement of user to move funds to and from the pool entities ( e.g. , central
+banks ) and this movement of funds would not have to incur such a transaction could be implemented in various ways . In
+additional wire fees .  some embodiments , at a later time , there may be physical
+settlement of the transaction with the pool entity associated
+[ 008 ]  In  some embodiments  , there may also be a main  with the pool account 310 sending $ 1 M  CAD in physical
+ledger 300 that is maintained by a main ledger manager  . As currency to the pool entity associated with the pool account
+will be discussed , the main ledger 300 may be used to  320. In  some embodiments , the main ledger manager may
+implement global or multicurrency transactions . As shown  maintain pools of various currencies to cover these kinds of
+
+in  the figure , the main ledger 300 may be used to record  transactions . For instance , the main ledger manager may
+transactions , account values , and / or pool values across mul maintain a pool of currency in  Canadian dollars to cover this
+tiple ledgers ( and in this instance , multiple currencies ) . For  transaction and settlement position with the pool entity ( e.g. ,
+example , the main ledger 300 may maintain records of the  the Canadian bank ) associated with the pool account 320 .
+total account values of the pool account 310 , the pool  [ 0090 ]  Thus , the main ledger 300 may be used to perform
+account 320 , and the pool account 330. In some embodi  cross - border , multicurrency transactions and settlement  . The ments , the main ledger 300 may even maintain records of  main ledger 300 can be used to manage the movement of individual account values associated with each user for those  funds between individual ledgers  ( e.g. , between block pool accounts ( e.g. , after deposits , Bank A  has account  chains ) like  the movement of US currency to  Canadian
+values of $ 3 M  USD , $ 1 M  CAD  , and $ 0.8 M  AUD ) .  currency provided in  the example . As pool entities ( e.g. ,
+
+[ 0088 ]  The main ledger 300 may be updated to  reflect  central banks ) move to  digital currencies , the ledger man
+changes in  pool values and any individual account values as  agers ( e.g. , the entities managing their distributed ledger )
+
+transactions , deposits , and withdrawals occur  . This can be  could  implement this system  and architecture  with  the
+implemented in  numerous ways  .  For  example ,  in  one  digital currency of their pool entity  and there would be
+embodiment , the nodes managing the ledgers 312 , 322 , and greater  visibility  of transactions since they would all be
+332 may update the main ledger 300 at the same time they recorded on the blockchains of the ledgers . This would be
+update the ledgers 312 , 322 , 332. In  one embodiment , the  particularly useful for compliance requirements , such as for
+nodes managing the ledgers 312 , 322 , and 332 may instead measures associated with  Know  Your Customer  ( KYC  ) ,
+inform  the nodes managing the main ledger 300 when the  Customer Identification Program ( CIP ) , Office of Foreign
+ledgers 312 , 322 , and 332 are updated . In one embodiment ,  Assets Control ( OFAC ) screening , and Anti - Money Laun
+the main ledger 300 may be updated by pulling or retrieving dering Laws ( AML  ) . As an example , since each transaction
+
+information ( e.g. , about transactions ) from the ledgers 312 ,  would be recorded in  the blockchain of a ledger ( such as the
+322  , and 332 after those ledgers have been updated and  main ledger  300 ) , it would be simple to  filter all  the
+using that information to update the main ledger 300 ( e.g. ,  transactions associated with  a particular  user in various
+by the nodes managing the main ledger 300 ) . Thus , the main countries or currencies in order to analyze the money flows
+
+ledger 300 would record the various transactions and the  for money laundering detection .
+movement of funds , but the main ledger manager would not [ 0091 ]  In some embodiments , the main ledger 300 may be
+participate in that transfer of funds . Instead , the main ledger used to  allow  for transactions to occur between users that are
+
+
+US 2020/0167773 A1  May 28 , 2020
+10
+
+not deposited with the same pool account . For example , in  M  in  pool account 310. However , the individual account
+the figure shown , Bank B has only deposited with the pool  balance for Bank A  and Bank B  would  still be factored into
+account 310 while Bank F has only deposited with the pool  the total pool value of $ 10.2 M  for the pool account 310 ,
+account 320. Bank B may still be able to transact with Bank which would be provided to the main ledger manager  . In
+
+F  using the main  ledger  300. For instance , if Bank  B  some embodiments , the main ledger manager may utilize the
+transacts with Bank F to transfer $ 1 MCAD  , the main ledger pool values associated with the different pool accounts in
+manager ( e.g. , the nodes of the main ledger 300 ) may  order to fund and facilitate transactions ( such as individual
+determine the current exchange rate from  US dollars to  card transactions ) in real - time .
+Canadian dollars that will enable the transaction . For the  [ 0095 ]  In some embodiments , the ledgers ( either for a pool
+sake of simplicity , assume that the  exchange rate is 1 : 1 .  account or the main ledger 300 ) may capture and record
+Thus , $ 1 MUSD from Bank B’s funds with the pool account certain  information associated with  deposits , withdrawals ,
+310 would be converted into  $ 1 MCAD and added to Bank  and each transaction during the settlement process , includ
+F's funds with the pool account 320. More specifically , the  ing an updated account balance for both the payor user and
+ledger 312 would be updated with Bank B's account value  the payee user ( e.g. , the sending and receiving bank ) with
+decreasing by $ 1 M  USD and the pool value of the pool  the transaction applied , the transaction amount  , currency
+account 310 would also decrease by $ 1 M  USD . The ledger  information associated with the transaction , any information
+322 would be updated with Bank F's account value increas about why the transaction was declined if it was declined
+ing by $ 1 MCAD and the pool value of the pool account 320 during the settlement process , jurisdiction information ( e.g. ,
+would also  increase by $ 1 M  CAD . The main ledger 300  the U.S. ) , and a date and time stamp for the transaction . In
+would also be updated with these changes . In some embodi some embodiments , the ledgers may also capture and record
+ments , at a later time , there may be physical settlement of the  changes in  the pool value resulting from  deposits or with
+transaction with the pool entity  associated with the pool  drawals affecting the pool account . Any , or all , of this
+account 310 sending $ 1 M  CAD in  physical currency to the  information recorded in ledgers at the country - level can also
+pool entity associated with the pool account 320 .  be communicated to  the main ledger manager  . Thus , the
+
+[ 0092 ]  It  can be seen that when ledgers are divided up  main ledger 300 can be used to record some or even all of
+based on a jurisdiction , such as by country , this hierarchy of  the information recorded in the ledgers at the country - level .
+ledgers involving ledgers linked to  main ledger 300 may  [ 0096 ]  In some embodiments , the main ledger 300 may
+allow  for faster interbank settlement in both domestic trans  also capture and record information associated with changes
+actions ( e.g. , between users  deposited  in  the same pool  in the pool values of all the pool accounts , such as deposits
+account ) and cross - border transactions ( e.g. , between users  or withdrawals affecting the pool value of the various pool
+of different pools ) with  fiat currencies that have high fun  accounts ,  as well as certain  information associated with
+gibility ( e.g. , funds that are not just posted to a ledger within cross - pool transactions .  This may include  an  updated
+the distributed ledger network but can also be easily con  account balance for both the payor user and the payee user
+verted / deposited into an account at a central bank and used  with the transaction applied ( unless the main ledger is not
+for other  financial  instruments that require  immediate  permitted visibility for individual user account balances ) or
+funds  ) .  at least an identification of the payor user and the payee user ,
+
+[ 0093 ]  In the case that the ledgers are blockchain ledgers ,  the pool accounts associated with  the payor user and the
+access to the various types of data within each ledger can be payee user , the transaction amount  , currency information
+hierarchical and managed by the data owner . For instance , associated with the transaction , any information about why
+the main ledger manager may be considered the data owner  the transaction was declined if it was declined during the
+of all of the data recorded in the main ledger 300. If the main settlement process , jurisdiction information for the payor
+ledger 300 tracks the pool value of the various pool accounts user and the payee user  , and a date and time stamp for the
+
+( pool accounts 310 , 320 , 330 ) but does not track the account transaction .
+values of individual users at the pool accounts , then the main [ 0097 ]  In  some embodiments , these data access settings
+ledger manager may make the pool value for a particular may be easily  configured via a  data access and security
+pool account that is  recorded by the main ledger 300  framework that the main ledger manager may establish for
+viewable to  only certain  entities . For example , the main  all of the entities and their associated individuals to operate
+ledger manager may individually enable or disable access  within . This data access and security framework may allow
+for the Central Bank in the United States , the pool entity for entities to perform  various administrative , profile manage
+the pool account 310 , and users of the pool account 310  ment  , and treasury management functions associated with
+
+( Banks A , B , C , and D ) to see that the pool account 310 has facilitating settlement of transactions in  real - time  .
+a total pool value of $ 10.2 M  USD . Thus  , the main ledger  [ 0098 ]  Some examples of administrative functions that manager could allow  the Central Bank in the U.S. to see the  can be performed using the data access and security frame
+pool value of the pool account 310 while restricting the  work include the ability to manage and support system level
+Central Bank in Canada from  viewing the pool value of the  functions including software upgrades , connectivity , and so
+pool account 310 .  forth . There may be administrative functions associated with
+
+[ 0094 ]  Since in this example , the main ledger 300 does not security , such as managing system  security rules ( e.g. pass
+track the account values of individual users at the pool  words  , login  timeout , etc. ) , encryption keys , and digital
+accounts , it would be up to  the individual users to  grant  security elements , ( e.g. digital signing authorities , password
+access to the main ledger manager for that information . For  resets , etc. ) . There may be administrative functions associ
+instance  , Bank A  could allow  the main ledger manager to  ated with audit , such as setting up and accessing system  logs ,
+view Bank A's individual account balance of $ 3  M  in  the  reports ( e.g. , for performance , profile management , compli
+pool account 310 , while Bank B may restrict the main ledger ance , etc. ) , regulatory and legal compliance requirements ,
+manager to view Bank B's individual account balance of $ 4  and source data . There may also be administrative functions
+
+
+US 2020/0167773 A1  May 28 , 2020
+11
+
+associated with data classification , such as assigning clas  identification and authority of individuals involved in  finan
+sifications for the transaction and profile  data  at both  a  cial transactions ( draw - down , top - ups , funds transfers ) or
+system  and an organization  level  . For data classifications ,  trying to perform  a special action ( e.g. changing of funding
+
+this  may  include  public ,  confidential  ,  restricted  and  account data , etc. ) . These profile management functions may
+restricted personal information both at the system level and  provide individuals carrying out this role to  perform  com
+at an individual organization level .  mercially reasonable security procedures , such as the link
+
+[ 0099 ]  Some examples of profile management functions  age of digital signatures , corporate resolutions , and double
+
+that can be performed using the data access and security  custody  .
+framework include the ability to  change or configure  data  [ 0103  ]  There may also be profile management functions
+access settings applicable to different individuals associated  associated with  the role within  the entity  for  reporting ,
+with the entity , such as to  provide different levels of data  which may include the ability to define , access and distribute
+access to different roles within a company  . However , these electronic and hardcopy reports . This includes the configu
+profile management functions may be restricted to certain  ration of reporting endpoints ( internal and external ) , ad - hoc
+individuals associated with the entity they are applicable to  reports , analytics , and assignment of data classification and
+( e.g. , each pool entity can only access their own profiles , the rules to ensure compliance ( e.g. , to ensure reports / data with
+main ledger manager can only access its profile , etc. ) , and  confidential data are appropriately  labeled , data requiring some functions may require higher level of access and  special handling is  stored  in  encrypted  format and not
+commercially reasonable security procedures to complete  delivered over unsecured channels , and so  forth ) .
+profile management functions . As an  example , a pool entity
+
+( e.g. , a bank ) or the main ledger manager may be able to [ 0104 ]  Some examples of treasury management functions
+
+establish roles within its organization at a regional , multi  that can be performed using the data access and security
+
+regional , and global level  . An individual with a role at a  framework include functions associated with  reporting ,
+
+global level may be allowed access to more information than  which may include providing reports / data associated with
+another individual with a role at a regional  level . In  some  user accounts in the pool ( e.g. Bank A's $ 3 M ) and the pool
+embodiments , the entity  itself may establish  various roles  account ( e.g. , pool account 310 ) . There may also be aggre
+
+within its organization and define the types of data that could gation of user accounts for a central bank , settlement agent ,
+transaction processor , or on - behalf of financial service pro be available to each role . In  some embodiments , the main
+ledger manager must establish new  roles and define the  vider .
+
+types of data that could be available for each role . However ,  [ 0105 ]  There may also be treasury management functions
+the other entities may be able to  rename those roles to  suit  associated with forecasting to  allow  users or custodians  of
+their need for data access within the entity .  currency accounts to track and forecast their accounts . This
+
+[ 0100 ]  There may also be profile management functions  may include importing and exporting historical and intraday
+associated with the role within an entity to manage other  account balances ,  along with  ability  to  ' memo post
+individuals within  the entity , such as the ability  to  add ,  expected balance / transaction data . Memo data would be
+change and delete individuals within the system  and assign  similar to  a scratchpad  area and expire at a pre - designated
+
+roles to other individuals . Entities may designate what levels time . There may also be treasury management functions
+of data classifications the individual would have access to  associated with the movement of funds and performing the
+and if  they have read , change , delete privileges for each  settlement of financial transactions ( e.g. top - ups  , draw
+function . Some functions may require higher level of access downs  , funds transfers , FX loads , etc. ) associated with those
+and commercially reasonable security procedures to add or  accounts . For instance , there may be functions associated
+change individuals .  with FX loads that allow for the capture of the FX rates used
+
+[ 0101 ]  There may also be profile management functions  in  the settlement of financial transactions and / or individual
+
+for financial oversight associated with the role of overseeing payment transactions . The main ledger manager may be able
+
+financial transactions , such as the establishment of rules  to restrict which entities are able view / add / change this data ,
+
+associated with transactions involving the entity . Such rules  and the data may be updated frequently at a scheduled time
+may include transaction size limits , tolerance rates , and  or ad - hoc ( assigned at the time of one or more settlement
+
+alerts  ( e.g. when a currency account balance goes above /  funding transactions ) .
+below  thresholds , when a  velocity  threshold  is reached ,  [ 0106 ]  In  some embodiments , the main ledger manager
+when a large dollar transaction is performed , the confirma  may be able to configure different rules and settings asso
+tion of top - ups  / drawdowns / funds transfers , when FX rate  ciated with the real - time payments settlement system  for
+information update timing thresholds have been exceeded ,  various groups of users . For instance , in  an embodiment in
+and so forth ) . The rules may also include standing orders and which pool accounts are associated with different countries ,
+scheduling of settlement financial transactions ( e.g. top - ups , the main ledger manager can configure , at a country level
+drawdowns , funds transfers , FX loads , etc. ) , as well as the ( e.g. , for each pool account and its associated users ) , the
+linking of funding accounts ( e.g. , a currency account ) and settlement timing for individual transactions based upon a
+any rules associated with those funding accounts . Such rules  variety of parameters , such as payment type , participating
+associated with the funding accounts may include funding  users , day of the week of the transaction , and so  forth . For
+type ( top - up , drawdown , etc. ) , what time of day to perform example , the main ledger manager could configure all Visa
+funding , the amount of funding , the associated product type  Debit transactions in the US to settle every 10 minutes while
+( e.g. , provide funding for credit card transactions , etc. ) ,  having all Visa Direct transactions in  Canada to  settle in
+override capability , designation of currency type ( s ) , and so real - time . Furthermore , the main ledger manager may be
+forth .  able to  configure different rules and settings to be applied to
+
+[ 0102 ]  There may also be profile management functions  cross - pool ( e.g. , cross - border ) and multi - currency transac
+associated with  the role  within  the  entity  to  verify  the  tions .
+
+
+US 2020/0167773 A1  May 28 , 2020
+12
+
+[ 0107 ]  Finally , it  should be noted that these processes  some cases , the first blockchain ledger may record , for each
+described in FIG . 3 ( for domestic payments or cross - border , transaction between the first set of users , a payer , a payee ,
+cross - pool transactions ) , as well as the settlement process  and a transaction amount  .
+involving currency accounts discussed in FIG . 4 , are also  [ 0111 ]  In  some embodiments , verifying the transaction
+applicable for any customers ( e.g. , individuals ) of the users  ( e.g. , by the node ) includes checking the first blockchain
+wishing to make a  transaction . For instance , Sam  may  ledger ( e.g. , ledger 312 ) for a history of transactions asso
+perform banking with Bank A  in  the U.S. and wish to make  ciated with  the first user ( e.g. , Bank  A ) or checking  an
+a $ 500 transfer to his friend Joe , who performs banking with  account value associated with the first user . In  some cases ,
+Bank C  in  the U.S. Sam may log on to  Bank A's online  the node of the first plurality of nodes may determine that the
+portal and initiate this transaction . Bank A may authenticate  transaction reduces an account value associated with the first
+Sam  and debit Sam's bank account for $ 500 for the transfer  .  user ( e.g. , Bank A's balance ) below a  first  threshold and
+Bank A may also send a transaction request to transfer $ 500  send a communication to the first user to deposit additional
+
+to Joe's account at Bank C. This transaction request can be  funds into the pool account ( e.g. , pool account 310 ) . Or the
+sent to the ledger manager of ledger 312 and / or the pool  node of the first plurality of nodes may determine that the
+
+entity of pool account 310 ( e.g. , to later involve the ledger transaction increases an account value associated with the
+manager of ledger 312 ) . Or  , in the case where Bank A has second user above a second threshold and send a commu
+
+direct access to the ledger 312 and there is not a single ledger nication to the second user ( e.g. , Bank C ) to withdraw funds
+manager of ledger 312 ( e.g. , if the ledger 312 is imple  from the pool account ( e.g. , pool account 310 ) .
+
+mented using distributed blockchain technology and Bank A  [ 0112 ]  In some embodiments , the node of the first plurality
+operates a node of the ledger 312 ) , then Bank A  could even of nodes ( e.g. , associated with the ledger manager ) hosting
+submit the transaction request to the ledger 312 .  the first blockchain ledger ( e.g. , ledger 312 ) may receive a
+second transaction between the first user ( e.g. , Bank A ) and
+[ 0108 ]  Generally , the ledger manager of ledger 312 may a third user ( e.g. , Bank E ) that did  not deposit funds for
+verify  and check  the  transaction  against the rules  and  settlement into  the  first pool account ( e.g. , pool account
+configurations of ledger 312 that have been established for  310 ) . The node may also verify that this second transaction
+at the global level , the country level , for the sending user , is capable of taking place by checking the first blockchain
+and for the receiving user  . These rules and configurations  ledger and then communicate to a second plurality of nodes
+can be set within the ledger 312 or the framework used to  hosting a second blockchain ledger ( e.g. , ledger 322 ) , the
+access the ledger 312 , so the verification can be automated  second transaction .
+and efficient . For instance , the ledger manager may deter
+mine if Bank A has sufficient funds in the pool account 310  [ 0113 ]  In  a cross - pool transaction , the main ledger man
+
+to  cover the transaction  .  The ledger manager may also  ager may receive a transaction between a  first user ( e.g. ,
+determine if the transaction is within transaction size limits  Bank A ) that deposited funds for settlement into a first pool
+
+that have been established at the global level , at the country account ( e.g. , pool account 310 ) to a second user ( e.g. , Bank
+
+level ( e.g. , for U.S. transactions ) , for Bank A , and for Bank  E ) that deposited funds for settlement into  a second pool
+C. In some embodiments , the ledger manager may check to  account ( e.g. , pool account 320 ) , for a  first amount  .  The
+
+see  if the transaction  has  an  acceptable KYC payment  main  ledger manager may verify  that the transaction  is
+
+transaction risk  score , as assigned by either Bank A or the  capable  of taking place by checking  an  account value
+
+ledger manager  .  associated with the first user at the first pool account  , and
+send to a first plurality of nodes hosting a first blockchain
+[ 0109 ]  If the transaction passes these rules , then the ledger  ledger ( e.g. , ledger 312 ) that records transactions between
+manager may inform  Bank C of the funds transfer and Bank  users that deposited funds for settlement into the first pool
+C would make the $ 500 available to Joe in his account with  account ( e.g. , pool account 310 ) , a first communication . The
+Bank C. The ledger manager may have the ledger 312 record first communication may instruct the first plurality of nodes
+the transaction as a  $ 500 debit to  Bank A's settlement  to update the first blockchain ledger to include a decrease in
+account balance within pool account 310 and a $ 500 credit  the account value associated with  the first user at the first
+
+to Bank C's settlement account balance within pool account pool account by the first amount  . The main ledger manager
+310 .  may also  send  to  a  second plurality  of nodes hosting a
+
+[ 0110 ]  In  some  embodiments  ,  the  ledgers  in  these  second blockchain ledger ( e.g. , ledger  322 ) that records
+examples may be blockchain ledgers that are hosted by a  transactions between users that deposited funds for settle
+
+plurality of nodes . For example , in a first transaction from  a  ment into the second pool account ( e.g. , pool account 320 ) ,
+
+first user ( e.g. , Bank A ) to a second user ( e.g. , Bank C ) of a
+a second communication . The second communication may
+
+first set of users that have all deposited funds for settlement  instruct the second plurality of nodes to update the second
+
+into a first pool account ( e.g. , pool account 310 ) , a node of blockchain ledger to include an increase in  an account value
+
+a first plurality of nodes ( e.g. , associated with the ledger  associated with the second user at the second pool account .
+manager ) hosting a first blockchain ledger ( e.g. , ledger 312 )  [ 0114 ]  In  some embodiments , the main ledger manager
+may receive the transaction . The first blockchain  ledger  may determine a currency associated with the second pool
+records transactions between these  first set of users , and  account ( e.g. , CAD ) and  convert the first amount into  a
+would also be tasked with  recording  this  first transaction  second amount based on the determined currency , with the
+which may be for a first amount ( e.g. , $ 1 M ) . The node may second communication instructing the second plurality of
+then verify that the transaction is capable of taking place by  nodes to update the second blockchain ledger ( e.g. , ledger
+checking the first blockchain ledger . The node may update 322 ) to  include the increase in the account value associated
+the first blockchain  ledger with  the  first  transaction  to  with  the second user ( e.g. , Bank E ) at the second pool
+include a block with data relating to the first transaction . In  account by the second amount  .
+
+
+US 2020/0167773 A1  May 28 , 2020
+13
+
+[ 0115 ]  In some embodiments , which involve a currency  corresponding ledger would still track each user's account
+account as described in  FIG . 4 , the first communication may  balance as if those users had deposited funds into their own
+instruct the first plurality of nodes to update the first block  respective accounts provided by the pool entity .
+chain ledger ( e.g. , ledger 412 ) to  include a corresponding  [ 0121  ]  The pool value for each pool account will typically
+increase in a currency account value at the first pool account not change as transactions are conducted between only users
+by the first amount . In  some cases , the second communica associated with that pool account  . For example , Bank A and
+tion may instruct the second plurality of nodes to update the  Bank C  are both users that have deposited into pool account
+second blockchain ledger ( e.g. , ledger 422 ) to  include a  410. If Bank A  and Bank C  enter into  a  transaction  that
+corresponding decrease in  a currency account value at the  results in a net transfer of $ 1 M  USD from  Bank A  to Bank
+second pool account by the second  amount  . From  the  C , then ledger 412 would be updated to record that trans
+perspective of the custodians of these currency accounts , the  action and the new individual account values for Bank A and
+custodian may receiving communication that the currency  Bank C. Bank A's account value maintained by the ledger
+account value at the first pool account ( e.g. , pool account 412 would reduce by $ 1 M  USD to  become  $ 2 M  USD ,
+410 ) is above a first threshold and withdraw funds from  the  while Bank C's account value maintained by the ledger 312
+currency account at the  first pool account to  bring the  would increase by $ 1 M  USD to become $ 2 M  USD . The
+currency account value below  the first threshold . Or the  pool value of the pool account 410 maintained by the ledger
+custodian may receive a communication that the currency  412 would remain at $ 12.2 M  since the transaction involved
+account value at the second pool account ( e.g. , pool account a movement of funds that could be settled without additional
+420 ) is below a second threshold and deposit funds into the  deposits needing to  be made  .
+currency account at the second pool account to bring the  [ 0122 ]  The pool value would only change when its users currency account value above the second threshold .  deposit or withdraw funds from  that pool account  , or when
+[ 0116 ]  FIG . 4 illustrates  an  example implementation for  its users enter into  transactions with users in another pool  .
+the distributed ledger settlement system , in accordance with  Cross - pool transactions would involve the main ledger 400 ,
+embodiments of the present disclosure .  which is maintained by a main ledger manager to implement
+[ 0117 ]  Similarly to FIG . 3 , this  figure also depicts  an  global or multicurrency transactions . The main ledger 400
+example embodiments in which the division of the ledgers may be used to record transactions , account values , and / or
+
+is based on various countries and currencies . However  , FIG . pool values across multiple ledgers ( and in this instance ,
+
+4  illustrates how cross - border , multi - currency transactions multiple currencies ) . For example , the main ledger 400 may may also be settled through the use of pre - funded currency maintain records of the total account values of the pool
+accounts within each pool account  . Still , the discussion of  account 410 , the pool account 420 , and the pool account
+features associated with the embodiments of FIG . 4 should  430. Although the main  ledger 400  could  also maintain
+be assumed to be applicable to the RTP settlement system  records of individual account values associated with  each
+depicted in  FIG . 3 unless otherwise noted .  user for those pool accounts ( e.g. , Bank A's account value
+
+[ 0118 ]  The pool accounts 410 , 420 , and 430 are associated at pool account 410 ) ,  it  is not absolutely necessary to
+with USD , CAD , and AUD  , respectively . Pool account 410  facilitate transactions between users  of different  pool
+is associated with  ledger 412 for recording  transactions ,  accounts because the main ledger 400 could always request
+account values , and the pool value ( e.g. , the total value of the confirmation from the ledger of pool account with the payor
+pool account 310 ) . Pool account 420 is  associated with  that the payor has enough funds in  their account  . Further
+ledger 422 and pool account 430 is associated with ledger  more , for data access and security reasons , users may wish
+432 .  to  hide their  individual  account balances from  the main
+
+[ 0119 ]  Various users ( e.g. , Bank A , Bank B , Bank C , and ledger 400 and the main ledger manager .
+Bank D , and so  forth ) may deposit funds with  each  pool  [ 0123 ]  For instance , Bank D in the U.S. may wish to send
+account maintained by a pool entity . For example , pool  $ 2 M  USD from their balance in pool account 410 to Bank
+account 410 has deposits from  Bank A , B , C , and D in USD  F in Canada , which has funds in pool account 420. Bank A
+that amount to $ 3 M , $ 3.4 M , $ 1 M , and $ 2.2 , respectively .  would send instructions to the main ledger manager main
+There is also a currency account within pool account 410 , in  taining the main ledger 400. The main ledger manager may
+which the custodian of the currency account has deposited  first check and verify the $ 2 M  USD transfer against any
+
+$ 2.6 M. Pool account 420 has deposits from  Bank A , C , E , rules that have been configured with the ledgers of those
+and F  in  CAD that amount to $ 1 M , $ 2 M , $ 0.5 M , and $ 3  pool accounts ( e.g. , ledger 412 for the pool account 410 and
+M , respectively . There is also a currency account within pool  the ledger 422 for the pool account 420 ) . In  some embodi
+account 420 , in which the custodian of the currency account  ments , the main ledger manager may directly communicate
+has deposited $ 2.5 M. Pool account 430 has deposits from  ( or even indirectly , via the main ledger 400 ) with those
+Bank A , E , G , and H  in  AUD that amount to  $ 0.8 M , $ 0.5  ledgers to check and verify the transaction .
+
+M , $ 1.2  M , and $ 1.2  M , respectively  .  There is also  a  [ 0124 ]  For example , the main ledger manager may com
+currency account within pool account 430 , in which the  municate with ledger 422 to determine if Bank D already has
+custodian of the currency account has deposited $ 2.2 M. In  a CAD RTP settlement account in  pool account 420 , and if some embodiments , the custodian  for all three currency  it has sufficient balance for the transaction . In  the figure
+accounts may be the same entity .  shown ,  Bank  D  does not have a  CAD RTP settlement
+
+[ 0120 ]  As before , for each pool account , the correspond account in pool account 420. However , if Bank D  did have
+ing ledger may continually record individual account values  an account with sufficient balance in pool account 420 , then
+associated with each user ( including the currency account )  a cross - pool transaction may not even be necessary . The
+based on their deposits , any previous deposits , as well as any main ledger manager may go back to Bank D  to  determine
+transactions that user may have made . The funds deposited which settlement account to  use for the transaction  or to
+by the users in  a  pool account are aggregated  , but the  verify that Bank D  does indeed want to  perform  a cross
+
+
+US 2020/0167773 A1  May 28 , 2020
+14
+
+pool  , cross - border transaction using their settlement account  mate certain  features or perform  certain  actions .  These
+
+in pool account 410. More typically , the main ledger man scripts and rules may be associated with top - up  / drawdown .
+ager may communicate with ledger 412 to determine if Bank  For instance , the custodians of the currency accounts in pool
+
+D  has a sufficient balance in  pool account 410 in order to  account 410 and pool account 420 may have established
+perform the transfer . In this case , Bank D has $ 2.2 M  in pool  certain  rules or configurations with ledgers 412 and 422 ,
+account 410 , which is sufficient to cover the $ 2.0 M  transfer .  respectively . For example , there may be pre - established
+
+[ 0125 ]  In  some embodiments , the main ledger manager  thresholds for top - up / drawdown associated with those cur
+may convert the transaction amount into CAD , such as by  rency accounts . If the currency account falls below  a pre
+using the current FX conversion rate for USD to CAD . For  designated threshold or is expected to fall below a threshold
+
+instance , if the USD / CAD FX rate is $ 0.78 , the main ledger based upon a FX position forecast ( e.g. , there is expected to
+manager would determine that the $ 2 M  USD transfer is an  be numerous , larger - than - normal transactions made during
+equivalent of $ 1.56 M  CAD , which is how much that Bank  an upcoming weekend or holiday ) , the ledger manager of the
+
+F would receive . The main ledger manager may also deter ledger may send a communication to the custodian of that
+mine if the transaction is within transaction size limits that  currency account to add additional funds ( e.g. , top - up ) to the
+have been established at the global level ( e.g. , by consulting currency account  .  In  some cases ,  the custodian  of the
+main ledger 400 ) , at the originating country level ( e.g. , by currency account may have established a source of funding
+consulting ledger 410 ) , at the receiving country level ( e.g. ,  and the top - up can be performed automatically . This process
+by consulting ledger 420 ) , by the payor user ( e.g. , by  would be similar for drawdowns . If the currency account
+
+consulting Bank D's rules established with ledger 410 ) , or  exceeds a pre - designated threshold or is expected to exceed
+by the receiving user ( e.g. , by consulting Bank F's rules  a threshold based upon a FX position forecast , the ledger
+established with  ledger 420 ) . In  some embodiments , the  manager of the ledger may send a  communication to the
+
+rules and transaction limits established at ledger 420 may be  custodian of that currency account to withdraw funds ( e.g. ,
+involve amounts in CAD , so the main ledger manager would  drawdown ) from  the currency account  , or the drawdown can
+perform the verifications using the $ 1.56  M  CAD equiva  be performed automatically if there is an established account
+lent . In some embodiments , the main ledger manager may  to  withdraw  funds to . The depositing or withdrawing of
+check to  see  if the transaction  has an  acceptable KYC  funds to a currency account will change the pool value of the
+payment transaction risk  score , as assigned by either Bank  pool account which will be recorded in the ledger of that
+
+D  or the main ledger manager  . In some embodiments , the  pool account  , and  in  some embodiments ,  will also  be
+main ledger manager may also check to see if the transaction communicated to the main ledger manager to be recorded in
+complies with legal and regulatory requirements for cross  the main ledger 400 .
+border transactions .  [ 0129 ]  For example , the custodian of the currency account
+
+[ 0126 ]  In  some embodiments , in which settlement is per  in pool account 420 may have established a rule with ledger
+formed using currency accounts , the main ledger manager 422 to  generate an alert whenever  the currency account may also  check  to see if the currency  account at the pool  balance drops below  $ 1 M. Since the currency account in
+account of the receiving user has enough funds to cover the  pool account 420 ends up with $ 0.94 M  CAD , this alert can
+transaction . In  this  case , the currency  account at  pool  be generated and sent to the custodian ( e.g. , an individual in
+account 420 has $ 2.5 M  CAD , which is enough to cover the the  Treasury Management department of the  custodian
+transaction .  receives an email ) . The custodian can then initiate a deposit
+
+[ 0127 ]  If the transaction passes all these verifications , then  of funds to  the pool account 420 to  bring their account
+
+the main ledger manager may settle the transaction using the  balance above the threshold , such as by making a transfer
+currency accounts associated with the pool accounts 410 and  from  their account at the central bank ( not shown ) to the
+420. In  other words  , the system  is performing real - time  currency account in pool account 420. Once the transfer is
+clearing and settlement , and when a transaction is authorized  complete , the ledger manager of ledger 422 can be informed
+
+then that transaction is settled on a per - transaction basis . For  to record the deposit and update the custodian's currency
+example , the main ledger manager can send a communica account balance in the pool .
+
+tion to the ledger manager of ledger 422 ( or one of the nodes [ 0130 ]  In some embodiments , some or all of the informa
+hosting the ledger ) to have $ 1.56 M  CAD transferred from  tion with these account balance changes may be recorded in
+the currency account balance in  pool account 420 to Bank  the main ledger 400. For instance , in some embodiments , the
+F's balance in  pool account 420. Either the main ledger  main ledger 400 may capture an updated account balance for
+manager , or the ledger manager of ledger 422 , can then  both the payor user and the payee user with the transaction
+inform Bank F that the transfer has completed and disbursed .  applied ( unless the main ledger is not permitted visibility for
+The main ledger manager can also send a communication to  individual user account balances ) or at least an identification
+the ledger manager of ledger 412 to  have $ 2  M  USD  of the payor user and the payee user . In this case , the payor
+transferred from  Bank D's settlement account balance in  is Bank D and the payee is Bank F. Additional information
+pool account 410 to the currency account in pool account  recorded may include the pool accounts associated with the
+410. The resulting balances will include Bank D having $ 0.2 payor user and the payee user , the transaction amount  ,
+M  USD in pool account 410 , the currency account having  currency information associated with the transaction ( e.g. ,
+$ 4.6 M USD in pool account 410 , Bank F having $ 4.56 CAD USD / CAD at an exchange rate of $ 0.78 ) , any information
+
+in pool account 420 , and the currency account having $ 0.94 about why the transaction was declined if it was declined
+M  CAD in  pool account 420. The pool values of pool  during the settlement process , jurisdiction information for
+account 410 and pool account 420 have not changed .  the payor user and the payee user , and a date and time stamp
+
+[ 0128 ]  In some embodiments , the users and / or custodians  for the transaction . Also recorded may be information asso
+of the currency accounts in  each pool account may have  ciated with the subsequent withdrawals and deposits by the
+established certain scripts , rules , or configurations to auto  custodians of the currency accounts at pool account 410 and
+
+
+US 2020/0167773 A1  May 28 , 2020
+15
+
+pool account 420 , such as identification of the currency  Bank A would only need to keep $ 1 M  in the account at any
+account  , the transaction type , and the change in pool values  time . This system also provides settlement finality with each
+associated with pool account 410 and pool account 420 .  payment  , eliminates systemic risk , and provides all partici
+
+[ 0131 ]  At the country - level  , the ledgers 412 and 422 may pants with greater visibility into individual and overall ( e.g. ,
+
+also record some or all of this information ( e.g. , the ledger  pool account ) settlement positions .
+412 may record that Bank D made a transfer to Bank F in  [ 0134 ]  Additionally , the system enables the digital ledger
+pool account 420 ) . However  , in  this case , there has not  to be supported in a centralized  or decentralized manner  ,
+actually been a direct transfer between Bank D  and Bank F.  depending on which approach would be easier to  implement .
+
+In  some embodiments , the ledger 412 may only record that Many of the embodiments discussed have involved a decen
+Bank D  transferred  an amount to the currency account in  tralized approach with a hierarchy of distributed ledgers .
+pool account 410 and any subsequent withdrawals to  the  However  , in some embodiments , the roles performed by the
+currency account that  change the pool value of the pool  main ledger manager , the ledger managers , and / or the cus
+account 410 , while the ledger 422 may only record that Bank todians of the various currency accounts may be performed
+
+F  received an amount from  the currency account in  pool  by a single entity , which may simplify the process and
+account 420 and any subsequent deposits to  the currency  reduce the amount of communications taking place . Fur
+account that change the pool value of the pool account 420 . thermore , if the main ledger manager and the ledger man
+This would allow the ledgers , at the country - level , to make agers are combined into a single entity , then all the ledgers
+
+a  record of the transaction  without needing to  have any  can effectively be combined into a centralized ledger . This
+knowledge of a payee user in  another pool  .  can make it easier to implement and establish the system  all
+
+[ 0132 ]  There are many advantages to the RTP settlement  at once , since there  is no longer a need to  have many
+
+system , as shown through the embodiments depicted in FIG .  different ledger managers ( e.g. , for each country ) . This may
+
+4. One benefit is oversight . The main ledger manager is able  also provide consistency in terms of interpreting transactions
+
+to oversee global settlement , and can establish , monitor  , and in the ledger .
+
+maintain prefunded settlement requirements for users ( e.g. ,  [ 0135 ]  Alternatively , the decentralized approach does not
+banks ) —without even needing to have knowledge of the  require implementation all at once , and allows for imple
+account balances of those users . At the same time  , the ledger mentation on a country - by - country basis . A  country could
+manager and / or pool entities of a ledger at a country - level establish their own pool and ledger to  enable domestic
+can oversee domestic settlement , and can  also  establish ,  real  - time payments and provide their users the ability to
+monitor ,  and maintain their  own prefunded  settlement  remotely manage their settlement position . Another advan
+requirements for users of that pool account . There is also  tage of a decentralized ledger is that it works well when
+greater flexibility and visibility of legal and compliance  different rules , permissions , and approvals are expected . For
+
+related business rules and validations , since those rules can  instance , different countries may likely manage their own
+be set , configured , or written into  the ledgers and / or the  separate ledgers and pools ( e.g. , a central bank which can
+framework used to access those ledgers . Legal and regula  integrate settlements via direct or indirect access ) . These
+tory compliance checking against rules and validations can  different ledgers and pools may have their own framework ,
+even be automated , along with other back - office functions  rules , and controls . At the same time  , there may be a need
+
+( such as liquidity management , etc. )  for a universal , global ledger that serves than more than just
+
+[ 0133 ]  Furthermore , this system  can be used to  free up
+a  database .  The main blockchain ledger can be used to
+
+funds and collateral for its users . For instance , in  a normal  facilitate cross - border transactions between users of ledgers
+
+day , a bank may make multiple transactions in  which they  that were intended to capture only domestic transactions ,
+
+are the payee and also multiple transactions in  which they  while also  providing a level of permission - based data vis
+
+are the payors . Under a typical system , the bank may be  ibility and control ( e.g. , who can see what data , who can use
+
+expected to pre - fund their account with at least enough to  what data ) that will be necessary .
+
+cover the total sum of all the expected transactions in which  [ 0136 ]  FIG . 5 illustrates an example diagram of blocks in
+
+they  are the payors prior to  settlement  . With  the RTP  a  blockchain ledger for the distributed ledger settlement
+
+settlement system described herein , a bank would need to  system , in  accordance with  embodiments of the present
+deposit a smaller amount and would receive a communica  disclosure . In  particular , FIG . 5 illustrates a blockchain 500
+
+tion if the account requires a top - up . Similarly , the custodi to demonstrate how the blocks in  a blockchain ledger may
+ans of the currency accounts would have reduced liquidity  look like at the country - level ( e.g. , for the ledgers 312 , 322 ,
+
+requirements as they would also top - up when needed . As a and 332 in FIG . 3 ) .
+
+specific example , Bank A may be expected to make a series  [ 0137 ]  Blockchain 500 is shown with  three  consecutive
+of sequential ten $ 1 M  transactions  to Bank C , totaling $ 10  blocks in  an exemplary blockchain , blocks 502 , block 508 ,
+M. In a traditional pre - funded system , Bank A would need  and block 514. The blockchain 500 may be a data structure
+
+to prefund their account with at least $ 10 M  to cover the total  that aggregates transactions for inclusion into the blockchain
+of these expected transactions , even if some of the transac  500. Each block may include a header and a list of one or
+tions do not occur . With  the RTP settlement  system  more transactions , and a block may have multiple transac
+described herein , in which settlement occurs at the same  tions . Blocks 502 , 508 , and 514 are shown with only one
+time a transaction is cleared , Bank A would only need to  transaction each for the purposes of clarity . For example ,
+keep $ 1 M  in their account to perform  the first transaction  .  block 502 may include header 504 and transactions 506 .
+Once the transaction occurs and the balance dips below a  Block 508 may include header 510 and transactions 512 .
+
+threshold , Bank A  would be notified  and would deposit  Block 514 may include header 516 and transactions 518 .
+additional funds into the pool ( or this may be performed  [ 0138 ]  The headers 504 , 510 , 516 may include at least
+automatically based on configurations ) , such as another $ 1  three sets  of metadata : a  previous block  header hash , a
+
+M  to perform  the next transaction . In  this specific example ,  timestamp , and a merkle root . The previous block header
+
+
+US 2020/0167773 A1  May 28 , 2020
+16
+
+hash may connect each block to the previous block . For  cross - pool transactions . In addition to the kinds of informa
+example , in header 510 of block 508 , “ 00000fh5689 ” may  tion listed above , there may also be identifiers of the pool
+be a hash of header 504 of block 502. In  other words , a  accounts associated with the payor user and the payee user .
+cryptographic hashing algorithm  ( e.g. , SHA256 ) may be [ 0142  ]  Implementing a blockchain 500 in  lieu of a tradi
+applied any number of times to the header 504 to obtain the  tional database  in  the disclosed  embodiments may have
+value “ 00000fh5689 ” , which may be included in  the header many advantages . The blockchain 500 is multi - access and
+510 of the block 508. The timestamp may be the creation many entities may both have access to  the data recorded
+time of the block . For example , block 508 may have been therein .  This may allow  for decentralized  and / or shared
+created on Apr. 1 , 2018 at 5:43:36 PM . The merkle root may control of the blockchain . Furthermore , the blockchain
+be a  hash of the root of the merkle tree  of each block's  model has trust and redundancy inherently built into the
+transactions . A merkle tree may be a summary of all of the  system . Each participating entity may verify digital signa
+transactions in  a block that is constructed by hashing pairs  tures for multiple related or unrelated transactions , which
+of nodes until there is only one hash . The last remaining hash  allows for transparency associated with the transactions and
+
+is  the merkle root .  ecosystem simplification by adding  all transactions  to  a
+
+[ 0139 ]  The transactions 506 , 512 , and 518 may incorpo  single blockchain . This decentralization also prevents mali
+
+rate a set of transactions , with certain information associated  cious attacks as the blockchain 500 does not have a central
+with each transaction . Transactions 506 , 512  , 518 may be  point of failure , and data written to the blockchain 500 may
+data structures that encode a transaction from  an origin or  be immutable once it is written , reducing the possibility of
+source ( e.g. , a payor ) and a destination ( e.g. , a payee ) . As fraud and errors . The blockchain 500 can also be permission
+shown in  FIG . 5 , there may be no cumulative data main  based , such that different data is visible to different entities
+
+tained by the blockchain 500. Instead , the available data may ( and individuals associated with  those entities ) based on
+be  scattered  amongst a  plurality  of transactions and a  permissions .
+
+plurality of blocks . For example , the transactions associated  [ 0143 ]  FIG . 6 illustrates an example diagram of blocks in
+with  a  single  user may be recorded  to  separate blocks  a  blockchain ledger for the distributed ledger settlement
+throughout the  blockchain  according to  when it  was  system , in  accordance  with  embodiments of the present
+recorded .  disclosure . In particular , FIG . 6 illustrates a blockchain 600
+
+[ 0140 ]  For example , transactions 506 may include data  to demonstrate how the blocks in  a blockchain ledger may
+associated with a  transaction from  Bank A  to Bank B. The  look like at the global level ( e.g. , for the main ledger 300 in
+data may include an  identifier of the origin ( e.g. , Bank A )  FIG . 3 ) .
+
+and an  identifier of the destination ( e.g. , Bank B ) , but does [ 0144 ]  Blockchain 600 is  shown with three consecutive
+not necessarily need to be in  clear text as shown here . For  blocks in  an exemplary blockchain , blocks 602 , block 608 ,
+instance , the identifiers may be an address or a unique series and block 614. The blockchain 600 may be a data structure
+of characters that are associated with a particular user . The  that aggregates transactions for inclusion into the blockchain
+
+data may include a transaction type , such as a transfer ,  600. Each block may include a header and a list of one or
+deposit , or withdraw . The data may further include a trans more transactions , and a block may have multiple transac
+action amount and a transaction time  , as the header 504 of tions . For example , block 602 may include header 604 and
+the block 502 only indicates when the data for the transac  transactions 606. Block 608 may include header 610 and
+tion was recorded and not the actual transaction time  . The  transactions 612. Block 614 may include header 616 and
+data may also include a change in the pool value , but this can transactions 618 .
+be omitted because the change in the pool value can be  [ 0145 ]  The headers 604 , 610 , 616 may include at least
+inferred from  the transaction itself and the current pool value  three  sets  of metadata : a previous  block header hash , a
+can be determined by reviewing the history of all the  timestamp , and a merkle root . The previous block header
+transactions recorded in  the blockchain . The data may also  hash may connect each block to the previous block . For
+include transaction identifiers that can be used to search for  example , in header 610 of block 608 , “ 00000rwr2342 ” may
+this specific transaction in the blockchain and also a digital  be a hash of header 604 of block 602. A  cryptographic
+signature , which in  some cases , may be used to verify the  hashing algorithm  ( e.g. , SHA256 ) may be applied  any
+identity of the originator ( e.g. , Bank A ) and authenticate the  number of times to  the header 604 to  obtain  the value
+transaction . Although not shown , transactions 506 may  " 00000rwr2342 ” , which may be included in the header 610
+contain additional data for transactions ( which do not have of the block 608. The timestamp may be the creation time of
+to involve Bank A ) . Transactions 512 and 518 also contain  the block . For example , block 608 may have been created on
+similar kinds of data associated with other transactions .  Apr. 1 , 2018 at 5:43:36 PM . The merkle root may be a hash
+
+[ 0141 ]  In  various embodiments , other kinds of informa  of the root of the merkle tree of each block's transactions . A
+
+tion associated with transactions can be stored in the blocks  .  merkle tree may be a summary of all of the transactions in
+Some of this data could be encrypted and not available to be  a block that is constructed by hashing pairs of nodes until
+viewing without the proper permissions . For example , along  there is only one hash . The last remaining hash is the merkle
+with  an identifier of the payor and payee , the data may  root  .
+
+include updated account balances for both the payor user  [ 0146 ]  The transactions 606 , 612 , and 618 may incorpo
+and the payee user with the transaction  applied . Also  rate a set of transactions , with certain information associated
+included can be currency information associated with the  with each  transaction . Transactions 606 , 612 , 618 may be
+
+transaction , any information about why the transaction was  data structures that encode a transaction from  an origin or
+declined if it was declined during the settlement process ,  source ( e.g. , a payor ) and a destination ( e.g. , a payee ) . As
+jurisdiction information for the payor and the payee , and so  shown in  FIG . 6 , there may be no cumulative data main
+forth . In some embodiments , the blockchain ledger at the  tained by the blockchain 600. Instead , the available data may
+country  level may also incorporate data associated with  be scattered amongst a  plurality of transactions and a
+
+
+US 2020/0167773 A1  May 28 , 2020
+17
+
+plurality of blocks . For example , the transactions associated  [ 0151 ]  For instance , it  can be seen that transaction  702
+with  a  single  user may be recorded  to  separate blocks  with a transaction id # b21 involved a transfer of funds from
+throughout the  blockchain  according to  when  it was  Bank A  to  Bank B  of $ 2 M. The transaction 702 lists two
+recorded .  inputs , transaction id # 445 ( transaction 704 ) and transaction
+
+[ 0147 ]  In some embodiments , such as the one depicted in  #id aa8 ( transaction 706 ) . Once a transaction is listed as an
+
+the figure , the transactions recorded in blockchain 600 may  input , it is considered spent . Thus , any new  transactions
+
+include most or all of the information recorded in all of the  being recorded cannot list those two transactions as inputs .
+
+ledgers at the country - level , such as same  - pool transactions ,  Here  , transaction 704 involved Bank A depositing $ 1 M  into
+
+deposits , and withdrawals . Blockchain 600 may also record  their account and transaction 706  involved Bank C  trans
+
+cross - pool transactions . For example , transactions 606 is  ferring $ 1 M  into Bank A's account  . Thus  , there was a flow
+shown to  include data associated with a same  - pool transac of funds totaling $ 2  M  into Bank A's account  , which is
+
+tion from  Bank A to Bank B , which are both users of Pool  enough to  cover this transaction  of $ 2  M  from  Bank A  to
+Bank B. A. Note that the identifiers of the users and pools do not need
+
+to be in clear text as shown here , but may be an address or  [ 0152 ]  FIG . 8 illustrates a step diagram  for an example
+
+a  unique series of characters  that are associated with  a  cross - pool transaction using the distributed ledger settle
+
+particular user and / or pool  . This data includes a transaction ment system , in accordance with embodiments of the pres
+type ( e.g. , transfer , deposit  , or withdraw ) , which in  this case  ent disclosure .
+
+is a transfer . The data may further include a transaction  [ 0153 ]  In FIG . 8 , assume that user A of pool A is attempt
+amount , a transaction time  , and changes in pool values . The ing to make a cross - pool transaction in  order to  transfer
+data may also include currency and jurisdiction information ,  funds to user B of pool B. At step 802 , user A may submit
+as well as the exchange rate applied to a transaction  . In  the  transaction  to  the ledger manager  of blockchain  A
+addition , the data may also  include transaction identifiers  associated with  pool A. The submitted  transaction will
+that can be used to search for this specific transaction in the  identify user B , as well as a transaction amount . At step 804 ,
+blockchain and also a digital signature , which in some cases , the ledger manager of blockchain A will forward this trans
+may be used to  verify the identity of the originator  ( e.g. ,  action to the main ledger manager for the main blockchain .
+Bank A ) and authenticate the transaction . Transactions 612  In some embodiments , the ledger manager of blockchain A
+and 618 also contain similar kinds of data associated with  may first determine that this is indeed a cross - pool transac
+other transactions . For instance , transactions 612 includes a  tion ( e.g. , by determining that user B  is not in  pool A ) and
+deposit by Bank A which increases the pool value of Pool A also determine that user A has a sufficient balance in  pool A
+by $ 1 M.  Transactions 618 shows a cross - pool transaction by  to perform  the transaction . In other embodiments , the user A
+Bank A  in  Pool A  to Bank F  in  Pool B , in which a $ 1  M  of pool A may directly submit the transaction request to the
+amount in USD was debited from Bank A and the equivalent main ledger manager for the main blockchain .
+amount of $ 0.78 M  CAD ( based on an exchange rate of  [ 0154 ]  At step 806 , the main ledger manager may deter
+0.78 ) was credited to Bank F.  mine the corresponding amount to transfer to user B  ( e.g. ,
+
+[ 0148 ]  In  some other embodiments , the blockchain 600  for a multi - currency transaction ) and verify the transaction
+may optionally record same  - pool transactions , optionally  against the rules established  in  the main blockchain . For
+
+record withdrawals and deposits to  pool accounts , and  example , if this is a cross - border transaction , the main ledger
+
+optionally record changes in pool value . All of this data can manager may first check to see if this transaction is permit
+be recorded in the ledgers at the country - level and requested ted based on international rules , rules associated with the
+
+if needed . However  , the blockchain 600 may continue to  originating country , and rules associated with the receiving
+
+record cross - pool transactions , such  as the transaction  country . At step 808 , the main ledger manager may further
+shown in  transactions 618 .  verify  the  transaction  against the rules  established with
+blockchain A. For example , a determination may be made is
+[ 0149 ]  FIG .  7  illustrates  an  example diagram of how  to whether user A has a sufficient balance in pool A for the
+transactions are verified in  a  distributed  ledger settlement  transaction , or whether the transaction is within transaction
+system , in  accordance  with  embodiments of the present  limits applicable to  either user A or pool A. If the transaction
+disclosure .  cannot be verified , the main ledger manager would have to
+
+[ 0150 ]  More specifically , the diagram  illustrates how a  decline the transaction and user Awould have to be informed
+
+transaction can be verified to ensure that the account value  of their insufficient balance or that the transaction is above
+
+associated with a payor is sufficient to cover the transaction ,  established limits . At step 810 , the main ledger manager may
+based on the history of transactions associated with that user  also  further verify the transaction  against the rules estab
+recorded in  the blockchain .  The individual blocks in  the  lished with blockchain B , such as to determine whether the
+blockchain do not necessarily correspond to a specific user  transaction is above established limits applicable to user B
+and are not even necessarily in  chronological order ( blocks  or pool B.
+
+are ordered by when they  are recorded , but a  particular  [ 0155 ]  If the transaction can be verified , then  the main
+transaction may be recorded in a block at a later time from  ledger manager of the main blockchain may record the
+when the transaction took place ) . However  , to  ensure that a transaction in  the main blockchain . Furthermore , at step 812 ,
+transaction is  permitted and the funds for the transaction  the main ledger manager may send a communication to the
+were available and not already spent by the payor ( e.g. ,  ledger manager of blockchain A to permit and record the
+double spending ) , the transaction may list a set of input  transaction . The details of the transaction are recorded  in
+transactions ( e.g. , previous transactions adding an equiva  blockchain A with user A's account balance being debited ,
+lent amount of funds into the payor's account ) . This allows and at step 814 , user A may be informed by the ledger
+the blockchain to provide a history of all of the transactions manager of blockchain A that their account balance has been
+and can be used to determine the flow  of funds over time  .  debited . Similarly , at step 816 , the main ledger manager may
+
+
+US 2020/0167773 A1  May 28 , 2020
+18
+
+send a communication to the ledger manager of blockchain  instructions or commands on a computer readable medium
+
+B  to permit and record the transaction . This communication  for  storage and / or transmission , suitable media include
+may also include a converted transaction amount based on  random  access memory ( RAM ) ,  a  read  only memory
+
+an exchange rate between currency A associated with pool A  ( ROM ) , a magnetic medium such as a hard - drive or a floppy
+and currency B  associated with pool B  ( e.g. , for a multi  disk , or an optical medium such as a compact disk ( CD ) or
+currency transaction ) . The details of the transaction  are  DVD ( digital versatile disk ) , flash memory , and the like . The
+recorded in  blockchain  B  with user B's account balance  computer readable medium may be any combination of such
+being credited with the converted amount  , and at step 818 ,  storage or transmission devices .
+user B may be informed by the ledger manager of block  [ 0160 ]  Such programs may also be encoded and transmit
+chain B that their account balance has been credited . In some  ted using carrier signals adapted for transmission via wired ,
+embodiments , at step 820 , at a later time , the transaction  optical , and / or wireless networks conforming to a variety of may be physically settled by having the pool entity of pool  protocols , including the Internet . As such , a computer read
+A  provide the funds to the pool entity of pool B.  able medium according to an embodiment of the present
+[ 0156 ]  A computer system may be used to implement any  invention may be created using a data signal encoded with
+or all of the entities or components described above . The  such programs  . Computer readable media encoded with the
+subsystems of the computer system  may be interconnected  program  code may be packaged with a compatible device or
+via a system  bus . Additional subsystems such as a printer ,  provided separately  from  other devices ( e.g. , via Internet
+keyboard , fixed disk ( or other memory comprising computer  download ) . Any such computer readable medium may reside
+readable media ) , monitor , which  is  coupled to  display  on or within a single computer product ( e.g. a hard drive , a
+adapter , and others may be used . Peripherals and input /  CD , or an entire computer system ) , and may be present on
+output ( I / O )  devices , which  couple to  an  I / O  controller  or within different computer products within a system  or
+
+( which can be a processor or other suitable controller ) , can network . A computer system may include a monitor , printer ,
+be connected to  the computer system  by any number of  or other suitable display for providing  any of the results
+means known in the art , such as a serial port . For example mentioned ,  herein to a user .
+
+a serial port or external interface can be used to connect the [ 0161 ]  The above description  is  illustrative and is not
+computer apparatus to  a wide area  network  such as the  restrictive . Many variations of the invention will become
+Internet , a mouse input device , or a scanner  . The intercon apparent to  those skilled in  the art upon review  of the
+nection via  system  bus allows the central processor  to  disclosure . The scope of the invention should , therefore , be
+communicate with each subsystem and to control the execu  determined not with reference to  the above description , but
+tion of instructions from  system memory or the fixed disk ,  instead should be determined with reference to the pending
+as well as the exchange of information between subsystems .  claims along with their full scope or equivalents .
+The system memory and / or the fixed disk may embody a  [ 0162 ]  One or more features from  any embodiment may
+computer readable medium .  In  some embodiments  ,  the  be combined with one or more features of any other embodi
+monitor may be a touch sensitive display screen .  ment without departing from  the scope of the invention .
+[ 0157 ]  A computer system  can include a plurality of the  [ 0163  ]  A  recitation of “ a ” , “ an ”  or “ the ” is intended to same components or subsystems , e.g. , connected together by mean " one or more ”  unless specifically indicated to the
+an external interface or by an  internal interface . In  some  contrary .
+embodiments , computer systems  , subsystem , or apparatuses  1. A method comprising :
+can communicate over a network . In  such instances  , one
+computer can be considered a client and another computer a  receiving , at a node of a first plurality of nodes hosting a
+
+server , where each can be part of a same computer system .
+first blockchain ledger  , a first transaction , wherein each
+
+A  client and a server can  each include multiple  systems  ,  user of a first set of users deposited funds for settlement
+subsystems , or components .  into a first pool account  , wherein the first transaction is
+from  a first user to a second user for a first amount  , and
+[ 0158 ]  It  should be understood that any of the embodi  wherein the first blockchain ledger records transactions ments of the present invention can be implemented in the  between the first set of users including the first user and
+form  of control logic using hardware ( e.g. an application  the second user ; specific integrated circuit or field programmable gate array )
+and / or using computer software with a generally program  verifying , by the node of the first plurality of nodes , that
+the  first  transaction  is  capable of taking place by mable processor in a modular or integrated manner  . As used
+herein , a processor includes a single - core processor , multi  checking the first blockchain ledger ; and
+
+core processor on a same integrated chip , or multiple pro  updating , by the node of the first plurality of nodes , the
+
+cessing units on a single circuit board or networked . Based  first blockchain ledger with  the  first transaction  to
+on the disclosure and teachings provided herein , a person of  include a block with  data relating to the first transac
+tion . ordinary skill in the art will know and appreciate other ways
+and / or methods to  implement embodiments of the present  2. The method of claim  1 , wherein the first blockchain
+
+invention using hardware and a combination of hardware  ledger further records  , for each transaction between the first
+and software .  set of users :
+
+[ 0159 ]  Any  of the  software  components or functions  a payer  ;
+
+described in this application may be implemented as soft  a payee ; and
+ware code to be executed by a processor using any suitable  a  transaction amount .
+computer language such as , for example , Java , C , C ++ , C # ,  3. The method of claim  1 , wherein verifying that the
+Objective - C , Swift , or scripting language such as Perl or  transaction is  capable of taking place comprises checking
+Python using , for example , conventional or object - oriented  the first blockchain  ledger  for a  history  of transactions
+techniques . The software code may be stored as a series of  associated with the first user  .
+
+
+US 2020/0167773 A1  May 28 , 2020
+19
+
+4. The method of claim  1 , wherein verifying that the first  receive a second transaction between the first user to  a
+transaction is capable of taking place comprises checking an  third user that did not deposit funds for settlement into
+account value associated with the first user .  the first pool account ;
+5. The method of claim  1 , further comprising :  verify that the second transaction  is capable of taking
+receiving , at the node of the first plurality of nodes , a  place by checking the first blockchain ledger ; and
+second transaction between the first user to a third user  communicate the second transaction to a second plurality
+that did not deposit funds for settlement into the first  of nodes hosting a second blockchain ledger .
+pool account  ;  13. The computing system  of claim  8 , wherein the pro
+verifying , by the node of the first plurality of nodes  , that gram  instructions , when executed by the processor , further
+the second transaction is capable of taking place by  cause the processor to :
+checking the first blockchain ledger ; and  determine that the  first transaction  reduces an  account communicating , by the node of the first plurality of nodes  value associated with the first user below  a first thresh
+to a second plurality of nodes hosting a second block  old ; and
+chain ledger , the second transaction .
+6. The method of claim  1 , further comprising :  sending a  communication  to  the first user to  deposit
+
+determining , by the node of the first plurality of nodes ,  additional funds into the pool account .
+
+that  the  first transaction  reduces an account value  14. The computing system  of claim  8 , wherein the pro
+
+associated with the first user below  a first threshold  ;  gram  instructions , when executed by the processor , further
+and  cause the processor to :
+
+sending , by the node of the first plurality of nodes , a  determine that the first transaction increases an account
+
+communication to  the first user to  deposit additional  value associated with the second user above a second
+
+funds into the pool account .  threshold ; and
+
+7. The method of claim  1 , further comprising :  send a  communication  to  the second user to  withdraw
+determining , by the node of the first plurality of nodes ,  funds from  the pool account  .
+
+that the  first transaction  increases an  account value  15. A method comprising :
+associated with the second user above a second thresh  receiving a transaction between a first user to a second
+old ; and  user for a first amount  , wherein the first user deposited
+sending , by the node of the first plurality of nodes , a  funds for settlement into a  first pool account and the
+communication to the second user to withdraw  funds  second user deposited funds for settlement into  a sec
+from  the pool account  .  ond pool account  ;
+
+8. A computing system  comprising :  verifying that the transaction is capable of taking place by
+a processor ;  checking an account value associated with the first user
+a computer - readable memory containing program instruc  at the first pool account  ;
+tions that , when executed by the processor , cause the  sending , to  a  first plurality  of nodes hosting a  first
+processor to :  blockchain ledger , a first communication , wherein the
+receive , a first transaction from  a first user to a second  first blockchain ledger records transactions between
+user for a first amount  ;  users that deposited funds for settlement into  the first
+verify  that the first transaction  is  capable of taking  pool account , and wherein the first communication
+place by checking a first blockchain ledger  , wherein  instructs the first plurality of nodes to update the first
+the  first blockchain  ledger  records  transactions  blockchain ledger to include a decrease in the account
+between a first set of users including the first user and  value associated with the first user at the  first pool
+the second user  , and wherein each user of the first set  account by the first amount ; and
+of users deposited funds for settlement into a first  sending , to a second plurality of nodes hosting a second
+pool account ; and  blockchain ledger , a second communication , wherein
+updating the first blockchain ledger with the first trans  the  second  blockchain  ledger  records transactions
+action to include a block with data relating to the first  between users that deposited funds for settlement into
+transaction .  the second pool account  , and wherein the second com
+9. The computing system  of claim  8 , wherein the first  munication instructs the second plurality of nodes to
+blockchain ledger  further  records ,  for  each  transaction  update the second blockchain  ledger to  include an
+between the first set of users :  increase in an account value associated with the second
+
+a payer ;  user at the second pool account .
+
+a payee ; and  16. The method of claim  15 , further comprising :
+
+a transaction amount  .  determining a currency associated with the second pool
+10. The computing system of claim  8 , wherein verifying  account  ; and
+that the first transaction is capable of taking place comprises  converting the first amount into a second amount based on
+checking the first blockchain ledger for a history of trans  the determined currency , and wherein the second com
+actions associated with the first user .  munication further  instructs the second plurality  of
+11. The computing system  of claim  8 , wherein verifying  nodes to update the second blockchain ledger to include
+that the first transaction is capable of taking place comprises  the increase in  the account value associated with the
+checking an account value associated with the first user .  second user at the second pool account by the second
+12. The computing system  of claim  8 , wherein the pro  amount .
+
+gram instructions , when executed by the processor  , further  17. The method of claim  15 , wherein the first communi
+cause the processor to :  cation further instructs the first plurality of nodes to update
+
+
+US 2020/0167773 A1  May 28 , 2020
+
+20
+
+the first blockchain  ledger to  include a  corresponding
+increase in a currency account value at the first pool account
+by the first amount  .
+18. The method of claim  16 , wherein  the second com
+munication further instructs the second plurality of nodes to
+update the second blockchain ledger to  include a  corre
+sponding decrease in a currency account value at the second
+pool account by the second amount  .
+19. The method of claim  17 , further comprising :
+receiving a communication that the currency  account
+value at the first pool account is above a first threshold ;
+and
+withdrawing funds from  the currency account at the first
+pool account to bring the currency account value below
+the first threshold .
+20. The method of claim  18 , further comprising :
+receiving a  communication  that the currency account
+value at the second pool account is below  a second
+threshold ; and
+depositing funds into the currency account at the second
+pool account to bring the currency account value above
+the second threshold .
+21. - 26 . ( canceled )
+</pre>
+    </div>
+    <footer>
+        <p>Generated on: 2/2/2025, 8:01:42 AM</p>
+        
+    </footer>
+</body>
+</html>

@@ -37,3 +37,8 @@ crypto-patents
 
 
 pdf003.JSON
+
+npm install tesseract.js
+
+
+
