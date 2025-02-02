@@ -1,6 +1,0 @@
-graph TD
-    User --> Deposit["wUSDX.deposit(amount)"]
-    Deposit --> TransferVault["Transfer USDX to vault"]
-    TransferVault --> MintWUSDX["Mint wUSDX tokens 1:1 with deposit"]
-    MintWUSDX --> HoldRebasing["wUSDX vault holds rebasing USDX"]
-    HoldRebasing --> WithdrawYield["Withdrawal returns increased USDX due to yield"]

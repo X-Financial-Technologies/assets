@@ -1,7 +1,0 @@
-graph TD
-   Treasury -->|Yield| FundManager[Fund Manager]
-   FundManager --> NII{NII}
-   NII -->|80%| RewardMultiplier[rewardMultiplier]
-   NII -->|20%| ProtocolFee[Protocol Fee]
-   RewardMultiplier -->|Rebase| USDX
-   ProtocolFee -->|Reinvest| FundManager

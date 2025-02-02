@@ -1,6 +1,0 @@
-graph TD
-    Admin["Admin (MINTER_ROLE)"] --> Mint["mint(address, amount)"]
-    Mint --> ConvertShares["Convert amount to shares: shares = amount * BASE / rewardMultiplier"]
-    ConvertShares --> IncreaseShare["Increase recipient's share balance"]
-    IncreaseShare --> IncreaseTotalShares["Increase total shares"]
-    IncreaseTotalShares --> EmitTransfer["Emit Transfer event"]

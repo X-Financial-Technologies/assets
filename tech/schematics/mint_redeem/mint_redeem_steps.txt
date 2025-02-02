@@ -1,9 +1,0 @@
-MINT REDEEM STEPS
-1 User sends USDC/USDX to Minter
-2 Minter forwards USDC to Fiat-Crypto Conversion
-3 FCC converts USDC to USD for TBills Fund
-4 TBills returns USD to FCC
-5 FCC sends USDC to Redeemer
-6 TBills yields USDX tokens
-7 USDX redeems through Redeemer
-8 Redeemer returns USDC/USDX to User

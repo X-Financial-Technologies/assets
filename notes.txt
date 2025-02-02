@@ -1,2 +1,6 @@
 
-git checkout -b branchname
+mv whitepaper_2020201.htm index.html
+
+
+touch _headers
+echo "/    Basic-Auth: username:password" > _headers
