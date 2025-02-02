@@ -1,0 +1,1276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDX Payments Processing Microservices Architecture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>USDX Payments Processing Microservices Architecture</h1>
+    </header>
+    <div class="legend" aria-label="Color legend for different service types">
+        <div class="legend-item">
+            <div class="legend-color gateway"></div>
+            <span>API Gateway</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color core-service"></div>
+            <span>Core Services</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color blockchain"></div>
+            <span>Blockchain</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color infrastructure"></div>
+            <span>Infrastructure</span>
+        </div>
+    </div>
+    <main class="container">
+        <section aria-labelledby="external-layer">
+            <h2 id="external-layer" class="layer-title">External Layer</h2>
+            <div class="service-layer">
+                <div class="service-box">
+                    <h3>External Clients</h3>
+                    <ul>
+                        <li>Web & Mobile Apps</li>
+                        <li>Fintech Integrations</li>
+                        <li>Merchant Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="gateway-layer">
+            <h2 id="gateway-layer" class="layer-title">Gateway</h2>
+            <div class="service-layer">
+                <div class="service-box gateway">
+                    <h3>API Gateway</h3>
+                    <ul>
+                        <li>Request Routing</li>
+                        <li>OAuth2 Authentication</li>
+                        <li>Rate Limiting</li>
+                        <li>Webhook Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="core-services">
+            <h2 id="core-services" class="layer-title">Core Services</h2>
+            <div class="service-layer">
+                <div class="service-box core-service">
+                    <h3>Authentication Service</h3>
+                    <ul>
+                        <li>OAuth2 Token Management</li>
+                        <li>Multi-Factor Authentication</li>
+                        <li>Session Management</li>
+                        <li>Access Token Generation and Validation</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Account Management Service</h3>
+                    <ul>
+                        <li>User Profile Creation and Management</li>
+                        <li>KYC Process Integration</li>
+                        <li>External Account Linking</li>
+                        <li>Account Status Management</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Wallet Service</h3>
+                    <ul>
+                        <li>USDX Wallet Creation and Management</li>
+                        <li>Balance Tracking and Updates</li>
+                        <li>Transaction History Maintenance</li>
+                        <li>Wallet Recovery and Backup</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Transaction Service</h3>
+                    <ul>
+                        <li>USDX Transfers (On/Off Chain)</li>
+                        <li>Payment Processing</li>
+                        <li>Virtual Account Transactions</li>
+                        <li>Transaction Fee Calculation</li>
+                        <li>Idempotency Handling</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Treasury Service</h3>
+                    <ul>
+                        <li>Reserve Management</li>
+                        <li>Yield Distribution</li>
+                        <li>Cash Flow Management</li>
+                        <li>Liquidity Monitoring and Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="support-services">
+            <h2 id="support-services" class="layer-title">Support Services</h2>
+            <div class="service-layer">
+                <div class="service-box">
+                    <h3>Compliance Service</h3>
+                    <ul>
+                        <li>KYC/AML Checks</li>
+                        <li>Regulatory Reporting</li>
+                        <li>Geographic Restrictions Enforcement</li>
+                        <li>Sanctions Screening</li>
+                    </ul>
+                </div>
+                <div class="service-box">
+                    <h3>Exchange Rate Service</h3>
+                    <ul>
+                        <li>Real-Time Exchange Rate Updates</li>
+                        <li>Historical Rate Data Storage and Retrieval</li>
+                        <li>Rate Conversion Calculations</li>
+                    </ul>
+                </div>
+                <div class="service-box">
+                    <h3>Notification Service</h3>
+                    <ul>
+                        <li>Transaction Alerts</li>
+                        <li>System Updates</li>
+                        <li>Compliance Notifications</li>
+                        <li>Custom User Notifications</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="blockchain-layer">
+            <h2 id="blockchain-layer" class="layer-title">Blockchain Layer</h2>
+            <div class="service-layer">
+                <div class="service-box blockchain">
+                    <h3>Blockchain Service</h3>
+                    <ul>
+                        <li>Network Interactions</li>
+                        <li>Smart Contract Management</li>
+                        <li>Token Minting/Burning</li>
+                        <li>Block Confirmation Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="infrastructure-layer">
+            <h2 id="infrastructure-layer" class="layer-title">Infrastructure</h2>
+            <div class="service-layer">
+                <div class="service-box infrastructure">
+                    <h3>Database Service</h3>
+                    <ul>
+                        <li>Transaction Ledger Maintenance</li>
+                        <li>User Data Storage and Retrieval</li>
+                        <li>Audit Trail Logging</li>
+                        <li>Data Backup and Recovery</li>
+                    </ul>
+                </div>
+                <div class="service-box infrastructure">
+                    <h3>Monitoring & Analytics Service</h3>
+                    <ul>
+                        <li>Performance Metrics Collection and Analysis</li>
+                        <li>Error Logging and Alerting</li>
+                        <li>Business Intelligence Reporting</li>
+                        <li>System Health Monitoring</li>
+                    </ul>
+                </div>
+                <div class="service-box infrastructure">
+                    <h3>Security Service</h3>
+                    <ul>
+                        <li>End-to-End Encryption</li>
+                        <li>Fraud Detection Algorithms</li>
+                        <li>Access Control Management</li>
+                        <li>Security Incident Response</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="x-protocol-section">
+            <h2>X Protocol</h2>
+            <p>USDX is a permissionless, yield-bearing stablecoin for payments.</p>
+    
+            <div class="x-protocol-subsection">
+                <h3>Features</h3>
+                <ul>
+                    <li>Access Control</li>
+                    <li>Rebasing token mechanism</li>
+                    <li>Minting and burning functionality</li>
+                    <li>Block/Unblock accounts</li>
+                    <li>Pausing emergency stop mechanism</li>
+                    <li>Reward multiplier system</li>
+                    <li>EIP-2612 permit support</li>
+                    <li>OpenZeppelin UUPS upgrade pattern</li>
+                </ul>
+            </div>
+    
+            <div class="x-protocol-subsection">
+                <h3>Use Cases</h3>
+                <ul>
+                    <li>Cash management</li>
+                    <li>Yield-bearing collateral</li>
+                    <li>Cross-border payments</li>
+                </ul>
+            </div>
+    
+            <div class="x-protocol-subsection">
+                <h3>Token Types</h3>
+                <ul>
+                    <li>USDX: ERC-20, rebasing, yield-bearing collateral</li>
+                    <li>wUSDX: ERC-4626, accumulating, DeFi</li>
+                </ul>
+            </div>
+    
+            <div class="x-protocol-subsection">
+                <h3>USDX</h3>
+                <p><strong>Public and External Functions</strong></p>
+                <ul>
+                    <li>initialize(string memory name_, string memory symbol_, address owner)</li>
+                    <li>name()</li>
+                    <li>symbol()</li>
+                    <li>decimals()</li>
+                    <li>convertToShares(uint256 amount)</li>
+                    <li>convertToTokens(uint256 shares)</li>
+                    <li>totalShares()</li>
+                    <li>totalSupply()</li>
+                    <li>balanceOf(address account)</li>
+                    <li>sharesOf(address account)</li>
+                    <li>mint(address to, uint256 amount)</li>
+                    <li>burn(address from, uint256 amount)</li>
+                    <li>transfer(address to, uint256 amount)</li>
+                    <li>blockAccounts(address[] addresses)</li>
+                    <li>unblockAccounts(address[] addresses)</li>
+                    <li>isBlocked(address account)</li>
+                    <li>pause()</li>
+                    <li>unpause()</li>
+                    <li>setRewardMultiplier(uint256 _rewardMultiplier)</li>
+                    <li>addRewardMultiplier(uint256 _rewardMultiplierIncrement)</li>
+                    <li>approve(address spender, uint256 amount)</li>
+                    <li>allowance(address owner, address spender)</li>
+                    <li>transferFrom(address from, address to, uint256 amount)</li>
+                    <li>increaseAllowance(address spender, uint256 addedValue)</li>
+                    <li>decreaseAllowance(address spender, uint256 subtractedValue)</li>
+                    <li>DOMAIN_SEPARATOR()</li>
+                    <li>nonces(address owner)</li>
+                    <li>permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)</li>
+                </ul>
+                <p><strong>Private and Internal Functions</strong></p>
+                <ul>
+                    <li>_authorizeUpgrade(address newImplementation)</li>
+                    <li>_mint(address to, uint256 amount)</li>
+                    <li>_burn(address account, uint256 amount)</li>
+                    <li>_beforeTokenTransfer(address from, address to, uint256 amount)</li>
+                    <li>_afterTokenTransfer(address from, address to, uint256 amount)</li>
+                    <li>_transfer(address from, address to, uint256 amount)</li>
+                    <li>_blockAccount(address account)</li>
+                    <li>_unblockAccount(address account)</li>
+                    <li>_setRewardMultiplier(uint256 _rewardMultiplier)</li>
+                    <li>_spendAllowance(address owner, address spender, uint256 amount)</li>
+                    <li>_useNonce(address owner)</li>
+                    <li>_approve(address owner, address spender, uint256 amount)</li>
+                </ul>
+                <p><strong>Events</strong></p>
+                <ul>
+                    <li>Transfer(from indexed addr, to uint256, amount uint256)</li>
+                    <li>RewardMultiplier(uint256 indexed value)</li>
+                    <li>Approval(address indexed owner, address indexed spender, uint256 value)</li>
+                    <li>AccountBlocked(address indexed addr)</li>
+                    <li>AccountUnblocked(address indexed addr)</li>
+                    <li>Paused(address account)</li>
+                    <li>Unpaused(address account)</li>
+                    <li>Upgraded(address indexed implementation)</li>
+                </ul>
+                <p><strong>Roles</strong></p>
+                <ul>
+                    <li>DEFAULT_ADMIN_ROLE</li>
+                    <li>MINTER_ROLE</li>
+                    <li>BURNER_ROLE</li>
+                    <li>BLOCKLIST_ROLE</li>
+                    <li>ORACLE_ROLE</li>
+                    <li>UPGRADE_ROLE</li>
+                    <li>PAUSE_ROLE</li>
+                </ul>
+            </div>
+    
+            <div class="x-protocol-subsection">
+                <h3>wUSDX</h3>
+                <p><strong>Public and External Functions</strong></p>
+                <ul>
+                    <li>initialize(IUSDX _USDX, address owner)</li>
+                    <li>pause()</li>
+                    <li>unpause()</li>
+                    <li>paused()</li>
+                    <li>DOMAIN_SEPARATOR()</li>
+                    <li>nonces(address owner)</li>
+                    <li>permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)</li>
+                </ul>
+                <p><strong>Private and Internal Functions</strong></p>
+                <ul>
+                    <li>_beforeTokenTransfer(address from, address to, uint256 amount)</li>
+                    <li>_authorizeUpgrade(address newImplementation)</li>
+                    <li>_useNonce(address owner)</li>
+                </ul>
+                <p><strong>Events</strong></p>
+                <ul>
+                    <li>Transfer(from indexed addr, to uint256, amount uint256)</li>
+                    <li>Approval(address indexed owner, address indexed spender, uint256 value)</li>
+                    <li>Paused(address account)</li>
+                    <li>Unpaused(address account)</li>
+                    <li>Upgraded(address indexed implementation)</li>
+                </ul>
+                <p><strong>Roles</strong></p>
+                <ul>
+                    <li>DEFAULT_ADMIN_ROLE</li>
+                    <li>UPGRADE_ROLE</li>
+                    <li>PAUSE_ROLE</li>
+                </ul>
+            </div>
+    
+            <div class="x-protocol-subsection">
+                <h3>Description</h3>
+                <p>USDX is a stablecoin designed to maintain a 1 USD valuation backed by short-term US Treasury bills. The yield generated by these T-bills is automatically distributed to USDX token holders through rebasing. This feature keeps the price of USDX stable while steadily increasing the balance of USDX for token holders.</p>
+                <p>X Protocol hosts the primary market that establishes the price peg. KYC-verified users can deposit collateral, either USDC or fiat currency, on our platform. In exchange, they receive USDX and can choose to redeem USDX for collateral or withdraw USDX to any Ethereum address. Since X Protocol offers an exchange rate of one dollar per USDX in both directions, any price movement in the external (secondary) market can be traded in the primary market to re-establish the peg.</p>
+                <p>USDX is a rebasing ERC-20 token with a set of additional features, including pausing, blocking/unblocking accounts, role-based access control, and upgradability. The contract’s primary objective is to reflect the T-bills’ annual percentage yield (APY) within the token’s value. It achieves this through a reward multiplier rebasing mechanism, where the addRewardMultiplier function is called daily to adjust the reward multiplier, guaranteeing an accurate representation of yield from the underlying assets.</p>
+                <p>Acknowledging the complexities of handling rebasing tokens in the DeFi ecosystem, the wUSDX contract serves as a wrapped token, simplifying integration while preserving stability. The wUSDX contract is an ERC-4626 token vault, enabling users to deposit USDX in exchange for wUSDX tokens. The USDX tokens are rebasing, whereas the wUSDX tokens are non-rebasing, making wUSDX ideal for seamless integration with protocols in the DeFi ecosystem.</p>
+                <p>The wUSDX contract incorporates the ERC-2612 permit functionality, allowing the use of signatures to grant token allowances. Additionally, the close relationship between the wUSDX and USDX contracts is also worth noting; the wUSDX contract leverages the account block list from the USDX contract to govern transfers and, specifically, prevent transfers from accounts included in the block list.</p>
+                <p>Finally, the wUSDX token transfers can be paused in two ways: either by being paused directly from within the wUSDX contract or in the event the USDX contract is paused.</p>
+            </div>
+        </section>
+
+<section id="endpoints-list">
+    <h3>API Endpoints List</h3>
+    <ul>
+        <li>/auth/token</li>
+        <li>/public/nav</li>
+        <li>/public/yield</li>
+        <li>/accounts</li>
+        <li>/accounts/{accountId}</li>
+        <li>/customers</li>
+        <li>/customers/{customerId}</li>
+        <li>/wallets</li>
+        <li>/wallets/{walletId}</li>
+        <li>/external-accounts</li>
+        <li>/external-accounts/{externalAccountId}</li>
+        <li>/transactions</li>
+        <li>/transactions/{transactionId}</li>
+        <li>/payments</li>
+        <li>/payments/{paymentId}</li>
+        <li>/transfers</li>
+        <li>/transfers/{transferId}</li>
+        <li>/virtual-accounts</li>
+        <li>/virtual-accounts/{virtualAccountId}</li>
+        <li>/treasury/assets</li>
+        <li>/treasury/rebase</li>
+        <li>/compliance/attestations</li>
+        <li>/kyc/generate-link</li>
+        <li>/kyc/status/{kycId}</li>
+        <li>/exchange-rates</li>
+        <li>/fees</li>
+        <li>/webhooks</li>
+        <li>/webhooks/{webhookId}</li>
+        <li>/cash-management/cash-flow</li>
+        <li>/cash-management/allocate-funds</li>
+        <li>/cash-management/reconcile</li>
+        <li>/auto-sweep/rules</li>
+        <li>/auto-sweep/rules/{ruleId}</li>
+        <li>/stablecoin/mint</li>
+        <li>/stablecoin/burn</li>
+      </ul>
+      <p>Based on <a href="/spec/v1/openapi.yaml">openapi.yaml</a> spec</p>      
+</section>
+<section id="services-overview">
+    <h3>API Services Overview</h3>
+    <ul>
+        <li>Authentication: OAuth2 for secure API access</li>
+        <li>Account Management: User accounts and KYC processes</li>
+        <li>Wallet Management: USDX wallet operations</li>
+        <li>Transactions: On-chain and off-chain USDX transfers</li>
+        <li>External Accounts: Linking and managing external financial accounts</li>
+        <li>Compliance: KYC, AML, and regulatory reporting</li>
+        <li>Treasury Management: Reserve management and yield distribution</li>
+        <li>Virtual Accounts: Support for virtual account creation and management</li>
+        <li>Exchange Rates: Real-time rate information</li>
+        <li>Webhooks: Event-driven notifications for system integrations</li>
+        <li>Cash Management: Automated fund transfers and reporting</li>
+        <li>Stablecoin Operations: Minting, burning, and core token management</li>
+      </ul>      
+</section>
+<section class="api-documentation">
+    <h2>API request/response schemas</h2>
+    <div class="endpoint-list">
+
+        <!-- Authentication -->
+        <div class="endpoint-item">
+            <h3>Authentication</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/auth/token</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "client_id": "string",
+  "client_secret": "string"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "access_token": "string",
+  "token_type": "string",
+  "expires_in": "integer"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Public -->
+        <div class="endpoint-item">
+            <h3>Public</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/public/nav</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "navPerToken": "number",
+  "timestamp": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Public</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/public/yield</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "currentAPY": "number",
+  "sevenDayYield": "number",
+  "lastUpdated": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Management -->
+        <div class="endpoint-item">
+            <h3>Account Management</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/accounts</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "email": "string",
+  "name": "string"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "accountId": "string",
+  "email": "string",
+  "name": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Account Management</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/accounts/{accountId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "accountId": "string",
+  "email": "string",
+  "name": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Management -->
+        <div class="endpoint-item">
+            <h3>Customer Management</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/customers</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "name": "string",
+  "email": "string",
+  "phone": "string (optional)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "customerId": "string",
+  "name": "string",
+  "email": "string",
+  "phone": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Customer Management</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/customers/{customerId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "customerId": "string",
+  "name": "string",
+  "email": "string",
+  "phone": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wallet Management -->
+        <div class="endpoint-item">
+            <h3>Wallet Management</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/wallets</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "accountId": "string"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "walletId": "string",
+  "accountId": "string",
+  "balance": "string",
+  "currency": "string"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Wallet Management</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/wallets/{walletId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "walletId": "string",
+  "accountId": "string",
+  "balance": "string",
+  "currency": "string"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- External Accounts -->
+        <div class="endpoint-item">
+            <h3>External Accounts</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/external-accounts</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "accountId": "string",
+  "type": "string (bank|card)",
+  "accountNumber": "string",
+  "routingNumber": "string (optional)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "externalAccountId": "string",
+  "accountId": "string",
+  "type": "string",
+  "accountNumber": "string",
+  "routingNumber": "string"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>External Accounts</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/external-accounts/{externalAccountId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "externalAccountId": "string",
+  "accountId": "string",
+  "type": "string",
+  "accountNumber": "string",
+  "routingNumber": "string"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions -->
+        <div class="endpoint-item">
+            <h3>Transactions</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/transactions</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "sourceWalletId": "string",
+  "destinationWalletId": "string",
+  "amount": "string",
+  "currency": "string (default: USDX)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "transactionId": "string",
+  "sourceWalletId": "string",
+  "destinationWalletId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Transactions</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/transactions/{transactionId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "transactionId": "string",
+  "sourceWalletId": "string",
+  "destinationWalletId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments -->
+        <div class="endpoint-item">
+            <h3>Payments</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/payments</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "paymentMethod": "string (ACH|wire|SWIFT)",
+  "paymentDetails": { ... }
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "paymentId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Payments</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/payments/{paymentId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "paymentId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transfers -->
+        <div class="endpoint-item">
+            <h3>Transfers</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/transfers</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "transferMethod": "string (internal|ACH|wire|SWIFT)",
+  "transferDetails": { ... }
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "transferId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Transfers</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/transfers/{transferId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "transferId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "amount": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Accounts -->
+        <div class="endpoint-item">
+            <h3>Virtual Accounts</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/virtual-accounts</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "accountId": "string",
+  "currency": "string"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "virtualAccountId": "string",
+  "accountId": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Virtual Accounts</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/virtual-accounts/{virtualAccountId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "virtualAccountId": "string",
+  "accountId": "string",
+  "currency": "string",
+  "status": "string",
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Treasury -->
+        <div class="endpoint-item">
+            <h3>Treasury</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/treasury/assets</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "totalAssets": "string",
+  "treasuryBillsValue": "string",
+  "circulatingUSDX": "string",
+  "reserveRatio": "number"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Treasury</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/treasury/rebase</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "yieldAmount": "number"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "rebaseId": "string",
+  "timestamp": "string (date-time)",
+  "yieldDistributed": "string",
+  "newTotalSupply": "string"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compliance -->
+        <div class="endpoint-item">
+            <h3>Compliance</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/compliance/attestations</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "latestReport": {
+    "reportId": "string",
+    "reportDate": "string (date)",
+    "auditor": "string",
+    "reportUrl": "string (uri)"
+  },
+  "historicalReports": [
+    {
+      "reportId": "string",
+      "reportDate": "string (date)",
+      "auditor": "string",
+      "reportUrl": "string (uri)"
+    }
+  ]
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- KYC -->
+        <div class="endpoint-item">
+            <h3>KYC</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/kyc/generate-link</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "accountId": "string"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "kycId": "string",
+  "verificationLink": "string (uri)",
+  "expiresAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>KYC</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/kyc/status/{kycId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "kycId": "string",
+  "status": "string (pending|in_progress|completed|rejected)",
+  "lastUpdated": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exchange Rates -->
+        <div class="endpoint-item">
+            <h3>Exchange Rates</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/exchange-rates</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "base": "string",
+  "rates": {
+    "CURRENCY_CODE": "number"
+  },
+  "timestamp": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fees -->
+        <div class="endpoint-item">
+            <h3>Fee Management</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/fees</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "transactionFeePercentage": "number",
+  "minimumFee": "number",
+  "maximumFee": "number",
+  "lastUpdated": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Webhooks -->
+        <div class="endpoint-item">
+            <h3>Webhooks</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/webhooks</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "url": "string (uri)",
+  "events": ["string"]
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "webhookId": "string",
+  "url": "string (uri)",
+  "events": ["string"],
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Webhooks</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/webhooks/{webhookId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "webhookId": "string",
+  "url": "string (uri)",
+  "events": ["string"],
+  "createdAt": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cash Management -->
+        <div class="endpoint-item">
+            <h3>Cash Management</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/cash-management/cash-flow</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "startDate": "string (date)",
+  "endDate": "string (date)",
+  "inflows": "number",
+  "outflows": "number",
+  "netCashFlow": "number",
+  "transactions": [
+    {
+      "date": "string (date)",
+      "type": "string (inflow|outflow)",
+      "amount": "number",
+      "description": "string"
+    }
+  ]
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Cash Management</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/cash-management/allocate-funds</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "allocations": [
+    {
+      "accountId": "string",
+      "amount": "number"
+    }
+  ]
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "allocationId": "string",
+  "timestamp": "string (date-time)",
+  "allocations": [
+    {
+      "accountId": "string",
+      "amount": "number",
+      "status": "string (success|failed)"
+    }
+  ]
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Cash Management</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/cash-management/reconcile</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "accountId": "string",
+  "date": "string (date)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "reconciliationId": "string",
+  "accountId": "string",
+  "date": "string (date)",
+  "balancePerBooks": "number",
+  "balancePerBank": "number",
+  "discrepancy": "number",
+  "status": "string (matched|discrepancy_found)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auto-Sweep -->
+        <div class="endpoint-item">
+            <h3>Auto-Sweep</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/auto-sweep/rules</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "thresholdAmount": "number",
+  "thresholdType": "string (minimum|maximum)",
+  "frequency": "string (daily|weekly|monthly)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "ruleId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "thresholdAmount": "number",
+  "thresholdType": "string",
+  "frequency": "string",
+  "createdAt": "string (date-time)",
+  "lastExecuted": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Auto-Sweep</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="path">/auto-sweep/rules/{ruleId}</span>
+            </div>
+            <div class="schemas">
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "ruleId": "string",
+  "sourceAccountId": "string",
+  "destinationAccountId": "string",
+  "thresholdAmount": "number",
+  "thresholdType": "string",
+  "frequency": "string",
+  "createdAt": "string (date-time)",
+  "lastExecuted": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stablecoin Operations -->
+        <div class="endpoint-item">
+            <h3>Stablecoin Operations</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/stablecoin/mint</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "amount": "string",
+  "sourceType": "string (usd_deposit|treasury_bill)",
+  "depositId": "string (conditional)",
+  "billId": "string (conditional)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (201 Created)</h4>
+                    <pre>{
+  "mintId": "string",
+  "amount": "string",
+  "status": "string (completed|pending|failed)",
+  "txHash": "string",
+  "timestamp": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="endpoint-item">
+            <h3>Stablecoin Operations</h3>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="path">/stablecoin/burn</span>
+            </div>
+            <div class="schemas">
+                <div class="request">
+                    <h4>Request</h4>
+                    <pre>{
+  "amount": "string",
+  "destinationType": "string (usd_withdrawal|treasury_bill)",
+  "withdrawalAccount": "string (conditional)"
+}</pre>
+                </div>
+                <div class="response">
+                    <h4>Response (200 OK)</h4>
+                    <pre>{
+  "burnId": "string",
+  "amount": "string",
+  "status": "string (completed|pending|failed)",
+  "txHash": "string",
+  "timestamp": "string (date-time)"
+}</pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    </main>
+</body>
+</html>
