@@ -1,0 +1,38 @@
+whitepaper/
+├── sections/
+│   ├── 00_front_matter/
+│   │   ├── title.txt
+│   │   ├── abstract.txt
+│   │   ├── executive_summary.txt
+│   │   └── toc.txt
+│   ├── 01_introduction/
+│   │   ├── overview.txt
+│   │   ├── matrix.txt
+│   │   ├── key_clients.txt
+│   │   └── references.txt
+│   ├── 02_system/
+│   │   ├── flow_of_funds.txt
+│   │   ├── architecture.txt
+│   │   └── core_components/
+│   │       ├── usdx_token.txt
+│   │       ├── wrapped_token.txt
+│   │       ├── reserve_vault.txt
+│   │       ├── minter.txt
+│   │       ├── redeemer.txt
+│   │       └── proof_of_reserves.txt
+│   ├── 03_protocol/
+│   │   ├── overview.txt
+│   │   ├── fees.txt
+│   │   ├── flows.txt
+│   │   └── sequences/
+│   │       ├── mint_redeem.txt
+│   │       └── funding_steps.txt
+│   ├── 04_investment/
+│   │   ├── prospectus.txt
+│   │   ├── structure.txt
+│   │   └── providers.txt
+│   └── 05_appendix/
+│       ├── contract_architecture.txt
+│       ├── technical_docs.txt
+│       └── references.txt
+└── README.md

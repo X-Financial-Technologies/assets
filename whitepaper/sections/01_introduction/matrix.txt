@@ -1,0 +1,5 @@
+[MATRIX]
+SEGMENT,PROBLEM,SOLUTION
+B2B Payments,Difficult to track<br>High fees<br>Slow<br>Lack transparency,Stablecoins
+Stablecoins,No yield distribution<br>Taxes<br>USA regulatory compliance<br>Depegging,Rebasing<br>Municipal bond underlying<br>Investment Company Act of 1940<br>Proof of reserves
+Liquidity Investing,Yield<br>Stability<br>Liquidity,Yield-bearing collateral

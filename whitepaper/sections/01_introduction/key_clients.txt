@@ -1,0 +1,8 @@
+[KEY CLIENTS]
+SEGMENT,USE_CASES,BENEFITS
+Mutual Funds,Redemption collateral,-15bps cash drag
+Insurance,Float collateral,Tax-free daily yield
+Neobanks,Cross-border,-30bps FX fee
+Healthcare,Secure payment processors,Prevent $9T breaches
+Corporate,Intracompany,Instant 24/7/365 global settlement
+Unbanked,Mobile banking,Yield + access

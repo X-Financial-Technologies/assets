@@ -1,0 +1,12 @@
+[WRAPPED USDX TOKEN]
+The Wrapped USDX Token is an ERC4626 compliant fungible token vault. USDX is deposited into the Wrapped USDX smart contract in order to facilitate interoperability and composability with common blockchain applications and accounting systems. Users can withdraw USDX from the Wrapped USDX contract at any time.
+
+
+
+
+
+
+
+
+
+

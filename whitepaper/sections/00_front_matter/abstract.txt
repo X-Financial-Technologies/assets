@@ -1,0 +1,2 @@
+[ABSTRACT]
+The USDX protocol provides a convenient USD denominated way for people to earn low risk yield on chain. The primary protocol token (USDX) provides a clear unit of value and accumulates generated yield.

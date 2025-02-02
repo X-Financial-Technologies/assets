@@ -1,0 +1,5 @@
+[MINTER]
+The Minter handles USDX minting. It maintains list of approved payment tokens and their price oracles. USDX is always minted at 1 USDX = 1 USD. When a user calls ‘deposit‘ on the Minter smart contract, the deposit is processed immediately, sending payment token to the Reserves Vault and minting USDX at the current oracle price for that payment token. 
+
+
+
