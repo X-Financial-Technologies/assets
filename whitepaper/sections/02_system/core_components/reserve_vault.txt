@@ -1,5 +1,0 @@
-[RESERVE VAULT]
-The Reserves Vault is an onchain account holding the onchain portion of the assets backing the value of USDX including yield generating tokenized assets. The Reserves Vault will primary invest in short duration US Treasury bills directly or indirectly.
-
-
-

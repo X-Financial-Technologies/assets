@@ -1,3 +1,0 @@
-[USDX TOKEN]
-The USDX Token is an ERC20 compliant fungible token. It implements administrative minting, burning, and rebasing functions to manage the supply of the token.
-

@@ -1,4 +1,0 @@
-[PROOF OF RESERVES]
-XFT maintains 1-to-1 backing in real time by determining if any security purchases are necessary and executing those purchases for every order request. When a request is received, if the current reserves are not sufficient to maintain at least 100% backing, purchases of the the underlying security are initiated. XFT publishes the latest order activity in real time and current vault balances at regular intervals. XFT vault accounts are held by a custodian and audited at random times by a third party to verify the integrity of accounting and reporting.
-
-

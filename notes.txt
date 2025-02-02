@@ -6,3 +6,19 @@ echo "/    Basic-Auth: username:password" > _headers
 URL ADDRESSES
 https://xft-whitepaper-20250201-draft-9xk8z3.netlify.app
 https://xft-whitepaper-YYYYMMDD-[type]-[random].netlify.app
+
+CLEAN 
+rm -rf !(robots.txt|notes.txt)
+
+git checkout -b abc template
+git checkout -b
+git branch branchname
+git checkout -b branchname
+git checkout branchname
+git branch
+git push -u origin branchname
+git branch -d branchname
+git push origin --delete branchname
+
+
+mv whitepaper_2020202.htm index.htm
