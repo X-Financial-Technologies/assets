@@ -1,0 +1,4 @@
+graph TD
+    Oracle["Oracle (ORACLE_ROLE)"] --> AddReward["addRewardMultiplier(increment)"]
+    AddReward --> IncreaseReward["Increase rewardMultiplier"]
+    IncreaseReward --> UpdateBalances["Balances update: tokens = shares * new multiplier / BASE"]

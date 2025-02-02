@@ -1,0 +1,6 @@
+1 Oracle calls addRewardMultiplier with yield increment
+2 Internal multiplier updated
+    newMultiplier = current + increment
+3 Event emitted with new multiplier value
+4 User balances update automatically through conversion formula:
+    tokens = shares * rewardMultiplier / BASE

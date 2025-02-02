@@ -1,0 +1,7 @@
+graph TD
+    User --> Transfer["transfer(to, amount)"]
+    Transfer --> ConvertTokens["Convert tokens to shares: shares = amount * BASE / rewardMultiplier"]
+    ConvertTokens --> DeductShares["Deduct shares from sender"]
+    DeductShares --> AddShares["Add shares to recipient"]
+    AddShares --> ConvertBack["Convert recipient's shares back to tokens"]
+    ConvertBack --> EmitTransfer["Emit Transfer event"]
