@@ -1,9 +1,16 @@
-git clone
-
+git clone https://github.com/X-Financial-Technologies/monorepo.git
 ls -la monorepo/.git
-
 rm -rf monorepo/.git
 
 
-To disconnect it from Git, simply delete the .git folder:
-rm -rf .git
+ls -la monorepo/.git     # This should now say "No such file or directory"
+
+# Or you can try to run git commands inside monorepo:
+cd monorepo
+git status              # This should say "not a git repository"
+
+
+
+cd /workspaces/assets/archive/monorepo
+pwd    # Confirm you're in the right spot
+git remote -v   # This should only show your assets remotes, not the original monorepo remotes
