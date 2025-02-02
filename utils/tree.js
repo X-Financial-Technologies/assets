@@ -10,7 +10,7 @@ function shouldInclude(item, fullPath) {
     }
     
     const parentDir = path.basename(path.dirname(fullPath));
-    if (parentDir === 'x' || parentDir.startsWith('output_')) {
+    if (parentDir === 'x' || parentDir.startsWith('_')) {
         return item.endsWith('.html') || item.endsWith('.pdf') || item.endsWith('.txt');
     }
 
@@ -175,4 +175,4 @@ const newContent = indexContent.replace(
 
 fs.writeFileSync(indexPath, newContent);
 
-console.log('Directory tree added to index.html');
+console.log('Tree added to index.html');
