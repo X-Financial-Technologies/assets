@@ -32,4 +32,17 @@ git push --set-upstream origin whitepaper-20250202-draft
 SITE NAME
 xft-whitepaper-20250202-draft-13x8bm
 
+xft-sp-20241215-draft-nrcoyw
+
+
+
+nrcoyw
+zn8wir
+6oy7yh
+jx4n4z
+5kk1zm
+nt42qd
+tzw6g7
+xdawpa
+rm4g26
 
