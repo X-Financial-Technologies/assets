@@ -1,6 +1,8 @@
-
 mv whitepaper_2020201.htm index.html
-
-
 touch _headers
 echo "/    Basic-Auth: username:password" > _headers
+
+
+URL ADDRESSES
+https://xft-whitepaper-20250201-draft-9xk8z3.netlify.app
+https://xft-whitepaper-YYYYMMDD-[type]-[random].netlify.app
