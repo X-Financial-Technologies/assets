@@ -34,3 +34,6 @@ xft-whitepaper-20250202-draft-13x8bm
 
 crypto-patents
 
+
+
+pdf003.JSON
