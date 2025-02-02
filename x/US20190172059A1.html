@@ -1,0 +1,1619 @@
+<html><body><pre>
+
+US 20190172059A1 
+( 19 ) United States 
+( 12 ) Patent Application Publication ( 10 ) Pub . No . : US 2019 / 0172059 A1 
+Castagna et al . 
+( 43 ) Pub . Date : Jun . 6 , 2019 
+( 54 )  REAL - TIME NET SETTLEMENT BY 
+DISTRIBUTED LEDGER SYSTEM 
+( 52 )  U . S . CI . 
+CPC . . . . . . . . .  G06Q 20 / 389 ( 2013 . 01 ) ; G06F 21 / 645 
+( 2013 . 01 ) ; G06F 17 / 30345 ( 2013 . 01 ) ; G06F 
+17 / 30604 ( 2013 . 01 ) ; G06F 17 / 30283 
+( 2013 . 01 ) 
+( 71 )  Applicant : Bank of America Corporation , 
+Charlotte , NC ( US ) 
+( 72 )  Inventors : Brandon Matthew Castagna , Mount 
+Holly , NC ( US ) ; Bethe Anne Warner , 
+Charlotte , NC ( US ) 
+( 21 )  Appl . No . : 15 / 935 , 941 
+( 22 )  Filed : Mar . 26 , 2018 
+Related U . S . Application Data 
+( 60 )  Provisional application No . 62 / 594 , 968 , filed on Dec . 
+5 , 2017 . 
+( 57 ) 
+ABSTRACT 
+Embodiments of the present invention provide a system 
+operatively connected with a block chain distributed net 
+work and for using the block chain distributed network for 
+providing aggregate tracking and  threshold triggering . 
+Embodiments receive , at a node of a blockchain distributed 
+network , a transaction record associated with a transaction 
+between a payor and a payee ; accesses a distributed ledger ; 
+determines ,  from  the  distributed ledger ,  a  net position 
+between the entity and a third party ; and , if the entity is the 
+payor bank and the third party is the payee bank , debit the 
+net position in  the amount of the transaction ; and , if the 
+entity is the payee bank and the third party is the payor bank , 
+credit the net position in  the amount of the transaction , 
+thereby resulting in  an updated net position between the 
+entity  and the third  party ;  and records the updated net 
+position on the distributed ledger . 
+( 51 ) 
+Publication Classification 
+Int . Ci . 
+G06Q 20 / 38 
+( 2006 . 01 ) 
+G06F 21 / 64 
+( 2006 . 01 ) 
+G06F 1730 
+( 2006 . 01 ) 
+100 
+COMMUNICATION COMPONENT 22 
+COMMUNICATION COMPONENT 12 
+PROCESSING COMPONENT 24 
+PROCESSING COMPONENT 14 
+MEMORY COMPONENT 26 
+COMPUTER READABLE 
+INSTRUCTIONS 28 
+USER 
+MEMORY COMPONENT 16 
+COMPUTER READABLE 
+INSTRUCTIONS 18 
+USER APPLICATIONS ( E . G . 
+WEB BROWSER , REAL - TIME 
+NET SETTLEMENT APP , ANDI 
+OR THE LIKE ) 27 
+ENTITY 
+APPLICATIONS ( E . G . , WEB 
+APPLICATION , REAL - TIME 
+NET SETTLEMENT APP , AND / 
+OR THE LIKE ) 17 
+Y 
+DATASTORE 29 
+USER 
+COMPUTER 
+SYSTEMS 
+20 
+DATASTORE 19 
+NETWORK 2 
+$ 
+ENTITY 
+SYSTEMS 
+10 
+THIRD PARTY SYSTEMS 
+40 
+
+Patent Application Publication 
+Jun . 6 , 2019  Sheet 1 of 7 
+US 2019 / 0172059 A1 
+100 
+COMMUNICATION COMPONENT 22 
+COMMUNICATION COMPONENT 12 
+PROCESSING COMPONENT 24 
+PROCESSING COMPONENT 14 
+MEMORY COMPONENT 26 
+COMPUTER READABLE 
+INSTRUCTIONS 28 
+USER 
+MEMORY COMPONENT 16 
+COMPUTER READABLE 
+INSTRUCTIONS 18 
+USER APPLICATIONS ( E . G . 
+WEB BROWSER , REAL - TIME 
+NET SETTLEMENT APP , AND 
+OR THE LIKE ) 27 
+Www 
+ENTITY 
+APPLICATIONS ( E . G . , WEB 
+APPLICATION , REAL - TIME 
+NET SETTLEMENT APP , ANDI 
+OR THE LIKE ) 17 
+USER 
+COMPUTER 
+SYSTEMS 
+DATASTORE 29 
+DATASTORE 19 
+NETWORK 2 
+ENTITY 
+SYSTEMS 
+THIRD PARTY SYSTEMS 
+Figure 1 
+
+Patent Application Publication 
+Jun . 6 , 2019  Sheet 2 of 7 
+US 2019 / 0172059 A1 
+200 
+. 
+. . . . . 
+. . . . . . . . 
+CENTRALIZED 
+DATABASE 
+ng 
+• I 
+WS 
+CENTRALIZED 
+LEDGER 
+Figure 2A 
+208 
+202 
+202 
+- - - 
+DISTRIBUTED 
+LEDGER 
+DISTRIBUTED 
+LEDGER 
+208 
+208 
+. 
+208 
+202 
+DISTRIBUTED 
+LEDGER 
+DISTRIBUTED 
+LEDGER 
+Figure 2B 
+
+Patent Application Publication 
+Jun . 6 , 2019  Sheet 3 of 7 
+US 2019 / 0172059 A1 
+MONITOR NODE 
+316 
+CHANNEL NODE 
+304 
+MINER NODE 
+312 
+BLOCKCHAIN 
+302 
+TRANSACTIONAL 
+RECORD 
+314 
+PAYMENTS 
+NODE 
+306 
+PENDING 
+TRANSACTION 
+310 
+CLEARING NODE 
+308 
+Figure 3 
+
+Patent Application Publication 
+Jun . 6 , 2019  Sheet 4  of 7 
+US 2019 / 0172059 A1 
+400 
+RECEIVE , AT A NODE OF A BLOCK CHAIN DISTRIBUTED NETWORK , A TRANSACTION 
+RECORD ASSOCIATED WITH A  TRANSACTION BETWEEN A PAYOR AND A PAYEE , 
+WHERE THE PAYOR IS ASSOCIATED WITH A PAYOR BANK AND THE PAYEE IS 
+ASSOCIATED WITH A PAYEE BANK 
+410 
+ACCESS A DISTRIBUTED LEDGER THAT IS UPDATED BASED ON COMMUNICATIONS 
+FROM THE BLOCKCHAIN DISTRIBUTED NETWORK 
+420 
+DETERMINE WHETHER THE TRANSACTION RECORD IS ASSOCIATED WITH THE ENTITY 
+AS A PAYOR BANK OR PAYEE BANK 
+430 
+IF  THE ENTITY IS THE PAYOR BANK AND THE THIRD PARTY IS THE PAYEE BANK , DEBIT 
+A NET POSITION IN  THE AMOUNT OF THE TRANSACTION 
+440 
+IF  THE ENTITY IS THE CAYCC BANK AND THE THIRD PARTY 13  THE PAYOR BANK , 
+CREDIT THE NET POSITION IN  THE AMOUNT OF THE TRANSACTION 
+450 
+RECORD THE UPDATED NET POSITION ON THE DISTRIBUTED LEDGER 
+460 
+UTILIZE A SET OF RULES ( E . G . , A SMART CONTRACT ) TO DICTATE CRITERIA FOR 
+SETTLEMENT ( E . G . , FREQUENCY DURING CYCLE OR DAY TO SETTLE ) 
+470 
+M 
+Figure 4 
+
+TRADITIONAL RELATIONSHIP 
+000 
+F . I . 1 
+F . 1 . 2 
+Patent Application Publication 
+gayathintay 
+highlyhy 
+e t high 
+motor putting point 
+presentantes protesta tuntunaytententiam partement patientinfortum 
+wymimpi 
+??????? 
+. . . . . . . . . . 
+. . . . . . . . . . . . . 
+. 
+wwwwwwwwwwwwwwwwwwwwww 
+DR 
+CLIENT 1 / FX WASH GL GFX MAIN 
+GFX MAIN PARTNER GL 
+1 USD A V USD ALL USD UV 1 SGD 
+SGD 
+CR DR CRDR CR 
+CRDR OR DR 
+- 1500 0 + 150 0 + 100 - 1000 - . - 0 + 136 - 136 00 + 136 a 
+- 10000 + 50 - 500 + 68 - 68 00 + 68 a 
+CLIENT 
+USD 
+- 50 00 + 50 . 50 of 
+- 204 
+CR DR 
+o + 25 - 259 
+- 500 ; 
+- 250 
+PARTNER GL 
+o 
+o 
+. . . . 
+FIT NOSTROV BENEA 
+SGD 
+SGD 
+CRDR CR DR 
+- 1360€ + 136 
+- 680 
++ 204 
+BENE BI 
+SGD 
+- 750 
+R 
+DR 
+Ó 
++ 68 
+N 
+INK 
+V 
+INR 
+JUN 
+Jun . 6 , 2019  Sheet 5  of 7 
+SCENARIO 
+• MULTI CLIENTS : 1 , 2 
+• MULTI CURRENCIES : USD , SGD , INR 
+• MULTI BENEFICIARIES : A , B , C 
+• SINGLE PARTNER : SCB 
+CR DR CR 
+! ! + 3226 - 322600 + 3226 
+• + 1613 - 1613 0 0 + 1613 
+DR 
+a 
+al 
+. . . . . . . 
+. . 
+. 
+- 4839 a 
+FIL NOSTRO Y BENEB 
+N INR 
+E INR 
+CR DR CR DR 
+- 3226 0 + 3226 
+0 . 16130 
++ 4839 
+BENE 
+INR 
+ACCOUNTS KEY 
+A •FI1 DEPOSIT 
+1 . GFX 
+TTTT GENERAL LEDGER 
+AV . FIL NOSTRO 
+A PARTNER DEPOSIT 
+TANSFERS KEY 
+•BOOK TRANSFER 
+• FX TRADE 
+• NOTIFICATION 
+• SETTLEMENTO 
+w 
+O - - - - - - 
+O 
+. . . . . 0 
+OOOO 
+DR 
+O + 1613 
+US 2019 / 0172059 A1 
+Figure 5 
+
+START OF DAY 
+PRE - FUNDING 
+REFUNDED RIPPLE SETTLEMENT 
+600 
+ELI 
+STANDARD CHARTERED F . I . ( SCFI ) 
+Patent Application Publication 
+CLIEN 
+ESG 
+CR 
+SGD 
+DR 
+FX WASH GL GFX MAIN 
+GFX MAIN DIGITAL GL 
+USD 
+USD 
+1 USD 
+11 ! SGDI SGDL 
+DR CR DR CR DR CR DR CR DR 
+- 1500 0 + 150 2 + 100 - 1000 - - - 0 + 136 - 13600 + 136 a 
+- 1000 , + 50 - 50 0 - - - O + 68 . 680 + 68 a 
+- 500 
+FIL NOSTRO 
+CR 
++ 1000 
+1360 
+- 6B 
+E BENEA 
+CR DR 
++ 136 
+- 
+o 
+BENE B 
+SGD 
+CR 
+DR 
++ 68 
+SCENARIO 
+SINGLE CLIENTS : 1 
+• MULTI CURRENCIES : USD , SGD , 
+• MULTI BENEFICIARIES : A , B , 
+• SINGLE PARTNER : SCFI 
+PAYMENTS OPERATIONS 
+• PRE - FUNDING 
+• RECONCILIATION • INVESTIGATIONS 
+• BALANCE MGMT . 
+• STATEMENTS 
+Jun . 6 , 2019  Sheet 6  of 7 
+OO 
+• IN 
+ACCOUNTS KEY 
+7 . FII DEPOSIT 
+TD GFX 
+M ] . GENERAL LEDGER 
+M . FIL NOSTRO 
+2 . PARTNER DEPOSIT 
+TANSFERS KEY 
+•BOOK TRANSFER O - - - 
+• FX TRADE O - . - . - 0 
+NOTIFICATION 
+•PRE - FUNDING O . . . . . 0 
+CHALLENGES 
+• PRE - FUNDING A FII OWNED ACCOUNT AT SCFI DOES NOT RADICALLY 
+CHANGE THE BANKING RELATIONSHIP BETWEEN PARTNERS ? 
+• NECESSITATES AN OPERATIONAL PROCESS WHICH INCREASES COST AND 
+COMPLEXITY ( BUT FUNDAMENTALLY NOT DIFFERENT ) 
+Figure 6 
+US 2019 / 0172059 A1 
+
+1 
+O 
+. 
+INTRODUCING REAL - TIME NET SETTLEMENT 
+FLEXIBLE & INNOVATIVE METHODOLOGY FOR DISTRIBUTED LEDGER , DIGITAL WALLETS , & TRADITIONAL PARTNER BANKS 
+700 
+F . I . ) 
+STANDARD CHARTERED F . I . ( SCE ) 
+wwwwwwwww 
+wwwwwamenunterkuntento 
+Patent Application Publication 
+apapun yang 
+GFX MAIN V 
+SGV V 
+Thu 
+n 
+der 
+CLIENT FX WASH GL GFX MAIN 
+DIGITAL GL 
+USD 
+USD 
+USD 1 
+li ! SGD HV 
+SGD 
+CR DR CR DR CR DR CRDR CR DR 
+- 1500 0 + 150 + 100 - 1000 - - - + 136 - 1360 - 0 + 136 
+- 1000° + 50 - 500 - - - ) + 68 - 68 00 + 68 
+- 204 
+SCB DIGITAL GLI BENE A 
+SGD YE ESGD 
+CRDR CR DR 
+- 13600 + 136 
+- 681 
+- 500 
+. . . . + 204 
+FIT 
+a ll WMENT 
+V ; RIPPLE OLT 750 
+PAYMENTS 
+BENE B 
+SGD 
+DR 
+I 
+RIPPLE DLT ) ° + 68 
+LL 
+. VIVI 
+www 
+SCENARIO 
+• SINGLE CLIENTS : 1 
+• MULTI CURRENCIES : USD , SGD 
+• MULTI BENEFICIARIES : A , B 
+• SINGLE PARTNER : SCB 
+SGD ! 
+CR DR 
++ 136 - 1360 
++ 68 - 68 
+o 
+SGDY 
+CR DR 
++ 136 - 136 
++ 68 68 
+Jun . 6 , 2019  Sheet 7 of 7 
+ACCOUNTS KEY 
+ZZZ ) FII DEPOSIT 
+01 GFX 
+( IT ) GENERAL LEDGER 
+ATV FIL NOSTRO 
+E PARTNER DEPOSIT 
+TANSFERS KEY 
+•BOOK TRANSFER O - - - - - - - - 
+•FX TRADE 0 - - - - - 0 
+• NOTIFICATION Oman 
+PRE - FUNDING O - . . . . O 
+BENEFITS 
+• OPTION TO ELIMINATE NEED FOR PHYSICAL ACCOUNTS AT PARTNER INSTITUTIONS 
+• REAL - TIME ADVISING OF PAYMENT TO BENEFICIARY 
+• FII TECHNOLOGY PERFORMS REAL - TIME MONITORING AND ANALYSIS OF THE 
+DISTRIBUTED LEDGER TO PROVIDE ADJUSTED NET SETTLEMENT INSTRUCTIONS 
+THROUGH - OUT THE DAY OVER TRADITIONAL CLEARINGS ( CHIPS ) 
+• OPPORTUNITY FOR ALTERNATIVE IMPLEMENTATION OF THE GL USE CASE BY 
+INTRODUCING A DISTRIBUTED GENERAL LEDGER ACCOUNT ( DGL ) 
+FROM EOD SETTLEMENT TO REAL - TIME , RISK - ADJUSTED INTRA - DAY SETTLEMENT 
+Figure 7 
+US 2019 / 0172059 A1 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+REAL - TIME NET SETTLEMENT BY 
+DISTRIBUTED LEDGER SYSTEM 
+CLAIM OF BENEFIT UNDER 35 U . S . C . § 119 
+[ 0001 ]  This Non - provisional Patent Application claims 
+benefit to  Provisional Patent Application Ser . No . 62 / 594 , 
+968 titled “ Real - Time Net Settlement by Distributed Ledger 
+System ”  filed Dec . 5 , 2017 , assigned to  the assignee hereof 
+and hereby expressly incorporated by reference herein . 
+FIELD 
+[ 0002 ]  The present invention relates to improving settle 
+ment of transactions among institutions . 
+BACKGROUND 
+[ 0003 ]  Present conventional systems utilize  nostro 
+accounts , which  are expensive to  own and manage ,  and 
+funding such accounts can place a strain on liquidity . There 
+fore , a  need  for a  flexible and cost effective accounting 
+treatment and system  for implementing the same are needed . 
+SUMMARY 
+[ 0004 ]  The following presents a simplified summary of 
+one or more embodiments of the present invention , in order 
+to provide a basic understanding of such embodiments . This 
+summary is not an  extensive overview of all contemplated 
+embodiments , and is intended to neither identify key or 
+critical elements of all embodiments nor delineate the scope 
+of any or all embodiments . Its sole purpose is to present 
+some concepts of one or more embodiments of the present 
+invention in  a  simplified form  as a  prelude to  the more 
+detailed description that is presented later . 
+[ 0005 ]  Embodiments of the present invention address the 
+above needs and / or achieve other advantages by providing 
+apparatuses ( e . g . , a system , computer program product and / 
+or other devices ) and methods for real - time net settlement 
+using a  distributed ledger . The system  embodiments may 
+comprise one or more memory devices having computer 
+readable program  code stored thereon , a communication 
+device , and one or more processing devices operatively 
+coupled to  the one or more memory devices . 
+[ 0006 ]  Embodiments of the present invention provide a 
+system operatively connected with a block chain distributed 
+network and for using the block chain  distributed network 
+for providing aggregate tracking and threshold triggering . 
+Embodiments receives , at a node of a blockchain distributed 
+network , a transaction record associated with a transaction 
+between a payor and a  payee , wherein the payor is  associ 
+ated with  a payor bank and the payee is associated with a 
+payee bank ;  accesses a  distributed ledger ,  wherein the 
+distributed ledger is updated based on communications from 
+the block chain  distributed network ; determines , from  the 
+distributed ledger , a  net position between the entity and a 
+third  party ; determines whether the  transaction record is 
+associated with the entity as a payor bank or a payee bank 
+and , if the entity is the payor bank and the third party is the 
+payee bank , debit the net position  in  the  amount of the 
+transaction ; and , if the entity is the payee bank and the third 
+party is the payor bank , credit the net position in the amount 
+of the transaction , thereby  resulting in  an  updated net 
+position between the entity and the third party ; and records 
+the updated net position on the distributed ledger . 
+[ 0007 ]  In some embodiments , the processing device is 
+further configured to  execute computer - readable program 
+code to  record the transaction record alongside the updated 
+net position on the distributed ledger . 
+[ 0008 ]  In  some embodiments , the processing device is 
+further configured to  execute computer - readable program 
+code to compare the updated net position to a predetermined 
+threshold ; and if the updated net position is greater than the 
+predetermined threshold , initiate  settlement of an  amount 
+associated with the updated net position . 
+10009 ] .  In some such embodiments , the processing device 
+is further configured to execute computer - readable program 
+code to if the updated net position indicates the entity owes 
+the third party the amount , initiate payment of the amount to 
+the third party . 
+[ 0010 ]  In other such embodiments , the processing device 
+is further configured to  execute computer - readable program 
+code to if the updated net position indicates the third party 
+owes the entity  the amount , initiate request of the amount 
+from  the third party . 
+10011 ]  In  yet  other such  embodiments ,  the processing 
+device is  further configured to  execute computer - readable 
+program code to  determine settlement of the amount has 
+occurred ; and update the updated net position based on the 
+settlement . In  some of these embodiments , the processing 
+device is further configured to  execute computer - readable 
+program code to  record settlement between the entity  and 
+the third party on a second distributed ledger different than 
+the distributed ledger . 
+[ 0012 ]  In  some embodiments , the processing device is 
+further configured to execute computer - readable program 
+code to access a set of rules configured to  cause the system 
+to settle with one or more third parties based on a plurality 
+of criteria . 
+[ 0013 ] .  According to  embodiments of the invention ,  a 
+computer program  product for using a block chain distrib 
+uted  network for  facilitating real - time net settlement 
+includes at  least  one non - transitory computer readable 
+medium comprising computer readable instructions , and the 
+instructions , when executed by a computer processor , cause 
+the computer processor to receive , at a node of a block chain 
+distributed network , a transaction record associated with  a 
+transaction between a payor and a payee , wherein the payor 
+is associated with a payor bank and the payee is associated 
+with a payee bank ; access a  distributed ledger , wherein the 
+distributed ledger is updated based on communications from 
+the block chain distributed network ; determine , from  the 
+distributed ledger , a  net position between the entity and a 
+third  party ;  determine whether the transaction record  is 
+associated with  the entity as a payor bank or a  payee bank 
+and if the entity is the payor bank and the third party is the 
+payee bank , debit the net position in  the amount of the 
+transaction , and if the entity is the payee bank and the third 
+party is the payor bank , credit the net position in the amount 
+of the transaction ,  thereby resulting in  an  updated net 
+position between the entity and the third party ; and record 
+the updated net position on the distributed ledger . 
+[ 0014 ]  In  some embodiments , the  computer readable 
+instructions further cause the computer processor to  record 
+the transaction record alongside the updated net position on 
+the distributed ledger . 
+[ 0015 ]  In  some embodiments , the  computer readable 
+instructions further cause the computer processor to  com 
+pare the updated net position to a predetermined threshold ; 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+BRIEF DESCRIPTION OF THE DRAWINGS 
+[ 0026 ]  Having thus described embodiments of the inven 
+tion  in  general terms , reference will now be made to the 
+accompanying drawings , where : 
+[ 0027 ]  FIG . 1 illustrates a block diagram  illustrating the 
+real - time net settlement system environment , in  accordance 
+with  embodiments of the present invention . 
+[ 0028 ]  FIG . 2A illustrates a traditional centralized ledger 
+system . 
+[ 0029 ]  FIG . 2B  is a  diagram  illustrating a  distributed 
+ledger system  used in embodiments of the invention . 
+( 0030 )  FIG . 3  is  a  diagram illustrating a blockchain dis 
+tributed ledger system according to  embodiments of the 
+invention . 
+[ 0031 ]  FIG . 4  is  a  flowchart illustrating a method for 
+real - time net settlement using a distributed ledger according 
+to embodiments of the invention . 
+[ 0032 ]  FIG . 5  is a  diagram that illustrates a  traditional 
+banking relationship settlement scheme . 
+[ 0033 ]  FIG .  6  is  a  diagram illustrating a  prefunded 
+“ ripple ” settlement scheme according to embodiments of the 
+present invention . 
+[ 0034 ]  FIG . 7 is a diagram illustrating a “ just - in - time ” or 
+real - time net settlement based on distributed ledger scheme 
+according to embodiments of the present invention . 
+and if the updated net position is  greater than the predeter 
+mined threshold , initiate settlement of an amount associated 
+with the updated net position . 
+[ 0016 ]  In  some embodiments ,  the  computer readable 
+instructions further cause the computer processor to  if the 
+updated net position indicates the entity owes the third party 
+the amount , initiate payment of the amount to the third party . 
+[ 0017 ]  In  some embodiments , the  computer readable 
+instructions further cause the computer processor to  if the 
+updated net position indicates the third party owes the entity 
+the amount , initiate request of the amount from  the third 
+party . 
+[ 0018 ]  In  some embodiments , the computer readable 
+instructions further cause the computer processor to  deter 
+mine settlement of the amount has occurred ; and update the 
+updated net position based on the settlement . 
+[ 0019 ]  In some of these embodiments , the computer read 
+able instructions further cause the computer processor to 
+record settlement between the entity and the third party on 
+a  second distributed ledger different than the distributed 
+ledger . 
+[ 0020 ]  In  some embodiments ,  the computer readable 
+instructions further cause the computer processor to  access 
+a set of rules configured to  cause the system  to  settle with 
+one or more third parties based on a plurality of criteria . 
+[ 0021 ]  According to  embodiments of the invention , a 
+computer implemented method for using the block  chain 
+distributed network for facilitating real - time net settlement 
+includes receiving , at a  node of a  block chain distributed 
+network , a transaction record associated with a transaction 
+between a payor and a  payee , wherein the payor is associ 
+ated with a payor bank and the payee is  associated with  a 
+payee bank ;  accessing a  distributed ledger , wherein the 
+distributed ledger is updated based on communications from 
+the block chain distributed network ; determining , from  the 
+distributed ledger , a  net position between the entity and a 
+third party ; determining whether the transaction record is 
+associated with the entity as a payor bank or a payee bank 
+and if the entity is the payor bank and the third party is the 
+payee bank , debiting the net position in the amount of the 
+transaction , and if the entity is the payee bank and the third 
+party  is the payor bank , crediting the net position in  the 
+amount of the transaction , thereby resulting in an updated 
+net position between the entity and the third  party ;  and 
+recording the updated net position on the distributed ledger . 
+[ 0022 ]  In some embodiments , the method includes record 
+ing the transaction record alongside the updated net position 
+on the distributed ledger . 
+[ 0023 ]  In  some embodiments , the method includes com 
+paring the updated net position to a predetermined threshold ; 
+and if the updated net position is greater than the predeter 
+mined threshold , initiating settlement of an amount associ 
+ated with the updated net position . 
+[ 0024 ]  In some such embodiments , the method includes , if 
+the updated net position indicates the entity owes the third 
+party the amount , initiating payment of the amount to the 
+third party . 
+[ 0025 ]  The features , functions , and advantages that have 
+been discussed may be achieved independently in  various 
+embodiments of the present invention or may be combined 
+with yet other embodiments , further details of which can be 
+seen with reference to  the following description and draw 
+ings . 
+DETAILED DESCRIPTION OF EMBODIMENTS 
+OF THE INVENTION 
+[ 0035 ]  Embodiments of  the  invention will  now  be 
+described more fully  hereinafter with  reference to  the 
+accompanying drawings ,  in  which some ,  but not all , 
+embodiments of the invention are shown . Indeed , the inven 
+tion may be embodied in many different forms and should 
+not be construed as limited to the embodiments set forth 
+herein ; rather , these embodiments are provided so that this 
+disclosure will satisfy applicable legal requirements . In  the 
+following description , for purposes of explanation , numer 
+ous  specific details are  set  forth  in  order to  provide a 
+thorough understanding of one or more embodiments .  It 
+may be evident ; however , that such embodiment ( s ) may be 
+practiced without these specific details . Like numbers refer 
+to  like elements throughout . 
+( 00361  Systems , methods , and computer program products 
+are herein disclosed that provide for real - time net settlement 
+using a distributed ledger system . Presently , basic bank - to 
+bank accounting is  a  very expensive endeavor . Multiple 
+accounts are required to be maintained by people on both 
+sides of the transactions . Accounts have exception processes 
+that are managed by people as well . Embodiments of the 
+present invention consolidate multiple physical bank 
+accounts using distributed ledger technologies . Instead of 
+creating individual relationships with every external third 
+party ,  embodiments of the invention involve creating a 
+centralized single account . When a settlement is necessary , 
+the money from  the single account may be moved based on 
+a set of rules dictating the relationship between two entities . 
+Because the settlement system leverages a distributed ledger 
+system , both “ sides ” of the transaction are aware of , and can 
+verify , the status of the account throughout a cycle , such as 
+throughout a day . Because the distributed ledger system  is a 
+trusted system , then the present system  obviates the need to 
+hold individual , unique accounts for each third party . Uti 
+lizing the distributed ledger , both sides of the settlement 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+have access to various details regarding the balance through - 
+out the cycle , and the rules may dictate a transfer via wire , 
+ACH or otherwise . For example , the rules may dictate a 
+transfer once the balance reaches a threshold level or at a 
+certain time of day , for example , fifteen ( 15 ) minutes prior 
+to closing the cycle ( e . g . , the day ) . 
+[ 0037 ]  By taking this approach , movement of payments is 
+improved drastically . The money is centralized in  a reposi 
+tory , thereby improving cash management services .  The 
+money is moved in bulk rather than moved individually by 
+single transaction or small batch  of transactions .  This 
+reduces the chances of losing an individual payment on the 
+payment rails  ( bank  settlement communication channels ) . 
+As mentioned above , because of the transaction data present 
+and verified on the distributed ledger ,  the transaction is 
+trusted . Exceptions and amount of money being moved are 
+both reduced . 
+[ 0038 ]  The rules may be dynamic and provide the money 
+exactly when required by one or both of the parties to the 
+transaction . 
+[ 0039 ]  In other embodiments , a distributed ledger need not 
+be used . Rather , both sides of the transaction may keep its 
+own ledger and rules . For example , providing messaging 
+between entities through a cycle that includes details regard 
+ing balances between the entities . Each side may maintain its 
+own ledger or accounting details , and settlement may be 
+made at a predetermined time or threshold , such as at the end 
+of day . If an  entity requires settlement , for example , four ( 4 ) 
+times a day , then the settlement rules may be implemented 
+so that the settlement occurs based on those rules . In  other 
+words , both sides maintain an understanding of the position , 
+and both sides would maintain a procedure for truing - up any 
+discrepancies in the positions . Thus , there may be instances 
+where discrepancies occur , and both sides would need to 
+work to remedy the discrepancies in  order to facilitate the 
+system without a distributed ledger . 
+[ 0040 ]  In essence , the system provides a real - time settling 
+of funds without necessarily requiring a third party inter 
+mediary . The distributed ledger provides increased visibility 
+and trust . The two - way messaging system  may provide for 
+managing synchronization of positions . This two - way mes 
+saging system may include instructions ( outbound informa 
+tion / transactions , and events ( status updates ) . The two - way 
+communication results in the synchronization of the position 
+based on both sides understanding the messaging . 
+[ 0041 ]  In other words , embodiments of the present inven 
+tion provide a system  operatively connected with a block 
+chain  distributed network and for using the block  chain 
+distributed network for providing aggregate tracking and 
+threshold triggering . Embodiments receives , at a node of a 
+blockchain distributed network , a transaction record associ 
+ated  with  a  transaction between a  payor and  a  payee , 
+wherein the payor is  associated with a  payor bank and the 
+payee is associated with a payee bank ; accesses a distributed 
+ledger , wherein the distributed ledger is updated based on 
+communications from  the block chain distributed network ; 
+determines ,  from  the  distributed ledger ,  a  net position 
+between the entity and a third party ; determines whether the 
+transaction record is associated with the entity as a payor 
+bank or a payee bank and , if the entity is the payor bank and 
+the third party is the payee bank , debit the net position in  the 
+amount of the transaction ; and , if the entity is the payee bank 
+and the third party is the payor bank , credit the net position 
+in the amount of the transaction , thereby resulting in  an 
+updated net position between the entity and the third party ; 
+and records the updated net position  on the distributed 
+ledger . 
+[ 0042 ]  In  accordance with embodiments of the invention , 
+the terms “ entity system ” may include any organization such 
+as one that processes financial transactions including , but 
+not limited to , banks , credit unions , savings and loan asso 
+ciations , card associations , settlement associations , invest 
+ment companies , stock brokerages , asset management firms , 
+insurance companies and the like .  Furthermore ,  embodi 
+ments of the present invention use  the  term  " user "  or 
+" customer . ” It will be appreciated by someone with ordinary 
+skill in the art that the user or customer may be a customer 
+of the financial institution or a  potential customer of the 
+financial institution or an employee of the financial institu 
+tion . 
+100431 .  Many of the example embodiments and implemen 
+tations described herein contemplate interactions engaged in 
+by a user with  a computing device and / or one or more 
+communication devices and / or  secondary communication 
+devices . A  “ user " , as referenced herein , may refer to  an 
+entity  or individual that has the ability and / or authorization 
+to  access and use one or more resources or portions of a 
+resource . Furthermore , as used herein , the term  “ user com 
+puting device ”  or “ mobile device ” may refer to mobile 
+phones ,  personal computing devices ,  tablet  computers , 
+wearable devices , smart devices and / or any portable elec 
+tronic  device  capable of receiving and / or storing  data 
+therein . 
+[ 0044 ]  A “ user interface ”  is any device or software that 
+allows a user to  input information , such as commands or 
+data ,  into  a  device ,  or that allows the device to  output 
+information to the user .  For example , the user interface 
+include a  graphical user interface ( GUI ) or an interface to 
+input computer - executable instructions that direct a process 
+ing device to carry out specific functions . The user interface 
+typically employs certain input and output devices to input 
+data received from  a user second user or output data to a 
+user . These input and output devices may include a display , 
+mouse , keyboard , button , touchpad ,  touch  screen , micro 
+phone , speaker , LED , light , joystick , switch , buzzer , bell , 
+and / or other user input / output device for communicating 
+with one or more users . 
+[ 0045 ]  A “ system  environment ” , as used herein , may refer 
+to  any information technology platform of an  enterprise 
+( e . g . ,  a  national or multi - national corporation )  and may 
+include a multitude of servers , machines , mainframes , per 
+sonal computers , network devices , front and back end sys 
+tems , database system  and / or the like . 
+( 0046 ]  FIG . 1 illustrates a real - time net settlement system 
+environment 100 , in accordance with  embodiments of the 
+invention . As illustrated in  FIG .  1 ,  one or more entity 
+systems 10 are operatively coupled , via a network 2 , to user 
+computer systems 20 , a plurality of user computer systems , 
+and / or one or more other systems ( not illustrated ) . In  this 
+way , the user 4  ( e . g . , one or more associates ,  employees , 
+agents , contractors , sub - contractors , third - party representa 
+tives , customers , or the like ) , through a user application 27 
+( e . g . , web browser , real - time net settlement application , or 
+the like ) , may access entity applications 17 ( e . g . , website , 
+real - time net settlement application , or the like ) of the entity 
+systems 10  to  perform net settlement using distributed 
+ledgers as discussed herein .  In  some embodiments ,  the 
+real - time net settlement application may be a  part of an 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+independent real - time net settlement system .  In  such  an 
+embodiment , the independent real - time net settlement sys 
+tem  is maintained and operated by the entity systems 10 . The 
+independent real - time net settlement system may comprise 
+one or more processing devices operatively coupled to the 
+one or more memory devices and  configured to  execute 
+computer readable code stored in  the one or more memory 
+devices . 
+[ 0047 ]  The network 2 may be a  global area network 
+( GAN ) , such as the Internet , a wide area network ( WAN ) , a 
+local area network ( LAN ) , or any other type of network or 
+combination of networks . The network 2 may provide for 
+wireline , wireless , or a combination of wireline and wireless 
+communication between systems ,  services ,  components , 
+and / or devices on the network 2 . 
+[ 0048 ]  As illustrated in  FIG .  1 , the entity  systems 10 
+generally comprise one or more communication components 
+12 , one or more processing components 14 , and one or more 
+memory components 16 . The one or more processing com 
+ponents 14  are operatively coupled to  the  one or more 
+communication components 12 and the one or more memory 
+components 16 . As used herein , the term  “ processing com 
+ponent ”  generally includes circuitry used for implementing 
+the communication and / or logic  functions of a particular 
+system .  For example ,  a  processing component 14  may 
+include a  digital signal processor component , a micropro 
+cessor component , and various analog - to - digital converters , 
+digital - to - analog converters , and other support circuits and / 
+or combinations of the foregoing . Control and signal pro 
+cessing functions of the system  are allocated between these 
+processing components according to their respective capa 
+bilities .  The one or more processing components 14 may 
+include functionality to  operate one or more software pro 
+grams based on computer - readable instructions 18 thereof , 
+which may be stored in  the one or more memory compo 
+nents 16 . 
+[ 0049 ]  The one or more processing components 14 use the 
+one or more communication components 12 to communicate 
+with the network 2 and other components on the network 2 , 
+such  as , but not limited  to ,  the components of the user 
+computer systems 20 , third - party systems 40 , or other sys 
+tems . As such , the one or more communication components 
+12 generally comprise a wireless transceiver , modem , server , 
+electrical connection , electrical circuit , or other component 
+for communicating with other components on the network 2 . 
+The one or more communication components 12 may further 
+include an  interface that accepts one or more network 
+interface cards , ports for connection of network components , 
+Universal Serial Bus ( USB ) connectors and the like . In one 
+embodiment of the present invention ,  the one or more 
+processing components 14 automatically implement a dis 
+tributed ledger used  for tracking balances as between an 
+entity and third parties . 
+[ 0050 ]  As further illustrated in FIG . 1 , the entity systems 
+10 comprise computer - readable instructions 18 stored in the 
+memory component 16 , which in one embodiment includes 
+the computer - readable instructions 18 of the entity  applica 
+tion  17 ( e . g . , website application , real - time net settlement 
+application , and / or the like ) . In  some embodiments , the one 
+or more memory components 16  include one or more data 
+stores 19 for storing data related to  the entity systems 10 , 
+including , but not limited to , data  created , accessed , and / or 
+used by the entity  application 17 .  The one or more data 
+stores may store the copies of the distributed ledger , his 
+torical data , and / or other information . In one embodiment of 
+the present invention , the real - time net settlement applica 
+tion comprises a rules engine to perform one or more steps 
+described in  the process flows of FIG . 4 . 
+[ 0051 ]  As illustrated in FIG . 1 , users 4 may access the 
+application 17 , or other applications , through a  user com 
+puter system  20 .  The user computer system  20 may be a 
+desktop , mobile device ( e . g . , laptop , smartphone device , 
+PDA , tablet , or other mobile device ) , or any other type of 
+computer that generally comprises one or more communi 
+cation components 22 , one or more processing components 
+24 , and one or more memory components 26 . 
+10052 ]  The one or more processing components 24 are 
+operatively coupled to  the  one or more communication 
+components 22 and the one or more memory components 
+26 . The one or more processing components 24 use the one 
+or more communication components 22 to  communicate 
+with the network 2 and other components on the network 2 , 
+such as , but not limited to , the user computer systems 20 , 
+third party systems 40 , and / or other systems . As such , the 
+one or more communication components 22 generally com 
+prise a wireless transceiver , modem , server , electrical con 
+nection , or other component for communicating with other 
+components on the network 2 . The one or more communi 
+cation components 22 may further include an interface that 
+accepts one or more network interface cards ,  ports  for 
+connection of network components , Universal Serial Bus 
+( USB ) connectors and the like . Moreover , the one or more 
+communication components 22 may include a keypad , key 
+board , touch - screen , touchpad , microphone , mouse ,  joy 
+stick , other pointer component , button , soft key , and / or other 
+input / output component ( s )  for  communicating with  the 
+users 4 . In  one embodiment of the present invention , the 
+real - time net settlement application in  the user computer 
+systems 20 ,  the  third  party  systems 40 ,  and  the  entity 
+systems 10 may comprise a special net settlement interface 
+to  display information associated with  the one or more 
+distributed ledgers , the balances of the accounts for each 
+third  party , the process steps discussed herein  and the 
+automatic actions that may be taken in  response to the net 
+settlement processes discussed herein .  Such  information 
+may be displayed to the user and the interface may receive 
+information associated with the rules and / or the one or more 
+distributed ledgers or otherwise from  the user . 
+[ 0053 ]  As illustrated in FIG . 1 , the user computer systems 
+20 may have computer - readable instructions 28 stored in the 
+one or more memory components 26 , which in one embodi 
+ment includes the computer - readable instructions 28 for user 
+applications 27 , such as real - time net settlement application 
+( e . g . , apps , applet , or the like ) , portions of real - time net 
+settlement application ,  a  web browser or other apps that 
+allow  the user 4 to take various actions , including allowing 
+the user 4 to  access applications located on other systems , or 
+the like . In  some embodiments , the user 4  utilizes the user 
+applications 27 , through the user computer systems 20 , to 
+access the entity applications 17 to  perform net settlement 
+transactions or analysis .  The third party systems 40 associ 
+ated with a plurality of user 5 may include similar structure 
+as that of the user computer systems 20 . 
+[ 0054 ]  Some embodiments of this invention utilize a dis 
+tributed ledger , such as a  distributed ledger as used  in  a 
+block  chain  infrastructure . Block chain may use a  special 
+ized distributed ledger system  for storing each process point 
+of the complete payment structure for  each transaction 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+together in a block chain style format . The blocks store data 
+packets of information pertaining to the processing of that 
+particular transaction within  the process and are  chained 
+together to  form  a time stamped historic  record  of the 
+transaction processed from  the client origination to external 
+clearing . Using metadata the system  allows for searching 
+and finding complex tracking and tracing across individual 
+transactions or accounts . 
+[ 0055 ]  “ Block chain " as used herein refers to a decentral 
+ized  electronic ledger of data records which are authenti 
+cated by a federated consensus protocol . Multiple computer 
+systems within the block chain , referred to herein as “ nodes ” 
+or " compute nodes , ”  each  comprise a  copy of the entire 
+ledger of records . Nodes may write a  data “ block ”  to  the 
+block chain , the block comprising data regarding a transac 
+tion . In  some embodiments , only miner nodes may write 
+transactions to  the block chain . In  other embodiments , all 
+nodes have the ability  to write to  the block chain . In  some 
+embodiments , the block may further comprise a time stamp 
+and a pointer to the previous block in  the chain . In  some 
+embodiments ,  the block may further comprise metadata 
+indicating the node that was the originator of the transaction . 
+In this way , the entire record of transactions is not dependent 
+on a single database which may serve as a single point of 
+failure ; the block chain will persist so long as the nodes on 
+the block chain persist . A  " private block chain ”  is a block 
+chain in which only authorized nodes may access the block 
+chain . In  some embodiments , nodes must be authorized to 
+write to the block chain . In some embodiments , nodes must 
+also be authorized to  read from  the block chain . Once a 
+transactional record is written to the block chain , it will be 
+considered pending and  awaiting authentication by  the 
+miner nodes in the block chain . 
+[ 0056 ]  “ Miner node ” as used herein refers to a networked 
+computer system  that authenticates and verifies the integrity 
+of pending transactions on the block chain . The miner node 
+ensures that the sum of the outputs of the transaction within 
+the block matches the sum  of the inputs . In some embodi 
+ments , a pending transaction may require validation by a 
+threshold number of miner nodes . Once the threshold num 
+ber  of miners has validated the transaction ,  the block 
+becomes an authenticated part of the block chain . By using 
+this method of validating transactions via a federated con 
+sensus mechanism , duplicate or erroneous transactions are 
+prevented from becoming part of the accepted block chain , 
+thus reducing the risk of data record tampering and increas 
+ing the security of the transactions within the system . 
+[ 0057 ]  FIG . 2A illustrates a centralized database architec 
+ture  environment 200 , in  accordance with one embodiment 
+of the present invention . The centralized database architec 
+ture comprises multiple nodes from  one or more sources and 
+converge into  a  centralized database .  The system ,  in  this 
+embodiment , may generate a single centralized ledger for 
+data received from the various nodes . The single centralized 
+ledger for data provides a  difficult avenue for reviewing a 
+record of a single transaction or payment process as it moves 
+through the various applications for processing . There is no 
+means to  track the individual payment through the process 
+at any point until it has been completely posted . Even at that 
+point , with the amount of data a centralized database digests 
+regularly in  a  complex payment structure ,  the ability to 
+accurately track  and trace a  single transaction point or 
+account through the process is not possible . 
+[ 0058 ]  FIG . 2B  provides a  general block chain  system 
+environment architecture 250 ,  in  accordance with  one 
+embodiment of the present invention . Rather than utilizing 
+a centralized database of data for instrument conversion , as 
+discussed above in FIG . 2A , various embodiments of the 
+invention may use a decentralized block chain configuration 
+or architecture as shown in FIG . 2B in order to facilitate the 
+converting of an instrument from  a non - secured or secured 
+format to  a verified secured format . Such a decentralized 
+block chain  configuration ensures accurate mapping of 
+resources available within an account associated with  an 
+instrument . Accordingly , a block chain configuration may be 
+used to maintain an accurate ledger of transactions and the 
+processing of each transaction through the processing appli 
+cations by generation of a time stamped block and building 
+of one or more blocks for each stage of the processing for the 
+transaction . In this way , the system  builds a traceable and 
+trackable historic view  of each  transaction within each 
+account , capable of being searched and identified . 
+[ 0059 ]  A block chain is a distributed database that main 
+tains  a  list of data  records ,  such  as  real - time resource 
+availability associated with one or more accounts or the like , 
+the security of which is enhanced by the distributed nature 
+of the block chain . A block chain typically includes several 
+nodes ,  which may be one or more systems , machines , 
+computers , databases , data stores or the like operably con 
+nected with one another . In some cases , each of the nodes or 
+multiple nodes are maintained by different entities . A block 
+chain typically works without a central repository or single 
+administrator . One well - known application of a block chain 
+is the public ledger of transactions for cryptocurrencies . The 
+data records recorded in the block chain are enforced cryp 
+tographically and stored on the nodes of the block chain . 
+10060 ]  A block chain provides numerous advantages over 
+traditional databases . A  large number of nodes of a block 
+chain  may reach  a  consensus regarding the  validity of a 
+transaction contained on the transaction ledger . As such , the 
+status of the instrument and the resources associated there 
+with can be validated and cleared by one participant . 
+[ 0061 ]  The block chain system  typically has two primary 
+types of records . The first type is the transaction type , which 
+consists of the actual data stored  in  the block chain .  The 
+second type is the block type , which are records that confirm 
+when and  in  what sequence certain transactions became 
+recorded as part of the block chain . Transactions are created 
+by participants using the block chain in  its normal course of 
+business , for example , when someone sends cryptocurrency 
+to another person , and blocks are created by users known as 
+“ miners ” who use specialized software / equipment to create 
+blocks . In  some embodiments , the block chain  system  is 
+closed , as such the number of miners in  the current system 
+are known and the system  comprises primary sponsors that 
+generate and create the new blocks of the system . As such , 
+any block may be worked on by a primary sponsor . Users of 
+the block chain create transactions that are passed around to 
+various nodes of the block chain . A  " valid ” transaction is one 
+that can be validated based on a set of rules that are defined 
+by the particular system  implementing the block chain . For 
+example , in the case of cryptocurrencies , a valid transaction 
+is  one that is  digitally signed , spent from  a  valid  digital 
+wallet and , in  some cases that meets other criteria . 
+[ 0062 ]  As mentioned above and referring to  FIG . 2B , a 
+block chain system  250 is typically decentralized meaning 
+that a distributed ledger 202 ( i . e . , a decentralized ledger ) is 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+maintained on multiple nodes 408 of the block chain 250 . 
+One node in the block chain may have a complete or partial 
+copy of the entire ledger or set of transactions and / or blocks 
+on the block chain . Transactions are initiated at a node of a 
+block chain and communicated to the various nodes of the 
+block chain . Any of the nodes can validate a transaction , add 
+the transaction to its copy of the block chain , and / or broad 
+cast the transaction , its validation in  the form  of a block ) 
+and / or other data to other nodes . This other data may include 
+time - stamping ,  such  as  is  used  in  cryptocurrency block 
+chains . In some embodiments , the nodes 208 of the system 
+might be financial institutions that function as gateways for 
+other financial institutions . For example , a  credit union 
+might hold the account , but access the distributed system 
+through a sponsor node . 
+10063 ]  Various other specific purpose implementations of 
+block chains have been developed . These include distributed 
+domain name management , decentralized crowd - funding , 
+synchronous / asynchronous communication , decentralized 
+real - time ride sharing and even a general purpose deploy 
+ment of decentralized applications . 
+[ 0064 ]  FIG . 3 provides a high level process flow illustrat 
+ing node interaction within a block chain  system  environ 
+ment architecture 300 , in accordance with one embodiment 
+of the present invention . As illustrated and discussed above , 
+the block  chain system  may comprise at least one or more 
+nodes used to  generate blocks and process transactional 
+records for generation of the life - cycle record recreation . 
+[ 0065 ]  In  some embodiments , the channel node 304 , pay 
+ments node 306 , or the clearing node 308 may publish a 
+pending transaction 310 to the block chain 302 . At this stage , 
+the transaction has not yet been  validated by the miner 
+node ( s ) 312 , and the other nodes will delay executing their 
+designated processes . The miner node 312 may be config 
+ured to  detect a  pending transaction 310 or steps in  the 
+processing of the payment transaction in the block chain and 
+conduct its  processes to evaluate the validity  of the data 
+therein . Upon verifying the integrity of the data  in  the 
+pending transaction 310 , the miner node 312 validates the 
+transaction and adds the data as a transactional record 314 , 
+which is referred to as a block in some embodiments of the 
+application , to  the block chain 302 . Once a transaction has 
+been authenticated in  this manner , the nodes will consider 
+the transactional record 314  to  be valid  and  thereafter 
+execute their designated processes accordingly .  The trans 
+actional record  314 will provide information about what 
+process or application the payment transaction was just 
+processed through and metadata coded therein  for search 
+ability  of the transactional record 314 within a  distributed 
+ledger . 
+[ 0066 ]  In some embodiments , the system may comprise at 
+least one additional miner node 312 . The system may require 
+that pending transactions 310 be validated by a plurality of 
+miner nodes 312 before becoming authenticated blocks on 
+the block chain . In  some embodiments , the systems may 
+impose a minimum threshold number of miner nodes 312 
+needed to verify  each pending transaction . The minimum 
+threshold may be selected to strike a balance between the 
+need for data  integrity / accuracy versus expediency of pro 
+cessing . In this way , the efficiency of the computer system 
+resources may be maximized . 
+[ 0067 ]  Furthermore , in some embodiments , a plurality of 
+computer systems are in  operative networked communica 
+tion with one another through a network . The network may 
+be a  system  specific  distributive network receiving and 
+distributing specific network feeds and identifying specific 
+network associated triggers .  The network may also  be a 
+global area network ( GAN ) , such as the Internet , a wide area 
+network ( WAN ) , a local area network ( LAN ) , or any other 
+type of network or combination of networks . The network 
+may provide for wireline , wireless , or a  combination wire 
+line and wireless communication between devices on  the 
+network . 
+[ 0068 ]  In  some embodiments , the computer systems rep 
+resent the nodes of the block chain , such as the miner node 
+or the like . In  such an embodiment , each of the computer 
+systems comprise the block chain , providing for decentral 
+ized access to the block chain 302 as well as the ability to 
+use a consensus mechanism to verify the integrity of the data 
+therein . 
+[ 0069 ]  Various embodiments provide a system  operatively 
+connected with a block chain  distributed network and for 
+using the block  chain  distributed network for providing 
+aggregate tracking and threshold triggering . Embodiments 
+receives , at a  node of a  blockchain distributed network , a 
+transaction record associated with  a  transaction between a 
+payor and a payee , wherein the payor is associated with a 
+payor bank and the payee is associated with  a  payee bank ; 
+accesses a distributed ledger , wherein the distributed ledger 
+is updated based on communications from  the block chain 
+distributed network ; determines , from the distributed ledger , 
+a  net position between the entity  and a  third party ;  deter 
+mines whether the transaction record is  associated with the 
+entity as a payor bank or a payee bank and , if the entity is 
+the payor bank and the third party  is  the payee bank , debit 
+the net position in the amount of the transaction ; and , if the 
+entity is the payee bank and the third party is the payor bank , 
+credit the net position in  the amount of the transaction , 
+thereby resulting in  an updated net position between the 
+entity  and the third  party ;  and records the updated net 
+position on the distributed ledger . 
+[ 0070 ]  In various embodiments of the invention , existing 
+payment networks ( such as EWS , TCH , debit networks , etc . ) 
+may be combined with  a  distributed ledger technology 
+( DLT ) - based clearing chain ( or blockchain ) associated with 
+one or more entity - third  party  relationships .  In  some 
+embodiments , another blockchain provides a  settlement 
+ledger between an  entity and one or more third parties . In 
+some such embodiments , one or more smart contracts dic 
+tate  the interaction between the blockchains by enabling 
+rules that dictate one or more thresholds for comparing net 
+positions between the entity - third party pairs so that settle 
+ments may be initiated when thresholds are passed . Payment 
+messages are delivered on existing networks and are also 
+sent to  the clearing blockchain .  In  some embodiments , 
+within  the blockchain , transactions are recorded and net 
+positions are calculated from  an entity to  each counterparty . 
+10071 ]  In  various embodiments , a variety of triggers may 
+initiate settlement of a net position between an entity and a 
+third party . Such triggers may be implemented by one or 
+more smart contracts and may include government regula 
+tions , public information such  as interest rates or the like , 
+and / or private information known to the entity because of its 
+relationship with a third party . For example , the government 
+may dictate that a particular institution may only have a first 
+level of exposure , and rules may implement the first level of 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+FUIT 
+exposure by a smart contract that compares the net position 
+to the first level and initiates a settlement if the net position 
+exceeds the threshold . 
+10072 ]  This type of configuration provides a more efficient 
+process for interaction between institutions as the number of 
+settlements between the  institutions may be drastically 
+reduced .  This  is because ,  currently ,  institutions may be 
+transferring a  first amount from  the first entity to a  second 
+entity  and the second entity may be transferring a  second 
+amount from  the second entity to the first entity . If a net 
+position had been calculated , then only one transfer would 
+have been necessary , or possibly none if the net position was 
+low  enough not to  trigger a settlement . Any payment net 
+work that allows payments to be sent from bank to bank may 
+be used for settlement in conjunction with embodiments of 
+the invention , and in fact , such payment network may be or 
+include a previously existing network such as a credit card 
+network , ACH network , wire network or any other network . 
+[ 0073 ]  Referring now to FIG . 4 , a  flowchart illustrates a 
+method 400 for real - time net settlement using a  distributed 
+ledger according to embodiments of the invention . The first 
+step , as represented by block 410 , is to receive , at a node of 
+a blockchain distributed network , a transaction record asso 
+ciated with a transaction between a payor and a payee . The 
+payor is associated with a payor bank and the payee is 
+associated with  a payee bank . The next step , as represented 
+by block 420 , is to access a distributed ledger that is updated 
+based on communications from  the blockchain distributed 
+network . Next , as represented by block  430 , the system 
+determines whether the transaction record is associated with 
+the entity as a payor bank or payee bank . Then , if the entity 
+is the payor bank and the third party is the payee bank , the 
+system debits a net position in the amount of the transaction , 
+thereby maintaining an  accurate ,  ongoing net  position 
+between the entity  and the third party , as represented by 
+block 440 . Next , if the entity is the payee bank and the third 
+party is the payor bank , the system  credits the net position 
+in  the amount of the transaction , as represented by block 
+450 . In this way , multiple entity - third party net positions 
+may be maintained on a single or multiple clearance block 
+chains . Finally , as represented by block 460 , the system 
+records the updated net position on the distributed ledger 
+( i . e . , blockchain ) . 
+10074 ]  In  various embodiments , a  set of rules such as a 
+smart contract dictates criteria for settlement , as represented 
+by block 470 . For example , the settlement frequency during 
+a cycle such as a day may be dictated by the set of rules . 
+[ 0075 ]  Referring now to FIG . 5 , a diagram illustrates a 
+traditional banking relationship settlement scheme . Refer 
+ring now  to  FIG .  6 ,  a  diagram illustrates a  prefunded 
+“ ripple ”  settlement scheme . Referring now  to  FIG . 7 , a 
+diagram illustrates a “ just - in - time ”  or real - time net settle 
+ment based on distributed ledger scheme . 
+[ 0076 ]  Although many embodiments of the present inven 
+tion have just been described above , the present invention 
+may be embodied in many different forms and should not be 
+construed as  limited to  the embodiments set forth herein ; 
+rather , these embodiments are provided so that this disclo 
+sure will satisfy applicable legal requirements . Also , it will 
+be understood that , where possible , any of the advantages , 
+features , functions , devices , and / or operational aspects of 
+any of the embodiments of the present invention described 
+and / or contemplated herein may be included in  any of the 
+other embodiments of the present invention described and / or 
+contemplated herein , and / or vice versa . In addition , where 
+possible , any terms expressed in the singular form  herein are 
+meant to  also  include the plural form  and / or vice versa , 
+unless explicitly stated  otherwise . Accordingly , the terms 
+" a "  and / or " an "  shall mean “ one or more , " even though the 
+phrase " one or more ” is also used herein . Like numbers refer 
+to  like elements throughout . 
+[ 0077 ]  As will be appreciated by one of ordinary skill in 
+the art in view of this disclosure , the present invention may 
+include and / or be embodied as an apparatus ( including , for 
+example ,  a  system , machine ,  device ,  computer program 
+product ,  and / or  the  like ) ,  as a  method ( including ,  for 
+example , a business method ,  computer - implemented pro 
+cess , and / or the like ) , or as any combination of the forego 
+ing . Accordingly , embodiments of the present invention may 
+take the form  of an entirely business method embodiment , 
+an entirely software embodiment ( including firmware , resi 
+dent software , micro - code , stored procedures in a database , 
+or the like ) ,  an  entirely hardware embodiment , or  an 
+embodiment combining business method ,  software ,  and 
+hardware aspects that may generally be referred to herein as 
+a " system . ” Furthermore , embodiments of the present inven 
+tion may take the form  of a computer program product that 
+includes a computer - readable storage medium having one or 
+more computer - executable program code portions stored 
+therein . As used herein , a processor , which may include one 
+or more  processors , may be " configured to ”  perform a 
+certain function in  a variety of ways , including , for example , 
+by having one or more general - purpose circuits perform the 
+function by  executing one or more computer - executable 
+program code portions embodied in  a  computer - readable 
+medium , and / or by having one or more application - specific 
+circuits perform the function . 
+[ 0078 ]  It will be understood that any suitable computer 
+readable medium may be utilized .  The computer - readable 
+medium may include , but is not limited to , a non - transitory 
+computer - readable medium ,  such as a  tangible electronic , 
+magnetic , optical ,  electromagnetic , infrared , and / or semi 
+conductor system ,  device ,  and / or other  apparatus .  For 
+example ,  in  some embodiments ,  the non - transitory com 
+puter - readable medium includes a tangible medium such as 
+a portable computer diskette , a hard disk , a random  access 
+memory ( RAM ) , a read - only memory ( ROM ) , an erasable 
+programmable read - only  memory ( EPROM or  Flash 
+memory ) , a  compact disc read - only memory ( CD - ROM ) , 
+and / or some other tangible optical and / or magnetic storage 
+device .  In  other  embodiments of the present invention , 
+however , the computer - readable medium may be transitory , 
+such as , for example , a propagation signal including com 
+puter - executable program code portions embodied therein . 
+In  some embodiments ,  memory may  include  volatile 
+memory , such as volatile random access memory ( RAM ) 
+having a  cache area for the temporary storage of informa 
+tion . Memory may also include non - volatile memory , which 
+may be embedded and / or may be removable .  The non 
+volatile memory may additionally or alternatively include an 
+EEPROM , flash memory , and / or the like . The memory may 
+store any one or more of pieces of information and data used 
+by the system in which it resides to implement the functions 
+of that system . 
+100791 One or more computer - executable program code 
+portions for carrying out operations of the present invention 
+may include object - oriented ,  scripted ,  and / or unscripted 
+programming languages , such as , for example , Java , Perl , 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+Smalltalk ,  C + + ,  SAS ,  SQL ,  Python ,  Objective C , 
+JavaScript , and / or the like . In some embodiments , the one or 
+more computer - executable program code portions for car - 
+rying out operations of embodiments of the present inven 
+tion are written  in  conventional procedural programming 
+languages , such as the “ C ”  programming languages and / or 
+similar programming languages .  The computer program 
+code may alternatively or additionally be written in one or 
+more multi - paradigm programming languages , such as , for 
+example , F # . 
+[ 0080 ]  Some embodiments of the present invention are 
+described herein  with  reference to  flowchart illustrations 
+and / or block diagrams of apparatus and / or methods . It will 
+be understood that each block included in  the  flowchart 
+illustrations and / or block  diagrams , and / or combinations of 
+blocks included in the flowchart illustrations and / or block 
+diagrams , may be implemented by one or more computer 
+executable program code portions . These one or more com 
+puter - executable program code portions may be provided to 
+a processor of a general purpose computer , special purpose 
+computer , and / or some other programmable data processing 
+apparatus in order to produce a particular machine , such that 
+the one or more computer - executable program code por 
+tions , which  execute via  the processor of the  computer 
+and / or other programmable data processing apparatus , cre 
+ate mechanisms for implementing the steps and / or functions 
+represented by the flowchart ( s ) and / or block diagram block 
+( s ) . 
+[ 0081 ]  The one or more computer - executable program 
+code portions may be stored  in  a  transitory and / or non 
+transitory computer - readable medium ( e . g . , a memory or the 
+like ) that can direct , instruct , and / or cause a computer and / or 
+other programmable data processing apparatus to function in 
+a particular manner , such that the computer - executable pro 
+gram  code portions stored in  the computer - readable medium 
+produce an  article  of manufacture including instruction 
+mechanisms which implement the  steps and / or functions 
+specified in the flowchart ( s ) and / or block diagram block ( s ) . 
+[ 0082 ]  The one or more computer - executable program 
+code portions may also  be loaded onto a  computer and / or 
+other programmable data processing apparatus to  cause a 
+series of operational steps to be performed on the computer 
+and / or other programmable apparatus .  In  some embodi 
+ments , this produces a computer - implemented process such 
+that the one or more computer - executable program code 
+portions which execute on the computer and / or other pro 
+grammable apparatus provide operational steps to  imple 
+ment the steps specified in  the  flowchart ( s ) and / or the 
+functions specified in  the block diagram  block ( s ) . Alterna 
+tively , computer - implemented steps may be combined with , 
+and / or replaced with , operator - and / or human - implemented 
+steps in  order to  carry out an embodiment of the present 
+invention . 
+[ 0083 ]  While certain exemplary embodiments have been 
+described and shown in the accompanying drawings , it is to 
+be understood that such embodiments are merely illustrative 
+of and not restrictive on the broad invention , and that this 
+invention not be limited  to  the specific  constructions and 
+arrangements shown and described , since various  other 
+changes , combinations , omissions , modifications and sub 
+stitutions , in  addition to those set forth  in the above para 
+graphs , are possible . Those skilled in  the art will appreciate 
+that various adaptations , modifications , and combinations of 
+the just described embodiments can be configured without 
+departing from the scope and spirit of the invention . There 
+fore , it is to be understood that , within  the scope of the 
+appended claims , the invention may be practiced other than 
+as specifically described herein . 
+What is claimed is : 
+1 . A  system  operatively connected with  a block chain 
+distributed network and for using the block chain distributed 
+network for facilitating real - time net settlement , the system 
+maintained by an entity , the system  comprising : 
+a memory device ; and 
+a processing device operatively coupled to  the memory 
+device , wherein the processing device is configured to 
+execute computer - readable program code to : 
+receive , at a node of a block chain distributed network , 
+a transaction record associated with  a  transaction 
+between a payor and a payee , wherein the payor is 
+associated with  a  payor bank and the payee  is 
+associated with a payee bank ; 
+access a  distributed ledger , wherein the distributed 
+ledger is updated based on communications from the 
+block chain distributed network ; 
+determine , from  the distributed ledger , a net position 
+between the entity and a third party ; 
+determine whether the transaction record is associated 
+with the entity as a payor bank or a payee bank and : 
+if the entity is the payor bank and the third party is 
+the payee bank , debit the net position in  the 
+amount of the transaction ; and 
+if the entity is the payee bank and the third party is 
+the payor bank ,  credit the net position in  the 
+amount of the transaction , 
+thereby resulting in  an updated net position between 
+the entity and the third party ; and 
+record the  updated net position on the distributed 
+ledger . 
+2 . The system  of claim  1 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+record the transaction record alongside the updated net 
+position on the distributed ledger . 
+3 . The system  of claim  1 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+compare the updated net position  to  a  predetermined 
+threshold ; and 
+if the updated net position is greater than the predeter 
+mined threshold , initiate settlement of an amount asso 
+ciated with the updated net position . 
+4 . The system of claim  3 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+if the updated net position indicates the entity owes the 
+third party the amount , initiate payment of the amount 
+to the third party . 
+5 . The system of claim  3 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+if the updated net position indicates the third party owes 
+the entity the amount ,  initiate  request of the amount 
+from  the third party . 
+
+US 2019 / 0172059 A1 Jun . 6 , 2019 
+6 . The system of claim  3 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+determine settlement of the amount has occurred ; and 
+update the updated net position based on the settlement . 
+7 .  The system of claim  6 , wherein the processing device 
+is further configured to  execute computer - readable program 
+code to : 
+record settlement between the entity and the third party on 
+a second distributed ledger different than the distributed 
+ledger . 
+8 . The system  of claim  1 , wherein the processing device 
+is further configured to execute computer - readable program 
+code to : 
+access a  set of rules configured to  cause the system  to 
+settle with one or more third parties based on a plurality 
+of criteria . 
+9 . A  computer program product for using a block chain 
+distributed network for facilitating real - time net settlement , 
+wherein the computer program product comprises at least 
+one non - transitory computer readable medium comprising 
+computer readable instructions ,  the  instructions ,  when 
+executed by a  computer processor ,  cause  the  computer 
+processor to : 
+receive , at a node of a block chain distributed network , a 
+transaction record associated with  a  transaction 
+between a payor and a  payee , wherein the payor is 
+associated with a  payor bank and the payee is associ 
+ated with a payee bank ; 
+access a distributed ledger , wherein the distributed ledger 
+is  updated based on communications from  the block 
+chain distributed network ; 
+determine ,  from  the distributed ledger ,  a  net position 
+between the entity and a third party ; 
+determine whether the  transaction record  is  associated 
+with the entity as a payor bank or a payee bank and : 
+if the entity is the payor bank and the third party is the 
+payee bank , debit the net position in  the amount of 
+the transaction , and 
+if the entity is the payee bank and the third party is the 
+payor bank , credit the net position in the amount of 
+the transaction , 
+thereby resulting in an updated net position between the 
+entity and the third party ; and 
+record the updated net position on the distributed ledger . 
+10 .  The computer program product of claim  9 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+record the transaction record alongside the updated net 
+position on the distributed ledger . 
+11 . The computer program product of claim  9 , wherein the 
+computer readable instructions further cause the computer 
+processor to : 
+compare the updated net position to  a predetermined 
+threshold ; and 
+if the updated net position is  greater than the predeter 
+mined threshold , initiate settlement of an amount asso 
+ciated with the updated net position . 
+12 . The computer program product of claim  11 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+if the updated net position indicates the entity owes the 
+third party the amount , initiate payment of the amount 
+to the third party . 
+13 . The computer program product of claim  11 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+if the updated net position indicates the third party owes 
+the entity  the amount , initiate request of the amount 
+from  the third party . 
+14 . The computer program product of claim  11 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+determine settlement of the amount has occurred ; and 
+update the updated net position based on the settlement . 
+15 . The computer program product of claim  14 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+record settlement between the entity and the third party on 
+a second distributed ledger different than the distributed 
+ledger . 
+16 . The computer program product of claim  9 , wherein 
+the computer readable instructions further cause the com 
+puter processor to : 
+access a  set of rules configured to cause the system  to 
+settle with one or more third parties based on a plurality 
+of criteria . 
+17 . A  computer implemented method for using the block 
+chain distributed network for facilitating real - time net settle 
+ment , the computer implemented method comprising : 
+receiving , at a node of a block chain distributed network , 
+a  transaction record  associated with  a  transaction 
+between a  payor and a payee , wherein the payor is 
+associated with a payor bank and the payee is  associ 
+ated with a payee bank ; 
+accessing a  distributed ledger , wherein the distributed 
+ledger is updated based on communications from  the 
+block chain distributed network ; 
+determining , from  the distributed ledger , a net position 
+between the entity  and a third party ; 
+determining whether the transaction record is associated 
+with the entity as a payor bank or a payee bank and : 
+if the entity  is the payor bank and the third party is the 
+payee bank , debiting the net position in the amount of 
+the transaction ; and 
+if the entity  is the payee bank and the third party is the 
+payor bank , crediting the net position in  the amount of 
+the transaction , thereby resulting in  an updated net 
+position between the entity and the third party ; and 
+recording the updated net position on  the distributed 
+ledger . 
+18 .  The computer implemented method of claim  17 , 
+further comprising : 
+recording the transaction record alongside the updated net 
+position on the distributed ledger . 
+19 .  The computer implemented method of claim  17 , 
+further comprising : 
+comparing the updated net position to a predetermined 
+threshold ; and 
+if the updated net position is greater than the predeter 
+mined threshold , initiating settlement of an  amount 
+associated with the updated net position . 
+20 .  The computer implemented method of claim  19 , 
+further comprising : 
+if the updated net position indicates the entity owes the 
+third  party  the amount ,  initiating payment of the 
+amount to  the third party . </pre></body></html>
