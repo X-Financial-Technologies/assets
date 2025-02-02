@@ -1,0 +1,16 @@
+WITHDRAWAL
+1 Alice sends a withdrawal request to the Bank.
+2 Bank prepares an electronic coin and digitally signs it.
+3 Bank sends coin to Alice and debits her account.
+
+PAYMENT/DEPOSIT
+1 Alice gives Bob the coin.
+2 Bob contacts Bank5 and sends coin.
+3 Bank verifies the Bank's digital signature.
+4 Bank verifies that coin has not already been spent.
+5 Bank consults its withdrawal records to confirm Alice's withdrawal. (optional)
+6 Bank enters coin in spent-coin database.
+7 Bank credits Bob's account and informs Bob.
+8 Bob gives Alice the merchandise.
+
+One should keep in mind that the term "Bank" refers to the financial system that issues and clears the coins. For example, the Bank might be a credit card company, or the overall banking system. In the latter case, Alice and Bob might have separate banks. If that is so, then the "deposit" procedure is a little more complicated: Bob's bank contacts Alice's bank, "cashes in" the coin, and puts the money in Bob's account.

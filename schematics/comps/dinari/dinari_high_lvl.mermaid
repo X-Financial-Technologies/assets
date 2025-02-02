@@ -1,0 +1,6 @@
+graph TD
+  Processor <--> |USDC| Circle
+  Circle <--> |USD Wire| MB[Mercury Bank]
+  Processor <--> |USDC| AB[Alpaca Brokerage]
+  MB <--> |USD Wire| AB
+  AB --> USDX

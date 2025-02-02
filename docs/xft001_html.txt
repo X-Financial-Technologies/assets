@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XFT SOFTWARE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+<nav class="sidenav">
+    <div class="sidenav-content">
+        <h2>Whitepaper</h2>
+        <ul>
+            <li><a href="#">Abstract</a></li>
+            <li><a href="#">Problem</a></li>
+            <li><a href="#">Motivation</a></li>
+            <li><a href="#">Scope</a></li>
+            <li><a href="#">Token Dynamics</a></li>
+        </ul>
+        <h2>About</h2>
+        <ul>
+            <li><a href="https://xft.finance/">XFT Home</a></li>
+        </ul>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTHTOyvV0B9XUe3B-VZmeBkAbNd2SAaDl08hRHu_M0yqdMLGQYbATB5wyhdg6ByM0Z99eLDi2J2MxYB/pubhtml" target="_blank">Deployments</a></li>
+          <li><a href="https://youtu.be/RbeZ66vL21Y" target="_blank">Coverage Report</a></li>
+          <li><a href="https://github.com/mountainprotocol/audits" target="_blank">Comparable Audits</a></li>
+          <li><a href="https://youtu.be/RbeZ66vL21Y" target="_blank">Microservices</a></li>
+          <li><a href="https://github.com/amr080/xft-resources/tree/qubic" target="_blank">Diagrams</a></li>
+          <li><a href="https://github.com/X-Financial-Technologies/assets" target="_blank">Assets</a></li>
+      </ul>
+    </div>
+</nav>
+<main class="main-content">
+<section id='pt1'>
+    <button class="accordion2">ABSTRACT</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <p>The USDX protocol provides a convenient USD denominated way for people to earn low risk yield on chain. The primary protocol token (USDX) provides a clear unit of value and accumulates generated yield.</p>
+            <ul>
+                <li><strong>X FINANCIAL TECHNOLOGIES</strong></li>
+                <li>XFT is a stablecoin issuer for USA.</li>
+                <li>USDX is a yield-bearing stablecoin for cash management.</li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">PROBLEM</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <p>Tax-efficient cash utilization, liquidity investing tradeoff</p>
+            <table class="tg" style="undefined;table-layout: fixed; width: 571px"><colgroup>
+              <col style="width: 120px">
+              <col style="width: 210px">
+              <col style="width: 263px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th class="tg-593y"><span style="font-weight:normal;color:white;background-color:#1A374D">SEGMENT</span></th>
+                  <th class="tg-593y"><span style="font-weight:normal;color:white;background-color:#1A374D">PROBLEM</span></th>
+                  <th class="tg-593y"><span style="font-weight:normal;color:#FFF;background-color:#1A374D">SOLUTION</span></th>
+                </tr></thead>
+              <tbody>
+                <tr>
+                  <td class="tg-8cy3">B2B Payments</td>
+                  <td class="tg-8cy3">Difficult to track<br>High fees<br>Slow<br>Lack transparency</td>
+                  <td class="tg-8cy3">Stablecoins</td>
+                </tr>
+                <tr>
+                  <td class="tg-8cy3">Stablecoins</td>
+                  <td class="tg-8cy3">No yield distribution<br>Taxes<br>USA regulatory compliance<br>Depegging</td>
+                  <td class="tg-8cy3">Rebasing<br>Municipal bond underlying<br>Investment Company Act 1940<br>Proof of reserves, fixed capitalization</td>
+                </tr>
+                <tr>
+                  <td class="tg-8cy3"><a href="https://xft.finance/s/gs002" target="_blank" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">MMF Trinity</a></td>
+                  <td class="tg-8cy3">Yield<br>Stability<br>Liquidity</td>
+                  <td class="tg-8cy3">Yield-bearing stablecoin</td>
+                </tr>
+              </tbody></table>
+              <br>
+        </div>
+    </div>
+    <button class="accordion2">MOTIVATION</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <p>WHY NOW?</p>
+            <ul>
+              <li><strong>REGULATORY CLARITY</strong></li>
+              <li><a href="https://www.congress.gov/bill/118th-congress/senate-bill/1838/all-info" target="_blank">Credit Card Competition Act of 2023</a></li>
+              <li><a href="https://public-inspection.federalregister.gov/2024-30496.pdf" target="_blank">Digital asset broker tax reporting rules finalized</a></li>
+              <li><a href="https://www.irs.gov/newsroom/treasury-irs-issue-final-regulations-requiring-broker-reporting-of-sales-and-exchanges-of-digital-assets-that-are-subject-to-tax-under-current-law-additional-guidance-to-provide-penalty-relief-address" target="_blank">Treasury and IRS finalize digital asset tax reporting rules</a></li>
+              <li><a href="https://www.sec.gov/newsroom/press-releases/2024-14" target="_blank">SEC expands "dealer" definition to include key market participants</a></li>
+              <li><a href="https://www.bloomberg.com/news/articles/2023-05-16/patent-that-helped-vanguard-clients-pocket-outsize-gains-expires" target="_blank">The patent that helped Vanguard pocket big gains expires</a></li>
+              <li><strong>CYBERSECURITY</strong></li>
+              <li><a href="https://www.msn.com/en-us/news/world/authorities-say-north-korean-hackers-responsible-for-308m-bitcoin-theft-in-japan/ar-AA1wrjhp" target="_blank">Authorities say North Korean hackers responsible for $308M Bitcoin theft in Japan</a></li>
+              <li><a href="https://www.reuters.com/business/media-telecom/chinese-hack-us-telecoms-compromised-more-firms-than-previously-known-wsj-says-2025-01-05/" target="_blank">Chinese hack of US telecoms compromised more firms than previously known</a></li>
+              <li><a href="https://finance.yahoo.com/news/us-treasury-says-hacked-chinese-205527099.html" target="_blank">Chinese hackers breach US Treasury in major cyber attack</a></li>
+              <li><a href="https://www.theregister.com/2024/11/20/change_healthcares_clearinghouse_services/" target="_blank">US healthcare payments network restored 9 months after ransomware attack</a></li>
+              <li><a href="https://www.stripes.com/theaters/us/2024-02-22/cyberattack-military-pharmacy-prescriptions-13087693.html" target="_blank">Cyberattack cripples US military pharmacies worldwide</a></li>
+              <li><a href="https://www.timesunion.com/state/article/massive-u-s-cyberattack-clogs-new-york-pharmacy-18684892.php" target="_blank">Cyberattack paralyzes New York prescription system</a></li>
+              <li><a href="https://abc7ny.com/unitedhealth-change-healthcare-cyberattack-pharmacy-outage/14460194/" target="_blank">Pharmacies across USA struggle to process prescriptions after cyberattack</a></li>
+              <li><a href="https://www.nbcnews.com/health/health-care/cyberattack-change-healthcare-patients-struggle-get-medication-rcna141841" target="_blank">Patients struggle to get lifesaving medication after healthcare cyberattack</a></li>
+              <li><a href="https://www.cbsnews.com/news/unitedhealth-cyberattack-change-healthcare-prescription-access-still-impacted/" target="_blank">UnitedHealth cyberattack still impacting prescription access: “threats to life”</a></li>
+              <li><a href="https://techcrunch.com/2024/10/24/unitedhealth-change-healthcare-hacked-millions-health-records-ransomware/" target="_blank">UnitedHealth hack exposes 100M records in largest-ever US healthcare breach</a></li>
+              <li><a href="https://www.mcafee.com/blogs/other-blogs/mcafee-labs/lumma-stealer-on-the-rise-how-telegram-channels-are-fueling-malware-proliferation/" target="_blank">Lumma Stealer on the Rise</a></li>
+              <li><a href="https://newsroom.accenture.com/news/2019/cybercrime-could-cost-companies-us-5-2-trillion-over-next-five-years-according-to-new-research-from-accenture" target="_blank">Cybercrime to cost US companies $5.2 trillion</a></li>
+              <li><a href="https://www.finextra.com/newsarticle/43160/payments-system-cyber-attack-could-cost-the-world-35-trillion" target="_blank">Payments system cyber attack to cost the world $3.5 trillion</a></li>
+              <li><a href="https://itbrief.com.au/story/cyber-crime-costing-the-world-8-trillion-every-year" target="_blank">Cyber crime costing the world $8 trillion every year</a></li>
+              <li><a href="https://home.treasury.gov/news/press-releases/jy2742" target="_blank">US sanctions Chinese firm for hacking 81K firewall devices, potentially deadly</a></li>
+              <li><a href="https://www.fcc.gov/document/rosenworcel-proposed-requiring-telecom-carriers-secure-their-networks" target="_blank">FCC chair proposes cybersecurity rules in response to China's Salt Typhoon telecom hack</a></li>
+              <li><strong>INSURANCE</strong></li>
+              <li><a href="https://www.schiffsovereign.com/trends/whats-up-with-buffett-and-his-325-billion-pile-of-cash-151751/" target="_blank">What’s up with Buffett and his $325 Billion Pile of Cash?</a></li>
+              <li><a href="https://media.kkr.com/news-details?news_id=89a4cb2a-8f14-4d49-964f-cfdcb3dd2dfa&amp;download=1" target="_blank">KKR Closes $4.0 Billion Health Care Strategic Growth Fund II</a></li>
+              <li><a href="https://www.spokesman.com/stories/2024/may/04/buffett-says-us-corporate-taxes-likely-to-rise-to-/" target="_blank">Buffett says U.S. corporate taxes likely to rise to tame deficit</a></li>
+              <li><a href="https://www.insurancejournal.com/news/national/2025/01/14/808113.htm" target="_blank">LA Wildfires Losses Could Top $30 Billion for Insurance Industry</a></li>
+              <li><a href="https://www.reuters.com/markets/us/us-property-casualty-insurers-slide-los-angeles-wildfire-losses-mount-2025-01-10/" target="_blank">US insurers slump as Los Angeles wildfire loss estimates hit $20 billion</a></li>
+              <li><a href="https://www.globalatlantic.com/news/KKR-completes-acquisition-of-global-atlantic" target="_blank">KKR Completes Acquisition of Remaining 37% of Global Atlantic</a></li>
+              <li><a href="https://www.reuters.com/markets/us/berkshire-reveals-672-billion-stake-insurer-chubb-2024-05-15/" target="_blank">Berkshire reveals $6.72 billion Chubb stake</a></li>
+              <li><strong>MARKET</strong></li>
+              <li><a href="https://www.cnbcafrica.com/2025/trump-cant-stop-de-dollarization/" target="_blank">Trump Can’t Stop De-Dollarization</a></li>
+              <li><a href="https://news.bitcoin.com/dedollarization-advances-russia-and-myanmar-discuss-national-currency-payment-system/" target="_blank">Russia and Myanmar Discuss National Currency Payment System</a></li>
+              <li><a href="https://www.dailysignal.com/2024/11/25/pentagon-lost-track-2-5-trillion/" target="_blank">Pentagon Loses Track of $2.5 Trillion</a></li>
+              <li><a href="https://www.stripes.com/theaters/us/2023-11-15/pentagon-failed-audit-shutdown-funding-12064619.html" target="_blank">Pentagon again fails annual audit of $3.8 trillion in military assets</a></li>
+              <li><a href="https://apnews.com/article/ukraine-weapons-audit-watchdog-us-congress-biden-9abecd14528b9551ff4ddb6786ad7fda" target="_blank">Pentagon failed to track more than $1 billion in military gear given Ukraine</a></li>
+              <li><a href="https://oversight.house.gov/release/joint-hearing-wrap-up-failed-control-systems-and-inability-to-accurately-account-funds-is-causing-dod-to-lose-billions-of-u-s-taxpayer-dollars%EF%BF%BC/" target="_blank">DOD Loses Billions Due to Failed Controls and Poor Fund Tracking</a></li>
+              <li><a href="https://www.bbc.com/news/world-us-canada-42954050" target="_blank">Pentagon's Defense Logistics Agency loses track of $800m</a></li>
+              <li><a href="https://apnews.com/article/ukraine-russia-war-weapons-surplus-funding-72eeb6119439146f1939d5b1973a44ef">Pentagon accounting error provides extra $6.2 billion for Ukraine military aid</a></li>
+              <li><a href="https://finance.yahoo.com/news/45-billion-tax-dollars-goes-123000032.html" target="_blank">$45 Billion in Tax Dollars Goes Missing in Afghanistan</a></li>
+              <li><a href="https://www.realclearinvestigations.com/articles/2023/02/24/pentagon_lost_track_of_220b_in_military_equipment_882492.html" target="_blank">Pentagon Lost Track of $220B in Military Equipment</a></li>
+              <li><a href="https://www.reuters.com/world/us/trump-appoints-former-paypal-coo-david-sacks-ai-crypto-czar-2024-12-06/" target="_blank">Trump appoints former PayPal exec David Sacks as crypto czar</a></li>
+              <li><a href="https://www.bloomberg.com/news/articles/2024-10-01/us-treasury-calls-for-transparency-on-china-s-currency-swaps" target="_blank">US Treasury Calls for Transparency on China’s Currency Swaps</a></li>
+              <li><a href="https://www.independent.co.uk/asia/china/china-gold-mine-discovery-world-largest-deposit-b2660388.html" target="_blank">China finds world’s largest gold deposit worth over $80 billion</a></li>
+              <li><a href="https://www.businesswire.com/news/home/20240731346413/en/Pershing-Square-USA-Ltd.-Withdraws-IPO" target="_blank">Pershing Square USA, Ltd. Withdraws IPO</a></li>
+              <li><a href="https://www.youtube.com/watch?v=2REdbQasKX4&amp;t=1076s" target="_blank">“stablecoins are real”</a> – Jamie Dimon</li>
+              <li><a href="https://www.businesswire.com/news/home/20250107013654/en/Eaton-Vance-Municipal-Bond-Fund-Announces-Extension-of-Tender-Offer" target="_blank">Eaton Vance Municipal Bond Fund Announces Extension of Tender Offer</a></li>
+              <li><a href="https://finance.yahoo.com/news/stripe-acquires-stablecoin-platform-bridge-074714853.html" target="_blank">Stripe acquires stablecoin platform Bridge for $1.1 billion</a></li>
+              <li><a href="#">Stablecoins find product-market fit</a></li>
+              <li><a href="https://citywire.com/pro-buyer/news/fidelity-suffers-mutual-fund-outflows-for-first-time-in-2024/a2454272" target="_blank">Fidelity suffers $3.8 billion mutual fund outflows in 2024</a></li>
+              <li><a href="https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/ideas-and-insights/a-rare-municipal-bond-opportunity-equity-like-yields" target="_blank">Why now is the time for municipal bonds</a></li>
+              <li><a href="https://www.pionline.com/money-management/franklin-reported-record-aum-168-trillion-despite-48-billion-outflows-western" target="_blank">Franklin hits record AUM despite $48 billion in Western Asset Mgmt outflows</a></li>
+              <li><a href="https://www.fidelity.com/news/article/default/202412200726RTRSNEWSCOMBINED_KBN3DF0UB-OUSBS_1" target="_blank">US equity funds saw biggest net outflows in 15 years ahead of Fed decision</a></li>
+              <li><a href="https://finance.yahoo.com/news/blackrock-etf-buys-first-muni-145519743.html" target="_blank">BlackRock ETF Buys First Muni Bonds Issued Through Blockchain</a></li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">SCOPE</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>USDX</strong></li>
+                <li>Pegged to $1 USD</li>
+                <li>Daily yield distribution</li>
+                <li>Rebasing</li>
+                <li>Reward Multiplier</li>
+                <li>API interface</li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">TOKEN DYNAMICS</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+
+
+
+            <p><strong>USDX TOKEN</strong><br>The USDX Token is an ERC20 compliant fungible token. It implements administrative minting, burning, and rebasing functions to manage the supply of the token.</p>
+            <p><strong>WRAPPED USDX TOKEN</strong><br>The Wrapped USDX Token is an ERC4626 compliant fungible token vault. USDX is deposited into the Wrapped USDX smart contract in order to facilitate interoperability and composability with common blockchain applications and accounting systems. Users can withdraw USDX from the Wrapped USDX contract at any time.</p>
+            <p><strong>RESERVE VAULT</strong><br>The Reserves Vault is an onchain account holding the onchain portion of the assets backing the value of USDX including yield generating tokenized assets. The Reserves Vault will primary invest in short duration US government securities directly or indirectly.</p>
+          <table style="border-collapse:collapse;border-spacing:0;table-layout: fixed; width: 495px" class="tg"><colgroup><col style="width: 150.2px"><col style="width: 172.2px"><col style="width: 172.2px"></colgroup>
+            <thead><tr><th style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:middle;word-break:normal"></th><th style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:center;vertical-align:middle;word-break:normal">USDX</th><th style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:center;vertical-align:middle;word-break:normal">wUSDX</th></tr></thead>
+            <tbody><tr><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Token Type</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Rebasing (distributing)</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Accumulating</td></tr>
+            <tr><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Yield Accrual Profile</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Reflected as a subdivision of USDX tokens into additional USDX tokens daily</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Reflected through an increasing redemption price (Reference Token Price)</td></tr>
+            <tr><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">As Treasury Yield Accrues, the Token Price</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Remains at $1.00</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Increases</td></tr>
+            <tr><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Best suited for</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Yield-bearing means of settlement or exchange</td><td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Buy-and-hold cash management (some custodians only support accumulating tokens), collateral in smart contracts</td></tr></tbody></table>
+            <ul>
+              <li><strong>DISTRIBUTION TYPES</strong></li>
+              <li><strong>Accrual / Accumulating</strong></li>
+              <li>1. Yield generated from underlying portfolio</li>
+              <li>2. Token price increases (e.g., 1.00→1.01)</li>
+              <li>3. Token supply stays fixed</li>
+              <li>4. Total value increases (price * supply)</li>
+              <li><strong>Rebasing</strong></li>
+              <li>1. Yield generated from underlying portfolio</li>
+              <li>2. More tokens minted (e.g., 100 tokens → 101 tokens)</li>
+              <li>3. Token price stays pegged at $1.00</li>
+              <li>4. Total value increases (price * supply)</li>
+          </ul>
+          <p>USDX = rebasing $1 peg<br>wUSDX = accumulating</p>
+        </div>
+    </div>
+    <button class="accordion2">REWARD MULTIPLIER</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <p><strong>UPDATING THE REWARD MULTIPLIER</strong></p>
+            <p>1 Yield accrues intraday; PM submits EOD yield data<br>
+               2 Oracle verifies data and portfolio; contract validates yield<br>
+               3 addRewardMultiplier applies daily yield, increasing rewardMultiplier<br>
+               4 rewardMultiplier multiplies stored shares to compute effective USDX balance<br>
+               5 Transfers convert USDX to shares (e.g., 100 USDX = 100/1.047 shares)<br>
+               6 Total supply adjusts as totalShares × rewardMultiplier, optimizing gas
+            </p>
+            <p><strong>DATA FLOW</strong></p>
+            <p>1 Portfolio calculates yield and triggers addRewardMultiplier w/ positive increment<br>
+               2 addRewardMultiplier verifies increment > 0 and updates rewardMultiplier by adding the increment<br>
+               3 _setRewardMultiplier emits the new multiplier, affecting share-to-token conversion<br>
+               4 Mint/transfer functions use convertToShares: shares = (amount × BASE) / rewardMultiplier<br>
+               5 User balance = shares × rewardMultiplier / BASE, reflecting accrued yield<br>
+               6 Transfers update _shares and emit events, preserving yield adjustments<br>
+               7 Pausable and blocklist hooks ensure only valid transfers proceed</p>
+            <div class="mermaid">
+                sequenceDiagram
+                    participant O as Oracle
+                    participant C as USDX Contract
+                    participant U as User
+                
+                    O->>C: call addRewardMultiplier(yieldIncrement)
+                    C->>C: validate yieldIncrement ≠ 0
+                    C->>C: compute newReward = rewardMultiplier + yieldIncrement
+                    C->>C: call _setRewardMultiplier(newReward)
+                    C->>C: validate newReward ≥ BASE
+                    C->>C: update rewardMultiplier state
+                    C->>C: emit RewardMultiplier(newReward)
+                    U->>C: call balanceOf(account)
+                    C->>C: call convertToTokens(sharesOf(account))
+                    C-->>U: return computed balance
+            </div>
+        </div>
+    </div>
+    <button class="accordion2">PAYMENTS</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>STABLECOIN PAYMENT</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. Sender initiates a transfer via their wallet.</li>
+                <li>2. Transaction is broadcast to the blockchain network.</li>
+                <li>3. Network verifies sender’s balance and transaction validity.</li>
+                <li>4. Transaction is approved and added to the blockchain.</li>
+                <li><strong>Processing</strong></li>
+                <li>5. Transaction is processed on the blockchain.</li>
+                <li>6. Smart contracts execute any required conditions.</li>
+                <li>7. Network nodes confirm the transaction.</li>
+                <li><strong>Settlement</strong></li>
+                <li>8. Stablecoin is credited to the recipient’s wallet.</li>
+                <li>9. Transaction is permanently recorded on the blockchain.</li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">MINT</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>MINT</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. User submits deposit request via POST /mint<br>{ "amount": "1000.00", "currency": "USD" }</li>
+                <li>2. API validates KYC/AML status</li>
+                <li>3. Custodian confirms deposit via webhook</li>
+                <li><strong>Processing</strong></li>
+                <li>4. Calculate shares = amount / rewardMultiplier</li>
+                <li>5. Verify reserves via GET /reserves</li>
+                <li>6. Execute mint() function</li>
+                <li><strong>Settlement</strong></li>
+                <li>7. Send USDX tokens to user address</li>
+                <li>8. Update total supply</li>
+                <li>9. API returns tx_hash via GET /tx-status/{tx_hash}</li>
+            </ul>
+            <p>User → API → Auth/KYC → Reserve Check → Custodian Webhook → Smart Contract → Mint Tokens</p>
+        </div>
+    </div>
+    <button class="accordion2">BURN</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>BURN</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. User submits withdraw request via POST /burn<br>{ "amount": "1000.00", "destination": "bank_account_id" }</li>
+                <li>2. API verifies USDX balance via GET /balance/{address}</li>
+                <li>3. Validates user not blocked</li>
+                <li><strong>Processing</strong></li>
+                <li>4. Contract calculates shares = amount / rewardMultiplier</li>
+                <li>5. Execute burn()</li>
+                <li>6. Trigger custodian payout</li>
+                <li><strong>Settlement</strong></li>
+                <li>7. Custodian releases funds via ACH API</li>
+                <li>9. Update total supply</li>
+                <li>10. Return redemption confirmation</li>
+            </ul>
+            <p>User → API → Burn Request → Reserve Deduction → Custodian Payout → Blockchain Update</p>
+        </div>
+    </div>
+    <button class="accordion2">YIELD</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>Fund Admin → Oracle → Smart Contract</strong></li>
+            </ul>
+            <ul>
+                <li><strong>REWARD MULTIPLIER</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. Fund calculates daily T-bill yield intraday</li>
+                <li>2. PM submits EOD rate to Oracle</li>
+                <li>3. Oracle validates portfolio data</li>
+                <li>4. Smart contract verifies oracle signature</li>
+                <li><strong>Processing</strong></li>
+                <li>5. Calculate daily yield rate = (NAV_new - NAV_old)/NAV_old</li>
+                <li>6. Format oracle data:<br>{ "daily_rate": "0.000080986", "timestamp": 1625097600, "signature": "0x..." }</li>
+                <li>7. Update rewardMultiplier = current × (1 + daily_rate)</li>
+                <li><strong>Settlement</strong></li>
+                <li>8. Store new rewardMultiplier</li>
+                <li>9. Emit YieldCalculated event</li>
+                <li>10. Trigger distribution</li>
+            </ul>
+            <hr>
+            <ul>
+                <li><strong>DISTRIBUTION</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. Triggered by rewardMultiplier update</li>
+                <li>2. Contract verifies new multiplier</li>
+                <li>3. Validates rebase timing</li>
+                <li><strong>Processing</strong></li>
+                <li>4. Calculate new totalSupply = totalShares × rewardMultiplier</li>
+                <li>5. Verify proof of reserves matches new supply</li>
+                <li><strong>Settlement</strong></li>
+                <li>6. All user balances update via shares formula:<br>balanceOf = shares × rewardMultiplier</li>
+                <li>7. Record new state</li>
+                <li>8. Emit Rebase event</li>
+            </ul>
+            <hr>
+            <ul>
+                <li><strong>PM</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. Oracle submits via POST /rebase (signed)<br>{ "yield_rate": "0.00027", "timestamp": 1625097600 }</li>
+            </ul>
+            <ul>
+                <li><strong>NOTES</strong></li>
+                <li>Yield calculation/validation (Fund Admin/Oracle)</li>
+                <li>Distribution mechanics (Smart Contract)</li>
+                <li>Share-based balance updates</li>
+            </ul>
+            <p>Fund Admin → Oracle → Rate Service → Smart Contract → Update Balances (Daily)</p>
+        </div>
+    </div>
+    <button class="accordion2">TRANSFER</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li><strong>API</strong></li>
+                <li><strong>Authorization</strong></li>
+                <li>1. User initiates via POST /transfer<br>{ "to": "0x123...", "amount": "100.00" }</li>
+                <li>2. Contract checks paused() status</li>
+                <li>3. Verifies sender/receiver not blocked</li>
+                <li>4. Validates sufficient balance</li>
+                <li><strong>Processing</strong></li>
+                <li>5. Convert tokens to shares = amount / rewardMultiplier</li>
+                <li>6. Execute share transfer</li>
+                <li><strong>Settlement</strong></li>
+                <li>7. Update balances</li>
+                <li>8. Record transfer</li>
+                <li>9. Return confirmation</li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">PROTOCOL</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+          <ul>
+            <li><strong>FEATURES</strong></li>
+            <li>Proof of reserves</li>
+            <li>rewardMultiplier</li>
+            <li>Access control</li>
+            <li>API interface</li>
+            <li>rewardMultiplier</li>
+            <li>rewardMultiplier</li>
+          </ul>
+            <pre id="protocolCode"></pre>
+        </div>
+    </div>
+    <button class="accordion2">INTENTIONALLY BLANK</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li>[BLANK]</li>
+            </ul>
+        </div>
+    </div>
+    <button class="accordion2">INTENTIONALLY BLANK</button>
+    <div class="panel">
+        <div style="overflow-x: auto;">
+            <ul>
+                <li>[BLANK]</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="pt2">
+  <h2>TECHNICAL ARCHITECTURE</h2>
+  <button class="accordion2">SCHEMATIC</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li><strong>External Interfaces</strong>: Users, Custodian, Oracle, Fund Admin</li>
+              <li><strong>API Gateway</strong>: Handles all external requests</li>
+              <li><strong>Core Services</strong>: Auth, KYC, Rates, Reserves</li>
+              <li><strong>Smart Contract</strong>: USDX token and rebase logic</li>
+          </ul>
+        <ul>
+            <li><strong>API ENDPOINTS</strong></li>
+            <li>/mint: Deposit and token minting</li>
+            <li>/burn: Redemptions</li>
+            <li>/transfer: Token transfers</li>
+            <li>/rebase: Yield distribution</li>
+        </ul>
+          <img src="https://xa123.netlify.app/usdx_tech_architecture001.png" class="image">
+      </div>
+  </div>
+  <button class="accordion2">CUSTODIAL</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <img src="https://xa123.netlify.app/custodial001.png" class="image">
+      </div>
+  </div>
+  <button class="accordion2">FUNDS FLOW</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <img src="https://xa123.netlify.app/flow003.png" class="image">
+      </div>
+  </div>
+  <button class="accordion2">USDX.SOL</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>Rebasing, ERC-20</p>
+          <p>https://raw.githubusercontent.com/amr080/x-protocol/refs/heads/main/contracts/USDX.sol</p>
+            <pre id="usdxCode"></pre>
+        </div>
+      </div>
+  </div>
+  <button class="accordion2">WUSDX.SOL</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>Accumulating, ERC-4626</p>
+          <p>https://raw.githubusercontent.com/amr080/x-protocol/refs/heads/main/contracts/wUSDX.sol</p>
+            <pre id="usdxwCode"></pre>
+        </div>
+      </div>
+  </div>
+  <button class="accordion2">OPENAPI SCHEMA</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>https://github.com/amr080/xft-resources/tree/qubic/usdx/openapi</p>
+          <pre id="openapiCode"></pre>
+        </div>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<section id="pt3">
+  <h2>FLOWS</h2>
+  <button class="accordion2">HIGH-LEVEL OVERVIEW</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>MINT<br>User → API → Auth/KYC → Reserve Check → Custodian Webhook → Smart Contract → Mint Tokens</p>
+          <p>YIELD<br>Fund Admin → Oracle → Rate Service → Smart Contract → Update Balances (Daily)</p>
+          <p>REDEMPTION<br>User → API → Burn Request → Reserve Deduction → Custodian Payout → Blockchain Update</p>
+      </div>
+  </div>
+  <button class="accordion2">FUNDING</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p><strong>USDX ENGINE</strong><br>1 Investors deposit cash with USDX’s custodian.<br>
+            2 USDX selects and invests in money market securities according to the Investment Policy of the Fund.<br>
+            3 Purchased securities are held at USDX’s custodian on behalf of the Investors.<br>
+            4 Returns on the portfolio may either be paid to investors periodically or reinvested in the fund.</p>
+            <p><strong>MONEY MARKET FUND ENGINE</strong><br>1 Investors deposit cash with MMF’s custodian.<br>
+              2 The MMF selects and invests in money market securities according to the Investment Policy of the Fund.<br>
+              3 Purchased securities are held at the MMF’s custodian on behalf of the Investors.<br>
+              4 Returns on the portfolio may either be paid to investors periodically or reinvested in the fund.</p>
+      </div>
+  </div>
+  <button class="accordion2">YIELD</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>USER</p>
+          <div class="mermaid">
+            sequenceDiagram
+              Custodian->>Fund Manager: Report accrued interest
+              Fund Manager->>Fund Manager: Calculate net yield
+              Fund Manager->>Transfer Agent: Initiate rebase
+              Transfer Agent->>USDX Contract: Execute rebase
+              USDX Contract->>User Wallet: Update USDX balance
+          </div>
+          <p>FEE</p>
+          <div class="mermaid">
+            flowchart TD
+              A[Treasury Bills] -->|Generate Yield| B[Fund Manager]
+              B -->|Calculate Net Yield| C{Yield Distribution}
+              C -->|80%| D[USDX Holders]
+              C -->|20%| E[Fee to Fund]
+              D -->|Increase USDX Value| F[USDX Token]
+              E -->|Reinvest/Operate| B
+          </div>
+          <p>REWARD MULTIPLIER</p>
+          <p>REBASE</p>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<section id="pt4">
+  <h2>INVESTMENT COMPANY</h2>
+  <button class="accordion2">Service Providers</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+        <br>
+        <section id="service-providers">
+            <table style="border-collapse:collapse;border-spacing:0;table-layout: fixed; width: 400px" class="tg"><colgroup><col style="width: 200px"><col style="width: 200px"></colgroup>
+            <thead><tr><th style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Sponsor</th><th style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">XFT</th></tr></thead><tbody><tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Subadvisor</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Guggenheim Securities</td></tr>
+            <tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Fund Admin &amp; Custodian</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">The Bank of New York Mellon</td></tr><tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Fund Manager</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Closed-End Fund Advisors</td></tr>
+            <tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Auditor</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">KPMG LLP</td></tr><tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Transfer Agent</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">XFT</td></tr>
+            <tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Prime Brokerage</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">GS, RBC</td></tr><tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Fiat &lt;&gt; Stablecoin</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Visa, Bridge</td></tr>
+            <tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Pricing Services</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">ICE</td></tr><tr><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Underwriters</td><td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:top;word-break:normal">Oppenheimer &amp; Co. Inc.</td></tr></tbody></table>
+        </section>
+        <br>
+      </div>
+  </div>
+  <button class="accordion2">STRUCTURE</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p>Delaware Series Trust<br>Closed-End Tender OR Money Market</p>
+      </div>
+  </div>
+  <button class="accordion2">FUND LITERATURE</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p><a href='/assets/ic/sp001' target='_blank'>Summary Prospectus</a></p>
+          <p><a href="#" target="_blank">Statutory Prospectus</a></p>
+          <p><a href="#" target="_blank">Statement of Additional Information (SAI)</a></p>
+          <p><a href="/assets/ic/PROSPECTUS_20250120.pdf" target="_blank">Terms</a></p>
+      </div>
+  </div>
+  <button class="accordion2">EDGAR</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <p><strong>REGISTRATION</strong></p>
+          <p><a href="/assets/ic/n8a.pdf" target="_blank">N-8A</a></p>
+          <p><a href='/assets/ic/sp001' target='_blank'>N-2</a></p>
+          <p><a href='/assets/ic/sp001' target='_blank'>N-1A</a></p>
+          <p><a href="/assets/ic/XFT_497K_20241214.pdf" target="_blank">497K</a></p>
+      </div>
+  </div>
+</section>
+<section id="pt5">
+  <h2>CASE STUDIES</h2>
+  <button class="accordion2">KEY CLIENTS</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <br>
+          <section id="key-clients">
+            <table style="border-collapse:collapse;border-spacing:0;table-layout: fixed; width: 567px" class="tg"><colgroup><col style="width: 136px"><col style="width: 215px"><col style="width: 216px"></colgroup>
+            <thead><tr><th style="background-color:#1a374d;border-color:#000000;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">SEGMENT</th><th style="background-color:#1a374d;border-color:#000000;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">USE CASES</th><th style="background-color:#1a374d;border-color:#000000;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;font-weight:normal;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">BENEFITS</th></tr></thead>
+            <tbody><tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Mutual Funds</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Redemption collateral</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">-15bps cash drag</td></tr>
+            <tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Insurance</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Low-risk float collateral</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Tax-free daily yield</td></tr>
+            <tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Neobanks</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Cross-border</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">-30bps FX fee</td></tr>
+            <tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Healthcare</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Secure payment processors</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Prevent $9T breaches</td></tr>
+            <tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Corporate</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Intracompany</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Instant 24/7/365 settlement</td></tr>
+            <tr><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Unbanked</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Mobile banking</td><td style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;font-size:14px;overflow:hidden;padding:5px 5px;text-align:left;vertical-align:middle;word-break:normal">Yield + access</td></tr></tbody></table>
+         </section>
+         <br>
+      </div>
+  </div>
+  <button class="accordion2">CORPORATES</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+  <button class="accordion2">VISA</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+        <p>Cash Sweep</p>
+          <h3>SUBSCRIPTION</h3>
+          <ul>
+            <li>1. Visa identifies idle cash in user accounts via <code>GET /api/neobank/idle_cash</code>.</li>
+            <li>2. Visa initiates USDX subscription with XFT via <code>POST /api/neobank/transfer</code>.</li>
+            <li>3. Visa wires USD to XFT's bank.</li>
+            <li>4. XFT processes subscription, issues temporary certificate.</li>
+            <li>5. XFT wires USD to custodian.</li>
+            <li>6. Custodian buys U.S. Treasuries via primary dealer.</li>
+            <li>7. XFT sets USDX price using Pricer contract via <code>GET /api/usdx/reference_price</code>.</li>
+            <li>8. XFT sets Claimable Timestamp in USDXManager.</li>
+            <li>9. After timestamp, XFT initiates minting via <code>POST /api/usdx/mint</code>.</li>
+            <li>10. USDXManager proposes mint to Token contract.</li>
+            <li>11. XFT approves and signs transaction.</li>
+            <li>12. USDX tokens minted to Visa's wallet via <code>POST /api/usdx/mint</code>.</li>
+          </ul>
+          <h3>YIELD ACCRUAL AND DISTRIBUTION</h3>
+          <ul>
+            <li>1. Treasuries yield accrues.</li>
+            <li>2. XFT calculates daily yield via <code>POST /api/yield/calculate</code>.</li>
+            <li>3. Smart contract updates USDX balances (rebasing) via <code>POST /api/yield/rebase</code> or price (accumulating) via <code>POST /api/yield/update_price</code>.</li>
+            <li>4. Visa sees increased USDX value or quantity.</li>
+            <li>5. Process repeats daily for yield distribution via <code>POST /api/yield/distribute</code>.</li>
+          </ul>
+          <h3>REDEMPTION</h3>
+          <ul>
+            <li>1. Visa initiates redemption request via <code>POST /api/usdx/burn</code>.</li>
+            <li>2. USDXManager contract receives request.</li>
+            <li>3. USDX tokens burned from Visa's wallet via <code>POST /api/usdx/burn</code>.</li>
+            <li>4. XFT notified of redemption.</li>
+            <li>5. XFT instructs custodian to sell Treasuries via <code>POST /api/investment/sell</code>.</li>
+            <li>6. Primary dealer executes Treasury sale.</li>
+            <li>7. Custodian receives USD from sale.</li>
+            <li>8. XFT processes redemption.</li>
+            <li>9. USD wired from XFT's bank to Visa.</li>
+            <li>10. Visa receives USD in account.</li>
+            <li>11. Transaction recorded in XFT's systems.</li>
+            <li>12. Visa updates user balances.</li>
+          </ul>
+      </div>
+  </div>
+  <button class="accordion2">MASTERCARD</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+        <ul>
+          <li>Mastercard has $67,500,000 in idle cash across user accounts.</li>
+        </ul>
+        <ul>
+            <li>1. Mastercard identifies $67,500,000 idle cash via <code>GET /api/neobank/idle_cash</code>.</li>
+            <li>2. Mastercard transfers $67.5M USD to XFT using <code>POST /api/neobank/transfer</code>.</li>
+            <li>3. XFT mints 67,500,000 USDX tokens to Mastercard’s wallet via <code>POST /api/usdx/mint</code>.</li>
+            <li>4. XFT aggregates and invests the transferred funds into U.S. Treasuries via <code>POST /api/investment/purchase</code>.</li>
+            <li>5. XFT calculates daily yield using <code>POST /api/yield/calculate</code> (0.0137% for 5% annual yield).</li>
+            <li>6. XFT distributes yield by calling <code>POST /api/yield/distribute</code> to rebase USDX tokens.</li>
+            <li>7. Mastercard’s balance increases from 67,500,000 to 67,509,247 USDX tokens after one day.</li>
+            <li>8. Mastercard requests redemption by calling <code>POST /api/usdx/burn</code>.</li>
+            <li>9. XFT sells U.S. Treasuries via <code>POST /api/investment/sell</code>.</li>
+            <li>10. XFT wires proceeds from the sale back to Mastercard’s bank account.</li>
+        </ul>
+        <h3>RESULT</h3>
+        <ul>
+            <li>Mastercard earns yield of 9,247 USDX tokens after one day, bringing the total balance to 67,509,247 USDX tokens.</li>
+        </ul>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+  <button class="accordion2">INTENTIONALLY BLANK</button>
+  <div class="panel">
+      <div style="overflow-x: auto;">
+          <ul>
+              <li>[BLANK]</li>
+          </ul>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<div class="mermaid">
+  graph LR
+  USD["USD Fiat"]
+  USDX["USDX $1.00"]
+  USDXW["USDXW"]
+  FUND["Municipal Bond Fund"]
+  YIELD["Tax-Exempt Yield"]
+
+  USD -->|"Deposit"| USDX
+  FUND <-->|"NAV per token"| USDXW
+  FUND -->|"Interest"| YIELD
+  YIELD -->|"Rebase"| USDX
+  USDX <-->|"Wrap/Unwrap"| USDXW
+  USDX -->|"Redeem"| USD
+</div>
+<div class="mermaid">
+  graph TD;
+  subgraph "External Interfaces";
+    U["Users/Wallets"];
+    CB["Custodian Bank"];
+    O["Oracle Service"];
+    FA["Fund Administrator"];
+  end;
+  subgraph "API Layer";
+    API["API Gateway"];
+  end;
+  subgraph "Core Services";
+    Auth["Auth Service"];
+    KYC["KYC/AML Service"];
+    RS["Rate Service"];
+    Rsv["Reserves Service"];
+  end;
+  subgraph "Blockchain Layer";
+    SC["USDX Smart Contract"];
+    BL["Blockchain Ledger"];
+  end;
+  U -->|POST /mint, /burn, /transfer| API;
+  API --> Auth;
+  Auth --> KYC;
+  API --> RS;
+  API --> Rsv;
+  API --> SC;
+  CB -->|deposit webhook/ACH| API;
+  O -->|signed yield data| API;
+  FA -->|submit yield info| O;
+  SC -->|on-chain state changes| BL;
+</div>
+<div class="mermaid">
+    sequenceDiagram
+        participant Portfolio as Portfolio
+        participant PM as Oracle
+        participant SC as USDX.sol
+        participant U as User
+
+        %% Yield Accrual & Data Reporting
+        Note over Portfolio,PM: Intraday yield accrual
+        Portfolio->>PM: Generate yield data
+        PM->>SC: addRewardMultiplier(_rewardMultiplierIncrement)
+        SC->>SC: Validate _rewardMultiplierIncrement > 0
+        SC->>SC: _setRewardMultiplier(rewardMultiplier + _rewardMultiplierIncrement)
+        SC->>SC: Update rewardMultiplier (18 decimals, using _BASE=1e18)
+        SC-->>PM: Emit RewardMultiplier(newRewardMultiplier)
+    
+        %% Balance Recalculation & Redemption
+        Note over SC,U: Balances = shares × rewardMultiplier
+        U->>SC: transfer(to, amount) for redemption
+        SC->>SC: convertToShares(amount) = (amount * _BASE) / rewardMultiplier
+        SC->>SC: _transfer(from, to, calculated shares)
+        SC-->>U: Emit Transfer event (balance updated)
+  </div>
+<div class="mermaid">
+sequenceDiagram
+    participant O as Oracle
+    participant C as USDX Contract
+    participant U as User
+
+    O->>C: call addRewardMultiplier(yieldIncrement)
+    C->>C: validate yieldIncrement ≠ 0
+    C->>C: compute newReward = rewardMultiplier + yieldIncrement
+    C->>C: call _setRewardMultiplier(newReward)
+    C->>C: validate newReward ≥ BASE
+    C->>C: update rewardMultiplier state
+    C->>C: emit RewardMultiplier(newReward)
+    U->>C: call balanceOf(account)
+    C->>C: call convertToTokens(sharesOf(account))
+    C-->>U: return computed balance
+</div>
+<img src="/assets/xft_flows/high_lvl_architecture.png" class="image">
+<img src="/assets/xft_flows/mint_redeem.png" class="image">
+<p><strong>MINT/REDEEM STEPS</strong><br>
+1 User sends USDC/USDX to Minter<br>
+2 Minter forwards USDC to Fiat-Crypto Conversion<br>
+3 FCC converts USDC to USD for TBills Fund<br>
+4 TBills returns USD to FCC<br>
+5 FCC sends USDC to Redeemer<br>
+6 TBills yields USDX tokens<br>
+7 USDX redeems through Redeemer<br>
+8 Redeemer returns USDC/USDX to User<br>
+</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

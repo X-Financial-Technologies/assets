@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant User
+    participant Redeemer
+    participant ReserveVault
+    participant Oracle
+
+    User->>Redeemer: Request redemption
+    Redeemer->>Oracle: Get current price
+    Oracle-->>Redeemer: Return price
+    Redeemer->>User: Escrow USDX
+    Redeemer->>ReserveVault: Request payment token
+    ReserveVault-->>Redeemer: Send payment token
+    Redeemer->>User: Send payment token
+    Redeemer->>Redeemer: Burn escrowed USDX

@@ -1,0 +1,21 @@
+sequenceDiagram
+        participant Portfolio as Portfolio
+        participant PM as Oracle
+        participant SC as USDX.sol
+        participant U as User
+
+        %% Yield Accrual & Data Reporting
+        Note over Portfolio,PM: Intraday yield accrual
+        Portfolio->>PM: Generate yield data
+        PM->>SC: addRewardMultiplier(_rewardMultiplierIncrement)
+        SC->>SC: Validate _rewardMultiplierIncrement > 0
+        SC->>SC: _setRewardMultiplier(rewardMultiplier + _rewardMultiplierIncrement)
+        SC->>SC: Update rewardMultiplier (18 decimals, using _BASE=1e18)
+        SC-->>PM: Emit RewardMultiplier(newRewardMultiplier)
+    
+        %% Balance Recalculation & Redemption
+        Note over SC,U: Balances = shares × rewardMultiplier
+        U->>SC: transfer(to, amount) for redemption
+        SC->>SC: convertToShares(amount) = (amount * _BASE) / rewardMultiplier
+        SC->>SC: _transfer(from, to, calculated shares)
+        SC-->>U: Emit Transfer event (balance updated)

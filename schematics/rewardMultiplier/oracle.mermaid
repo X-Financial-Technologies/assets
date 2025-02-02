@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Oracle
+    participant USDX
+    participant User
+    
+    Oracle->>USDX: addRewardMultiplier(increment)
+    activate USDX
+    USDX->>USDX: _setRewardMultiplier(current + increment)
+    USDX-->>Oracle: emit RewardMultiplier(value)
+    deactivate USDX
+    Note over USDX,User: User balances automatically adjust<br/>via convertToTokens calculation
