@@ -1,9 +1,0 @@
-graph TD
-    User --> |USDC/USDX| Minter
-    Minter --> |USDC| FiatCrypto[Fiat-Crypto Conversion]
-    FiatCrypto --> |USD| TBills[TBills Fund]
-    TBills --> |Yield| USDXToken[USDX Token]
-    TBills --> |USD| FiatCrypto
-    FiatCrypto --> |USDC| Redeemer
-    USDXToken --> |Redemption| Redeemer
-    Redeemer --> |USDC/USDX| User

@@ -1,9 +1,0 @@
-graph TD  
-    Users -->|Mint/Redeem| USDX["USDX (ERC-20)"]  
-    Users -->|Wrap/Unwrap| wUSDX["wUSDX (ERC-4626)"]  
-    USDX -->|Daily Rebase| Users  
-    XFT_API -->|Mint/Burn Requests| Custodian  
-    Custodian -->|Reserve Proof| USDX  
-    Oracle -->|Validated Yield Data| USDX  
-    Treasury -->|Backing Assets| Custodian  
-    MunicipalBondFund -->|NAV Data| Oracle  
