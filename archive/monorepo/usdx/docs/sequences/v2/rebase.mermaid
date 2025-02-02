@@ -1,0 +1,7 @@
+sequenceDiagram
+    Oracle->>USDX Contract: Trigger rebase (APY, daysElapsed)
+    USDX Contract->>USDX Contract: Calculate new rewardMultiplier
+    Note over USDX Contract: rewardMultiplier = (1 + APY/365)^daysElapsed * baseMultiplier
+    USDX Contract->>USDX Contract: Update rewardMultiplier
+    USDX Contract->>Transfer Agent: Log rebase event
+    Note over Transfer Agent: User balances = shares * rewardMultiplier

@@ -1,0 +1,13 @@
+graph LR
+    USD["USD Fiat"]
+    USDX["USDX $1.00"]
+    USDXW["USDXW"]
+    FUND["Municipal Bond Fund"]
+    YIELD["Tax-Exempt Yield"]
+
+    USD -->|"Deposit"| USDX
+    FUND <-->|"NAV per token"| USDXW
+    FUND -->|"Interest"| YIELD
+    YIELD -->|"Rebase"| USDX
+    USDX <-->|"Wrap/Unwrap"| USDXW
+    USDX -->|"Redeem"| USD

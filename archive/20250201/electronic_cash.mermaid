@@ -1,0 +1,19 @@
+classDiagram
+    class FinancialNetwork {
+        +processWithdrawal()
+        +processDeposit()
+    }
+    
+    class Payer {
+        +makePayment()
+        +withdrawMoney()
+    }
+    
+    class Payee {
+        +receivePayment()
+        +depositMoney()
+    }
+
+    Payer --> FinancialNetwork : Withdrawal
+    Payee --> FinancialNetwork : Deposit
+    Payer --> Payee : Payment

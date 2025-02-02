@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant Sender
+    participant USDX
+    participant FX
+    participant Receiver
+    Sender->>USDX: Initiate payment
+    USDX->>FX: Convert to target currency
+    FX->>USDX: Return converted amount
+    USDX->>Receiver: Transfer funds

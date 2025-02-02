@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant User
+    participant Wallet
+    participant PEP as POLICY ENFORCEMENT POINT  
+    participant RC as RIGHTS CACHE
+    participant RE as RULES ENGINE
+    participant PS as POLICY STORE
+    participant AC as ATTRIBUTE CACHE
+    participant AS as ATTRIBUTE STORE
+    
+    User->>Wallet: VERIFIED ATTRIBUTES
+    Wallet->>PEP: REQUEST ACTION ON OBJECT
+    PEP->>RE: REQUEST RIGHT FOR TRANSACTION
+    RE-->>PEP: RETURN EVALUATED RIGHT
+    PEP->>RE: REQUEST RIGHT IN CONTEXT FROM RULES ENGINE
+    RE-->RE: REQUEST RECIPE
+    RE-->RE: RETURN RECIPE
+    RE->>PS: REQUEST DATA FOR POLICY CONTEXT
+    PS-->>RE: RETURN DATA FOR POLICY EVALUATION
+    RE->>AS: IF NO VALID DATA FOR ATTRIBUTES, REQUEST DATA
+    AS-->>RE: RETURN ATTRIBUTE DATA
+    RE->>AC: CACHE DATA
+    RE-->>PEP: RETURN RIGHTS EVALUATION DECISION
+    PEP->>Wallet: IF RIGHT IS PERMITTED ALLOW TRANSACTION
+    PEP->>RC: CACHE RIGHTS DECISION RESULT
+    
+    %% Bi-directional communication
+    RE-->PS: Data exchange
+    PS-->RE: Policy data
+    RE-->AC: Cache interface
+    AC-->RE: Cached data
+    RE-->AS: Attribute query
+    AS-->RE: Attribute data

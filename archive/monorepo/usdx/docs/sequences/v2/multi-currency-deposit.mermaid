@@ -1,0 +1,7 @@
+sequenceDiagram
+    User->>Bank: Deposit foreign fiat
+    Bank->>Prime Broker: Transfer fiat
+    Prime Broker->>Prime Broker: Convert to USD
+    Prime Broker->>Custodian: Transfer USD
+    Custodian->>Transfer Agent: Confirm receipt
+    Transfer Agent->>User Wallet: Mint & transfer USDX

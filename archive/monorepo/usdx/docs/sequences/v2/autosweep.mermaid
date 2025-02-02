@@ -1,0 +1,6 @@
+flowchart TD
+    A[User Account] -->|Excess funds| B{Auto-Sweep Trigger}
+    B -->|Yes| C[Convert to USDX]
+    C --> D[Yield-Bearing USDX Wallet]
+    B -->|No| A
+    D -->|Yield accrual| D

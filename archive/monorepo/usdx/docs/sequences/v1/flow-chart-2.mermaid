@@ -1,0 +1,18 @@
+flowchart TD
+    User -->|USDC| Minter
+    Minter -->|USDX| User
+    User -->|USDX| Redeemer
+    Redeemer -->|USDC| User
+    Minter -->|USDC| Reserve[Reserve Management]
+    Reserve -->|USDC| Ramp[Fiat-Crypto Conversion]
+    Ramp -->|USD| TBills[T-Bills Fund]
+    TBills -->|USD + Yield| Ramp
+    Reserve -->|USDC| Redeemer
+    TBills -->|Yield| YieldDist[Yield Distribution]
+    YieldDist -->|Yield| User
+    LP[Liquidity Pool] -->|USDC/USDX| Minter
+    LP -->|USDC/USDX| Redeemer
+    User -->|USDC/USDX| LP
+    Gov[Governance/Admin] -->|Control| Reserve
+    Gov -->|Control| YieldDist
+    Gov -->|Control| TBills

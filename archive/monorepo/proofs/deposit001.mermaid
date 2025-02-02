@@ -1,0 +1,32 @@
+flowchart TD
+   A[Deposit Detection] --> B1{Initial Balance Validation}
+   B1 -->|Check Current Balance| B2{Sufficient Funds?}
+   B2 -->|No| D1[Reject: Insufficient Funds]
+   B2 -->|Yes| B3{Check Reserve Requirements}
+   
+   B3 -->|Validate| C1[ZK Proof Generation]
+   C1 -->|Generate| C2{Proof Components}
+   
+   C2 -->|Verify| C3[Validate VaultBalance = ∑UserBalances]
+   C2 -->|Verify| C4[Check No Negative Balances]
+   C2 -->|Verify| C5[Validate Balance Changes]
+   
+   C3 & C4 & C5 -->|All Pass| E1[Block Preparation]
+   E1 --> E2[Hash Generation]
+   E2 --> E3[Block Creation]
+   
+   C3 & C4 & C5 -->|Any Fail| D2[Reject: Proof Invalid]
+   
+   subgraph "Failure States"
+   D1
+   D2
+   D3[Reject: Invalid Transaction]
+   end
+   
+   subgraph "Validation Components"
+   V1[Time Lock Check]
+   V2[Queue Position]
+   V3[Withdrawal Limits]
+   end
+   
+   V1 & V2 & V3 --> B3

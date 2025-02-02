@@ -1,0 +1,9 @@
+git clone
+
+ls -la monorepo/.git
+
+rm -rf monorepo/.git
+
+
+To disconnect it from Git, simply delete the .git folder:
+rm -rf .git

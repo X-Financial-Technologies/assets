@@ -1,0 +1,36 @@
+erDiagram
+    Account ||--o{ TrancheBalance: ""
+    Account ||--o{ CurrencyBalance: ""
+
+    Loan ||--|| LoanState: ""
+    Loan ||--o{ LoanSnapshot: ""
+    LoanState ||..|| LoanSnapshot: "onNewPeriod"
+
+    Pool ||--|| PoolState: ""
+    Pool ||--o{ PoolSnapshot: ""
+    PoolState ||..|| PoolSnapshot: "onNewPeriod"
+
+    Tranche }o--|| Pool: ""
+    Tranche ||--|| TrancheState: ""
+    Tranche ||--o{ TrancheSnapshot: ""
+    TrancheState ||..|| TrancheSnapshot: "onNewPeriod"
+
+    Epoch }|--|| Pool: ""
+    Epoch }o--|| EpochState: ""
+    EpochState ||--|| Tranche: ""
+
+    InvestorTransaction }o--|| Account: ""
+    InvestorTransaction ||--|| Pool: ""
+    InvestorTransaction ||--|| Tranche: ""
+    InvestorTransaction ||--|| Epoch: ""
+
+    OutstandingOrder }o--|| Account: ""
+    OutstandingOrder ||--|| Pool: ""
+    OutstandingOrder ||--|| Tranche: ""
+    OutstandingOrder ||--|| Epoch: ""
+
+    BorrowerTransaction }o--|| Account: ""
+    BorrowerTransaction ||--|| Epoch: ""
+    BorrowerTransaction ||--|| Loan: ""
+
+    Currency ||--|{ Pool: ""

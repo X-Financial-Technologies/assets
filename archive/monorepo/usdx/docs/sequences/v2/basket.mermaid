@@ -1,0 +1,6 @@
+sequenceDiagram
+    Fund Manager->>Prime Broker: Initiate treasury purchase
+    Prime Broker->>Market: Execute purchase
+    Market->>Prime Broker: Confirm transaction
+    Prime Broker->>Custodian: Transfer securities
+    Custodian->>Fund Manager: Confirm receipt

@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant BC as Brex Customer
+    participant B as Brex
+    participant X as XFT API
+    participant U as USDX
+    participant F as FX Service
+    participant R as Recipient Bank
+
+    Note over BC,R: Brex Cross-Border Payment Flow
+    BC->>B: Request International Payment (100,000 EUR)
+    B->>X: Check idle cash
+    X-->>B: Available USD: 1,000,000
+    B->>X: Deposit fiat
+    B->>U: Mint USDX
+    U-->>B: Transfer USDX
+    B->>F: Get FX quote for EUR
+    F-->>B: Rate: 0.93, Fee: 20bps
+    B->>X: Initiate international payment
+    B->>U: Burn USDX
+    B->>R: Transfer 92,800 EUR
+    X-->>B: Payment status update
+    B-->>BC: Payment Complete
+    Note over BC: Save 25bps on FX

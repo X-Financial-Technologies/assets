@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant U as User
+    participant B as Bank
+    participant BC as Blockchain
+    
+    U->>B: Deposit Funds
+    B->>BC: Record Deposit Transaction
+    BC-->>BC: Create Smart Contract
+    Note over BC: Enforce 100% Reserve Ratio
+    
+    alt Lending Attempt
+        B->>BC: Attempt to Lend Deposits
+        BC-->>B: Reject - Violates Reserve Rule
+    end
+    
+    U->>B: Withdrawal Request
+    B->>BC: Verify Funds Available
+    BC-->>B: Confirm Availability
+    B->>U: Release Funds

@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant Investor
+    participant TransferAgent as X Financial Technologies
+    participant FundAdmin as BNY Mellon
+    participant TreasuryMarket as Treasury Market
+    participant USDXToken as USDX Token
+
+    Investor->>TransferAgent: Submit redemption request ($5000+ USDX)
+    TransferAgent->>USDXToken: Verify USDX balance
+    USDXToken-->>TransferAgent: Confirm balance
+    TransferAgent->>FundAdmin: Process redemption request
+    FundAdmin->>TreasuryMarket: Sell corresponding securities
+    TreasuryMarket-->>FundAdmin: Confirm sale and transfer USD
+    FundAdmin->>TransferAgent: Authorize USD transfer
+    TransferAgent->>Investor: Transfer USD
+    TransferAgent->>USDXToken: Burn redeemed USDX tokens

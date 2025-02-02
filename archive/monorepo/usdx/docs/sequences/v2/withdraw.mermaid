@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant EU as End User
+    participant C as Company
+    participant P as Plaid
+    participant XA as XFT API
+    participant XB as XFT's Bank
+    participant UB as User's Bank
+
+    EU->>C: Initiate withdrawal
+    EU->>P: Authenticate bank account
+    P-->>C: Authentication successful
+    C->>XA: Send withdrawal details
+    XA->>C: Remove USDX from account
+    XA->>XB: Send withdrawal instructions
+    XB->>UB: Transfer USD
+    UB-->>EU: Receive USD

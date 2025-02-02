@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant DataSource
+    participant AssetClassifier
+    participant PricingEngine
+    participant NAVCalculator
+    participant PremiumDiscountCalculator
+
+    loop Every tick
+        DataSource->>AssetClassifier: Send asset data
+        AssetClassifier->>PricingEngine: Classify assets
+        PricingEngine->>PricingEngine: Fetch real-time prices
+        PricingEngine->>NAVCalculator: Send asset valuations
+        NAVCalculator->>NAVCalculator: Calculate NAV
+        NAVCalculator->>PremiumDiscountCalculator: Send NAV
+        PremiumDiscountCalculator->>PremiumDiscountCalculator: Calculate Premium/Discount
+    end

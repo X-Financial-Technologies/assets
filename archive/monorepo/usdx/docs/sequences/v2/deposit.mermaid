@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant EU as End User
+    participant C as Company
+    participant AP as Auth/KYC Provider
+    participant XA as XFT API
+    participant XB as XFT's Bank
+    participant UB as User's Bank
+    participant XR as XFT Reserve
+
+    EU->>C: Initiate ACH deposit
+    EU->>AP: Authenticate bank account
+    AP-->>C: Authentication successful
+    C->>XA: Send deposit details
+    XA->>XB: Send deposit instructions
+    XB->>UB: Pull USD
+    UB-->>XB: Transfer USD
+    XB->>XR: Deposit USD
+    XR->>XA: Confirm deposit
+    XA->>C: Mint and deposit USDX

@@ -1,0 +1,10 @@
+flowchart TD
+    User -->|USDC| Minter
+    Minter -->|USDX| User
+    User -->|USDX| Redeemer
+    Redeemer -->|USDC| User
+    Minter -->|USDC| Ramp[Fiat-Crypto Conversion]
+    Ramp -->|USD| TBills[TBills Fund]
+    TBills -->|USD| Ramp
+    TBills --> TBills
+    Ramp -->|USDC| Redeemer

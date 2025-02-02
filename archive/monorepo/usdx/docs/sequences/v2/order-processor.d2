@@ -1,0 +1,27 @@
+blockchain: Blockchain {
+  protocol: Order Processor
+  treasury: Treasury
+}
+service: Offchain Fulfillment Service {
+  bot: Operator
+  clearing: Clearing Service
+  pool: USDX/USD Pool
+}
+users: Users
+
+service.clearing -- service.pool: USD {
+  style: {
+    stroke-dash: 3
+  }
+}
+service.pool -- service.bot: USDX {
+  style: {
+    stroke-dash: 3
+  }
+}
+service.bot -- blockchain.protocol: USDX
+blockchain.protocol -- users: Tokenized Products/USDX
+blockchain.protocol -> blockchain.treasury: USDX Fees
+service.bot -> service.clearing: Orders
+users -> blockchain.protocol: Orders
+service.bot -> blockchain.protocol: Fills

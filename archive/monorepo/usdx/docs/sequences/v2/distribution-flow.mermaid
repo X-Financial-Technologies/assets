@@ -1,0 +1,7 @@
+flowchart TD
+    A[Treasury Bills] -->|Generate Yield| B[Fund Manager]
+    B -->|Calculate Net Yield| C{Yield Distribution}
+    C -->|80%| D[USDX Holders]
+    C -->|20%| E[Fee to Fund]
+    D -->|Increase USDX Value| F[USDX Token]
+    E -->|Reinvest/Operate| B

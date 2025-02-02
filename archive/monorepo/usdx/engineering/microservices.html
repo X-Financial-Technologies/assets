@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDX Payments Processing Microservices Architecture</title>
+    <style>
+        :root {
+            --color-background: #fdfdfd;
+            --color-text: #2c3e50;
+            --color-border: #dee2e6;
+            --color-shadow: rgba(0,0,0,0.1);
+            --color-gateway: #e9ecef;
+            --color-core: #fff3e0;
+            --color-blockchain: #e3f2fd;
+            --color-infrastructure: #f3e5f5;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(to bottom, var(--color-background), #f7f7f7);
+            color: var(--color-text);
+        }
+        .header, .legend {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .layer-title {
+            font-size: 1.4em;
+            margin: 0;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .service-layer {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .service-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 15px;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 1px 3px var(--color-shadow);
+        }
+        .gateway { background-color: var(--color-gateway); }
+        .core-service { background-color: var(--color-core); }
+        .blockchain { background-color: var(--color-blockchain); }
+        .infrastructure { background-color: var(--color-infrastructure); }
+        h1, h2 {
+            margin: 0 0 10px 0;
+        }
+        h2 {
+            font-size: 1.2em;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        @media (max-width: 800px) {
+            .service-layer {
+                flex-direction: column;
+            }
+        }
+        @media print {
+            body {
+                background: none;
+            }
+            .service-box {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>USDX Payments Processing Microservices Architecture</h1>
+    </header>
+    <div class="legend" aria-label="Color legend for different service types">
+        <div class="legend-item">
+            <div class="legend-color" style="background:var(--color-gateway);"></div>
+            <span>API Gateway</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background:var(--color-core);"></div>
+            <span>Core Services</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background:var(--color-blockchain);"></div>
+            <span>Blockchain</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background:var(--color-infrastructure);"></div>
+            <span>Infrastructure</span>
+        </div>
+    </div>
+    <main class="container">
+        <section aria-labelledby="external-layer">
+            <h2 id="external-layer" class="layer-title">External Layer</h2>
+            <div class="service-layer">
+                <div class="service-box">
+                    <h3>External Clients</h3>
+                    <ul>
+                        <li>Web & Mobile Apps</li>
+                        <li>Fintech Integrations</li>
+                        <li>Merchant Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="gateway-layer">
+            <h2 id="gateway-layer" class="layer-title">Gateway</h2>
+            <div class="service-layer">
+                <div class="service-box gateway">
+                    <h3>API Gateway</h3>
+                    <ul>
+                        <li>Request Routing</li>
+                        <li>OAuth2 Authentication</li>
+                        <li>Rate Limiting</li>
+                        <li>Webhook Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="core-services">
+            <h2 id="core-services" class="layer-title">Core Services</h2>
+            <div class="service-layer">
+                <div class="service-box core-service">
+                    <h3>Authentication Service</h3>
+                    <ul>
+                        <li>OAuth2 Token Management</li>
+                        <li>Multi-Factor Authentication</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Account Management Service</h3>
+                    <ul>
+                        <li>User Profiles</li>
+                        <li>KYC Process</li>
+                        <li>External Account Linking</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Wallet Service</h3>
+                    <ul>
+                        <li>USDX Wallet Management</li>
+                        <li>Balance Tracking</li>
+                        <li>Transaction History</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Transaction Service</h3>
+                    <ul>
+                        <li>USDX Transfers (On/Off Chain)</li>
+                        <li>Payment Processing</li>
+                        <li>Virtual Account Transactions</li>
+                    </ul>
+                </div>
+                <div class="service-box core-service">
+                    <h3>Treasury Service</h3>
+                    <ul>
+                        <li>Reserve Management</li>
+                        <li>Yield Distribution</li>
+                        <li>Cash Flow Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="support-services">
+            <h2 id="support-services" class="layer-title">Support Services</h2>
+            <div class="service-layer">
+                <div class="service-box">
+                    <h3>Compliance Service</h3>
+                    <ul>
+                        <li>KYC/AML Checks</li>
+                        <li>Regulatory Reporting</li>
+                        <li>Geographic Restrictions</li>
+                    </ul>
+                </div>
+                <div class="service-box">
+                    <h3>Exchange Rate Service</h3>
+                    <ul>
+                        <li>Real-Time Exchange Rates</li>
+                        <li>Historical Rate Data</li>
+                    </ul>
+                </div>
+                <div class="service-box">
+                    <h3>Notification Service</h3>
+                    <ul>
+                        <li>Transaction Alerts</li>
+                        <li>System Updates</li>
+                        <li>Compliance Notifications</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="blockchain-layer">
+            <h2 id="blockchain-layer" class="layer-title">Blockchain Layer</h2>
+            <div class="service-layer">
+                <div class="service-box blockchain">
+                    <h3>Blockchain Service</h3>
+                    <ul>
+                        <li>Network Interactions</li>
+                        <li>Smart Contract Management</li>
+                        <li>Token Minting/Burning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="infrastructure-layer">
+            <h2 id="infrastructure-layer" class="layer-title">Infrastructure</h2>
+            <div class="service-layer">
+                <div class="service-box infrastructure">
+                    <h3>Database</h3>
+                    <ul>
+                        <li>Transaction Ledger</li>
+                        <li>User Data Storage</li>
+                        <li>Audit Trails</li>
+                    </ul>
+                </div>
+                <div class="service-box infrastructure">
+                    <h3>Monitoring & Analytics</h3>
+                    <ul>
+                        <li>Performance Metrics</li>
+                        <li>Error Logging</li>
+                        <li>Business Intelligence</li>
+                    </ul>
+                </div>
+                <div class="service-box infrastructure">
+                    <h3>Security</h3>
+                    <ul>
+                        <li>End-to-End Encryption</li>
+                        <li>Fraud Detection</li>
+                        <li>Access Control</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

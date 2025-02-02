@@ -1,0 +1,36 @@
+flowchart TD
+   A[Deposit Detection] --> B1{Initial Validation}
+   B1 -->|Validate| B2{Balance & Reserve Check}
+   B2 -->|Fail| D[Reject Transaction]
+   B2 -->|Pass| C1[ZK Proof Pipeline]
+
+   subgraph "Validation Layer"
+       V1[Time Lock Status]
+       V2[Queue Position]
+       V3[Withdrawal Limits]
+       V4[1:1 Reserve Check]
+       V1 & V2 & V3 & V4 --> B2
+   end
+
+   subgraph "ZK Proof Components"
+       C1 -->|Generate| C2[Proof Generation]
+       C2 --> C3{Proof Validation}
+       C3 -->|Verify| P1[VaultBalance = ∑UserBalances]
+       C3 -->|Verify| P2[No Negative Balances]
+       C3 -->|Verify| P3[ΔBalance = Deposit Amount]
+   end
+
+   P1 & P2 & P3 -->|All Pass| E1[Block Pipeline]
+   P1 & P2 & P3 -->|Any Fail| D
+
+   subgraph "Block Creation"
+       E1 --> E2[Generate Block Hash]
+       E2 --> E3[Finalize Block]
+       E3 --> E4[Commit to Chain]
+   end
+
+   subgraph "Failure Handlers" 
+       D -->|Error Code| F1[Insufficient Funds]
+       D -->|Error Code| F2[Invalid Proof]
+       D -->|Error Code| F3[Reserve Violation]
+   end

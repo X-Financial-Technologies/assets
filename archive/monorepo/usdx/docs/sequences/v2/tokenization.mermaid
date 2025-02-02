@@ -1,0 +1,12 @@
+graph TD
+    A([Start]) --> B["Generate PIC"]
+    B --> C["Generate XFTcoin"]
+    C --> D["Update Ledgers"]
+    D --> E["Generate Transaction Message"]
+    E --> F["Send Transaction Message"]
+    F --> G{"Authentication and ownership verified?"}
+    G -->|No| I([End])
+    G -->|Yes| H["Store XFTcoin in Wallet"]
+    H --> J{"New Transaction?"}
+    J -->|Yes| E
+    J -->|No| I

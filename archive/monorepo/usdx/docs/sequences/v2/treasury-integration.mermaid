@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant Corp as Corporation
+    participant API as Treasury API
+    participant USDX
+    participant TBills as Treasury Bills
+    Corp->>API: Request yield optimization
+    API->>USDX: Convert idle cash to USDX
+    USDX->>TBills: Invest in T-Bills
+    TBills-->>USDX: Generate yield
+    USDX-->>Corp: Distribute yield

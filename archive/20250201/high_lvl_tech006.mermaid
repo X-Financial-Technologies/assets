@@ -1,0 +1,16 @@
+graph TD
+    XFT_API[XFT API]
+    USDX["USDX (ERC20)"]
+    wUSDX["wUSDX (ERC4626)"]
+    Custodian[Custodian System]
+    Oracle[Oracle]
+    Treasury[Treasury]
+
+    XFT_API <-->|"USD/USDX"| Custodian
+    XFT_API -->|"Wrap/Unwrap"| wUSDX
+    Treasury -->|"Backing Assets"| Custodian
+    Custodian -->|"Mint/Burn/PoR"| USDX
+    Custodian -->|"NAV Data"| Oracle
+    Oracle -->|"Rebase"| USDX
+    Oracle -->|"Accrue"| wUSDX
+    USDX <-->|"Deposit/Withdraw"| wUSDX

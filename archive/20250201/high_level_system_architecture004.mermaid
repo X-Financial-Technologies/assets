@@ -1,0 +1,25 @@
+graph TD
+    subgraph "On-Chain Components"
+        USDX[USDX.sol - ERC20 Rebasing]
+        wUSDX[wUSDX.sol - ERC4626 Vault]
+        Oracle[Yield Oracle]
+        Security[Access Control + Emergency]
+    end
+
+    subgraph "Off-Chain Components"
+        XFT_API[XFT API]
+        Custodian[Custodian System]
+        Treasury[US Treasury Bills]
+        Audit[Proof-of-Reserves]
+    end
+
+    XFT_API -->|Mint/Burn/Transfer| USDX
+    XFT_API -->|Wrap/Unwrap| wUSDX
+    XFT_API -->|KYC/Reserve Management| Custodian
+    Custodian -->|Yield Generation| Treasury
+    Treasury -->|APY Data| Oracle
+    Oracle -->|Reward Multiplier Updates| USDX
+    USDX -->|Deposit/Withdraw| wUSDX
+    Security -->|Roles/Pause/Block| USDX
+    Security -->|Roles/Pause| wUSDX
+    Audit -->|Reserve Verification| Custodian

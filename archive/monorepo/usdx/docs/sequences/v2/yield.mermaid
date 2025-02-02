@@ -1,0 +1,6 @@
+sequenceDiagram
+    Custodian->>Fund Manager: Report accrued interest
+    Fund Manager->>Fund Manager: Calculate net yield
+    Fund Manager->>Transfer Agent: Initiate rebase
+    Transfer Agent->>USDX Contract: Execute rebase
+    USDX Contract->>User Wallet: Update USDX balance
