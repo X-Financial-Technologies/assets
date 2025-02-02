@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>CRYPTO PATENTS</title>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script defer src="./script.js"></script>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" as="script">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <input type="text" id="searchInput" placeholder="Search patents...">
   <div id="loader" style="display:none;">Loading PDFs...</div>
   <div id="results"></div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script defer src="./script.js"></script>
 </body>
 </html>

@@ -32,4 +32,5 @@ git push --set-upstream origin whitepaper-20250202-draft
 SITE NAME
 xft-whitepaper-20250202-draft-13x8bm
 
+crypto-patents
 

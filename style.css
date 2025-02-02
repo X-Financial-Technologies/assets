@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+  }
+  
+  #searchInput {
+    width: 300px;
+    padding: 2px;
+    font-size: 14px;
+  }
+  
+  .result-item {
+    margin: 15px 0;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .excerpt {
+    color: #666;
+    margin-top: 5px;
+    font-size: 0.9em;
+  }
+  
+  strong {
+    background: yellow;
+  }
+  
+  #loader {
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .no-results {
+    color: #999;
+    font-style: italic;
+  }
