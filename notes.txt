@@ -22,3 +22,4 @@ git push origin --delete branchname
 
 
 mv whitepaper_2020202.htm index.htm
+git push --set-upstream origin whitepaper-20250202-draft
