@@ -1,6 +1,7 @@
 mv whitepaper_2020201.htm index.html
 
-
+<script defer src="./script.js"></script>
+<link rel="stylesheet" href="style.css">
 
 touch _headers
 echo "/    Basic-Auth: username:password" > _headers
