@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USDX Protocol Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo-container">
+        <div class="token-selector">
+            <button id="rebaseBtn" class="active">Rebase Token</button>
+            <button id="accumulateBtn">Accumulating Token</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="token-stats">
+                <h3>USDX Stats</h3>
+                <div class="stat-row">
+                    <span>Total Supply:</span>
+                    <span id="usdx-supply">0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Price:</span>
+                    <span id="usdx-price">$1.00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Market Cap:</span>
+                    <span id="usdx-mcap">$0.00</span>
+                </div>
+            </div>
+            <div class="token-stats">
+                <h3>wUSDX Stats</h3>
+                <div class="stat-row">
+                    <span>Total Supply:</span>
+                    <span id="wusdx-supply">0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Price:</span>
+                    <span id="wusdx-price">$1.00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Market Cap:</span>
+                    <span id="wusdx-mcap">$0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="balance-display">
+            <div class="balance-card">
+                <h3>USD</h3>
+                <div id="usd-balance" class="balance-value">1000.00</div>
+            </div>
+            <div class="balance-card">
+                <h3>USDX</h3>
+                <div id="usdx-balance" class="balance-value">0.00</div>
+            </div>
+            <div class="balance-card">
+                <h3>wUSDX</h3>
+                <div id="wusdx-balance" class="balance-value">0.00</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="kycBtn">Complete KYC</button>
+            <button id="mintBtn" disabled>Mint USDX</button>
+            <button id="wrapBtn" disabled>Wrap USDX</button>
+            <button id="redeemBtn" disabled>Redeem</button>
+        </div>
+
+        <div class="yield-info">
+            <h3>Protocol Status</h3>
+            <div class="stat-row">
+                <span>APR:</span>
+                <span id="yield-rate">5.00%</span>
+            </div>
+            <div class="stat-row">
+                <span>Rebase Factor:</span>
+                <span id="rebase-factor">1.000000</span>
+            </div>
+            <div class="stat-row">
+                <span>Last Rebase:</span>
+                <span id="last-rebase">--</span>
+            </div>
+        </div>
+
+        <div class="log-container" id="log"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

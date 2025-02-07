@@ -1,0 +1,5 @@
+KYC verification
+Minting USDX
+Wrapping to wUSDX
+Yield accumulation
+Redemption process

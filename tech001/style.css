@@ -1,0 +1,103 @@
+:root {
+    --primary: #1A1A1A;
+    --secondary: #404040;
+    --background: #FFFFFF;
+    --border: #CCCCCC;
+}
+
+body {
+    font: 14px Arial;
+    margin: 20px;
+    background: var(--background);
+    color: var(--primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.panel {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.balance-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.balance-card {
+    padding: 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 15px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.tab.active {
+    border-bottom: 2px solid var(--primary);
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid var(--primary);
+    background: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.log {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.log-entry {
+    margin: 5px 0;
+    padding: 5px;
+    border-left: 3px solid var(--primary);
+}
+
+.admin-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    margin: 5px 0;
+    border: 1px solid var(--border);
+}
