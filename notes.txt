@@ -1,1 +1,0 @@
-Added `view=Fit&zoom=FitH` to iframe src. This tells PDF viewer to fit content to width and height of viewport, eliminating scroll.
