@@ -1,8 +1,0 @@
-KYC verification
-Minting USDX
-Wrapping to wUSDX
-Yield accumulation
-Redemption process
-
-
-usdx-case-20250207-50d9de
