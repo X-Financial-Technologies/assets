@@ -1,0 +1,157 @@
+INTRODUCTION
+USDX is a stablecoin backed by municipal bonds. We leverage the closed-end tender fund structure to comply with current and future regulatory requirements for stablecoins. 
+
+OFFERING
+Title of Securities Being Registered Common Shares
+Amount Being Registered 5,000,000
+Proposed Maximum Offering Price per Unit $1.00
+Proposed Maximum Aggregate Offering Price $5,000,000
+Maximum Sales Load (as a Percentage of Purchase Amount) 0.00
+Proceeds, before expenses, to the Fund $5,000,000
+
+STATEMENT OF ASSETS AND LIABILITES
+Assets
+Cash 
+Other Assets
+Total Assets
+Liabilties
+Offer costs payable
+Legal fees payable
+Other expenses payable
+Accounting fees payable
+Total Liabilites
+Net Assets 
+
+STATEMENT OF OPERATIONS
+Investment Income 
+Interest Income
+Total Investment Income
+Expenses
+Investment adviser fee
+Trustee’s fees and expenses
+Custodian fee
+Transfer and dividend disbursing agent fees
+Legal and accounting services
+Interest expenses and fees
+Miscellaneous
+Total Expenses
+Net Investment Income
+
+FEES & EXPENSES
+Sales Charge (Load) None
+Purchase Fee None
+Reinvested Dividends Charge None
+Redemption Fee None
+Management Fees None
+Performance Fee None
+12b-1 Distribution Fee None
+Yield Distribution Fee 20%
+
+FUND LAUNCH 
+Expenses 
+Legal fees
+Consulting fees
+Other expenses
+Total expenses
+
+
+
+
+REVENUE MODEL 
+PRIMARY
+20% share of distributed daily yield
+All other fees waived to maximize adoption
+
+COST STRUCTURE
+Fixed Operating Costs
+1 Investment Advisory
+2 Legal & Compliance
+3 Technology Infrastructure
+4 Risk Management
+5 SEC/Regulatory Fees
+Variable Costs (Absorbed by Business)
+1 Gas Fees (waived for users)
+2 Custody Fees
+3 Trading/Settlement
+4 Support Services
+
+COMPETITIVE ADVANTAGE ON FEES
+1 No Transaction Fees (vs traditional 2-3%)
+2 No FX Fees (vs 30-50bps)
+3 No Gas Fees (absorbed)
+4 No Hidden Fees
+
+
+FORM N-2 REQUIREMENTS  
+EX-99.A Charter copies currently in effect
+EX-99.B Existing bylaws or corresponding instruments
+EX-99.C Voting trust agreements (>5% of equity securities)
+EX-99.D Documents defining security holders' rights
+EX-99.E Dividend reinvestment plan document
+EX-99.F Instruments defining long-term debt rights for subsidiaries
+EX-99.G Investment advisory contracts for asset management
+EX-99.H Underwriting/distribution contracts and agreements
+EX-99.I Bonus/profit sharing/pension contracts for directors/officers
+EX-99.J Custodian agreements and depository contracts
+EX-99.K Other material non-ordinary business contracts
+EX-99.L Legal opinion on securities registration
+EX-99.M Non-resident consent to service of process
+EX-99.N Other opinions/appraisals/rulings and consents
+EX-99.O Omitted financial statements from Items 8.6 or 24
+EX-99.P Initial capital agreements and investment assurance
+EX-99.Q Retirement plan model documents
+EX-99.R Ethics codes under Rule 17j-1
+EX-99.S Securities registration information in tabular form
+
+EX-99.A AGREEMENT AND DECLARATION OF TRUST
+EX-99.B BY-LAWS
+EX-99.E DIVIDEND REINVESTMENT PLAN
+EX-99.G FORM OF INVESTMENT MANAGEMENT AGREEMENT BETWEEN REGISTRANT AND [*]
+EX-99.I DEFERRED COMPENSATION PLAN
+EX-99.J FORM OF MASTER CUSTODIAN AGREEMENT WITH [*]
+EX-99.K.1 FORM OF TRANSFER AGENCY AGREEMENT
+EX-99.K.2 FORM OF ADMINISTRATION AND FUND ACCOUNTING SERVICES AGREEMENT WITH [*]
+EX-99.K.3 FORM OF SECURITIES LENDING AGREEMENT
+EX-99.K.4 FORM OF EXPENSE REIMBURSEMENT AGREEMENT
+EX-99.2H FORM OF UNDERWRITING AGREEMENT
+EX-99.2K.5 FORM OF DTC REPRESENTATIONS LETTER
+EX-99.2L.1 OPINION AND CONSENT OF COUNSEL
+EX-99.2L.2 TAX OPINION OF COUNSEL
+EX-99.N CONSENT OF [*]
+EX-99.P INITIAL SUBSCRIPTION AGREEMENT
+EX-99.R CODE OF ETHICS OF THE REGISTRANT AND THE ADVISOR
+EX-99.S POWERS OF ATTORNEY
+EX-FILING FEES CALCULATION OF FILING FEE TABLE
+
+SEC FILINGS & CHARTERS
+1 SEC Filings (Forms N-PX, N-Q, NSAR, N-CSR, 3, 4, 5, among others)
+2 Nominating and Governance Committee Charter
+3 GOF April 2022 FORM 8-K
+4 Fund’s Filed Section 16 Forms (Forms 3, 4 & 5)
+5 Audit Committee Charter
+
+FINANCIAL STATEMENTS
+1 Statement of assets and liabilities
+2 Statement of operations
+3 Statement of cash flows
+
+
+FORMULAS
+NAV = (Market Value of All Securities Held by Fund + Cash and Equivalent Holdings – Fund Liabilities) ÷ Total Fund Shares Outstanding
+Premium/Discount = (Market Price – NAV) ÷ NAV
+
+
+COMPARABLES
+Eaton Vance
+
+
+
+
+SHAREHOLDER TRANSACTION EXPENSES
+Public Offering Price [$1.00]
+Sales Load [$0.00]
+Estimated Offering Expenses [$0.00]
+Proceeds to the Fund [$1.00]
+Sales Load Paid by You (as a percentage of offering price) [0.00%]
+Offering Expenses Borne by the Fund [None]
+Dividend Reinvestment Plan Fees [None]
